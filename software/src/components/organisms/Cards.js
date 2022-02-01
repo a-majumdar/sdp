@@ -2,6 +2,7 @@ import React from "react";
 import CardItem from "../molecules/CardItem";
 import "../organisms/Cards.css";
 import Tomato from "../../assets/tomato.jpeg";
+import Plants from "../../assets/plants.jpeg";
 
 function Cards() {
   return (
@@ -17,7 +18,7 @@ function Cards() {
               path="/tomato"
             />
             <CardItem
-              src={Tomato}
+              src={Plants}
               text="Why not grow a Tomato Plant?"
               label="Trending"
               path="/tomato"

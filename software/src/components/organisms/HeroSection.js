@@ -18,6 +18,7 @@ function HeroSection() {
           className="btns"
           buttonStyle="btn--outline"
           buttonSize="btn--large"
+          onClick={() => console.log("Learn More Button Clicked")}
         >
           LEARN MORE
         </Button>
