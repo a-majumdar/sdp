@@ -13,7 +13,19 @@ function Cards() {
             <CardItem
               src={Tomato}
               text="Why not grow a Tomato Plant?"
-              label="Tomato"
+              label="Trending"
+              path="/tomato"
+            />
+            <CardItem
+              src={Tomato}
+              text="Why not grow a Tomato Plant?"
+              label="Trending"
+              path="/tomato"
+            />
+            <CardItem
+              src={Tomato}
+              text="Why not grow a Tomato Plant?"
+              label="Trending"
               path="/tomato"
             />
           </ul>
