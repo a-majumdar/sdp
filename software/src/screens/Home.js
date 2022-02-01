@@ -1,12 +1,13 @@
 import React from "react";
-import { useState } from "react/cjs/react.development";
+import "../App.css";
+import HeroSection from "../components/organisms/HeroSection";
 
-const Home = () => {
+function Home() {
   return (
-    <div className="Home">
-      <h2>Home Page</h2>
-    </div>
+    <>
+      <HeroSection></HeroSection>
+    </>
   );
-};
+}
 
 export default Home;
