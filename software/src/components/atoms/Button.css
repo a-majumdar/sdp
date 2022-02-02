@@ -24,6 +24,15 @@
   transition: all 0.3s ease-out;
 }
 
+.btn--planted {
+  background: #97c092;
+  /*background: #70c367;*/
+  padding: 8px 20px;
+  /*border: 1px solid var(--primary);*/
+  transition: all 0.3s ease-out;
+  color: #fff;
+}
+
 .btn--medium {
   padding: 8px 20px;
   font-size: 20px;

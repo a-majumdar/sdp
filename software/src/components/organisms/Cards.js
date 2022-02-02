@@ -7,9 +7,23 @@ import Plants from "../../assets/plants.jpeg";
 function Cards() {
   return (
     <div className="cards">
-      <h1>Check out these Plants!</h1>
-      <div className="cards__container">
+      <h1>Why not try planting THESE!</h1>
+      <div classNamwe="cards__container">
         <div className="cards__wraper">
+          <ul className="cards__items">
+            <CardItem
+              src={Tomato}
+              text="Why not grow a Tomato Plant?"
+              label="Trending"
+              path="/tomato"
+            />
+            <CardItem
+              src={Plants}
+              text="Why not grow a Tomato Plant?"
+              label="Trending"
+              path="/tomato"
+            />
+          </ul>
           <ul className="cards__items">
             <CardItem
               src={Tomato}
