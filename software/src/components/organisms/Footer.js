@@ -61,7 +61,7 @@ function Footer() {
         <div className="social-media-wrap">
           <div className="footer-logo">
             <Link to="/" className="social-logo">
-              PlantED <i className="fab fa-typo3"></i>
+              PlantED
             </Link>
             <small className="website-rights">PlantED © 2022</small>
             <div className="social-icons">
