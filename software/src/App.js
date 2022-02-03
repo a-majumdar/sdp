@@ -3,11 +3,10 @@ import React from "react";
 import Navbar from "./components/organisms/Navbar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./screens/Home";
-import SignUp from "../src/screens/SignUp";
-import SignUp from "./screens/SignUp";
 import AboutUs from "./screens/AboutUs";
 import Contact from "./screens/ContactUs";
 import Explore from "./screens/Explore";
+import SignUp from "./screens/SignUp";
 
 function App() {
   return (
