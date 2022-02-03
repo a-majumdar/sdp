@@ -8,7 +8,7 @@ function HeroSection() {
   return (
     <div className="hero-container">
       <img className="background-image" src={PlantBackground}></img>
-      {/* <h1> We are PlantEd</h1> */}
+      <h1>Explore new plants to grow!</h1>
       {/* <p>
         Learn, Explore and Interact with your plants and give them the best
         start in life.
