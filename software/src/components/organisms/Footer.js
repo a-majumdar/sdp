@@ -21,7 +21,7 @@ function Footer() {
               placeholder="Your Email"
               className="footer-input"
             />
-            <Button buttonStyle="btn--outline">Subscribe</Button>
+            <Button buttonStyle="btn--planted">Subscribe</Button>
           </form>
         </div>
       </section>
@@ -58,32 +58,27 @@ function Footer() {
         </div>
       </div>
       <section className="social-media">
-        <div className="social-media-wrap">
-          <div className="footer-logo">
-            <Link to="/" className="social-logo">
-              PlantED
-            </Link>
-            <small className="website-rights">PlantED © 2022</small>
-            <div className="social-icons">
-              <Link
-                className="social-icon-link facebook"
-                to="/"
-                target="_blank"
-                aria-label="Facebook"
-              >
-                <i className="fab fa-facebook-f"></i>
-              </Link>
-              <Link
-                className="social-icon-link instagram"
-                to="/"
-                target="_blank"
-                aria-label="Instagram"
-              >
-                <i className="fab fa-instagram"></i>
-              </Link>
-            </div>
-          </div>
-        </div>
+        <Link to="/" className="social-logo">
+          PlantED
+        </Link>
+        <small className="website-rights">PlantED © 2022</small>
+
+        <Link
+          className="social-icon-link facebook"
+          to="/"
+          target="_blank"
+          aria-label="Facebook"
+        >
+          <i className="fab fa-facebook-f"></i>
+        </Link>
+        <Link
+          className="social-icon-link instagram"
+          to="/"
+          target="_blank"
+          aria-label="Instagram"
+        >
+          <i className="fab fa-instagram"></i>
+        </Link>
       </section>
     </div>
   );
