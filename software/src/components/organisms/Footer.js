@@ -21,6 +21,7 @@ function Footer() {
               placeholder="Your Email"
               className="footer-input"
             />
+
             <Button buttonStyle="btn--planted">Subscribe</Button>
           </form>
         </div>

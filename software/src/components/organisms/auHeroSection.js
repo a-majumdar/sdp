@@ -5,9 +5,9 @@ import "../../App";
 import { Button } from "../atoms/Button";
 
 function HeroSection() {
-    const mystyle = {
+  const mystyle = {
     color: "white",
-    textAlign: 'center',
+    textAlign: "center",
     textAlignVertical: "center",
     fontSize: "45px",
     padding: "10px",
@@ -17,13 +17,12 @@ function HeroSection() {
       <img className="background-image" src={PlantBackground}></img>
       <h1> We are PlantEd</h1>
       <p style={mystyle}>
-      PlantEd is a smart plant care system that intends to enhance the 
-      learning curve of new plant enthusiasts by providing an interactive 
-      experience for growing plants indoors, and by assessing the optimal conditions for growth.
+        PlantEd is a smart plant care system that intends to enhance the
+        learning curve of new plant enthusiasts by providing an interactive
+        experience for growing plants indoors, and by assessing the optimal
+        conditions for growth.
       </p>
-      <div className="hero-btns">
-        
-      </div>
+      <div className="hero-btns"></div>
     </div>
   );
 }

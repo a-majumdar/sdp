@@ -8,7 +8,7 @@ function HeroSection() {
   return (
     <div className="hero-container">
       <img className="background-image" src={PlantBackground}></img>
-      <h1> Welcome To Planted</h1>
+      <h1> Welcome To PlantEd</h1>
       <p>
         Learn, Explore and Interact with your plants and give them the best
         start in life.
@@ -16,7 +16,7 @@ function HeroSection() {
       <div className="hero-btns">
         <Button
           className="btns"
-          buttonStyle="btn--outline"
+          buttonStyle="btn--primary"
           buttonSize="btn--large"
           onClick={() => console.log("Learn More Button Clicked")}
         >

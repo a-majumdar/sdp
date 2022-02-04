@@ -26,11 +26,11 @@
 
 .btn--planted {
   background: #97c092;
-  /*background: #70c367;*/
+  margin-bottom: 16px;
   padding: 8px 20px;
-  /*border: 1px solid var(--primary);*/
+  border: 1px solid var(--primary);
   transition: all 0.3s ease-out;
-  color: #fff;
+  color: rgb(163, 209, 155);
 }
 
 .btn--medium {

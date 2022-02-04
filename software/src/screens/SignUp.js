@@ -1,74 +1,84 @@
 import React, { useRef } from "react";
 import { Card, Form, Button, Container, Alert } from "react-bootstrap";
 import Footer from "../components/organisms/Footer";
-import { AuthProvider, useAuth } from "../components/contexts/AuthContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { auth } from "../firebase/firebase-config";
 
 export default function SignUp() {
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
-  const { signup } = useAuth();
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [hasAccount, setHasAccount] = useState(false);
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+  const handleLogin = () => {
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((userCredentials) => {
+        const user = userCredentials.user;
+        console.log("Logged In With", user.email);
+      })
+      .catch((error) => alert(error.message));
+  };
 
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError("Passwords do not Match");
-    }
+  const handleSignUp = () => {
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((userCredentials) => {
+        const user = userCredentials.user;
+        console.log("User Signed Up,", user.email);
+      });
+  };
 
-    try {
-      setError("");
-      setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value);
-    } catch {
-      setError("Failed to create an Account");
-    }
-    setLoading(true);
-  }
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+      }
+    });
+    return unsubscribe;
+  }, []);
 
   return (
-    <>
-      <Container
-        className="d-flex align-items-center justify-content-center"
-        style={{ minHeight: "100vh" }}
-      >
-        <div className="w-100" style={{ maxWidth: "400px" }}>
-          <Card>
-            <Card.Body>
-              <h2 className="text-center mb-3">Sign Up</h2>
-              {error && <Alert variant="danger">{error}</Alert>}
-            </Card.Body>
-            <Form>
-              <Form.Group id="email">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" ref={emailRef} required />
-              </Form.Group>
-              <Form.Group id="password">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" ref={passwordRef} required />
-              </Form.Group>
-              <Form.Group id="password-confirm">
-                <Form.Label>Password Confirmation</Form.Label>
-                <Form.Control
-                  type="password"
-                  ref={passwordConfirmRef}
-                  required
-                />
-              </Form.Group>
-              <Button disabled={loading} className="w-100" type="submit">
-                Sign Up
-              </Button>
-            </Form>
-          </Card>
-          <div className="w-100 text-center mt-2">
-            Already have an Account? Log In
-          </div>
+    <Container
+      className="d-flex align-items-center justify-content-center"
+      style={{ minHeight: "100vh" }}
+    >
+      <div className="w-100" style={{ maxWidth: "400px" }}>
+        <label>Email</label>
+        <input
+          type="text"
+          autoFocus
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <p className="errorMsg">ARBITRATY ERROR MESSAGE</p>
+        <label>Password</label>
+        <input
+          type="password"
+          required
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <p className="errorMsg">ARBITRARY PASSWORD ERROR MESSAGE</p>
+        <button onClick={handleSignUp}>SIGN UP</button>
+        <div className="btnContainer">
+          {hasAccount ? (
+            <>
+              <button>Sign In</button>
+              <p>
+                Don't have an account? <span>Sign Up</span>
+              </p>
+            </>
+          ) : (
+            <>
+              <button>Sign Up</button>
+              <p>
+                Have an account? <span>Sign In</span>
+              </p>
+            </>
+          )}
         </div>
-      </Container>
-      <Footer></Footer>
-    </>
+        <Footer></Footer>
+      </div>
+    </Container>
   );
 }

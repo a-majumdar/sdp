@@ -35,11 +35,10 @@
 .hero-btns {
   margin-top: 32px;
 }
-
 .hero-btns .btn {
   margin: 6px;
+  background-color: white;
 }
-
 .fa-play-circle {
   margin-left: 4px;
 }
