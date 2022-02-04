@@ -8,7 +8,7 @@ function Cards() {
   return (
     <div className="cards">
       <h1>Why not try planting THESE!</h1>
-      <div classNamwe="cards__container">
+      <div className="cards__container">
         <div className="cards__wraper">
           <ul className="cards__items">
             <CardItem

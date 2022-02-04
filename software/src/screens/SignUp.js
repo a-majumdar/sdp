@@ -1,97 +1,74 @@
-import React, { useEffect, useState } from "react";
-import fire from "../SignUpStuff/firebase/firebase-config";
-import Login from "../SignUpStuff/firebase/Login";
+import React, { useRef } from "react";
+import { Card, Form, Button, Container, Alert } from "react-bootstrap";
+import Footer from "../components/organisms/Footer";
+import { useAuth } from "../components/contexts/AuthContext";
+import { useState } from "react";
 
 export default function SignUp() {
-  const [user, setUser] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [hasAccount, setHasAccount] = useState(false);
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const passwordConfirmRef = useRef();
+  //const { signup } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const clearInputs = () => {
-    setEmail("");
-    setPassword("");
-  };
+  async function handleSubmit(e) {
+    e.preventDefault();
 
-  const clearErrors = () => {
-    setEmailError("");
-    setPasswordError("");
-  };
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setError("Passwords do not Match");
+    }
 
-  const handleLogin = () => {
-    clearErrors();
-    fire
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .catch((err) => {
-        switch (err.code) {
-          case "auth/invalid-email":
-          case "auth/user-disabled":
-          case "auth/user-not-found":
-            setEmailError(err.message);
-            break;
-          case "auth/wrong-password":
-            setPasswordError(err.message);
-            break;
-        }
-      });
-  };
-
-  const handleSignUp = () => {
-    clearErrors();
-    fire
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .catch((err) => {
-        switch (err.code) {
-          case "auth/email-already-in-use":
-          case "auth/invalid-email":
-            setEmailError(err.message);
-            break;
-          case "auth/weak-password":
-            setPasswordError(err.message);
-            break;
-        }
-      });
-  };
-
-  const handleLogout = () => {
-    fire.auth().signOut();
-  };
-
-  const authListener = () => {
-    fire.auth().onAuthStateChanged((user) => {
-      if (user) {
-        clearInputs();
-        setUser(user);
-      } else {
-        setUser("");
-      }
-    });
-  };
-
-  useEffect(() => {
-    authListener();
-  }, []);
+    try {
+      setError("");
+      setLoading(true);
+      //  await signup(emailRef.current.value, passwordRef.current.value);
+    } catch {
+      setError("Failed to create an Account");
+    }
+    setLoading(true);
+  }
 
   return (
-    <div>
-      <Login
-        email={email}
-        setEmail={setEmail}
-        password={password}
-        setPassword={setPassword}
-        handleLogin={handleLogin}
-        handleSignUp={handleSignUp}
-        hasAccount={hasAccount}
-        setHasAccount={setHasAccount}
-        emailError={emailError}
-        passwordError={passwordError}
-      />
-    </div>
+    <>
+      <Container
+        className="d-flex align-items-center justify-content-center"
+        style={{ minHeight: "100vh" }}
+      >
+        <div className="w-100" style={{ maxWidth: "400px" }}>
+          <Card>
+            <Card.Body>
+              <h2 className="text-center mb-3">Sign Up</h2>
+              {error && <Alert variant="danger">{error}</Alert>}
+            </Card.Body>
+            <Form>
+              <Form.Group id="email">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" ref={emailRef} required />
+              </Form.Group>
+              <Form.Group id="password">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" ref={passwordRef} required />
+              </Form.Group>
+              <Form.Group id="password-confirm">
+                <Form.Label>Password Confirmation</Form.Label>
+                <Form.Control
+                  type="password"
+                  ref={passwordConfirmRef}
+                  required
+                />
+              </Form.Group>
+              <Button disabled={loading} className="w-100" type="submit">
+                Sign Up
+              </Button>
+            </Form>
+          </Card>
+          <div className="w-100 text-center mt-2">
+            Already have an Account? Log In
+          </div>
+        </div>
+      </Container>
+      <Footer></Footer>
+    </>
   );
-};
-
-export default SignUp;
+}
