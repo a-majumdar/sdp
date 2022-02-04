@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
 import { Card, Form, Button, Container, Alert } from "react-bootstrap";
 import Footer from "../components/organisms/Footer";
-import { useAuth } from "../components/contexts/AuthContext";
+import { AuthProvider, useAuth } from "../components/contexts/AuthContext";
 import { useState } from "react";
 
 export default function SignUp() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  //const { signup } = useAuth();
+  const { signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -22,7 +22,7 @@ export default function SignUp() {
     try {
       setError("");
       setLoading(true);
-      //  await signup(emailRef.current.value, passwordRef.current.value);
+      await signup(emailRef.current.value, passwordRef.current.value);
     } catch {
       setError("Failed to create an Account");
     }
