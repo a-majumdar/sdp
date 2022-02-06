@@ -82,7 +82,9 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
-          {button && <Button buttonStyle="btn--planted">SIGN UP</Button>}
+          <Link to="/sign-up">
+            {button && <button className="button-planted">Sign Up</button>}
+          </Link>
         </div>
       </nav>
     </>

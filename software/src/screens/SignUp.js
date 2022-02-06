@@ -3,82 +3,127 @@ import { Card, Form, Button, Container, Alert } from "react-bootstrap";
 import Footer from "../components/organisms/Footer";
 import { useState, useEffect } from "react";
 import { auth } from "../firebase/firebase-config";
+import "./SignUp.css";
 
 export default function SignUp() {
+  const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [hasAccount, setHasAccount] = useState(false);
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
-  const handleLogin = () => {
-    auth
-      .signInWithEmailAndPassword(email, password)
-      .then((userCredentials) => {
-        const user = userCredentials.user;
-        console.log("Logged In With", user.email);
-      })
-      .catch((error) => alert(error.message));
+  const clearInputs = () => {
+    setEmail("");
+    setPassword("");
+  };
+
+  const clearErrors = () => {
+    setEmailError("");
+    setPasswordError("");
+  };
+
+  const handleSignIn = () => {
+    clearErrors();
+    auth.signInWithEmailAndPassword(email, password).catch((err) => {
+      switch (err.code) {
+        case "auth/invalid-email":
+        case "auth/user-disabled":
+        case "auth/user-not-found":
+          setEmailError(err.message);
+          break;
+        case "auth/wrong-password":
+          setPasswordError(err.message);
+          break;
+      }
+    });
   };
 
   const handleSignUp = () => {
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((userCredentials) => {
-        const user = userCredentials.user;
-        console.log("User Signed Up,", user.email);
-      });
+    clearErrors();
+    auth.createUserWithEmailAndPassword(email, password).catch((err) => {
+      switch (err.code) {
+        case "auth/email-already-in-use":
+        case "auth/invalid-email":
+          setEmailError(err.message);
+          break;
+        case "auth/weak-password":
+          setPasswordError(err.message);
+          break;
+      }
+    });
+  };
+
+  const authListener = () => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        clearInputs();
+        setUser(user);
+      } else {
+        setUser("");
+      }
+    });
+  };
+
+  const handleLogout = () => {
+    auth.signOut();
   };
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-      }
-    });
-    return unsubscribe;
+    authListener();
   }, []);
 
   return (
-    <Container
-      className="d-flex align-items-center justify-content-center"
-      style={{ minHeight: "100vh" }}
-    >
-      <div className="w-100" style={{ maxWidth: "400px" }}>
-        <label>Email</label>
-        <input
-          type="text"
-          autoFocus
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <p className="errorMsg">ARBITRATY ERROR MESSAGE</p>
-        <label>Password</label>
-        <input
-          type="password"
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <p className="errorMsg">ARBITRARY PASSWORD ERROR MESSAGE</p>
-        <button onClick={handleSignUp}>SIGN UP</button>
-        <div className="btnContainer">
-          {hasAccount ? (
-            <>
-              <button>Sign In</button>
-              <p>
-                Don't have an account? <span>Sign Up</span>
-              </p>
-            </>
-          ) : (
-            <>
-              <button>Sign Up</button>
-              <p>
-                Have an account? <span>Sign In</span>
-              </p>
-            </>
-          )}
+    <>
+      <Container className="login" style={{ minHeight: "130vh" }}>
+        <div className="loginContainer" style={{ maxWidth: "400px" }}>
+          <label>Email</label>
+          <input
+            type="text"
+            autoFocus
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <p className="errorMsg">{emailError}</p>
+          <label>Password</label>
+          <input
+            type="password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <p className="errorMsg">{passwordError}</p>
+          <div className="btnContainer">
+            {hasAccount ? (
+              <>
+                <button className="button" onClick={handleSignIn}>
+                  Sign In
+                </button>
+                <p>
+                  Don't have an account?
+                  <span onClick={() => setHasAccount(!hasAccount)}>
+                    {" "}
+                    Sign Up
+                  </span>
+                </p>
+              </>
+            ) : (
+              <>
+                <button onClick={handleSignUp}>Sign Up</button>
+                <p>
+                  Have an account?
+                  <span onClick={() => setHasAccount(!hasAccount)}>
+                    {" "}
+                    Sign In
+                  </span>
+                </p>
+              </>
+            )}
+          </div>
         </div>
-        <Footer></Footer>
-      </div>
-    </Container>
+      </Container>
+      <Footer></Footer>
+    </>
   );
 }
