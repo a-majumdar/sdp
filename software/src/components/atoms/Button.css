@@ -1,5 +1,5 @@
 :root {
-  --primary: #fff;
+  --primary: rgb(255, 255, 255);
 }
 
 .btn {
@@ -25,7 +25,7 @@
 }
 
 .btn--planted {
-  background: #97c092;
+  background-color: #97c092;
   margin-bottom: 16px;
   padding: 8px 20px;
   border: 1px solid var(--primary);
