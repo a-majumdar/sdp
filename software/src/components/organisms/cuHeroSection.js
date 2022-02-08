@@ -5,17 +5,25 @@ import "../../App";
 import { Button } from "../atoms/Button";
 
 function HeroSection() {
+  const Header = {
+    padding: "10px 20px",
+    textAlign: "center",
+    color: "white",
+    fontSize: "100px"
+   }
   const mystyle = {
     color: "white",
     textAlign: "center",
     textAlignVertical: "center",
-    fontSize: "30px",
-    padding: "10px",
+    fontSize: "25px",
+    
   };
+
+
   return (
     <div className="hero-container">
       <img className="background-image" src={PlantBackground}></img>
-      <h1> Get in Touch</h1>
+      <h1 style={Header} > Get in Touch</h1>
 
       <p style={mystyle}>
         Ananya Majumdar (Project Manager) - s1802817@ed.ac.uk
