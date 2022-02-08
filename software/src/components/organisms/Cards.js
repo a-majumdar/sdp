@@ -3,7 +3,9 @@ import CardItem from "../molecules/CardItem";
 import "../organisms/Cards.css";
 import Tomato from "../../assets/tomato.jpeg";
 import Plants from "../../assets/plants.jpeg";
-
+import Carrots from "../../assets/carrots.jpg";
+import Cress from "../../assets/cress.jpg";
+import Pots from "../../assets/pots.jpg";
 function Cards() {
   return (
     <div className="cards">
@@ -12,16 +14,16 @@ function Cards() {
         <div className="cards__wraper">
           <ul className="cards__items">
             <CardItem
-              src={Tomato}
-              text="Why not grow a Tomato Plant?"
+              src={Carrots}
+              text="How to grow any carrot!"
               label="Trending"
-              path="/tomato"
+              path="/carrot"
             />
             <CardItem
               src={Plants}
-              text="Why not grow a Tomato Plant?"
+              text="How to make your flat look better with plants!"
               label="Trending"
-              path="/tomato"
+              path="/plants"
             />
           </ul>
           <ul className="cards__items">
@@ -32,16 +34,16 @@ function Cards() {
               path="/tomato"
             />
             <CardItem
-              src={Plants}
-              text="Why not grow a Tomato Plant?"
+              src={Cress}
+              text="Learn how to make your water cress taste delicious!"
               label="Trending"
-              path="/tomato"
+              path="/cress"
             />
             <CardItem
-              src={Tomato}
-              text="Why not grow a Tomato Plant?"
+              src={Pots}
+              text="What benefits keeping plants in your house is doing for you!"
               label="Trending"
-              path="/tomato"
+              path="/pots"
             />
           </ul>
         </div>
