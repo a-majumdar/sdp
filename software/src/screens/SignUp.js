@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { Card, Form, Button, Container, Alert } from "react-bootstrap";
+import PlantBackground from "../assets/plants.jpeg";
 import Footer from "../components/organisms/Footer";
 import { useState, useEffect } from "react";
 import { auth } from "../firebase/firebase-config";
@@ -75,6 +76,7 @@ export default function SignUp() {
 
   return (
     <>
+      <img className="background-image" src={PlantBackground}></img>
       <Container className="login" style={{ minHeight: "130vh" }}>
         <div className="loginContainer" style={{ maxWidth: "400px" }}>
           <label>Email</label>
