@@ -7,6 +7,13 @@ import cucum from "../../assets/cucum.jpg";
 import sunflower from "../../assets/sunflower.jpg";
 import orchid from "../../assets/orchid.jpg";
 import aloevera from "../../assets/aloevera.jpg";
+import cactus from "../../assets/cactus.jpg";
+import mind from "../../assets/mind.jpg";
+import bee from "../../assets/bee.jpg";
+import snowdrop from "../../assets/snowdrop.jpg";
+import chillis from "../../assets/chillis.jpg";
+import winterplant from "../../assets/winterplant.jpg";
+
 
 function Cards() {
   return (
@@ -47,6 +54,48 @@ function Cards() {
               text="The health benefits of growing Aloe Vera"
               label="Trending"
               path="/aloevera"
+            />
+          </ul>
+          <ul className="cards__items">
+          <CardItem
+              src={cactus}
+              text="Why you should grow a Cactus"
+              label="Trending"
+              path="/cactus"
+            />
+            
+            <CardItem
+              src={mind}
+              text="Mindul Planting"
+              label="Trending"
+              path="/mind"
+            />
+            <CardItem
+              src={bee}
+              text="How to protect bees from your propagotor"
+              label="Trending"
+              path="/bee"
+            />
+          </ul>
+          <ul className="cards__items">
+          <CardItem
+              src={snowdrop}
+              text="Snowdrops are in Season!"
+              label="Trending"
+              path="/snowdrop"
+            />
+            
+            <CardItem
+              src={chillis}
+              text="Brave enough to try grow chillis?"
+              label="Trending"
+              path="/chillis"
+            />
+            <CardItem
+              src={winterplant}
+              text="Protect your plants this winter"
+              label="Trending"
+              path="/winter"
             />
           </ul>
         </div>

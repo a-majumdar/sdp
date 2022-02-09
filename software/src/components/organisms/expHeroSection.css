@@ -1,3 +1,13 @@
+.plant-Search {
+  margin-top: 20px;
+  width: 650px;
+  height: 50px;
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+
+
 .background-image {
     object-fit: fit;
     width: 100%;
@@ -70,4 +80,6 @@
       width: 100%;
     }
   }
+
+
   

@@ -29,7 +29,7 @@ function Footer() {
       <div className="footer-links">
         <div className="footer-links-wraper">
           <div className="footer-link-items">
-            <h2>About Us</h2>
+            <h2>Home</h2>
             <Link>How it works</Link>
             <Link>How it works</Link>
             <Link>How it works</Link>
@@ -44,14 +44,14 @@ function Footer() {
           <Link>How it works</Link>
         </div>
         <div className="footer-link-items">
-          <h2>About Us</h2>
+          <h2>Explore</h2>
           <Link>How it works</Link>
           <Link>How it works</Link>
           <Link>How it works</Link>
           <Link>How it works</Link>
         </div>
         <div className="footer-link-items">
-          <h2>About Us</h2>
+          <h2>Contact Us</h2>
           <Link>How it works</Link>
           <Link>How it works</Link>
           <Link>How it works</Link>
