@@ -9,8 +9,12 @@ function HeroSection() {
     <div className="hero-container">
       <img className="background-image" src={PlantBackground}></img>
       <h1>Explore new plants!</h1>
-      <input className="plant-Search" type='text' placeholder="Search Plants!" />
-      <Button buttonStyle="btn--medium" >Search</Button>
+      <input
+        className="plant-Search"
+        type="text"
+        placeholder="Search Plants!"
+      />
+      <Button buttonStyle="btn--medium">Search</Button>
       <div className="hero-btns"></div>
     </div>
   );

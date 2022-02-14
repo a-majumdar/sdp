@@ -30,32 +30,32 @@ function Footer() {
         <div className="footer-links-wraper">
           <div className="footer-link-items">
             <h2>Home</h2>
-            <Link>How it works</Link>
-            <Link>How it works</Link>
-            <Link>How it works</Link>
-            <Link>How it works</Link>
+            <Link>My propogator</Link>
+            <Link>Previous Plants</Link>
+            <Link>Plant History</Link>
+            <Link>Stop Motion</Link>
           </div>
         </div>
         <div className="footer-link-items">
           <h2>About Us</h2>
-          <Link>How it works</Link>
-          <Link>How it works</Link>
-          <Link>How it works</Link>
-          <Link>How it works</Link>
+          <Link>The Team</Link>
+          <Link>Our Goals</Link>
+          <Link>How it started?</Link>
+          <Link>Support Us!</Link>
         </div>
         <div className="footer-link-items">
           <h2>Explore</h2>
-          <Link>How it works</Link>
-          <Link>How it works</Link>
-          <Link>How it works</Link>
-          <Link>How it works</Link>
+          <Link>Growth</Link>
+          <Link>Health</Link>
+          <Link>Cooking</Link>
+          <Link>Mindful Planting</Link>
         </div>
         <div className="footer-link-items">
           <h2>Contact Us</h2>
-          <Link>How it works</Link>
-          <Link>How it works</Link>
-          <Link>How it works</Link>
-          <Link>How it works</Link>
+          <Link>Email</Link>
+          <Link>Socials</Link>
+          <Link>FAQs</Link>
+          <Link></Link>
         </div>
       </div>
       <section className="social-media">
