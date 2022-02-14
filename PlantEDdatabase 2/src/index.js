@@ -6,95 +6,95 @@ import {getAuth,onAuthStateChanged} from 'firebase/auth';
 
 
 
-// Connecting firebase
-// const firebaseApp = initializeApp({
-//     apiKey: "AIzaSyC7rC18pqqy0cFLL-Gj9YoEBQq2eGItTb0",
-//     authDomain: "planted-a9629.firebaseapp.com",
-//     databaseURL: "https://planted-a9629-default-rtdb.europe-west1.firebasedatabase.app",
-//     projectId: "planted-a9629",
-//     storageBucket: "planted-a9629.appspot.com",
-//     messagingSenderId: "380909345738",
-//     appId: "1:380909345738:web:5bb67f8deba1bcadb2cd33"
+//Connecting firebase
+const firebaseApp = initializeApp({
+    apiKey: "AIzaSyC7rC18pqqy0cFLL-Gj9YoEBQq2eGItTb0",
+    authDomain: "planted-a9629.firebaseapp.com",
+    databaseURL: "https://planted-a9629-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "planted-a9629",
+    storageBucket: "planted-a9629.appspot.com",
+    messagingSenderId: "380909345738",
+    appId: "1:380909345738:web:5bb67f8deba1bcadb2cd33"
 
-// })
-// // const auth = getAuth(firebaseApp);
+})
+// const auth = getAuth(firebaseApp);
 
-// import { getDatabase, ref, set,get,child } from "firebase/database";
+import { getDatabase, ref, set,get,child } from "firebase/database";
 
-// // add data to each table functions
-// function addUserDetails(userId, name, email,password) {
-//   const db = getDatabase();
-//   set(ref(db, 'users/' + userId), {
-//     username: name,
-//     email: email,
-//     password:password
-//   });
-// }
+// add data to each table functions
+function addUserDetails(userId, name, email,password) {
+  const db = getDatabase();
+  set(ref(db, 'users/' + userId), {
+    username: name,
+    email: email,
+    password:password
+  });
+}
 
-// function addUserPropagatorRelations(userId, propagatorId) {
-//   const db = getDatabase();
-//   set(ref(db, 'User_Propagator_relations/' + userId), {
-//     propagatorId : propagatorId
-//   });
-// }
+function addUserPropagatorRelations(userId, propagatorId) {
+  const db = getDatabase();
+  set(ref(db, 'User_Propagator_relations/' + userId), {
+    propagatorId : propagatorId
+  });
+}
 
-// function addPropagatorDetails( propagatorId,plantId,soilType) {
-//   const db = getDatabase();
-//   set(ref(db, 'Propagator_Details/' + propagatorId), {
-//     plantId:plantId,
-//     soilType:soilType
-//   });
-// }
+function addPropagatorDetails( propagatorId,plantId,soilType) {
+  const db = getDatabase();
+  set(ref(db, 'Propagator_Details/' + propagatorId), {
+    plantId:plantId,
+    soilType:soilType
+  });
+}
 
-// function addPropagatorReadings(propagatorId, sensorType, sampleTime,reading) {
-//   const db = getDatabase();
-//   set(ref(db, 'Propagator_Readings/' + propagatorId), {
-//     sensorType:sensorType,
-//     sampleTime:sampleTime,
-//     reading:reading,
-//   });
-// }
-// function addPlantDetails(plantId, commonName, speciesName,className, family,genus ) {
-//   const db = getDatabase();
-//   set(ref(db, 'Plant_Details/' + plantId), {
-//     commonName:commonName,
-//     speciesName:speciesName,
-//     class:className,
-//     family:family,
-//     genus:genus
-//   });
-// }
-// function addPropagatorConditions(plantId, temperature, humidity,watering,light,soilph,soiltype) {
-//   const db = getDatabase();
-//   set(ref(db, 'Propagator_Conditions/' + plantId), {
-//     temperature:temperature,
-//     humidity:humidity,
-//     watering:watering,
-//     light:light,
-//     soilpH:soilph,
-//     preferredSoilType:soiltype
-//   });
-// }
-// addUserDetails("02","casey","s1969859@ed.ac.uk","wonttellu")
-// addUserPropagatorRelations("01","01")
-// addPropagatorDetails("01","01","clay")
-// addPropagatorReadings("01","temperature","today","24")
-// addPlantDetails("01","basil","babe","Angiospermae","famfam","genus")
-// addPropagatorConditions("01",35,1,1,1,5,"clay")
+function addPropagatorReadings(propagatorId, sensorType, sampleTime,reading) {
+  const db = getDatabase();
+  set(ref(db, 'Propagator_Readings/' + propagatorId), {
+    sensorType:sensorType,
+    sampleTime:sampleTime,
+    reading:reading,
+  });
+}
+function addPlantDetails(plantId, commonName, speciesName,className, family,genus ) {
+  const db = getDatabase();
+  set(ref(db, 'Plant_Details/' + plantId), {
+    commonName:commonName,
+    speciesName:speciesName,
+    class:className,
+    family:family,
+    genus:genus
+  });
+}
+function addPropagatorConditions(plantId, temperature, humidity,watering,light,soilph,soiltype) {
+  const db = getDatabase();
+  set(ref(db, 'Propagator_Conditions/' + plantId), {
+    temperature:temperature,
+    humidity:humidity,
+    watering:watering,
+    light:light,
+    soilpH:soilph,
+    preferredSoilType:soiltype
+  });
+}
+addUserDetails("02","casey","s1969859@ed.ac.uk","wonttellu")
+addUserPropagatorRelations("01","01")
+addPropagatorDetails("01","01","clay")
+addPropagatorReadings("01","temperature","today","24")
+addPlantDetails("01","basil","babe","Angiospermae","famfam","genus")
+addPropagatorConditions("01",35,1,1,1,5,"clay")
 
 
-// const dbRef = ref(getDatabase());
-// //read data 
-// get(child(dbRef, `users/${"02"}`)).then((snapshot) => {
-//   if (snapshot.exists()) {
-//     console.log(snapshot.val());
-//     alert("hi"+ snapshot.val().name)
-//   } else {
-//     console.log("No data available");
-//   }
-// }).catch((error) => {
-//   console.error(error);
-// });
+const dbRef = ref(getDatabase());
+//read data 
+get(child(dbRef, `users/${"02"}`)).then((snapshot) => {
+  if (snapshot.exists()) {
+    console.log(snapshot.val());
+    alert("hi"+ snapshot.val().name)
+  } else {
+    console.log("No data available");
+  }
+}).catch((error) => {
+  console.error(error);
+});
 
 
 //connecting neo4j
