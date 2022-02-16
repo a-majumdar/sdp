@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/PlantEd Small.png";
+import { useAuth } from "../../contexts/AuthContext";
 import { Button } from "../atoms/Button";
 import "../organisms/Navbar.css";
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
+  const { currentUser } = useAuth();
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -82,9 +84,15 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
-          <Link to="/sign-up">
-            {button && <button className="button-planted">Sign Up</button>}
-          </Link>
+          {!currentUser ? (
+            <Link to="/sign-up">
+              <button className="button-planted">Sign Up</button>
+            </Link>
+          ) : (
+            <Link to="login">
+              <button className="button-planted">Sign In</button>
+            </Link>
+          )}
         </div>
       </nav>
     </>
