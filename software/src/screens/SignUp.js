@@ -37,7 +37,7 @@ export default function SignUp() {
 
   return (
     <>
-      <>
+      <div className="hero-container">
         <img className="background-image" src={PlantBackground} />
         <Card className="card">
           <Card.Body>
@@ -60,7 +60,11 @@ export default function SignUp() {
                   required
                 />
               </Form.Group>
-              <Button disabled={loading} className="w-100" type="submit">
+              <Button
+                disabled={loading}
+                className="signup-button"
+                type="submit"
+              >
                 Sign Up
               </Button>
             </Form>
@@ -69,7 +73,7 @@ export default function SignUp() {
             Already have an account? <Link to="/login">Log In</Link>
           </div>
         </Card>
-      </>
+      </div>
       <Footer></Footer>
     </>
   );

@@ -2,12 +2,12 @@ import React from "react";
 import "../App.css";
 import Cards from "../components/organisms/Cards";
 import Footer from "../components/organisms/Footer";
-import HeroSection from "../components/organisms/HeroSection";
+import HomeSection from "../components/organisms/contentSections/HomeSection";
 
 function Home() {
   return (
     <>
-      <HeroSection></HeroSection>
+      <HomeSection></HomeSection>
       <Cards />
       <Footer />
     </>

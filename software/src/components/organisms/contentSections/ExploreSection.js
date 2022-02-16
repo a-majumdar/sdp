@@ -1,10 +1,10 @@
 import React from "react";
-import PlantBackground from "../../assets/explr.jpg";
-import "../organisms/expHeroSection.css";
-import "../../App";
-import { Button } from "../atoms/Button";
+import PlantBackground from "../../../assets/explr.jpg";
+import "../contentSections/ExploreSection.css";
+import "../../../App";
+import { Button } from "../../atoms/Button";
 
-function HeroSection() {
+function ExploreSection() {
   return (
     <div className="hero-container">
       <img className="background-image" src={PlantBackground}></img>
@@ -20,4 +20,4 @@ function HeroSection() {
   );
 }
 
-export default HeroSection;
+export default ExploreSection;

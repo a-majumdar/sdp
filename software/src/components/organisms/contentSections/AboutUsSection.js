@@ -1,10 +1,9 @@
 import React from "react";
-import PlantBackground from "../../assets/ePlant.jpg";
-import "../organisms/auHeroSection.css";
-import "../../App";
-import { Button } from "../atoms/Button";
+import PlantBackground from "../../../assets/ePlant.jpg";
 
-function HeroSection() {
+import "../../../App";
+
+function AboutUsSection() {
   const mystyle = {
     color: "white",
     textAlign: "center",
@@ -27,4 +26,4 @@ function HeroSection() {
   );
 }
 
-export default HeroSection;
+export default AboutUsSection;

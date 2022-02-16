@@ -1,12 +1,12 @@
 import React from "react";
 import "../App.css";
 import Footer from "../components/organisms/Footer";
-import HeroSection from "../components/organisms/auHeroSection";
+import AboutUsSection from "../components/organisms/contentSections/AboutUsSection";
 
 export default function AboutUs() {
   return (
     <>
-      <HeroSection></HeroSection>
+      <AboutUsSection></AboutUsSection>
       {/* <Cards /> */}
       <Footer />
     </>

@@ -1,12 +1,12 @@
 import React from "react";
 import "../App.css";
 import Footer from "../components/organisms/Footer";
-import HeroSection from "../components/organisms/cuHeroSection";
+import ContactUsSection from "../components/organisms/contentSections/ContactUsSection";
 
 export default function ContactUs() {
   return (
     <>
-      <HeroSection></HeroSection>
+      <ContactUsSection></ContactUsSection>
       {/* <Cards /> */}
       <Footer />
     </>
