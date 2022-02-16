@@ -7,11 +7,16 @@ import AboutUs from "./screens/AboutUs";
 import Contact from "./screens/ContactUs";
 import Explore from "./screens/Explore";
 import SignUp from "./screens/SignUp";
+import ProfilePage from "./screens/ProfilePage";
+import PrivateRoute from "./components/PrivateRoute";
+
+import { AuthProvider } from "./contexts/AuthContext";
+import LogIn from "./screens/Login";
 
 function App() {
   return (
-    <>
-      <Router>
+    <Router>
+      <AuthProvider>
         <Navbar></Navbar>
         <Switch>
           <Route path="/" exact component={Home} />
@@ -19,9 +24,11 @@ function App() {
           <Route path="/Explore" exact component={Explore} />
           <Route path="/Contact" exact component={Contact} />
           <Route path="/sign-up" exact component={SignUp} />
+          <Route path="/login" exact component={LogIn} />
+          <PrivateRoute path="/profile" exact component={ProfilePage} />
         </Switch>
-      </Router>
-    </>
+      </AuthProvider>
+    </Router>
   );
 }
 
