@@ -2,5 +2,22 @@
   justify-content: center;
   justify-items: center;
   align-items: center;
-  
+}
+
+.card_prop {
+  padding: 60px;
+  margin: auto;
+  width: 100%;
+  max-width: 520px;
+  min-height: 100px;
+  display: flex;
+  margin-top: 50px;
+  flex-direction: column;
+  justify-content: center;
+  background: radial-gradient(
+    ellipse at left bottom,
+    rgb(17, 159, 235) 0%,
+    rgba(59, 156, 247, 0.9) 59%,
+    rgba(16, 179, 219, 0.9) 100%
+  );
 }

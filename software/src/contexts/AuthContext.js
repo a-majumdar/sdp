@@ -11,6 +11,7 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
+  const [isLinked, setIsLinked] = useState(false);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -32,8 +33,13 @@ export function AuthProvider({ children }) {
     return auth.signOut();
   }
 
+  function linkPropogator() {
+    //To Implement
+  }
+
   const value = {
     currentUser,
+    isLinked,
     signUp,
     logIn,
     logOut,
