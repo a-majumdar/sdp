@@ -4,6 +4,7 @@ import { Card, Button } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
+import "./ProfilePage.css";
 
 export default function ProfilePage() {
   const [error, setError] = useState();
@@ -23,13 +24,18 @@ export default function ProfilePage() {
 
   return (
     <>
-      <Card></Card>
-      <div className="w-100 text-center mt-2">
-        <strong>Email: </strong> {currentUser.email}
-        <Button onClick={handleLogout} variant="link">
-          Log Out
-        </Button>
+      <div className="username">
+        <h1>
+          Hello, {currentUser.email}
+          <button onClick={handleLogout}>Log Out</button>
+        </h1>
       </div>
+      <div>
+        <h2>Propogators Active: </h2>
+        <strong>Basil Plant</strong>
+      </div>
+      <button>Link a Propogator</button>
+      <strong>Previously Grown Plants</strong>
     </>
   );
 }
