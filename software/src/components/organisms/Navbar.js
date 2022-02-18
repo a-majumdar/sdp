@@ -86,11 +86,11 @@ const Navbar = () => {
           </ul>
           {!currentUser ? (
             <Link to="/sign-up">
-              <button className="button-planted">Sign Up</button>
+              <button className="button-planted">Sign Up/Login</button>
             </Link>
           ) : (
-            <Link to="login">
-              <button className="button-planted">Sign In</button>
+            <Link to="profile">
+              <button className="button-planted">Go To Profile Page</button>
             </Link>
           )}
         </div>
