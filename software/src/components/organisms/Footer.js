@@ -72,14 +72,14 @@ function Footer() {
         >
           <i className="fab fa-facebook-f"></i>
         </Link>
-        <Link
+        <a
           className="social-icon-link instagram"
-          to="/"
+          href="https://www.instagram.com/plantededinburgh/"
           target="_blank"
           aria-label="Instagram"
         >
           <i className="fab fa-instagram"></i>
-        </Link>
+        </a>
       </section>
     </div>
   );
