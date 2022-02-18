@@ -1,10 +1,5 @@
 import {initializeApp} from'firebase/app';
-// import { initializeApp} from 'https://www.gstatic.com/firebasejs/9.6.5/firebase-app.js'
 import {getAuth,onAuthStateChanged} from 'firebase/auth';
-
-
-
-
 
 //Connecting firebase
 const firebaseApp = initializeApp({
@@ -15,26 +10,24 @@ const firebaseApp = initializeApp({
     storageBucket: "planted-a9629.appspot.com",
     messagingSenderId: "380909345738",
     appId: "1:380909345738:web:5bb67f8deba1bcadb2cd33"
-
 })
-// const auth = getAuth(firebaseApp);
+const auth = getAuth(firebaseApp);
 
-import { getDatabase, ref, set,get,child } from "firebase/database";
-
+import { getDatabase, ref, set,get,child,orderByChild,equalTo,query,push} from "firebase/database";
 // add data to each table functions
-function addUserDetails(userId, name, email,password) {
-  const db = getDatabase();
-  set(ref(db, 'users/' + userId), {
-    username: name,
-    email: email,
-    password:password
-  });
-}
+// function addUserDetails(userId, name, email,password) {
+//   const db = getDatabase();
+//   set(ref(db, 'users/' + userId), {
+//     username: name,
+//     email: email,
+//     password:password
+//   });
+// }
 
 function addUserPropagatorRelations(userId, propagatorId) {
   const db = getDatabase();
   set(ref(db, 'User_Propagator_relations/' + userId), {
-    propagatorId : propagatorId
+    "propagatorId" : propagatorId
   });
 }
 
@@ -46,6 +39,7 @@ function addPropagatorDetails( propagatorId,plantId,soilType) {
   });
 }
 
+
 function addPropagatorReadings(propagatorId, sensorType, sampleTime,reading) {
   const db = getDatabase();
   set(ref(db, 'Propagator_Readings/' + propagatorId), {
@@ -54,100 +48,148 @@ function addPropagatorReadings(propagatorId, sensorType, sampleTime,reading) {
     reading:reading,
   });
 }
-function addPlantDetails(plantId, commonName, speciesName,className, family,genus ) {
+
+function addTemperatureReadings(propagatorId, sampleTime,reading) {
   const db = getDatabase();
-  set(ref(db, 'Plant_Details/' + plantId), {
-    commonName:commonName,
-    speciesName:speciesName,
-    class:className,
-    family:family,
-    genus:genus
+  set(ref(db, 'Temperature_Readings/' + propagatorId), {
+    sampleTime:sampleTime,
+    reading:reading,
   });
 }
-function addPropagatorConditions(plantId, temperature, humidity,watering,light,soilph,soiltype) {
+
+function addSunlightReadings(propagatorId, sampleTime,reading) {
   const db = getDatabase();
-  set(ref(db, 'Propagator_Conditions/' + plantId), {
-    temperature:temperature,
-    humidity:humidity,
-    watering:watering,
-    light:light,
-    soilpH:soilph,
-    preferredSoilType:soiltype
+  set(ref(db, 'Sunlight_Readings/' + propagatorId), {
+    propagatorId:propagatorId,
+    sampleTime:sampleTime,
+    reading:reading,
   });
 }
-addUserDetails("02","casey","s1969859@ed.ac.uk","wonttellu")
-addUserPropagatorRelations("01","01")
-addPropagatorDetails("01","01","clay")
-addPropagatorReadings("01","temperature","today","24")
-addPlantDetails("01","basil","babe","Angiospermae","famfam","genus")
-addPropagatorConditions("01",35,1,1,1,5,"clay")
+
+function addMoistureReadings(propagatorId, sampleTime,reading) {
+  const db = getDatabase();
+  set(ref(db, 'Moisture_Readings/' + propagatorId), {
+    propagatorId:propagatorId,
+    sampleTime:sampleTime,
+    reading:reading,
+  });
+}
+// addTemperatureReadings("01","today","25")
+// addSunlightReadings("01","today","500")
+// addMoistureReadings("01","today","3")
+
+// function addPlantDetails(plantId, commonName, speciesName,className, family,genus ) {
+//   const db = getDatabase();
+//   set(ref(db, 'Plant_Details/' + plantId), {
+//     commonName:commonName,
+//     speciesName:speciesName,
+//     class:className,
+//     family:family,
+//     genus:genus
+//   });
+// }
+// function addPropagatorConditions(plantId, temperature, humidity,watering,light,soilph,soiltype) {
+//   const db = getDatabase();
+//   set(ref(db, 'Propagator_Conditions/' + plantId), {
+//     temperature:temperature,
+//     humidity:humidity,
+//     watering:watering,
+//     light:light,
+//     soilpH:soilph,
+//     preferredSoilType:soiltype
+//   });
+// }
+// addUserDetails("02","casey","s1969859@ed.ac.uk","wonttellu")
+// addUserPropagatorRelations("01","01")
+// addPropagatorDetails("01","01","clay")
+// addPropagatorReadings("01","temperature","today","24")
+// addPlantDetails("01","basil","babe","Angiospermae","famfam","genus")
+// addPropagatorConditions("01",35,1,1,1,5,"clay")
 
 
-const dbRef = ref(getDatabase());
-//read data 
-get(child(dbRef, `users/${"02"}`)).then((snapshot) => {
+//get relevant information in firebase by userid
+const db = ref(getDatabase());
+
+function getAllInfo(userId) {
+  console.log(userId)
+  var propagatorId = null
+  var plantId = null
+  //userid->propagatorid
+  get(child(db, `User_Propagator_relations/${userId}`)).then((snapshot) => {
   if (snapshot.exists()) {
-    console.log(snapshot.val());
-    alert("hi"+ snapshot.val().name)
+    propagatorId = snapshot.val().propagatorId
+    console.log("propagatorid: "+ propagatorId);
   } else {
-    console.log("No data available");
+    console.log("No propagator data available");
   }
-}).catch((error) => {
-  console.error(error);
-});
+  })
+  console.log("propagator id now is : " + propagatorId)
+  //propagatorid->plantid
+  get(child(db, `Propagator_Details/${propagatorId}`)).then((snapshot) => {
+  if (snapshot.exists()) {
+    plantId = snapshot.val().plantId
+    console.log("plantId+ "+plantId);
+  } else {
+    console.log("No plant data available");
+  }
+  })
+  //get readings
+get(child(db, `Temperature_Readings/01`)).then((snapshot) => {
+  if (snapshot.exists()) {
+    var degree = snapshot.val().reading
+    console.log("temperature reading "+ degree);
+  } else {
+    console.log("No temperature data available");
+  }
+  })
+
+  get(child(db, `Sunlight_Readings/01`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      var degree = snapshot.val().reading
+      console.log("sunlight reading "+ degree);
+    } else {
+      console.log("No sunlight data available");
+    }
+    })
+
+    get(child(db, `Moisture_Readings/01`)).then((snapshot) => {
+      if (snapshot.exists()) {
+        var degree = snapshot.val().reading
+        console.log("moisture reading "+ degree);
+      } else {
+        console.log("No moisture data available");
+      }
+      })
+}
 
 
-//connecting neo4j
+
+
+getAllInfo("01")
+
+
+// get plant details by plantid
 import neo4j from 'neo4j-driver'
 (async() => {
-  // import neo4j from 'neo4j-driver'
-  // const neo4j = require('neo4j-driver')
-  
-  const uri = 'neo4j+s://28cce6ce.databases.neo4j.io';
-  const user = 'neo4j';
-  const password = 'AfqVnvZIATS1iUduDVwoxHcwGzRP-UD7EoVvAluNqgg';
-  
-  const driver = neo4j.driver(uri, neo4j.auth.basic(user, password))
-  const session = driver.session()
- 
-  const person1Name = 'Alice'
-  const person2Name = 'David'
- 
-  try {
-    // To learn more about the Cypher syntax, see https://neo4j.com/docs/cypher-manual/current/
-    // The Reference Card is also a good resource for keywords https://neo4j.com/docs/cypher-refcard/current/
-    const writeQuery = `MERGE (p1:Person { name: $person1Name })
-                        MERGE (p2:Person { name: $person2Name })
-                        MERGE (p1)-[:KNOWS]->(p2)
-                        RETURN p1, p2`
- 
-    // Write transactions allow the driver to handle retries and transient errors
-    const writeResult = await session.writeTransaction(tx =>
-      tx.run(writeQuery, { person1Name, person2Name })
-    )
-    writeResult.records.forEach(record => {
-      const person1Node = record.get('p1')
-      const person2Node = record.get('p2')
-      console.log(
-        `Created friendship between: ${person1Node.properties.name}, ${person2Node.properties.name}`
-      )
-    })
- 
-    const readQuery = `MATCH (p:Person)
-                       WHERE p.name = $personName
-                       RETURN p.name AS name`
-    const readResult = await session.readTransaction(tx =>
-      tx.run(readQuery, { personName: person1Name })
-    )
-    readResult.records.forEach(record => {
-      console.log(`Found person: ${record.get('name')}`)
-    })
-  } catch (error) {
-    console.error('Something went wrong: ', error)
-  } finally {
-    await session.close()
-  }
- 
-  // Don't forget to close the driver connection when you're finished with it
-  await driver.close()
- })();
+const uri = 'neo4j+s://28cce6ce.databases.neo4j.io';
+const user = 'neo4j';
+const password = 'sdpgroup22isthebest';
+ const driver = neo4j.driver(uri, neo4j.auth.basic(user, password))
+ const session = driver.session()
+ try {
+   const readQuery = `match (n:Species)
+                     where ID(n) = $id
+                     return n.name as name`
+   const readResult = await session.readTransaction(tx =>
+     tx.run(readQuery, { id: 18 })
+   )
+   readResult.records.forEach(record => {
+     console.log(`plant name: ${record.get('name')}`)
+   })
+ } catch (error) {
+   console.error('Something went wrong: ', error)
+ } finally {
+   await session.close()
+ }
+ await driver.close()
+})();
