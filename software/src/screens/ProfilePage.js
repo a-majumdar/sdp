@@ -6,10 +6,12 @@ import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import "./ProfilePage.css";
 import Footer from "../components/organisms/Footer";
+import CardItem from "../components/molecules/CardItem";
+import addPropButton from "../assets/addpropbutton.png";
 
 export default function ProfilePage() {
   const [error, setError] = useState();
-  const { currentUser, logOut, isLinked } = useAuth();
+  const { currentUser, logOut } = useAuth();
   const history = useHistory();
 
   async function handleLogout() {
@@ -22,40 +24,25 @@ export default function ProfilePage() {
       setError("Failed to logOut");
     }
   }
-
-  if (isLinked) {
-    return <h1>{currentUser.email} has linked their propogator</h1>;
-  } else {
-    return (
-      <>
-        <div className="username">
-          <h1>
-            Hello, {currentUser.email} you're almost ready to start growing!
-            <button onClick={handleLogout}>Log Out</button>
-          </h1>
-        </div>
-        <Card className="card_prop">
-          <Card.Body>
-            <h2 className="text-center mb-4">
-              1 more step, link your propogator
-            </h2>
-            <Form>
-              <Form.Group>
-                <Form.Label>Propogator Code</Form.Label>
-                <Form.Control />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Give a name to your propogator</Form.Label>
-                <Form.Control />
-              </Form.Group>
-              <Button className="link-button" to="/">
-                Link it!
-              </Button>
-            </Form>
-          </Card.Body>
-        </Card>
-        <Footer></Footer>
-      </>
-    );
-  }
+  //Very Untidy but I was experimenting with putting 2 divs side by side
+  return (
+    <>
+      <h2 className="user">
+        Hello, &nbsp;{currentUser.email},&nbsp; you joined on :{" "}
+        {/*when user joined*/}
+      </h2>
+      <div className="prop-container">
+        <h2 className="prop-title">Your Propogators</h2>
+        <img className="add-prop-img" src={addPropButton}></img>
+        <img className="add-prop-img" src={addPropButton}></img>
+        <img className="add-prop-img" src={addPropButton}></img>
+      </div>
+      <h1>
+        <button onClick={handleLogout}>Logout</button>
+      </h1>
+      <h2>Plant Again</h2>
+      <p>Basil Plant</p>
+      <Footer></Footer>
+    </>
+  );
 }

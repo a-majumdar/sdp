@@ -12,6 +12,7 @@ export default function SignUp() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
+  const propogatorID = useRef();
   const { signUp } = useAuth();
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
@@ -27,7 +28,7 @@ export default function SignUp() {
     try {
       setError("");
       setLoading(true);
-      await signUp(emailRef.current.value, passwordRef.current.value);
+      await signUp(emailRef.current.value, passwordRef.current.value, propogatorID);
       history.push("/profile");
     } catch {
       setError("Failed to create an account");
@@ -59,6 +60,10 @@ export default function SignUp() {
                   ref={passwordConfirmRef}
                   required
                 />
+              </Form.Group>
+              <Form.Group id="prop-id">
+                <Form.Label>Propogator ID</Form.Label>
+                <Form.Control ref={propogatorID} required />
               </Form.Group>
               <Button
                 disabled={loading}

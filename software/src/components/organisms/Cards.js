@@ -9,7 +9,7 @@ import Pots from "../../assets/pots.jpg";
 function Cards() {
   return (
     <div className="cards">
-      <h1>Why not try planting THESE!</h1>
+      <h1>Read these Articles</h1>
       <div className="cards__container">
         <div className="cards__wraper">
           <ul className="cards__items">

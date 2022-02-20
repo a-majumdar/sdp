@@ -1,7 +1,13 @@
-.div1 {
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
+.user {
+  align-content: flex-start;
+  padding: 40px;
+}
+
+.prop-container {
+}
+
+.add-prop-img {
+  padding: 15px;
 }
 
 .card_prop {

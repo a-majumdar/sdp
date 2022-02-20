@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { auth } from "../firebase/firebase-config";
 import { useEffect } from "react";
+import { db } from "../firebase/firebase-config";
 
 const AuthContext = React.createContext();
 
@@ -21,8 +22,12 @@ export function AuthProvider({ children }) {
     return unsubscribe;
   }, []);
 
-  const signUp = (email, password) => {
-    auth.createUserWithEmailAndPassword(email, password);
+  const signUp = (email, password, propogatorID) => {
+    auth.createUserWithEmailAndPassword(email, password).then((cred) => {
+      return db.collection("User_Propogator_Relations").doc(cred.user.uid).set({
+        propogatorID: propogatorID,
+      });
+    });
   };
 
   const logIn = (email, password) => {
