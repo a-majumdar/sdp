@@ -7,6 +7,7 @@ import AboutUs from "./screens/AboutUs";
 import Contact from "./screens/ContactUs";
 import Explore from "./screens/Explore";
 import SignUp from "./screens/SignUp";
+import MyProp from "./screens/MyProp";
 import ProfilePage from "./screens/ProfilePage";
 import PrivateRoute from "./components/PrivateRoute";
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/Contact" exact component={Contact} />
           <Route path="/sign-up" exact component={SignUp} />
           <Route path="/login" exact component={LogIn} />
+          <Route path="/MyProp" exact component={MyProp} />
         </Switch>
       </AuthProvider>
     </Router>
