@@ -1,24 +1,27 @@
-import React, { useContext, useRef } from "react";
-import { Card, Form, Button, Container, Alert } from "react-bootstrap";
+import React, { useRef } from "react";
+import { Card, Form, Button, Alert } from "react-bootstrap";
 import PlantBackground from "../assets/plants.jpeg";
 import Footer from "../components/organisms/Footer";
-import { useState, useEffect } from "react";
-import { auth } from "../firebase/firebase-config";
+import { useState } from "react";
 import "./SignUp.css";
-import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import { useEffect } from "react";
+import {
+  addUserPropagatorRelations,
+  auth,
+  createUser,
+} from "../firebase/firebase-config";
 
 export default function SignUp() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
   const propogatorID = useRef();
-  const { signUp } = useAuth();
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
 
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
@@ -28,7 +31,7 @@ export default function SignUp() {
     try {
       setError("");
       setLoading(true);
-      await signUp(emailRef.current.value, passwordRef.current.value, propogatorID);
+      createUser(emailRef.current.value, passwordRef.current.value);
       history.push("/profile");
     } catch {
       setError("Failed to create an account");

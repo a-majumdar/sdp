@@ -1,12 +1,12 @@
-import React, { useContext, useRef } from "react";
-import { Card, Form, Button, Container, Alert } from "react-bootstrap";
+import React, { useRef } from "react";
+import { Card, Form, Button, Alert } from "react-bootstrap";
 import PlantBackground from "../assets/plants.jpeg";
 import Footer from "../components/organisms/Footer";
-import { useState, useEffect } from "react";
-import { auth } from "../firebase/firebase-config";
+import { useState } from "react";
 import "./Login.css";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import { login } from "../firebase/firebase-config";
 
 export default function LogIn() {
   const emailRef = useRef();
@@ -22,7 +22,7 @@ export default function LogIn() {
     try {
       setError("");
       setLoading(true);
-      await logIn(emailRef.current.value, passwordRef.current.value);
+      await login(emailRef.current.value, passwordRef.current.value);
       history.push("/profile");
     } catch {
       setError("Failed to Sign In");

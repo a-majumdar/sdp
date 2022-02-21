@@ -1,8 +1,26 @@
-import firebase from "firebase/app";
+import { initializeApp } from "firebase/app";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 import "firebase/firestore";
-import "firebase/auth";
+import {
+  getDatabase,
+  ref,
+  set,
+  get,
+  child,
+  orderByChild,
+  equalTo,
+  query,
+  push,
+} from "firebase/database";
+import { useState } from "react";
 
-const firebaseConfig = firebase.initializeApp({
+const firebaseConfig = initializeApp({
   apiKey: "AIzaSyC7rC18pqqy0cFLL-Gj9YoEBQq2eGItTb0",
   authDomain: "planted-a9629.firebaseapp.com",
   databaseURL:
@@ -13,7 +31,30 @@ const firebaseConfig = firebase.initializeApp({
   appId: "1:380909345738:web:5bb67f8deba1bcadb2cd33",
 });
 
+//***********AUTHENTICATION FUNCTIONS******//
+
+export function createUser(email, password) {
+  createUserWithEmailAndPassword(auth, email, password);
+}
+
+export function login(email, password) {
+  signInWithEmailAndPassword(auth, email, password);
+}
+
+export function logout() {
+  signOut(auth);
+}
+
+//*************DATABASE FUNCTIONS*************//
+
+//add data to each table functions
+export function addUserPropagatorRelations(userId, propagatorId) {
+  const db = getDatabase();
+  set(ref(db, "User_Propogator_relations/" + userId), {
+    propagatorId: propagatorId,
+  });
+}
+
 // Initialize Firebase
-export const db = firebase.firestore();
-export const auth = firebaseConfig.auth();
 export default firebaseConfig;
+export const auth = getAuth();

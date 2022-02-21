@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
-import { auth } from "../firebase/firebase-config";
+import { addUserPropagatorRelations, auth } from "../firebase/firebase-config";
 import { useEffect } from "react";
 import { db } from "../firebase/firebase-config";
+import SignUp from "../screens/SignUp";
 
 const AuthContext = React.createContext();
 
@@ -11,49 +12,24 @@ export function useAuth() {
 
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
+  const [userPropId, setUserPropId] = useState();
   const [loading, setLoading] = useState(true);
   const [isLinked, setIsLinked] = useState(false);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
+      addUserPropagatorRelations(user.uid, 12);
       setLoading(false);
     });
     return unsubscribe;
   }, []);
 
-  const signUp = (email, password, propogatorID) => {
-    auth.createUserWithEmailAndPassword(email, password).then((cred) => {
-      return db.collection("User_Propogator_Relations").doc(cred.user.uid).set({
-        propogatorID: propogatorID,
-      });
-    });
-  };
-
-  const logIn = (email, password) => {
-    auth.signInWithEmailAndPassword(email, password);
-  };
-
-  function logOut() {
-    return auth.signOut();
-  }
-
-  function linkPropogator() {
-    //To Implement
-  }
-
   const value = {
     currentUser,
     isLinked,
-    signUp,
-    logIn,
-    logOut,
     loading,
   };
 
-  return (
-    <AuthContext.Provider value={value}>
-      {!loading && children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
