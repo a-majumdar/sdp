@@ -62,7 +62,8 @@ export default function ProfilePage() {
     var propagatorId = null;
 
     get(child(dbRef, "User_Propogator_relations/" + currentUserUID))
-      .then((snapshot) => { //Creates a snapshot (what value is at that current location)
+      .then((snapshot) => {
+        //Creates a snapshot (what value is at that current location)
         if (snapshot.exists) {
           propagatorId = snapshot.val().propagatorId;
           setPropId(propagatorId); //Sets our useState to the propogatorId we just found to corrsepond to the user
@@ -75,6 +76,17 @@ export default function ProfilePage() {
       });
   });
 
+  /**
+   * NOT IMPLEMENTED YET
+   */
+  function showPropogatorReadings() {
+    const db = getDatabase();
+    const dbRef = ref(db);
+    var humidity = null;
+    var moisture = null;
+    var prop_details = null;
+  }
+
   //Need to add css to make it look pretty.
   return (
     <>
@@ -84,7 +96,9 @@ export default function ProfilePage() {
         <h2>Active Propogators</h2>
 
         <Link to={"/MyProp"}>
-          <button>Propogator ID : {propId}</button>
+          <button onClick={showPropogatorReadings}>
+            Propogator ID : {propId} {/*Shows Propogator ID for User*/}
+          </button>
         </Link>
         <h2>
           <button>Get Prop Info</button>
