@@ -10,6 +10,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [currentUserEmail, setCurrentUserEmail] = useState("");
   const [currentUserUID, setCurrentUserUID] = useState("");
   const [propID, setCurrentPropID] = useState("");
   const [loading, setLoading] = useState(true);
@@ -17,7 +18,8 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const updateProfile = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
-      console.log(currentUser);
+      setCurrentUserEmail(user.email);
+      //console.log(currentUser);
       setCurrentUserUID(user.uid);
       setLoading(false);
     });
@@ -26,7 +28,9 @@ export const AuthProvider = ({ children }) => {
 
   //Here we keep track of current user and render our children (child pages)
   return (
-    <AuthContext.Provider value={{ currentUser, currentUserUID }}>
+    <AuthContext.Provider
+      value={{ currentUser, currentUserUID, currentUserEmail }}
+    >
       {!loading && children}
     </AuthContext.Provider>
   );

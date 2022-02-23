@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import PlantBackground from "../../../assets/plants.jpeg";
 import "../contentSections/HomeSection.css";
 import "../../../App";
 import { Button } from "../../atoms/Button";
+import { AuthContext } from "../../../contexts/AuthContext";
 
 function HomeSection() {
+  const { currentUser } = useContext(AuthContext);
   return (
     <div className="hero-container">
       <img className="background-image" src={PlantBackground}></img>
