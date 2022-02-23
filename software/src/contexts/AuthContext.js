@@ -10,14 +10,18 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [currentUserUID, setCurrentUserUID] = useState("");
+  const [propID, setCurrentPropID] = useState("");
 
   useEffect(() => {
     auth.onAuthStateChanged(setCurrentUser); //Set User so our app keeps track if someone is logged in
+    setCurrentUserUID(auth.currentUser.uid);
+    setCurrentPropID(propID);
   }, []);
 
   //Here we keep track of current user and render our children (child pages)
   return (
-    <AuthContext.Provider value={{ currentUser }}>
+    <AuthContext.Provider value={{ currentUser, currentUserUID }}>
       {children}
     </AuthContext.Provider>
   );

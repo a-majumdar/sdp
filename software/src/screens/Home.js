@@ -8,13 +8,11 @@ import { auth } from "../firebase/firebase-config";
 
 /**
  * Home section of our website
- * @returns 
+ * @returns
  */
 function Home() {
   return (
     <>
-      <Link to="/MyProp">Go to explore here!</Link>{" "}
-      {/*Just to help view my page making */}
       <HomeSection></HomeSection>
       <Cards />
       <Footer />

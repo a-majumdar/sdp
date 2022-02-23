@@ -28,9 +28,11 @@ const Navbar = () => {
     if (currentUser) {
       //Taken from AuthContext
       return (
-        <Link to="/profile">
-          <button className="button-planted">Go to Profile Page</button>
-        </Link>
+        <>
+          <Link to="/profile">
+            <button className="button-planted">Go to Profile Page</button>
+          </Link>
+        </>
       );
     }
     if (!currentUser) {
