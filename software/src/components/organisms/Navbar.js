@@ -1,16 +1,46 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/PlantEd Small.png";
+import { AuthContext } from "../../contexts/AuthContext";
 import { auth } from "../../firebase/firebase-config";
 import { Button } from "../atoms/Button";
 import "../organisms/Navbar.css";
 
+/**
+ * Renders a navbar in our application. It is dynamic and so changes whether a user is logged in or not
+ * @returns NavBar
+ */
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
+  const { currentUser } = useContext(AuthContext); //Taken from our AuthContext
 
-  const handleClick = () => setClick(!click);
+  const handleClick = () => setClick(!click); //TODO: Need to get CSS working for Mobile
   const closeMobileMenu = () => setClick(false);
+
+  /**
+   * This Function chooses what button to display to the user
+   * If the user is logged in the option will be to go to their profile
+   * Else they are instructed to Login/SignUp
+   * @returns Dynamic Button
+   */
+  function ButtonAdapt() {
+    if (currentUser) {
+      //Taken from AuthContext
+      return (
+        <Link to="/profile">
+          <button className="button-planted">Go to Profile Page</button>
+        </Link>
+      );
+    }
+    if (!currentUser) {
+      return (
+        <Link to="/sign-up">
+          <button className="button-planted">Sign Up/LogIn</button>
+        </Link>
+      );
+    }
+  }
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
@@ -84,10 +114,7 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
-
-          <Link to="/profile">
-            <button className="button-planted">Go to Profile Page</button>
-          </Link>
+          <ButtonAdapt></ButtonAdapt>
         </div>
       </nav>
     </>

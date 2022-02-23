@@ -33,21 +33,40 @@ const firebaseConfig = initializeApp({
 
 //***********AUTHENTICATION FUNCTIONS******//
 
+/**
+ * Function to Create a User in Firebase Authentication Version 9.6.1
+ * @param {*} email
+ * @param {*} password
+ */
 export async function createUser(email, password) {
+  //Need to make these async so that we wait for their completion
   await createUserWithEmailAndPassword(auth, email, password);
 }
 
-export function login(email, password) {
+/**
+ * Function to Log a User in Firebase Authentication Version 9.6.1
+ * @param {*} email
+ * @param {*} password
+ */
+export async function login(email, password) {
+  //Need to make these async so that we wait for their completion
   signInWithEmailAndPassword(auth, email, password);
 }
 
+/**
+ * Function to log a user out in Firebase Authentication Version 9.6.1
+ */
 export function logout() {
   signOut(auth);
 }
 
 //*************DATABASE FUNCTIONS*************//
 
-//add data to each table functions
+/**
+ * Function to add userId and Propogator ID to User_Propogator_relations table in realtime database
+ * @param {*} userId - ID of the user currently logged in
+ * @param {*} propagatorId - Propogator ID that the user inputs during sign-up
+ */
 export function addUserPropagatorRelations(userId, propagatorId) {
   const db = getDatabase();
   set(ref(db, "User_Propogator_relations/" + userId), {

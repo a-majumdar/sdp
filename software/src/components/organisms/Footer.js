@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import { Button } from "../atoms/Button";
 import "../organisms/Footer.css";
 
+/**
+ *
+ * @returns Simply a footer for our application
+ */
 function Footer() {
   return (
     <div className="footer-container">

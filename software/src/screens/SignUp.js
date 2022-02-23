@@ -12,6 +12,10 @@ import {
   createUser,
 } from "../firebase/firebase-config";
 
+/**
+ * Sign Up Functionallity of our website
+ * @returns A neat sign up box rendered on the page
+ */
 export default function SignUp() {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -20,7 +24,7 @@ export default function SignUp() {
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
   const history = useHistory();
-  
+
   /**
    * @param {e} e event listner (activate when the user clicks sign up)
    * @returns Signs the user up to firebaseAuth and also links their propogator Id provided during
@@ -29,14 +33,20 @@ export default function SignUp() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) { //Check 1 Passwords Match?
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      //Check 1 Passwords Match?
       return setError("Passwords do not match");
     }
     try {
       setError("");
       setLoading(true); //This is used in the submit button so that the user can't click submit twice and mess up the request
       await createUser(emailRef.current.value, passwordRef.current.value); //Fetches createUser function from firebase-config.js
-      await addUserPropagatorRelations(auth.currentUser.uid, propID.current.value); //Adds data to the database using function from firebase-config.js
+
+      //TODO: We need to make a check here that the user has inputted a valid propogator ID and that it isn't in use
+      await addUserPropagatorRelations(
+        auth.currentUser.uid,
+        propID.current.value
+      ); //Adds data to the database using function from firebase-config.js
       history.push("/profile");
     } catch {
       setError("Failed to create an account"); //For any reason, we fail to create the account

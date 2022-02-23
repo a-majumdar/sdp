@@ -7,6 +7,10 @@ import "./Login.css";
 import { Link, useHistory } from "react-router-dom";
 import { auth, login } from "../firebase/firebase-config";
 
+/**
+ * Login Functionality of our website
+ * @returns a neat login box rendered on the page.
+ */
 export default function LogIn() {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -14,13 +18,19 @@ export default function LogIn() {
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
+  /**
+   * Function to sign in the user (called when the user presses the sign in button)
+   * Redirects to profile page
+   * @param {*} e Event Handler (user presses sign in)
+   */
   async function handleSubmit(e) {
     e.preventDefault();
 
     try {
       setError("");
-      setLoading(true);
+      setLoading(true); //So that user can't accidentally log in twice, while loading is true sign in button stops working
       await login(emailRef.current.value, passwordRef.current.value);
+      history.push("/profile");
     } catch {
       setError("Failed to Sign In");
     }

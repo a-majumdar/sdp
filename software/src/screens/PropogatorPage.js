@@ -4,6 +4,10 @@ import "../screens/PropogatorPage.css";
 import Footer from "../components/organisms/Footer";
 import plant from "../assets/plant1.png";
 
+/**
+ * Propogator Section of Our Website
+ * @returns 
+ */
 export default function MyProp() {
   return (
     <>

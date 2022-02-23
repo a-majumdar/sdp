@@ -10,16 +10,23 @@ import addPropButton from "../assets/addpropbutton.png";
 import { logout } from "../firebase/firebase-config";
 import { auth } from "../firebase/firebase-config";
 
+/**
+ * Profile Page section of our website
+ * @returns 
+ */
 export default function ProfilePage() {
   const [error, setError] = useState();
   const history = useHistory();
 
+  /**
+   * Function to deal with logout of the user, calls logout from firebase-config.js
+   */
   async function handleLogout() {
     setError("");
 
     try {
       await logout();
-      history.push("/");
+      history.push("/"); //Redirects back to home page
     } catch {
       setError("Failed to logOut");
     }
@@ -28,7 +35,7 @@ export default function ProfilePage() {
   return (
     <>
       <h2 className="user">
-        Hello,{auth.currentUser.email} &nbsp; you joined on :
+        Hello, &nbsp;{auth.currentUser.email} &nbsp; you joined on :
         {/*when user joined*/}
       </h2>
       <div className="prop-container">
