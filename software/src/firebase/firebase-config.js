@@ -74,6 +74,60 @@ export function addUserPropagatorRelations(userId, propagatorId) {
   });
 }
 
+//get relevant information in firebase by userid
+const db = ref(getDatabase());
+export function getAllInfo(userId) {
+  console.log(userId);
+  var propagatorId = null;
+  var plantId = null;
+  //userid->propagatorid
+  get(child(db, `User_Propagator_relations/${userId}`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      propagatorId = snapshot.val().propagatorId;
+      console.log("propagatorid: " + propagatorId);
+    } else {
+      console.log("No propagator data available");
+    }
+  });
+  console.log("propagator id now is : " + propagatorId);
+  //propagatorid->plantid
+  get(child(db, `Propagator_Details/${propagatorId}`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      plantId = snapshot.val().plantId;
+      console.log("plantId+ " + plantId);
+    } else {
+      console.log("No plant data available");
+    }
+  });
+  //get readings
+  get(child(db, `Temperature_Readings/01`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      var degree = snapshot.val().reading;
+      console.log("temperature reading " + degree);
+    } else {
+      console.log("No temperature data available");
+    }
+  });
+
+  get(child(db, `Sunlight_Readings/01`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      var degree = snapshot.val().reading;
+      console.log("sunlight reading " + degree);
+    } else {
+      console.log("No sunlight data available");
+    }
+  });
+
+  get(child(db, `Moisture_Readings/01`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      var degree = snapshot.val().reading;
+      console.log("moisture reading " + degree);
+    } else {
+      console.log("No moisture data available");
+    }
+  });
+}
+
 // Initialize Firebase
 export default firebaseConfig;
 export const auth = getAuth();

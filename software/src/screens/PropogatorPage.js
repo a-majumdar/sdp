@@ -6,7 +6,7 @@ import plant from "../assets/plant1.png";
 
 /**
  * Propogator Section of Our Website
- * @returns 
+ * @returns
  */
 export default function MyProp() {
   return (
@@ -36,6 +36,9 @@ export default function MyProp() {
         <p class="two">Moisture - {/* The reading  */}</p>
         <p class="three">Ventilation - {/* The reading  */}</p>
       </div>
+
+      <h2>Adjust Conditions </h2>
+      <h2>Set Conditions Back to Default</h2>
 
       {/*
       <h1>Your plant,</h1>

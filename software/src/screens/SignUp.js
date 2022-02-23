@@ -12,6 +12,7 @@ import {
   createUser,
 } from "../firebase/firebase-config";
 
+
 /**
  * Sign Up Functionallity of our website
  * @returns A neat sign up box rendered on the page
@@ -47,6 +48,7 @@ export default function SignUp() {
         auth.currentUser.uid,
         propID.current.value
       ); //Adds data to the database using function from firebase-config.js
+      
       history.push("/profile");
     } catch {
       setError("Failed to create an account"); //For any reason, we fail to create the account

@@ -7,9 +7,10 @@ import "./ProfilePage.css";
 import Footer from "../components/organisms/Footer";
 import CardItem from "../components/molecules/CardItem";
 import addPropButton from "../assets/addpropbutton.png";
-import { logout } from "../firebase/firebase-config";
+import { createUser, logout } from "../firebase/firebase-config";
 import { auth } from "../firebase/firebase-config";
 import { AuthContext } from "../contexts/AuthContext";
+import { getAllInfo } from "../firebase/firebase-config";
 
 /**
  * Profile Page section of our website
@@ -36,13 +37,17 @@ export default function ProfilePage() {
   //Very Untidy but I was experimenting with putting 2 divs side by side
   return (
     <>
-      <h2 className="user">Hello, &nbsp;{auth.currentUser.email}</h2>
+      <h2>Hello, &nbsp;</h2>
       <div>
         <h2>Active Propogators</h2>
+        <h2>{currentUserUID}</h2>
         <Link to={"/MyProp"}>
           <button>Propogator 1</button>
         </Link>
         <h2>
+          <button onClick={getAllInfo(currentUserUID)}>
+            Get All Propogator Info
+          </button>
           <button>Link another Propogator</button>
         </h2>
       </div>

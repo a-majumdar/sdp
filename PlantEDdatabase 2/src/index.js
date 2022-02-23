@@ -109,7 +109,6 @@ function addMoistureReadings(propagatorId, sampleTime,reading) {
 
 //get relevant information in firebase by userid
 const db = ref(getDatabase());
-
 function getAllInfo(userId) {
   console.log(userId)
   var propagatorId = null
