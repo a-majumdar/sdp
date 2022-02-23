@@ -38,11 +38,7 @@ export default function ProfilePage() {
   const { currentUserUID, currentUserEmail } = useContext(AuthContext);
   const { propogatorHasPlant } = useContext(PropogatorContext);
   const [propId, setPropId] = useState("");
-  const [humidity, setHumidity] = useState("");
-  const [moisture, setMoisture] = useState();
-  const [prop_detials, setPropDetails] = useState();
-  const [sunlight, setSunlight] = useState();
-  const [temperature, setTemperature] = useState();
+
 
   /**
    * Function to deal with logout of the user, calls logout from firebase-config.js

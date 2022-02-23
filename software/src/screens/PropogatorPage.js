@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../App.css";
 import "../screens/PropogatorPage.css";
 import Footer from "../components/organisms/Footer";
@@ -9,6 +9,15 @@ import plant from "../assets/plant1.png";
  * @returns
  */
 export default function MyProp() {
+  const [humidity, setHumidity] = useState();
+  const [moisture, setMoisture] = useState();
+  const [prop_detials, setPropDetails] = useState();
+  const [sunlight, setSunlight] = useState();
+  const [temperature, setTemperature] = useState();
+
+  
+  
+
   return (
     <>
       <h1>Your plant,</h1>
