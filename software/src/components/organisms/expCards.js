@@ -14,7 +14,6 @@ import snowdrop from "../../assets/snowdrop.jpg";
 import chillis from "../../assets/chillis.jpg";
 import winterplant from "../../assets/winterplant.jpg";
 
-
 function Cards() {
   return (
     <div className="cards">
@@ -36,13 +35,13 @@ function Cards() {
             />
           </ul>
           <ul className="cards__items">
-          <CardItem
+            <CardItem
               src={Tomato}
               text="Why not grow a Tomato Plant?"
               label="Trending"
               path="/tomato"
             />
-            
+
             <CardItem
               src={orchid}
               text="The secret to Orchids"
@@ -57,45 +56,24 @@ function Cards() {
             />
           </ul>
           <ul className="cards__items">
-          <CardItem
+            <CardItem
               src={cactus}
               text="Why you should grow a Cactus"
               label="Trending"
               path="/cactus"
             />
-            
             <CardItem
-              src={mind}
-              text="Mindul Planting"
-              label="Trending"
-              path="/mind"
-            />
-            <CardItem
-              src={bee}
-              text="How to protect bees from your propagotor"
-              label="Trending"
-              path="/bee"
-            />
-          </ul>
-          <ul className="cards__items">
-          <CardItem
               src={snowdrop}
               text="Snowdrops are in Season!"
               label="Trending"
               path="/snowdrop"
             />
-            
+
             <CardItem
               src={chillis}
               text="Brave enough to try grow chillis?"
               label="Trending"
               path="/chillis"
-            />
-            <CardItem
-              src={winterplant}
-              text="Protect your plants this winter"
-              label="Trending"
-              path="/winter"
             />
           </ul>
         </div>

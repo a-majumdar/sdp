@@ -4,6 +4,7 @@ import "../contentSections/ExploreSection.css";
 import "../../../App";
 import { Button } from "../../atoms/Button";
 
+/************NOT USING THIS ANYMORE - WILL OVERCOMPLICATE CODE*********** */
 function ExploreSection() {
   return (
     <div className="hero-container">

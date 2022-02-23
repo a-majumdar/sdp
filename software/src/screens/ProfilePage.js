@@ -26,6 +26,7 @@ import {
   query,
   push,
 } from "firebase/database";
+import { PropogatorContext } from "../contexts/PropogatorContext";
 
 /**
  * Profile Page section of our website
@@ -35,7 +36,13 @@ export default function ProfilePage() {
   const [error, setError] = useState();
   const history = useHistory();
   const { currentUserUID, currentUserEmail } = useContext(AuthContext);
+  const { propogatorHasPlant } = useContext(PropogatorContext);
   const [propId, setPropId] = useState("");
+  const [humidity, setHumidity] = useState("");
+  const [moisture, setMoisture] = useState();
+  const [prop_detials, setPropDetails] = useState();
+  const [sunlight, setSunlight] = useState();
+  const [temperature, setTemperature] = useState();
 
   /**
    * Function to deal with logout of the user, calls logout from firebase-config.js
@@ -82,9 +89,25 @@ export default function ProfilePage() {
   function showPropogatorReadings() {
     const db = getDatabase();
     const dbRef = ref(db);
+    var propagatorId = null;
     var humidity = null;
     var moisture = null;
     var prop_details = null;
+    var sunlight = null;
+    var temperature = null;
+    get(child(dbRef, "User_Propogator_relations/" + currentUserUID))
+      .then((snapshot) => {
+        //Creates a snapshot (what value is at that current location)
+        if (snapshot.exists) {
+          propagatorId = snapshot.val().propagatorId;
+          setPropId(propagatorId); //Sets our useState to the propogatorId we just found to corrsepond to the user
+        } else {
+          alert("No data found!");
+        }
+      })
+      .catch((error) => {
+        alert("unsuccessful, error" + error);
+      });
   }
 
   //Need to add css to make it look pretty.
@@ -95,17 +118,24 @@ export default function ProfilePage() {
       <div>
         <h2>Active Propogators</h2>
 
-        <Link to={"/MyProp"}>
-          <button onClick={showPropogatorReadings}>
-            Propogator ID : {propId} {/*Shows Propogator ID for User*/}
-          </button>
-        </Link>
+        {propogatorHasPlant ? (
+          <Link to={"/MyProp"}>
+            <button onClick={showPropogatorReadings}>
+              Propogator ID : {propId} {/*Shows Propogator ID for User*/}
+            </button>
+          </Link>
+        ) : (
+          <Link to={"/explore"}>
+            <button>
+              Plant Something{" "}
+              {/*If the user is yet to plant something redirect them to the explore page*/}
+            </button>
+          </Link>
+        )}
         <h2>
-          <button>Get Prop Info</button>
           <button>Link another Propogator</button>
         </h2>
       </div>
-
       <div>
         <h2>Plant Again</h2>
         <p>Basil Plant</p>
