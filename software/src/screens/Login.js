@@ -4,14 +4,12 @@ import PlantBackground from "../assets/plants.jpeg";
 import Footer from "../components/organisms/Footer";
 import { useState } from "react";
 import "./Login.css";
-import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-import { login } from "../firebase/firebase-config";
+import { auth, login } from "../firebase/firebase-config";
 
 export default function LogIn() {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { logIn } = useAuth();
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
   const history = useHistory();
@@ -23,7 +21,6 @@ export default function LogIn() {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      history.push("/profile");
     } catch {
       setError("Failed to Sign In");
     }

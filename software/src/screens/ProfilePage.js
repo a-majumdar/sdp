@@ -1,24 +1,24 @@
 import React from "react";
 import "../App.css";
 import { Card, Button, Form } from "react-bootstrap";
-import { useAuth } from "../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import "./ProfilePage.css";
 import Footer from "../components/organisms/Footer";
 import CardItem from "../components/molecules/CardItem";
 import addPropButton from "../assets/addpropbutton.png";
+import { logout } from "../firebase/firebase-config";
+import { auth } from "../firebase/firebase-config";
 
 export default function ProfilePage() {
   const [error, setError] = useState();
-  const { currentUser, logOut } = useAuth();
   const history = useHistory();
 
   async function handleLogout() {
     setError("");
 
     try {
-      await logOut();
+      await logout();
       history.push("/");
     } catch {
       setError("Failed to logOut");
@@ -28,7 +28,7 @@ export default function ProfilePage() {
   return (
     <>
       <h2 className="user">
-        Hello, &nbsp;{currentUser.email},&nbsp; you joined on :{" "}
+        Hello,{auth.currentUser.email} &nbsp; you joined on :
         {/*when user joined*/}
       </h2>
       <div className="prop-container">

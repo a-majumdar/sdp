@@ -1,39 +1,39 @@
 import React from "react";
 import "../App.css";
-import "../screens/MyProp.css"
+import "../screens/PropogatorPage.css";
 import Footer from "../components/organisms/Footer";
-import plant from "../assets/plant1.png"
-
-
+import plant from "../assets/plant1.png";
 
 export default function MyProp() {
   return (
     <>
-    <h1>Your plant,</h1>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
+      <h1>Your plant,</h1>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <div class="box">
-      <img 
-      className='img'
-      src={plant} alt="Logo" 
-      style={{
-        width: 400,
-        height: 500,
-        marginRight: 10,
-        marginBottom: 12,
-        marginTop: 12}}
-      />
-        <p class="one" >Temperature - {/* The reading  */}</p>
+        <img
+          className="img"
+          src={plant}
+          alt="Logo"
+          style={{
+            width: 400,
+            height: 500,
+            marginRight: 10,
+            marginBottom: 12,
+            marginTop: 12,
+          }}
+        />
+        <p class="one">Temperature - {/* The reading  */}</p>
         <p class="two">Soil pH - {/* The reading  */}</p>
         <p class="three">Sunlight - {/* The reading  */}</p>
         <p class="one">Humidity - {/* The reading  */}</p>
         <p class="two">Moisture - {/* The reading  */}</p>
         <p class="three">Ventilation - {/* The reading  */}</p>
       </div>
-      
-    {/*
+
+      {/*
       <h1>Your plant,</h1>
       <div className="container">
       <img 
@@ -50,7 +50,7 @@ export default function MyProp() {
       <p>Humidity</p>
       <p>Ventilation</p>
       */}
-      
+
       <Footer />
     </>
   );

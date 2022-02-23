@@ -16,25 +16,30 @@ export default function SignUp() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const propogatorID = useRef();
+  const propID = useRef();
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
   const history = useHistory();
-
-  function handleSubmit(e) {
+  
+  /**
+   * @param {e} e event listner (activate when the user clicks sign up)
+   * @returns Signs the user up to firebaseAuth and also links their propogator Id provided during
+   * signup to their userId (uid)
+   */
+  async function handleSubmit(e) {
     e.preventDefault();
 
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) { //Check 1 Passwords Match?
       return setError("Passwords do not match");
     }
-
     try {
       setError("");
-      setLoading(true);
-      createUser(emailRef.current.value, passwordRef.current.value);
+      setLoading(true); //This is used in the submit button so that the user can't click submit twice and mess up the request
+      await createUser(emailRef.current.value, passwordRef.current.value); //Fetches createUser function from firebase-config.js
+      await addUserPropagatorRelations(auth.currentUser.uid, propID.current.value); //Adds data to the database using function from firebase-config.js
       history.push("/profile");
     } catch {
-      setError("Failed to create an account");
+      setError("Failed to create an account"); //For any reason, we fail to create the account
     }
     setLoading(false);
   }
@@ -66,7 +71,7 @@ export default function SignUp() {
               </Form.Group>
               <Form.Group id="prop-id">
                 <Form.Label>Propogator ID</Form.Label>
-                <Form.Control ref={propogatorID} required />
+                <Form.Control ref={propID} required />
               </Form.Group>
               <Button
                 disabled={loading}

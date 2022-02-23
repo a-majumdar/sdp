@@ -8,7 +8,8 @@ import HomeSection from "../components/organisms/contentSections/HomeSection";
 function Home() {
   return (
     <>
-      <Link to="/MyProp">Go to explore here!</Link> {/*Just to help view my page making */}
+      <Link to="/MyProp">Go to explore here!</Link>{" "}
+      {/*Just to help view my page making */}
       <HomeSection></HomeSection>
       <Cards />
       <Footer />

@@ -33,8 +33,8 @@ const firebaseConfig = initializeApp({
 
 //***********AUTHENTICATION FUNCTIONS******//
 
-export function createUser(email, password) {
-  createUserWithEmailAndPassword(auth, email, password);
+export async function createUser(email, password) {
+  await createUserWithEmailAndPassword(auth, email, password);
 }
 
 export function login(email, password) {

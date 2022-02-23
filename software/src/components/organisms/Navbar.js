@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/PlantEd Small.png";
-import { useAuth } from "../../contexts/AuthContext";
+import { auth } from "../../firebase/firebase-config";
 import { Button } from "../atoms/Button";
 import "../organisms/Navbar.css";
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
-  const { currentUser } = useAuth();
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -31,6 +30,7 @@ const Navbar = () => {
     <>
       <nav className="navbar">
         <div className="navbar-container">
+          <h1></h1>
           <NavLink to="/" className="logo-button">
             <a href="/" className="logo">
               <img className="logo" src={Logo} alt="" />
@@ -84,15 +84,10 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
-          {!currentUser ? (
-            <Link to="/sign-up">
-              <button className="button-planted">Sign Up/Login</button>
-            </Link>
-          ) : (
-            <Link to="profile">
-              <button className="button-planted">Go To Profile Page</button>
-            </Link>
-          )}
+
+          <Link to="/profile">
+            <button className="button-planted">Go to Profile Page</button>
+          </Link>
         </div>
       </nav>
     </>
