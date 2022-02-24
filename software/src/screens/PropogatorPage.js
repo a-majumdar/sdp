@@ -3,6 +3,7 @@ import "../App.css";
 import "../screens/PropogatorPage.css";
 import Footer from "../components/organisms/Footer";
 import plant from "../assets/plant1.png";
+import yourProp from "../assets/yourProp.jpg";
 import { AuthContext } from "../contexts/AuthContext";
 import {
   getDatabase,
@@ -51,14 +52,15 @@ export default function MyProp() {
 
   return (
     <>
-      <h1>Welcome, {currentUserEmail}</h1>
+      <img 
+      class="propPageTitle"
+      src={yourProp}
+      alt="Logo"
+      />
       <br></br>
-      {/* <h1>Your user id btw is {currentUserUID}</h1>
+      <h1 >Welcome, {currentUserEmail}</h1>
       <br></br>
-      <br></br> */}
-      {/* <h1>Your propagotor id is {propId}</h1> */}
-      <br></br>
-      <br></br>
+
       
       <div class="box">
       <figure>
