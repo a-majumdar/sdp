@@ -17,10 +17,12 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const updateProfile = auth.onAuthStateChanged((user) => {
-      setCurrentUser(user);
-      setCurrentUserEmail(user.email);
-      //console.log(currentUser);
-      setCurrentUserUID(user.uid);
+      if (currentUser) {
+        setCurrentUser(user);
+        setCurrentUserEmail(user.email);
+        //console.log(currentUser);
+        setCurrentUserUID(user.uid);
+      }
       setLoading(false);
     });
     return updateProfile;
