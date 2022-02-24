@@ -1,11 +1,13 @@
 import React, { useState, useContext , useEffect} from "react";
+
 import { Card, Form, Button, Alert } from "react-bootstrap";
-import "../App.css";
+
 import "../screens/PropogatorPage.css";
 import Footer from "../components/organisms/Footer";
 import plant from "../assets/plant1.png";
 import yourProp from "../assets/yourProp.jpg";
 import { AuthContext } from "../contexts/AuthContext";
+
 import {
   getDatabase,
   ref,
@@ -49,10 +51,25 @@ export default function MyProp() {
         alert("unsuccessful, error" + error);
       });
   });
+
+  const [mystyle, setStyle] = useState("but1");
+  const changeStyle = () => { //oprn button
+    console.log("you just clicked");
+    setStyle("cont");
+    setStyle2("but3")
+  };
+  const [mystyle2, setStyle2] = useState("but3");
+  const changeStyle2 = () => { //closed button
+    console.log("you just clicked");
+    setStyle2("cont2");
+    setStyle("but1");
+  };
+
   
 
   return (
     <>
+      
       <img 
       class="propPageTitle"
       src={yourProp}
@@ -62,7 +79,6 @@ export default function MyProp() {
       <h1 >Welcome, {currentUserEmail}</h1>
       <br></br>
 
-      
       <div class="box">
       <figure>
         <img
@@ -78,7 +94,7 @@ export default function MyProp() {
         Sunlight - {/* The reading  */}<br></br><button class="but1">+</button><button class="but3">-</button><br></br>
         Humidity - {/* The reading  */}<br></br><button class="but1">+</button><button class="but3">-</button><br></br>
         Moisture - {/* The reading  */}<br></br><button class="but1">Water</button><br></br>
-        Ventilation - {/* The reading  */}<br></br><button class="but1">Open</button><button class="but3">Closed</button><br></br></p>
+        Ventilation - {/* The reading  */}<br></br><button className={mystyle} onClick={changeStyle} >Open</button><button className={mystyle2} onClick={changeStyle2}>Closed</button><br></br></p>
         
       </div>
 
