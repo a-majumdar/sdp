@@ -1,4 +1,5 @@
 import React, { useState, useContext , useEffect} from "react";
+import { Card, Form, Button, Alert } from "react-bootstrap";
 import "../App.css";
 import "../screens/PropogatorPage.css";
 import Footer from "../components/organisms/Footer";
@@ -80,8 +81,10 @@ export default function MyProp() {
         Ventilation - {/* The reading  */}</p>
       </div>
 
-      <h2>Adjust Conditions </h2>
-      <h2>Set Conditions Back to Default</h2>
+      <button class="but1">Adjust Conditions </button>
+      <br></br>
+      <br></br>
+      <button class="but2">Set Conditions Back to Default</button>
 
       {/*
       <h1>Your plant,</h1>
