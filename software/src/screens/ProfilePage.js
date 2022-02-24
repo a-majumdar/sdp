@@ -4,6 +4,7 @@ import { Card, Button, Form } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
 import "./ProfilePage.css";
+import yourProfile from "../assets/youProfile.jpg";
 import Footer from "../components/organisms/Footer";
 import CardItem from "../components/molecules/CardItem";
 import addPropButton from "../assets/addpropbutton.png";
@@ -109,38 +110,47 @@ export default function ProfilePage() {
   //Need to add css to make it look pretty.
   return (
     <>
-      <h2>Hello, {currentUserEmail} &nbsp;</h2>
-      <h2>Current User ID Logged On - {currentUserUID}</h2>
+      <img 
+      class="profPageTitle"
+      src={yourProfile}
+      alt="Logo"
+      />
+      <br></br>
+      <h2 className="usrlog">Current User ID Logged On : {currentUserUID}</h2>
+      <br></br>
       <div>
-        <h2>Active Propogators</h2>
-
+        <h2 className="actlog">Active Propogators: </h2>
+        
         {propogatorHasPlant ? (
           <Link to={"/MyProp"}>
-            <button onClick={showPropogatorReadings}>
+            <button className="butt2" onClick={showPropogatorReadings} >
               Propogator ID : {propId} {/*Shows Propogator ID for User*/}
+              
             </button>
           </Link>
         ) : (
           <Link to={"/explore"}>
-            <button>
+            <button className="but1">
               Plant Something{" "}
               {/*If the user is yet to plant something redirect them to the explore page*/}
             </button>
           </Link>
         )}
-        <h2>
-          <button>Link another Propogator</button>
-        </h2>
+        <br></br>
+        <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+        {/* <h2>
+          <button className="but1" >Link another Propogator</button>
+        </h2> */}
       </div>
-      <div>
+      {/* <div>
         <h2>Plant Again</h2>
         <p>Basil Plant</p>
         <p>Basil Plant</p>
         <p>Basil Plant</p>
-      </div>
-      <h1>
-        <button onClick={handleLogout}>Logout</button>
-      </h1>
+      </div> */}
+      
+      <button onClick={handleLogout} className="logoutbtn">Logout</button>
+      
       <Footer></Footer>
     </>
   );
