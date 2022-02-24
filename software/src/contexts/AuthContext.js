@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
     } else {
       updateProfile();
     }
-  }, [updateProfile]);
+  }, []);
 
   //Here we keep track of current user and render our children (child pages)
   return (
