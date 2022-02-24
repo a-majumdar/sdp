@@ -91,14 +91,14 @@ export default function MyProp() {
         </figure>
         <p class="one">Temperature - {/* The reading  */} <br></br><button class="but1">-</button><button class="but3">+</button><br></br>
         Soil pH - {/* The reading  */}<br></br><button class="but1">Adjust Conditions </button><br></br>
-        Sunlight - {/* The reading  */}<br></br><button class="but1">-</button><button class="but3">+</button><br></br>
+        Sunlight - {/* The reading  */}<br></br><button class="but1">Low</button><button class="but3">Medium</button><button class="but3">High</button><br></br>
         Humidity - {/* The reading  */}<br></br><button class="but1">-</button><button class="but3">+</button><br></br>
         Moisture - {/* The reading  */}<br></br><button class="but1">Water</button><br></br>
         Ventilation - {/* The reading  */}<br></br><button className={mystyle} onClick={changeStyle} >Open</button><button className={mystyle2} onClick={changeStyle2}>Closed</button><br></br></p>
         
       </div>
 
-      <button class="but2">Set Conditions Back to Default</button>
+      <button class="but4">Set Conditions Back to Default</button>
 
       {/*
       <h1>Your plant,</h1>

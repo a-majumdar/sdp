@@ -29,11 +29,12 @@
   float:right;
   margin-left: 50px;
   margin-right: 50px;
-  width: 500px;
+  width: 600px;
   height: 700px;
 }
 
 .propPageTitle{
+  margin-top: 20px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -85,6 +86,18 @@
 .cont2{
   margin-left: 10px;
   background-color: #f81515; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.but4{
+  margin-left: 50px;
+  margin-bottom: 20px;
+  background-color: #97c092; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
