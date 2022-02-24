@@ -60,6 +60,17 @@
   display: inline-block;
   font-size: 16px;
 }
+.but3{
+  margin-left: 10px;
+  background-color: #97c092; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
 .mycaption{
   margin-left: 50px;
 }
