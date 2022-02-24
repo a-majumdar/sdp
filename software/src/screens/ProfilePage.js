@@ -130,7 +130,12 @@ export default function ProfilePage() {
               
             </button>
           </Link>
+          
         ) : (
+
+
+
+          
           <Link to={"/explore"}>
             <button className="but1">
               Plant Something{" "}
@@ -139,10 +144,47 @@ export default function ProfilePage() {
           </Link>
         )}
         <br></br>
-        <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+        <br></br><br></br>
         {/* <h2>
           <button className="but1" >Link another Propogator</button>
         </h2> */}
+      </div>
+
+
+      <div>
+        <h2 className="actlog">Motion Capture: </h2>
+        {propogatorHasPlant ? (
+          <Link to={"/MyProp"}>
+            <button className="butt2" onClick={showPropogatorReadings} >
+              Watch
+              
+            </button>
+          </Link>
+    
+        ) : (
+          <Link to={"/explore"}>
+            
+          </Link>
+        )}
+        <br></br><br></br><br></br>
+      </div>
+
+      <div>
+        <h2 className="actlog">Plant History : </h2>
+        {propogatorHasPlant ? (
+          <Link to={"/MyProp"}>
+            <button className="butt2" onClick={showPropogatorReadings} >
+              View
+              
+            </button>
+          </Link>
+    
+        ) : (
+          <Link to={"/explore"}>
+            
+          </Link>
+        )}
+        <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
       </div>
       {/* <div>
         <h2>Plant Again</h2>
