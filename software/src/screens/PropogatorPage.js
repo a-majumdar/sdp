@@ -73,17 +73,15 @@ export default function MyProp() {
         />
         <figcaption class="mycaption">Propagator ID: {propId}</figcaption>
         </figure>
-        <p class="one">Temperature - {/* The reading  */}<br></br><br></br>
-        Soil pH - {/* The reading  */}<br></br><br></br>
-        Sunlight - {/* The reading  */}<br></br><br></br>
-        Humidity - {/* The reading  */}<br></br><br></br>
-        Moisture - {/* The reading  */}<br></br><br></br>
-        Ventilation - {/* The reading  */}</p>
+        <p class="one">Temperature - {/* The reading  */} <br></br><button class="but1">Adjust Conditions </button><br></br>
+        Soil pH - {/* The reading  */}<br></br><button class="but1">Adjust Conditions </button><br></br>
+        Sunlight - {/* The reading  */}<br></br><button class="but1">Adjust Conditions </button><br></br>
+        Humidity - {/* The reading  */}<br></br><button class="but1">Adjust Conditions </button><br></br>
+        Moisture - {/* The reading  */}<br></br><button class="but1">Adjust Conditions </button><br></br>
+        Ventilation - {/* The reading  */}<br></br><button class="but1">Adjust Conditions </button><br></br></p>
+        
       </div>
 
-      <button class="but1">Adjust Conditions </button>
-      <br></br>
-      <br></br>
       <button class="but2">Set Conditions Back to Default</button>
 
       {/*
