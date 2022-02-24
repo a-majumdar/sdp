@@ -53,33 +53,29 @@ export default function MyProp() {
     <>
       <h1>Welcome, {currentUserEmail}</h1>
       <br></br>
-      <br></br>
       {/* <h1>Your user id btw is {currentUserUID}</h1>
       <br></br>
       <br></br> */}
-      <h1>Your propagotor id is {propId}</h1>
+      {/* <h1>Your propagotor id is {propId}</h1> */}
       <br></br>
       <br></br>
       
       <div class="box">
+      <figure>
         <img
-          className="img"
+          class="picRight"
           src={plant}
           alt="Logo"
-          style={{
-            width: 400,
-            height: 500,
-            marginRight: 10,
-            marginBottom: 12,
-            marginTop: 12,
-          }}
+          
         />
-        <p class="one">Temperature - {/* The reading  */}</p>
-        <p class="two">Soil pH - {/* The reading  */}</p>
-        <p class="three">Sunlight - {/* The reading  */}</p>
-        <p class="one">Humidity - {/* The reading  */}</p>
-        <p class="two">Moisture - {/* The reading  */}</p>
-        <p class="three">Ventilation - {/* The reading  */}</p>
+        <figcaption class="mycaption">Propagator ID: {propId}</figcaption>
+        </figure>
+        <p class="one">Temperature - {/* The reading  */}<br></br><br></br>
+        Soil pH - {/* The reading  */}<br></br><br></br>
+        Sunlight - {/* The reading  */}<br></br><br></br>
+        Humidity - {/* The reading  */}<br></br><br></br>
+        Moisture - {/* The reading  */}<br></br><br></br>
+        Ventilation - {/* The reading  */}</p>
       </div>
 
       <h2>Adjust Conditions </h2>

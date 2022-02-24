@@ -25,6 +25,16 @@
   line-height: 1.5;
 }
 
+.picRight{
+  float:right;
+  margin-left: 50px;
+  margin-right: 50px;
+  width: 460px;
+  height: 600px;
+}
+.mycaption{
+  margin-left: 50px;
+}
 .box {
   display: flex;
   flex-wrap: wrap;
