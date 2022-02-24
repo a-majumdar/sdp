@@ -10,7 +10,7 @@ export const PropogatorContext = createContext();
 
 export const PropogatorProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
-  const [propogatorHasPlant, setPropogatorHasPlant] = useState(false);
+  const [propogatorHasPlant, setPropogatorHasPlant] = useState(true);
 
   function getDetails() {}
 
