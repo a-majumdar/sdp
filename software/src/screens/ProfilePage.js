@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import "../App.css";
+import PlantBackground from "../assets/back.jpg";
 import { Card, Button, Form } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
@@ -110,6 +111,7 @@ export default function ProfilePage() {
   //Need to add css to make it look pretty.
   return (
     <>
+    <img className="background-image" src={PlantBackground}></img>
       <img 
       class="profPageTitle"
       src={yourProfile}
