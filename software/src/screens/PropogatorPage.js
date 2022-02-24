@@ -1,10 +1,10 @@
 import React, { useState, useContext , useEffect} from "react";
 
 import { Card, Form, Button, Alert } from "react-bootstrap";
-
+import PlantBackground from "../assets/back.jpg";
 import "../screens/PropogatorPage.css";
 import Footer from "../components/organisms/Footer";
-import plant from "../assets/plant1.png";
+import plant from "../assets/greenplant.jpg";
 import yourProp from "../assets/yourProp.jpg";
 import { AuthContext } from "../contexts/AuthContext";
 
@@ -69,7 +69,7 @@ export default function MyProp() {
 
   return (
     <>
-      
+      <img className="background-image" src={PlantBackground}></img>
       <img 
       class="propPageTitle"
       src={yourProp}
@@ -89,10 +89,10 @@ export default function MyProp() {
         />
         <figcaption class="mycaption">Propagator ID: {propId}</figcaption>
         </figure>
-        <p class="one">Temperature - {/* The reading  */} <br></br><button class="but1">+</button><button class="but3">-</button><br></br>
+        <p class="one">Temperature - {/* The reading  */} <br></br><button class="but1">-</button><button class="but3">+</button><br></br>
         Soil pH - {/* The reading  */}<br></br><button class="but1">Adjust Conditions </button><br></br>
-        Sunlight - {/* The reading  */}<br></br><button class="but1">+</button><button class="but3">-</button><br></br>
-        Humidity - {/* The reading  */}<br></br><button class="but1">+</button><button class="but3">-</button><br></br>
+        Sunlight - {/* The reading  */}<br></br><button class="but1">-</button><button class="but3">+</button><br></br>
+        Humidity - {/* The reading  */}<br></br><button class="but1">-</button><button class="but3">+</button><br></br>
         Moisture - {/* The reading  */}<br></br><button class="but1">Water</button><br></br>
         Ventilation - {/* The reading  */}<br></br><button className={mystyle} onClick={changeStyle} >Open</button><button className={mystyle2} onClick={changeStyle2}>Closed</button><br></br></p>
         
