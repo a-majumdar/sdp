@@ -15,18 +15,26 @@ export const AuthProvider = ({ children }) => {
   const [propID, setCurrentPropID] = useState("");
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const updateProfile = auth.onAuthStateChanged((user) => {
-      if (currentUser) {
-        setCurrentUser(user);
-        setCurrentUserEmail(user.email);
-        //console.log(currentUser);
-        setCurrentUserUID(user.uid);
-      }
-      setLoading(false);
-    });
+  const updateProfile = auth.onAuthStateChanged((user) => {
+    setCurrentUser(user);
+    setCurrentUserEmail(user.email);
+    console.log(user);
+    console.log(currentUser);
+    setCurrentUserUID(user.uid);
+    setLoading(false);
     return updateProfile;
-  }, []);
+  });
+
+  useEffect(() => {
+    if (auth.currentUser == null) {
+      setCurrentUser("");
+      setCurrentUserUID("");
+      setCurrentUserEmail("");
+      setLoading(false);
+    } else {
+      updateProfile();
+    }
+  }, [updateProfile]);
 
   //Here we keep track of current user and render our children (child pages)
   return (
