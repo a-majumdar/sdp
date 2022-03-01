@@ -15,32 +15,46 @@ export const PropagatorProvider = ({ children }) => {
   const [propagatorHasPlant, setPropagatorHasPlant] = useState(true);
   const { currentUserUID } = useContext(AuthContext);
   const [propId, setPropId] = useState("");
+  const [plantIdWeb, setPlantIdWeb] = useState();
 
   function getDetails() {}
 
   useEffect(() => {
     const db = getDatabase();
     const dbRef = ref(db);
-    var propagatorId = null;
 
     get(child(dbRef, "User_Propagator_relations/" + currentUserUID))
       .then((snapshot) => {
         //Creates a snapshot (what value is at that current location)
         if (snapshot.exists) {
-          propagatorId = snapshot.val().propagatorId;
+          var propagatorId = snapshot.val().propagatorId;
           setPropId(propagatorId); //Sets our useState to the propogatorId we just found to corrsepond to the user
         } else {
           alert("No data found!");
         }
+        return propagatorId;
       })
-      .catch((error) => {
-        alert("unsuccessful, error" + error);
+      .then((propagatorId) => {
+        get(child(db, `Propagator_Details/${propagatorId}`)).then(
+          (propagatorId) => {
+            if (propagatorId.exists()) {
+              console.log("1");
+              var plantId = propagatorId.val().plantId;
+              setPlantIdWeb(plantId);
+            } else {
+              console.log("2");
+              console.log("No plant data available");
+            }
+          }
+        );
       });
   }, []);
 
   //Here we keep track of current user and render our children (child pages)
   return (
-    <PropagatorContext.Provider value={{ propagatorHasPlant, propId }}>
+    <PropagatorContext.Provider
+      value={{ propagatorHasPlant, propId, plantIdWeb }}
+    >
       {loading && children}
     </PropagatorContext.Provider>
   );

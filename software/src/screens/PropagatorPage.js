@@ -19,7 +19,10 @@ import {
   query,
   push,
 } from "firebase/database";
-import { PropogatorContext } from "../contexts/PropagatorContext";
+import {
+  PropagatorContext,
+  PropogatorContext,
+} from "../contexts/PropagatorContext";
 /**
  * Propogator Section of Our Website
  * @returns
@@ -31,26 +34,27 @@ export default function MyProp() {
   const [sunlight, setSunlight] = useState();
   const [temperature, setTemperature] = useState();
   const { currentUserUID, currentUserEmail } = useContext(AuthContext);
-  const [propId, setPropId] = useState("");
-  useEffect(() => {
-    const db = getDatabase();
-    const dbRef = ref(db);
-    var propagatorId = null;
+  const { plantIdWeb, propId } = useContext(PropagatorContext);
 
-    get(child(dbRef, "User_Propagator_relations/" + currentUserUID))
-      .then((snapshot) => {
-        //Creates a snapshot (what value is at that current location)
-        if (snapshot.exists) {
-          propagatorId = snapshot.val().propagatorId;
-          setPropId(propagatorId); //Sets our useState to the propogatorId we just found to corrsepond to the user
-        } else {
-          alert("No data found!");
-        }
-      })
-      .catch((error) => {
-        alert("unsuccessful, error" + error);
-      });
-  });
+  // useEffect(() => {
+  //   const db = getDatabase();
+  //   const dbRef = ref(db);
+  //   var propagatorId = null;
+
+  //   get(child(dbRef, "User_Propagator_relations/" + currentUserUID))
+  //     .then((snapshot) => {
+  //       //Creates a snapshot (what value is at that current location)
+  //       if (snapshot.exists) {
+  //         propagatorId = snapshot.val().propagatorId;
+  //         setPropId(propagatorId); //Sets our useState to the propogatorId we just found to corrsepond to the user
+  //       } else {
+  //         alert("No data found!");
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       alert("unsuccessful, error" + error);
+  //     });
+  // });
 
   const [mystyle, setStyle] = useState("but1");
   const changeStyle = () => {
@@ -79,6 +83,7 @@ export default function MyProp() {
         <figure>
           <img class="picRight" src={plant} alt="Logo" />
           <figcaption class="mycaption">Propagator ID: {propId}</figcaption>
+          <figcaption class="mycaption">Plant Id: {plantIdWeb}</figcaption>
         </figure>
         <p class="one">
           Temperature - {/* The reading  */} <br></br>
