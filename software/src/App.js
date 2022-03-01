@@ -7,12 +7,12 @@ import AboutUs from "./screens/AboutUs";
 import Contact from "./screens/ContactUs";
 import Explore from "./screens/Explore";
 import SignUp from "./screens/SignUp";
-import MyProp from "./screens/PropogatorPage";
+import MyProp from "./screens/PropagatorPage";
 import ProfilePage from "./screens/ProfilePage";
 import LogIn from "./screens/Login";
 import { AuthProvider } from "./contexts/AuthContext";
 import PrivateRoute from "./PrivateRoute";
-import { PropogatorProvider } from "./contexts/PropogatorContext";
+import { PropagatorProvider } from "./contexts/PropagatorContext";
 
 /**
  * Main Root of Our Website
@@ -31,10 +31,10 @@ function App() {
           <Route path="/Explore" exact component={Explore} />
           <Route path="/Contact" exact component={Contact} />
           <Route path="/login" exact component={LogIn} />
-          <PropogatorProvider>
+          <PropagatorProvider>
             <PrivateRoute path="/profile" exact component={ProfilePage} />
             <Route path="/MyProp" exact component={MyProp} />
-          </PropogatorProvider>
+          </PropagatorProvider>
         </Switch>
       </AuthProvider>
     </Router>

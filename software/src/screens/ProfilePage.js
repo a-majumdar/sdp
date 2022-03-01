@@ -28,7 +28,7 @@ import {
   query,
   push,
 } from "firebase/database";
-import { PropogatorContext } from "../contexts/PropogatorContext";
+import { PropagatorContext } from "../contexts/PropagatorContext";
 
 /**
  * Profile Page section of our website
@@ -38,9 +38,8 @@ export default function ProfilePage() {
   const [error, setError] = useState();
   const history = useHistory();
   const { currentUserUID, currentUserEmail } = useContext(AuthContext);
-  const { propogatorHasPlant } = useContext(PropogatorContext);
+  const { propogatorHasPlant } = useContext(PropagatorContext);
   const [propId, setPropId] = useState("");
-
 
   /**
    * Function to deal with logout of the user, calls logout from firebase-config.js
@@ -66,7 +65,7 @@ export default function ProfilePage() {
     const dbRef = ref(db);
     var propagatorId = null;
 
-    get(child(dbRef, "User_Propogator_relations/" + currentUserUID))
+    get(child(dbRef, "User_Propagator_relations/" + currentUserUID))
       .then((snapshot) => {
         //Creates a snapshot (what value is at that current location)
         if (snapshot.exists) {
@@ -111,31 +110,21 @@ export default function ProfilePage() {
   //Need to add css to make it look pretty.
   return (
     <>
-    <img className="background-image" src={PlantBackground}></img>
-      <img 
-      class="profPageTitle"
-      src={yourProfile}
-      alt="Logo"
-      />
+      <img className="background-image" src={PlantBackground}></img>
+      <img class="profPageTitle" src={yourProfile} alt="Logo" />
       <br></br>
       <h2 className="usrlog">Current User ID Logged On : {currentUserUID}</h2>
       <br></br>
       <div>
         <h2 className="actlog">Active Propogators: </h2>
-        
-        {propogatorHasPlant ? (
+
+        {!propogatorHasPlant ? (
           <Link to={"/MyProp"}>
-            <button className="butt2" onClick={showPropogatorReadings} >
+            <button className="butt2" onClick={showPropogatorReadings}>
               Propogator ID : {propId} {/*Shows Propogator ID for User*/}
-              
             </button>
           </Link>
-          
         ) : (
-
-
-
-          
           <Link to={"/explore"}>
             <button className="but1">
               Plant Something{" "}
@@ -144,47 +133,53 @@ export default function ProfilePage() {
           </Link>
         )}
         <br></br>
-        <br></br><br></br>
+        <br></br>
+        <br></br>
         {/* <h2>
           <button className="but1" >Link another Propogator</button>
         </h2> */}
       </div>
 
-
       <div>
         <h2 className="actlog">Motion Capture: </h2>
         {propogatorHasPlant ? (
           <Link to={"/MyProp"}>
-            <button className="butt2" onClick={showPropogatorReadings} >
+            <button className="butt2" onClick={showPropogatorReadings}>
               Watch
-              
             </button>
           </Link>
-    
         ) : (
-          <Link to={"/explore"}>
-            
-          </Link>
+          <Link to={"/explore"}></Link>
         )}
-        <br></br><br></br><br></br>
+        <br></br>
+        <br></br>
+        <br></br>
       </div>
 
       <div>
         <h2 className="actlog">Plant History : </h2>
         {propogatorHasPlant ? (
           <Link to={"/MyProp"}>
-            <button className="butt2" onClick={showPropogatorReadings} >
+            <button className="butt2" onClick={showPropogatorReadings}>
               View
-              
             </button>
           </Link>
-    
         ) : (
-          <Link to={"/explore"}>
-            
-          </Link>
+          <Link to={"/explore"}></Link>
         )}
-        <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
       </div>
       {/* <div>
         <h2>Plant Again</h2>
@@ -192,10 +187,13 @@ export default function ProfilePage() {
         <p>Basil Plant</p>
         <p>Basil Plant</p>
       </div> */}
-      
-      <button onClick={handleLogout} className="logoutbtn">Logout</button>
-      
+
+      <button onClick={handleLogout} className="logoutbtn">
+        Logout
+      </button>
+
       <Footer></Footer>
+      <button onClick={handleLogout}>Logout</button>
     </>
   );
 }

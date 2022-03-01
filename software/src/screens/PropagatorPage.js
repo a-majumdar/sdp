@@ -1,8 +1,8 @@
-import React, { useState, useContext , useEffect} from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 import { Card, Form, Button, Alert } from "react-bootstrap";
 import PlantBackground from "../assets/back.jpg";
-import "../screens/PropogatorPage.css";
+import "../screens/PropagatorPage.css";
 import Footer from "../components/organisms/Footer";
 import plant from "../assets/greenplant.jpg";
 import yourProp from "../assets/yourProp.jpg";
@@ -19,7 +19,7 @@ import {
   query,
   push,
 } from "firebase/database";
-import { PropogatorContext } from "../contexts/PropogatorContext";
+import { PropogatorContext } from "../contexts/PropagatorContext";
 /**
  * Propogator Section of Our Website
  * @returns
@@ -37,7 +37,7 @@ export default function MyProp() {
     const dbRef = ref(db);
     var propagatorId = null;
 
-    get(child(dbRef, "User_Propogator_relations/" + currentUserUID))
+    get(child(dbRef, "User_Propagator_relations/" + currentUserUID))
       .then((snapshot) => {
         //Creates a snapshot (what value is at that current location)
         if (snapshot.exists) {
@@ -53,49 +53,67 @@ export default function MyProp() {
   });
 
   const [mystyle, setStyle] = useState("but1");
-  const changeStyle = () => { //oprn button
+  const changeStyle = () => {
+    //oprn button
     console.log("you just clicked");
     setStyle("cont");
-    setStyle2("but3")
+    setStyle2("but3");
   };
   const [mystyle2, setStyle2] = useState("but3");
-  const changeStyle2 = () => { //closed button
+  const changeStyle2 = () => {
+    //closed button
     console.log("you just clicked");
     setStyle2("cont2");
     setStyle("but1");
   };
 
-  
-
   return (
     <>
       <img className="background-image" src={PlantBackground}></img>
-      <img 
-      class="propPageTitle"
-      src={yourProp}
-      alt="Logo"
-      />
+      <img class="propPageTitle" src={yourProp} alt="Logo" />
       <br></br>
-      <h1 >Welcome, {currentUserEmail}</h1>
+      <h1>Welcome, {currentUserEmail}</h1>
       <br></br>
 
       <div class="box">
-      <figure>
-        <img
-          class="picRight"
-          src={plant}
-          alt="Logo"
-          
-        />
-        <figcaption class="mycaption">Propagator ID: {propId}</figcaption>
+        <figure>
+          <img class="picRight" src={plant} alt="Logo" />
+          <figcaption class="mycaption">Propagator ID: {propId}</figcaption>
         </figure>
-        <p class="one">Temperature - {/* The reading  */} <br></br><button class="but1">-</button><button class="but3">+</button><br></br>
-        Soil pH - {/* The reading  */}<br></br><button class="but1">Adjust Conditions </button><br></br>
-        Sunlight - {/* The reading  */}<br></br><button class="but1">Low</button><button class="but3">Medium</button><button class="but3">High</button><br></br>
-        Humidity - {/* The reading  */}<br></br><button class="but1">-</button><button class="but3">+</button><br></br>
-        Moisture - {/* The reading  */}<br></br><button class="but1">Water</button><br></br>
-        Ventilation - {/* The reading  */}<br></br><button className={mystyle} onClick={changeStyle} >Open</button><button className={mystyle2} onClick={changeStyle2}>Closed</button><br></br></p>
-        
+        <p class="one">
+          Temperature - {/* The reading  */} <br></br>
+          <button class="but1">-</button>
+          <button class="but3">+</button>
+          <br></br>
+          Soil pH - {/* The reading  */}
+          <br></br>
+          <button class="but1">Adjust Conditions </button>
+          <br></br>
+          Sunlight - {/* The reading  */}
+          <br></br>
+          <button class="but1">Low</button>
+          <button class="but3">Medium</button>
+          <button class="but3">High</button>
+          <br></br>
+          Humidity - {/* The reading  */}
+          <br></br>
+          <button class="but1">-</button>
+          <button class="but3">+</button>
+          <br></br>
+          Moisture - {/* The reading  */}
+          <br></br>
+          <button class="but1">Water</button>
+          <br></br>
+          Ventilation - {/* The reading  */}
+          <br></br>
+          <button className={mystyle} onClick={changeStyle}>
+            Open
+          </button>
+          <button className={mystyle2} onClick={changeStyle2}>
+            Closed
+          </button>
+          <br></br>
+        </p>
       </div>
 
       <button class="but4">Set Conditions Back to Default</button>

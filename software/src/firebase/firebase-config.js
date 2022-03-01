@@ -69,7 +69,7 @@ export function logout() {
  */
 export function addUserPropagatorRelations(userId, propagatorId) {
   const db = getDatabase();
-  set(ref(db, "User_Propogator_relations/" + userId), {
+  set(ref(db, "User_Propagator_relations/" + userId), {
     propagatorId: propagatorId,
   });
 }
