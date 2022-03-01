@@ -188,7 +188,7 @@ function search(word) {
 
     const readQuery = `match (n:Species)-[:In]-> (p) -[:In]->(l) -[:In] ->(z) -[:In]->(k) -[:In]->(q) 
                     where n.common = $search or n.name = $search
-                     return n.name as plant,n.common as common, n.information as info,p.name as a,l.name as b,z.name as c ,k.name as d,q.name as e`
+                     return n.name as plant,n.common as common, n.information as info,p.name as a,l.name as b,z.name as c ,k.name as d,q.name as e,n.moisture_type as f,n.watering as g, n.light as h,n.temp_high as i, n.humidity as j, n.pH_high as k, n.temp_low as l, n.pH_low as m`
      session2.readTransaction((tx) =>
       tx.run(readQuery ,{search :word}).then((readResult)=>{
         readResult.records.forEach(record => {
@@ -200,6 +200,15 @@ function search(word) {
           console.log(`in: ${record.get('c')}`)
           console.log(`in: ${record.get('d')}`)
           console.log(`in: ${record.get('e')}`)
+          console.log(`is: ${record.get('f')}`)
+          console.log(`is: ${record.get('g')}`)
+          console.log(`is: ${record.get('h')}`)
+          console.log(`is: ${record.get('i')}`)
+          console.log(`is: ${record.get('j')}`)
+          console.log(`is: ${record.get('k')}`)
+          console.log(`is: ${record.get('l')}`)
+          console.log(`is: ${record.get('m')}`)
+
         })
       })
     );
