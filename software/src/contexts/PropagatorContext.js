@@ -1,5 +1,7 @@
-import React, { useEffect, useState, createContext } from "react";
+import { child, get, getDatabase, ref } from "firebase/database";
+import React, { useEffect, useState, createContext, useContext } from "react";
 import { auth } from "../firebase/firebase-config";
+import { AuthContext } from "./AuthContext";
 
 /**
  * This Class Acts as an Authentication Context for all our other classes in our application
@@ -11,14 +13,34 @@ export const PropagatorContext = createContext();
 export const PropagatorProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [propagatorHasPlant, setPropagatorHasPlant] = useState(true);
+  const { currentUserUID } = useContext(AuthContext);
+  const [propId, setPropId] = useState("");
 
   function getDetails() {}
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const db = getDatabase();
+    const dbRef = ref(db);
+    var propagatorId = null;
+
+    get(child(dbRef, "User_Propagator_relations/" + currentUserUID))
+      .then((snapshot) => {
+        //Creates a snapshot (what value is at that current location)
+        if (snapshot.exists) {
+          propagatorId = snapshot.val().propagatorId;
+          setPropId(propagatorId); //Sets our useState to the propogatorId we just found to corrsepond to the user
+        } else {
+          alert("No data found!");
+        }
+      })
+      .catch((error) => {
+        alert("unsuccessful, error" + error);
+      });
+  }, []);
 
   //Here we keep track of current user and render our children (child pages)
   return (
-    <PropagatorContext.Provider value={{ propagatorHasPlant }}>
+    <PropagatorContext.Provider value={{ propagatorHasPlant, propId }}>
       {loading && children}
     </PropagatorContext.Provider>
   );

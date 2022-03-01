@@ -28,7 +28,10 @@ import {
   query,
   push,
 } from "firebase/database";
-import { PropagatorContext } from "../contexts/PropagatorContext";
+import {
+  PropagatorContext,
+  PropagatorProvider,
+} from "../contexts/PropagatorContext";
 
 /**
  * Profile Page section of our website
@@ -39,7 +42,7 @@ export default function ProfilePage() {
   const history = useHistory();
   const { currentUserUID, currentUserEmail } = useContext(AuthContext);
   const { propogatorHasPlant } = useContext(PropagatorContext);
-  const [propId, setPropId] = useState("");
+  const { propId } = useContext(PropagatorContext);
 
   /**
    * Function to deal with logout of the user, calls logout from firebase-config.js
@@ -55,58 +58,6 @@ export default function ProfilePage() {
     }
   }
 
-  /**
-   * The UseEffect Method Access' the right PropagatorId for the Current User
-   * And display it in the button
-   * @param {*} userId
-   */
-  useEffect(() => {
-    const db = getDatabase();
-    const dbRef = ref(db);
-    var propagatorId = null;
-
-    get(child(dbRef, "User_Propagator_relations/" + currentUserUID))
-      .then((snapshot) => {
-        //Creates a snapshot (what value is at that current location)
-        if (snapshot.exists) {
-          propagatorId = snapshot.val().propagatorId;
-          setPropId(propagatorId); //Sets our useState to the propogatorId we just found to corrsepond to the user
-        } else {
-          alert("No data found!");
-        }
-      })
-      .catch((error) => {
-        alert("unsuccessful, error" + error);
-      });
-  });
-
-  /**
-   * NOT IMPLEMENTED YET
-   */
-  function showPropogatorReadings() {
-    const db = getDatabase();
-    const dbRef = ref(db);
-    var propagatorId = null;
-    var humidity = null;
-    var moisture = null;
-    var prop_details = null;
-    var sunlight = null;
-    var temperature = null;
-    get(child(dbRef, "User_Propogator_relations/" + currentUserUID))
-      .then((snapshot) => {
-        //Creates a snapshot (what value is at that current location)
-        if (snapshot.exists) {
-          propagatorId = snapshot.val().propagatorId;
-          setPropId(propagatorId); //Sets our useState to the propogatorId we just found to corrsepond to the user
-        } else {
-          alert("No data found!");
-        }
-      })
-      .catch((error) => {
-        alert("unsuccessful, error" + error);
-      });
-  }
-
   //Need to add css to make it look pretty.
   return (
     <>
@@ -120,7 +71,7 @@ export default function ProfilePage() {
 
         {!propogatorHasPlant ? (
           <Link to={"/MyProp"}>
-            <button className="butt2" onClick={showPropogatorReadings}>
+            <button className="butt2">
               Propogator ID : {propId} {/*Shows Propogator ID for User*/}
             </button>
           </Link>
@@ -144,9 +95,7 @@ export default function ProfilePage() {
         <h2 className="actlog">Motion Capture: </h2>
         {propogatorHasPlant ? (
           <Link to={"/MyProp"}>
-            <button className="butt2" onClick={showPropogatorReadings}>
-              Watch
-            </button>
+            <button className="butt2">Watch</button>
           </Link>
         ) : (
           <Link to={"/explore"}></Link>
@@ -160,9 +109,7 @@ export default function ProfilePage() {
         <h2 className="actlog">Plant History : </h2>
         {propogatorHasPlant ? (
           <Link to={"/MyProp"}>
-            <button className="butt2" onClick={showPropogatorReadings}>
-              View
-            </button>
+            <button className="butt2">View</button>
           </Link>
         ) : (
           <Link to={"/explore"}></Link>
