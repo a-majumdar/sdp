@@ -28,33 +28,16 @@ import {
  * @returns
  */
 export default function MyProp() {
-  const [humidity, setHumidity] = useState();
-  const [moisture, setMoisture] = useState();
-  const [prop_detials, setPropDetails] = useState();
-  const [sunlight, setSunlight] = useState();
-  const [temperature, setTemperature] = useState();
   const { currentUserUID, currentUserEmail } = useContext(AuthContext);
-  const { plantIdWeb, propId } = useContext(PropagatorContext);
-
-  // useEffect(() => {
-  //   const db = getDatabase();
-  //   const dbRef = ref(db);
-  //   var propagatorId = null;
-
-  //   get(child(dbRef, "User_Propagator_relations/" + currentUserUID))
-  //     .then((snapshot) => {
-  //       //Creates a snapshot (what value is at that current location)
-  //       if (snapshot.exists) {
-  //         propagatorId = snapshot.val().propagatorId;
-  //         setPropId(propagatorId); //Sets our useState to the propogatorId we just found to corrsepond to the user
-  //       } else {
-  //         alert("No data found!");
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       alert("unsuccessful, error" + error);
-  //     });
-  // });
+  const {
+    plantIdWeb,
+    propId,
+    humidity,
+    moisture,
+    prop_detials,
+    sunlight,
+    temperature,
+  } = useContext(PropagatorContext);
 
   const [mystyle, setStyle] = useState("but1");
   const changeStyle = () => {
@@ -83,33 +66,32 @@ export default function MyProp() {
         <figure>
           <img class="picRight" src={plant} alt="Logo" />
           <figcaption class="mycaption">Propagator ID: {propId}</figcaption>
-          <figcaption class="mycaption">Plant Id: {plantIdWeb}</figcaption>
         </figure>
         <p class="one">
-          Temperature - {/* The reading  */} <br></br>
+          Temperature - {temperature} <br></br>
           <button class="but1">-</button>
           <button class="but3">+</button>
           <br></br>
-          Soil pH - {/* The reading  */}
+          Soil pH - No Data
           <br></br>
           <button class="but1">Adjust Conditions </button>
           <br></br>
-          Sunlight - {/* The reading  */}
+          Sunlight - {sunlight}
           <br></br>
           <button class="but1">Low</button>
           <button class="but3">Medium</button>
           <button class="but3">High</button>
           <br></br>
-          Humidity - {/* The reading  */}
+          Humidity - {humidity}
           <br></br>
           <button class="but1">-</button>
           <button class="but3">+</button>
           <br></br>
-          Moisture - {/* The reading  */}
+          Moisture - {moisture}
           <br></br>
           <button class="but1">Water</button>
           <br></br>
-          Ventilation - {/* The reading  */}
+          Ventilation - {/* Whether vent is open or not  */}
           <br></br>
           <button className={mystyle} onClick={changeStyle}>
             Open

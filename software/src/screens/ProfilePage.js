@@ -43,6 +43,7 @@ export default function ProfilePage() {
   const { currentUserUID, currentUserEmail } = useContext(AuthContext);
   const { propogatorHasPlant } = useContext(PropagatorContext);
   const { propId } = useContext(PropagatorContext);
+  const { plantIdWeb } = useContext(PropagatorContext);
 
   /**
    * Function to deal with logout of the user, calls logout from firebase-config.js
@@ -62,9 +63,9 @@ export default function ProfilePage() {
   return (
     <>
       <img className="background-image" src={PlantBackground}></img>
-      <img class="profPageTitle" src={yourProfile} alt="Logo" />
+      <img className="profPageTitle" src={yourProfile} alt="Logo" />
       <br></br>
-      <h2 className="usrlog">Current User ID Logged On : {currentUserUID}</h2>
+      <h2 className="usrlog">Welcome to your profile, {currentUserEmail}</h2>
       <br></br>
       <div>
         <h2 className="actlog">Active Propogators: </h2>
@@ -90,10 +91,9 @@ export default function ProfilePage() {
           <button className="but1" >Link another Propogator</button>
         </h2> */}
       </div>
-
       <div>
         <h2 className="actlog">Motion Capture: </h2>
-        {propogatorHasPlant ? (
+        {!propogatorHasPlant ? (
           <Link to={"/MyProp"}>
             <button className="butt2">Watch</button>
           </Link>
