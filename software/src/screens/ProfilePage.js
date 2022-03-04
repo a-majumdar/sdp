@@ -140,7 +140,6 @@ export default function ProfilePage() {
       </button>
 
       <Footer></Footer>
-      <button onClick={handleLogout}>Logout</button>
     </>
   );
 }

@@ -196,7 +196,7 @@ getAllInfo("01");
 //Search engine
 const session2 = driver.session();
 function search(word) {
-  try {
+  try{
     //step1: searching the plant name by its common name or (professional) name
     //step2:retrun all plant details (later will also with propogator conditions as it establlished manaully)
     //eg: when we search tomato, it would return all the palnts which has the common/professional name called tomato with their all relevant information

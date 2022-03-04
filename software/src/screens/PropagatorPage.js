@@ -35,6 +35,7 @@ export default function MyProp() {
     humidity,
     moisture,
     prop_detials,
+    plantCommonName,
     sunlight,
     temperature,
   } = useContext(PropagatorContext);
@@ -68,13 +69,11 @@ export default function MyProp() {
           <figcaption class="mycaption">Propagator ID: {propId}</figcaption>
         </figure>
         <p class="one">
+          You are currently growing - {plantCommonName}
+          <br></br>
           Temperature - {temperature} <br></br>
           <button class="but1">-</button>
           <button class="but3">+</button>
-          <br></br>
-          Soil pH - No Data
-          <br></br>
-          <button class="but1">Adjust Conditions </button>
           <br></br>
           Sunlight - {sunlight}
           <br></br>

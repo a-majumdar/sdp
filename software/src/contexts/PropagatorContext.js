@@ -22,6 +22,7 @@ export const PropagatorProvider = ({ children }) => {
   const [prop_detials, setPropDetails] = useState();
   const [sunlight, setSunlight] = useState();
   const [temperature, setTemperature] = useState();
+  const [plantCommonName, setPlantCommonName] = useState();
 
   function getDetails() {}
 
@@ -59,7 +60,7 @@ export const PropagatorProvider = ({ children }) => {
                 console.log("No plant data available");
               }
               return `match (n:Species) -[:In]-> (p) -[:In]->(l) -[:In] ->(z) -[:In]->(k) -[:In]->(q) 
-        where ID(n) = 18
+        where ID(n) = ${plantId}
         return n.name as plant,p.name as a,l.name as b,z.name as c ,k.name as d,q.name as e`;
             })
             .then((auraquery) => {
@@ -78,6 +79,8 @@ export const PropagatorProvider = ({ children }) => {
                 var plantName = record.get("plant");
                 console.log(`plant name: ${record.get("plant")}`);
                 console.log(`in: ${record.get("a")}`);
+                var PlantCommon = record.get("a");
+                setPlantCommonName(PlantCommon);
                 console.log(`in: ${record.get("b")}`);
                 console.log(`in: ${record.get("c")}`);
                 console.log(`in: ${record.get("d")}`);
@@ -145,7 +148,7 @@ export const PropagatorProvider = ({ children }) => {
 
   useEffect(() => {
     getAllInfo();
-  }, []);
+  });
 
   //Here we keep track of current user and render our children (child pages)
   return (
@@ -159,6 +162,7 @@ export const PropagatorProvider = ({ children }) => {
         prop_detials,
         sunlight,
         temperature,
+        plantCommonName,
       }}
     >
       {loading && children}
