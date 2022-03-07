@@ -9,6 +9,7 @@ import Explore from "./screens/Explore";
 import SignUp from "./screens/SignUp";
 import MyProp from "./screens/PropagatorPage";
 import ProfilePage from "./screens/ProfilePage";
+import SearchPage from "./screens/SearchPage";
 import LogIn from "./screens/Login";
 import { AuthProvider } from "./contexts/AuthContext";
 import PrivateRoute from "./PrivateRoute";
@@ -31,6 +32,7 @@ function App() {
           <Route path="/Explore" exact component={Explore} />
           <Route path="/Contact" exact component={Contact} />
           <Route path="/login" exact component={LogIn} />
+          <Route path="/searchPage" exact component={SearchPage} />
           <PropagatorProvider>
             <PrivateRoute path="/profile" exact component={ProfilePage} />
             <Route path="/MyProp" exact component={MyProp} />

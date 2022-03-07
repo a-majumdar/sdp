@@ -3,24 +3,31 @@ import "../App.css";
 import Cards from "../components/organisms/expCards";
 import Footer from "../components/organisms/Footer";
 import { Card, Form, Alert } from "react-bootstrap";
-
+import { useHistory } from "react-router-dom";
 import PlantBackground from "../assets/explr.jpg";
 import neo4j from "neo4j-driver";
 import { Button } from "../components/atoms/Button";
+import {Link, useLocation} from 'react-router-dom';
 
+export const theUserSearch = '';
 /**
  * Explore section of our website
  * @returns
  */
 export default function Explore() {
-  const SearchQuery = useRef();
-
+  
   const uri = "neo4j+s://28cce6ce.databases.neo4j.io";
   const user = "neo4j";
   const password = "sdpgroup22isthebest";
   const driver = neo4j.driver(uri, neo4j.auth.basic(user, password));
   const session = driver.session();
   const session2 = driver.session();
+  const history = useHistory();
+  const routeChange = () =>{ 
+    let path = `/SearchPage`; 
+    history.push(path);
+  }
+  const [theUserSearch, setUserSearch] = useState('banana');
   function search(word) {
     try {
       //step1: searching the plant name by its common name or (professional) name
@@ -56,21 +63,36 @@ export default function Explore() {
       console.error("Something went wrong: ", error);
     }
   } //CANT SEARCH ARBITRARY PLANT FOR SOME REASON
+  
+  
   return (
     <>
       <div className="hero-container">
         <img className="background-image" src={PlantBackground}></img>
         <h1>Explore new plants!</h1>
-        <Form onSubmit={search("Tomato")}>
-          <Form.Group id="search">
-            <Form.Control ref={SearchQuery} required />
-          </Form.Group>
-          <button type="submit">Search</button>
+        <Form>
+          <label>Search here :</label>
+          <input
+            type="text"
+            required
+            value={theUserSearch}
+            onChange={(e) => setUserSearch(e.target.value)}
+            />
+           
+            <button type="submit" onClick={routeChange}>Search</button> {/* onclick of this button go to search result page */}
         </Form>
+        {/* {
+          theUserSearch = userSearch
+        } */}
+        <p>the search was for , {theUserSearch}</p>
+        
+        
         <div className="hero-btns"></div>
+        
       </div>
       <Cards />
       <Footer />
     </>
   );
 }
+ 
