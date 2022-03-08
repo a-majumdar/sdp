@@ -4,7 +4,7 @@ import PlantBackground from "../../../assets/ePlant.jpg";
 import "../../../App";
 
 function SearchPageSection() {
-    
+    //I just copied everything to the one page, just because we will be passing loads of props and it might get confusing if we use a lot of small sections
   const mystyle = {
     color: "white",
     textAlign: "center",
