@@ -14,6 +14,7 @@ import LogIn from "./screens/Login";
 import { AuthProvider } from "./contexts/AuthContext";
 import PrivateRoute from "./PrivateRoute";
 import { PropagatorProvider } from "./contexts/PropagatorContext";
+import { PlantDataProvider } from "./contexts/PlantDataContext";
 
 /**
  * Main Root of Our Website
@@ -24,20 +25,22 @@ function App() {
   return (
     <Router>
       <AuthProvider>
-        <Navbar></Navbar>
-        <Switch>
-          <Route path="/sign-up" exact component={SignUp} />
-          <Route path="/" exact component={Home} />
-          <Route path="/about-us" exact component={AboutUs} />
-          <Route path="/Explore" exact component={Explore} />
-          <Route path="/Contact" exact component={Contact} />
-          <Route path="/login" exact component={LogIn} />
-          <Route path="/searchPage" exact component={SearchPage} />
-          <PropagatorProvider>
-            <PrivateRoute path="/profile" exact component={ProfilePage} />
-            <Route path="/MyProp" exact component={MyProp} />
-          </PropagatorProvider>
-        </Switch>
+        <PlantDataProvider>
+          <Navbar></Navbar>
+          <Switch>
+            <Route path="/sign-up" exact component={SignUp} />
+            <Route path="/" exact component={Home} />
+            <Route path="/about-us" exact component={AboutUs} />
+            <Route path="/Explore" exact component={Explore} />
+            <Route path="/Contact" exact component={Contact} />
+            <Route path="/login" exact component={LogIn} />
+            <Route path="/searchPage" exact component={SearchPage} />
+            <PropagatorProvider>
+              <PrivateRoute path="/profile" exact component={ProfilePage} />
+              <Route path="/MyProp" exact component={MyProp} />
+            </PropagatorProvider>
+          </Switch>
+        </PlantDataProvider>
       </AuthProvider>
     </Router>
   );
