@@ -3,7 +3,6 @@ import "../App.css";
 import Cards from "../components/organisms/expCards";
 import Footer from "../components/organisms/Footer";
 import { Card, Form, Alert } from "react-bootstrap";
-
 import PlantBackground from "../assets/explr.jpg";
 import neo4j from "neo4j-driver";
 import { Button } from "../components/atoms/Button";
@@ -61,7 +60,7 @@ export default function Explore() {
       <div className="hero-container">
         <img className="background-image" src={PlantBackground}></img>
         <h1>Explore new plants!</h1>
-        <Form onSubmit={search("Tomato")}>
+        <Form onSubmit={search()}>
           <Form.Group id="search">
             <Form.Control ref={SearchQuery} required />
           </Form.Group>
