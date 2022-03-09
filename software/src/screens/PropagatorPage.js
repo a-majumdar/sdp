@@ -67,6 +67,9 @@ export default function MyProp() {
         <figure>
           <img class="picRight" src={plant} alt="Logo" />
           <figcaption class="mycaption">Propagator ID: {propId}</figcaption>
+          <figcaption class="mycaption">
+            ID of Plant Currently Growing: {plantIdWeb}
+          </figcaption>
         </figure>
         <p class="one">
           You are currently growing - {plantCommonName}
