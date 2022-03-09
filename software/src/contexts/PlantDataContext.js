@@ -9,6 +9,10 @@ import neo4j from "neo4j-driver";
 import { Button } from "../components/atoms/Button";
 import { Link, useLocation } from "react-router-dom";
 
+/**
+ * This Context keeps all the information about the plant from the search engine so we can use it anywhere in our application
+ * Main classes that use this are explore and SearchPage
+ */
 export const PlantDataContext = createContext();
 
 export const PlantDataProvider = ({ children }) => {
