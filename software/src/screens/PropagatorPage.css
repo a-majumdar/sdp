@@ -1,3 +1,31 @@
+.bigcontainer{
+  position: relative;
+}
+
+.leftsection {
+  position: absolute;
+}
+
+.rightsection {
+  z-index: 9;
+}
+
+.plantDescription{
+  width: 500px;
+  height: 300px;
+  margin-left: 200px;
+}
+
+.plantpic{
+  width: 500px;
+  height: 300px;
+  margin-left: 200px;
+}
+
+.plantmsg{
+  margin-left: 150px;
+}
+
 .tableAndVars {
   position: relative;
 }

@@ -107,10 +107,20 @@ export default function MyProp() {
       {/* 
       <img className="background-image" src={PlantBackground}></img>
       */}
-    <h1>Here's how your {plantCommonName} plant is doing: </h1>
+    <h1> Welcome, {currentUserEmail}!</h1>
+    <h2 className="plantmsg">Here's how your {plantCommonName} plant is doing: </h2>
+    <div className="bigcontainer">
+    <div class="leftsection">
+      <div className="yourPlantPic">
+        <img class="plantpic" src={PlantBackground} alt="Logo" />
+      </div>
+      <div class="plantDescription">
+        <p>Plant description will go here</p>
+      </div>
+    </div>
 
     
-
+    <div className="rightsection">
     <div className="outTable">
       <table>
         <tr>
@@ -191,7 +201,8 @@ export default function MyProp() {
         </div>
       </div>
       </div>
-      
+      </div> {/* rigt section */}
+      </div> {/* big container */}
       <p><br/></p>
       <p><br/></p>
       <p><br/></p>
