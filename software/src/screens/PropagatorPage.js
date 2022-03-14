@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
-
-import { Card, Form, Button, Alert } from "react-bootstrap";
+import { Slider } from '@material-ui/core'
+import { Card, Form, Button, Alert, Container } from "react-bootstrap";
 import PlantBackground from "../assets/back.jpg";
 import "../screens/PropagatorPage.css";
 import Footer from "../components/organisms/Footer";
@@ -54,23 +54,27 @@ export default function MyProp() {
     setStyle2("cont2");
     setStyle("but1");
   };
-
+  const [val, setVal] = useState([10])
+  const updateRange=(e, data)=>{
+      setVal(data)
+  }
+  const [val2, setVal2] = useState([10])
+  const updateRange2=(e, data)=>{
+      setVal2(data)
+  }
   return (
     <>
+      {/* 
       <img className="background-image" src={PlantBackground}></img>
+      */}
       <img class="propPageTitle" src={yourProp} alt="Logo" />
       <br></br>
       <h1>Welcome, {currentUserEmail}</h1>
+      
       <br></br>
-
-      <div class="box">
-        <figure>
-          <img class="picRight" src={plant} alt="Logo" />
-          <figcaption class="mycaption">Propagator ID: {propId}</figcaption>
-          <figcaption class="mycaption">
-            ID of Plant Currently Growing: {plantIdWeb}
-          </figcaption>
-        </figure>
+      
+      <div class="mycont">
+      <div class="divData">
         <p class="one">
           You are currently growing - {plantCommonName}
           <br></br>
@@ -103,9 +107,44 @@ export default function MyProp() {
           </button>
           <br></br>
         </p>
-      </div>
+        <button class="but4">Set Conditions Back to Default</button>
+        </div>
 
-      <button class="but4">Set Conditions Back to Default</button>
+
+
+      <div class="box">
+        <figure>
+        <figcaption class="mycaption">Propagator ID: {propId}</figcaption>
+          <figcaption class="mycaption">
+            ID of Plant Currently Growing: {plantIdWeb}
+          </figcaption>
+          <img class="picRight" src={plant} alt="Logo" />
+          
+        </figure>
+        </div>
+        
+        </div>
+
+      
+
+      <div class ="slider1">
+      <h2> Position: Rotation {val}</h2>
+      <Slider
+      
+      value={val}
+      step={10}
+      onChange = {updateRange}
+      />
+      </div>
+      <div class ="slider2">
+      <h2>Position: Tilt {val2}</h2>
+      <Slider
+      
+      value={val2}
+      step={10}
+      onChange = {updateRange2}
+      />
+      </div>
 
       {/*
       <h1>Your plant,</h1>

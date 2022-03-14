@@ -1,9 +1,36 @@
-.container {
-  display: flex;
-  justify-content: start;
-  align-items: left;
+.slider1{
+  margin-top: 20px;
+  margin-left: 1500px;
+  width: 300px;
+}
+.slider2{
+  margin-top: 15x;
+  margin-left: 1500px;
+  width: 300px;
+}
+.slider3{
+  margin-top: 15px;
+  margin-left: 1500px;
+  width: 300px;
 }
 
+.mycont {
+  position: relative;
+}
+.divData{
+  margin-top: 1px;
+  margin-left: 30px;
+  position: absolute;
+}
+.picRight{
+  float:left;
+  margin-left: 1400px;
+  margin-right: 50px;
+  margin-top: 1px;
+  width: 600px;
+  height: 700px;
+  z-index: 9;
+}
 .container img,
 .container p {
   flex-grow: 0;
@@ -25,13 +52,7 @@
   line-height: 1.5;
 }
 
-.picRight{
-  float:right;
-  margin-left: 50px;
-  margin-right: 50px;
-  width: 600px;
-  height: 700px;
-}
+
 
 .propPageTitle{
   margin-top: 20px;
@@ -107,7 +128,7 @@
   font-size: 16px;
 }
 .mycaption{
-  margin-left: 50px;
+  margin-left: 1760px;
 }
 .box {
   display: flex;
