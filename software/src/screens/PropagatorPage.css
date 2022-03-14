@@ -1,17 +1,55 @@
+.ventCont{
+  position: relative;
+}
+
+.vent{
+  margin-top: 1px;
+  margin-left: 1535px;
+  position: absolute;
+}
+
+.toggleVent{
+  margin-top: 10px;
+  margin-left: 1620px;
+  
+  z-index: 9;
+}
+
+
+
 .slider1{
-  margin-top: 20px;
-  margin-left: 1500px;
-  width: 300px;
+  position: relative;
+  
 }
-.slider2{
+
+.slider1text{
   margin-top: 15x;
-  margin-left: 1500px;
-  width: 300px;
+  margin-left: 1400px;
+  position: absolute;
 }
-.slider3{
-  margin-top: 15px;
-  margin-left: 1500px;
+.sliderbar1{
+  margin-top: 30px;
+  margin-left: 1700px;
   width: 300px;
+  z-index: 9;
+}
+
+
+
+
+.slider2{
+  position: relative;
+}
+.slider2text{
+  margin-top: 15x;
+  margin-left: 1400px;
+  position: absolute;
+}
+.sliderbar2{
+  margin-top: 30px;
+  margin-left: 1700px;
+  width: 300px;
+  z-index: 9;
 }
 
 .mycont {

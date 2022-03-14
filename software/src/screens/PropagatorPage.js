@@ -7,7 +7,7 @@ import Footer from "../components/organisms/Footer";
 import plant from "../assets/greenplant.jpg";
 import yourProp from "../assets/yourProp.jpg";
 import { AuthContext } from "../contexts/AuthContext";
-
+import { Switch } from "antd";
 import {
   getDatabase,
   ref,
@@ -61,6 +61,10 @@ export default function MyProp() {
   const [val2, setVal2] = useState([10])
   const updateRange2=(e, data)=>{
       setVal2(data)
+  }
+  const[toggle, setToggle] = useState(false);
+  const toggler = () => {
+    toggle ? setToggle(false) : setToggle(true);
   }
   return (
     <>
@@ -125,27 +129,43 @@ export default function MyProp() {
         
         </div>
 
+      <div className="ventCont">
+        <div className="vent">
+          <h2>Vent</h2>
+        </div>
+        <div class ="toggleVent">
+          <Switch onClick={toggler}/>
+        </div>
+      </div>
       
-
       <div class ="slider1">
-      <h2> Position: Rotation {val}</h2>
-      <Slider
+        <div class = "slider1text">
+          <h2> Position: Rotation {val}</h2>
+        </div>
       
-      value={val}
-      step={10}
-      onChange = {updateRange}
-      />
-      </div>
-      <div class ="slider2">
-      <h2>Position: Tilt {val2}</h2>
-      <Slider
-      
-      value={val2}
-      step={10}
-      onChange = {updateRange2}
-      />
+        <div class = "sliderbar1">
+          <Slider
+              value={val}
+              step={10}
+              onChange = {updateRange}
+          />
+        </div>
+     
       </div>
 
+      <div class ="slider2">
+        <div class = "slider2text">
+          <h2>Position: Tilt {val2}</h2>
+        </div>
+        <div class = "sliderbar2">
+          <Slider
+            value={val2}
+            step={10}
+            onChange = {updateRange2}
+          />
+        </div>
+      </div>
+      
       {/*
       <h1>Your plant,</h1>
       <div className="container">
