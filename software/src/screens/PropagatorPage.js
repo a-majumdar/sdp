@@ -30,6 +30,8 @@ import {
   PropogatorContext,
 } from "../contexts/PropagatorContext";
 
+
+
 const muiTheme = createMuiTheme({
   overrides:{
     MuiSlider: {
@@ -123,25 +125,25 @@ export default function MyProp() {
     <div className="rightsection">
     <div className="outTable">
       <table>
-        <tr>
+        <tr class = "ab">
           <th>{<img class="sun" src={sun} alt="Logo" />}</th>
-          <th>Sunlight</th>
-          <th>{sunlight}</th>
+          <th class="suntext">Sunlight</th>
+          <th class="suntext">{sunlight}</th>
         </tr>
-        <tr>
+        <tr class = "ab">
           <td>{<img class="sun" src={tempic} alt="Logo" />}</td>
-          <td>Temperature</td>
-          <td>{temperature}</td>
+          <td class="suntext">Temperature</td>
+          <td class="suntext">{temperature}</td>
         </tr>
-        <tr>
+        <tr class = "ab">
           <td>{<img class="sun" src={humid} alt="Logo" />}</td>
-          <td>Humidity</td>
-          <td>{humidity}</td>
+          <td class="suntext">Humidity</td>
+          <td class="suntext">{humidity}</td>
         </tr>
-        <tr>
+        <tr class = "ab">
           <td>{<img class="sun" src={moist} alt="Logo" />}</td>
-          <td>Moisture</td>
-          <td>{moisture}</td>
+          <td class="suntext">Moisture</td>
+          <td class="suntext">{moisture}</td>
         </tr>
       </table>
     </div>
