@@ -108,7 +108,9 @@ export default function MyProp() {
       <img className="background-image" src={PlantBackground}></img>
       */}
     <h1>Here's how your {plantCommonName} plant is doing: </h1>
-    <div class="tableAndVars">
+
+    
+
     <div className="outTable">
       <table>
         <tr>
@@ -133,7 +135,7 @@ export default function MyProp() {
         </tr>
       </table>
     </div>
-      
+    
 
         
       <div class="menu">
@@ -189,7 +191,27 @@ export default function MyProp() {
         </div>
       </div>
       </div>
-      </div>
+      
+      <p><br/></p>
+      <p><br/></p>
+      <p><br/></p>
+      <p><br/></p>
+      <p><br/></p>
+      <p><br/></p>
+      <p><br/></p>
+      <p><br/></p>
+      <p><br/></p>
+      <p><br/></p>
+      <p><br/></p>
+      <p><br/></p>
+      <p><br/></p>
+      
+      <p><br/></p>
+      <p><br/></p>
+
+
+     
+    
       {/*
 
       

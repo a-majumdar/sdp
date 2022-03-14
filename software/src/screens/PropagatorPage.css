@@ -1,3 +1,46 @@
+.tableAndVars {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  
+  margin-bottom: 700px;
+
+}
+.outTable {
+  margin-top: 40px;
+  margin-left: 1250px;
+
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+}
+
+.sun{
+  width: 70px;
+  height: 70px;
+}
+
+
+
+  
+table {
+  border: 2px solid forestgreen;
+  width: 800px;
+  height: 200px;
+}
+  
+th {
+
+  
+}
+  
+td {
+  
+}
+
+
 .ventCont{
   margin-top: 20px;
   position: relative;
@@ -83,7 +126,7 @@
   margin-right: 50px;
   margin-top: 1px;
   width: 600px;
-  height: 700px;
+  height: 500px;
   z-index: 9;
 }
 .container img,
@@ -186,6 +229,8 @@
   margin-left: 1760px;
 }
 .box {
+  margin-left: 600px;
+  margin-top: 100px;
   display: flex;
   flex-wrap: wrap;
 }
