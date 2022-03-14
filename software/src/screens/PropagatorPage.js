@@ -66,6 +66,10 @@ export default function MyProp() {
   const toggler = () => {
     toggle ? setToggle(false) : setToggle(true);
   }
+  const[wtoggle, setwToggle] = useState(false);
+  const wtoggler = () => {
+    toggle ? setwToggle(false) : setwToggle(true);
+  }
   return (
     <>
       {/* 
@@ -165,7 +169,14 @@ export default function MyProp() {
           />
         </div>
       </div>
-      
+      <div className="ventCont">
+        <div className="vent">
+          <h2>Watering</h2>
+        </div>
+        <div class ="toggleVent">
+          <Switch onClick={wtoggler}/>
+        </div>
+      </div>
       {/*
       <h1>Your plant,</h1>
       <div className="container">

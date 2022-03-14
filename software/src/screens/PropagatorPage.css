@@ -1,34 +1,33 @@
 .ventCont{
+  margin-top: 20px;
   position: relative;
 }
-
 .vent{
-  margin-top: 1px;
-  margin-left: 1535px;
+  
+  margin-left: 1400px;
   position: absolute;
 }
-
 .toggleVent{
-  margin-top: 10px;
-  margin-left: 1620px;
-  
+  margin-left: 1700px;
   z-index: 9;
 }
 
 
 
 .slider1{
+  margin-top: 25px;
   position: relative;
   
 }
 
 .slider1text{
-  margin-top: 15x;
+  
+
   margin-left: 1400px;
   position: absolute;
 }
 .sliderbar1{
-  margin-top: 30px;
+
   margin-left: 1700px;
   width: 300px;
   z-index: 9;
@@ -38,15 +37,16 @@
 
 
 .slider2{
+  margin-top: 20px;
   position: relative;
 }
 .slider2text{
-  margin-top: 15x;
+
   margin-left: 1400px;
   position: absolute;
 }
 .sliderbar2{
-  margin-top: 30px;
+
   margin-left: 1700px;
   width: 300px;
   z-index: 9;
