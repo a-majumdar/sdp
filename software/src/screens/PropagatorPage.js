@@ -8,6 +8,8 @@ import plant from "../assets/greenplant.jpg";
 import yourProp from "../assets/yourProp.jpg";
 import { AuthContext } from "../contexts/AuthContext";
 import { Switch } from "antd";
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
 import {
   getDatabase,
   ref,
@@ -23,6 +25,22 @@ import {
   PropagatorContext,
   PropogatorContext,
 } from "../contexts/PropagatorContext";
+
+const muiTheme = createMuiTheme({
+  overrides:{
+    MuiSlider: {
+      thumb:{
+      color: "#3399ff",
+      },
+      track: {
+        color: 'red'
+      },
+      rail: {
+        color: 'black'
+      }
+    }
+}
+});
 /**
  * Propogator Section of Our Website
  * @returns
@@ -70,6 +88,8 @@ export default function MyProp() {
   const wtoggler = () => {
     toggle ? setwToggle(false) : setwToggle(true);
   }
+
+  
   return (
     <>
       {/* 
@@ -144,39 +164,46 @@ export default function MyProp() {
       
       <div class ="slider1">
         <div class = "slider1text">
-          <h2> Position: Rotation {val}</h2>
+          <h2> Position: Rotation</h2>
         </div>
       
         <div class = "sliderbar1">
+        <ThemeProvider theme={muiTheme}>
           <Slider
               value={val}
               step={10}
+              valueLabelDisplay="on"
+              color="#52af77"
               onChange = {updateRange}
           />
+          </ThemeProvider>
         </div>
      
       </div>
 
       <div class ="slider2">
         <div class = "slider2text">
-          <h2>Position: Tilt {val2}</h2>
+          <h2>Position: Tilt</h2>
         </div>
         <div class = "sliderbar2">
           <Slider
             value={val2}
             step={10}
+            valueLabelDisplay="on"
             onChange = {updateRange2}
           />
         </div>
       </div>
-      <div className="ventCont">
-        <div className="vent">
+
+      <div className="waterCont">
+        <div className="watertext">
           <h2>Watering</h2>
         </div>
-        <div class ="toggleVent">
+        <div class ="togglewater">
           <Switch onClick={wtoggler}/>
         </div>
       </div>
+
       {/*
       <h1>Your plant,</h1>
       <div className="container">

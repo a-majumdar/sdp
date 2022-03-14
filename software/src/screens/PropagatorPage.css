@@ -15,7 +15,7 @@
 
 
 .slider1{
-  margin-top: 25px;
+  margin-top: 45px;
   position: relative;
   
 }
@@ -37,7 +37,7 @@
 
 
 .slider2{
-  margin-top: 20px;
+  margin-top: 45px;
   position: relative;
 }
 .slider2text{
@@ -51,6 +51,23 @@
   width: 300px;
   z-index: 9;
 }
+
+.watercont{
+  margin-top: 50px;
+  position: relative;
+}
+.watertext{
+  margin-top: 1px;
+  margin-left: 1400px;
+  position: absolute;
+}
+.togglewater{
+  margin-left: 1700px;
+  margin-top: 30px;
+  z-index: 9;
+}
+
+
 
 .mycont {
   position: relative;
