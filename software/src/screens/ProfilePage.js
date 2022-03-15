@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import "../App.css";
-import PlantBackground from "../assets/back.jpg";
+import PlantBackground from "../assets/profile-background.jpeg";
 import { Card, Button, Form } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
