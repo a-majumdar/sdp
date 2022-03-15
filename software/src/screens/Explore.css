@@ -1,0 +1,17 @@
+.search-bar {
+  width: 400px;
+  height: 40px;
+  font-size: 20px;
+  box-shadow: aquamarine;
+  border-radius: 20px;
+}
+
+.search-btn {
+  height: 40px;
+  margin-left: 15px;
+  background-color: #97c092;
+  color: white;
+  margin-bottom: 170px;
+  width: 100px;
+  border-radius: 20px;
+}

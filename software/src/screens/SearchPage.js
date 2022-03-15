@@ -5,6 +5,7 @@ import SearchPageSection from "../components/organisms/contentSections/SearchPag
 import { theUserSearch } from "./Explore";
 import PlantBackground from "../assets/ePlant.jpg";
 import { PlantDataContext } from "../contexts/PlantDataContext";
+import Tomato from "../assets/tomato.jpeg";
 import "../screens/SearchPage.css";
 import { Link } from "react-router-dom";
 import { PropagatorContext } from "../contexts/PropagatorContext";
@@ -51,38 +52,57 @@ export default function SearchPage() {
     <>
       {/* <p>stuff is belwo {theUserSearch}</p> */}
       {/* <div>{location.state.name}</div> */}
-      <img className="background-image" src={PlantBackground}></img>
-      <div className="hero-container">
-        <br></br>
-        {/* Will get rid of these breaks but it was a quick fix to get the header alligned prooperly */}
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <h1 className="header"> Search Results</h1>
-        <p>{commonName}</p>
-        <p>{plantName}</p>
-        <p>{higherNode}</p>
-        <p>{humidity}</p>
-        <p>{watering}</p>
-        <p>{pHLow}</p>
-        <p>{phHigh}</p>
-        <p>{tempLow}</p>
-        <p>{tempHigh}</p>
-        <p>{light}</p>
+      <div className="all-items-explore">
+        <div className="left-div-image-add-to-prop">
+          {/* Will get rid of these breaks but it was a quick fix to get the header alligned prooperly */}
 
-        <Link to={"/MyProp"}>
+          <img className="image" src={Tomato}></img>
+          <button className="add-to-prop-btn">Add to Propagator</button>
+        </div>
+        <div className="right-div">
+          <h2 className="plant-name">Tomato Plant</h2>
+          <p>
+            The tomato is the edible berry of the plant Solanum lycopersicum,
+            commonly known as a tomato plant. The species originated in western
+            South America and Central America. The Mexican Nahuatl word tomatl
+            gave rise to the Spanish word tomate, from which the English word
+            tomato derived. Its domestication and use as a cultivated food may
+            have originated with the indigenous peoples of Mexico. The Aztecs
+            used tomatoes in their cooking at the time of the Spanish conquest
+            of the Aztec Empire, and after the Spanish encountered the tomato
+            for the first time after their contact with the Aztecs, they brought
+            the plant to Europe, in a widespread transfer of plants known as the
+            Columbian exchange. From there, the tomato was introduced to other
+            parts of the European-colonized world during the 16th century.
+            <Link
+              to={{ pathname: "https://en.wikipedia.org/wiki/Tomato" }}
+              target="_blank"
+              style={{ margin: 10 }}
+            >
+              To Wiki
+            </Link>
+          </p>
+          <br></br>
+
+          <h2>Optimal plant conditions</h2>
+          <div className="plant-info">
+            <p className="data">{commonName}</p>
+            <p className="data">{plantName}</p>
+            <p className="data">{higherNode}</p>
+            <p className="data">{humidity}</p>
+            <p className="data">{watering}</p>
+            <p className="data">{pHLow}</p>
+            <p className="data">{phHigh}</p>
+            <p className="data">{tempLow}</p>
+            <p className="data">{tempHigh}</p>
+            <p className="data">{light}</p>
+          </div>
+          {/* Will get rid of these breaks but it was a quick fix to get the header alligned prooperly */}
+        </div>
+
+        {/* <Link to={"/MyProp"}>
           <button> Add to Propagator </button>
-        </Link>
-
-        {/* <p>{tempHigh}</p>
-        <p>{moistureType}</p>
-        <p>{phHigh}</p>
-        <p>{tempLow}</p>
-        <p>{pHLow}</p> */}
-
-        <div className="hero-btns"></div>
+        </Link> */}
       </div>
       <Footer />
     </>

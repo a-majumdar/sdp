@@ -8,6 +8,7 @@ function ContactUsSection() {
     padding: "10px 20px",
     textAlign: "center",
     color: "white",
+    marginTop: 100,
     fontSize: "100px",
   };
   const mystyle = {

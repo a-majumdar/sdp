@@ -1,5 +1,4 @@
 import React, { useContext, useRef, useState } from "react";
-import "../App.css";
 import Cards from "../components/organisms/expCards";
 import Footer from "../components/organisms/Footer";
 import { Card, Form, Alert } from "react-bootstrap";
@@ -9,6 +8,7 @@ import neo4j from "neo4j-driver";
 import { Button } from "../components/atoms/Button";
 import { Link, useLocation } from "react-router-dom";
 import { PlantDataContext } from "../contexts/PlantDataContext";
+import "./Explore.css";
 
 /**
  * Explore section of our website
@@ -108,13 +108,18 @@ export default function Explore() {
         <h1>Explore new plants!</h1>
         <Form>
           <input
+            className="search-bar"
             type="text"
             required
             value={theUserSearch}
             onChange={(e) => setUserSearch(e.target.value)}
           />
           <Link to={`/SearchPage`}>
-            <button type="submit" onClick={search(theUserSearch)}>
+            <button
+              className="search-btn"
+              type="submit"
+              onClick={search(theUserSearch)}
+            >
               {""}
               {/*This should be working if you go into console on the website and type "Tomato"*/}
               Search
