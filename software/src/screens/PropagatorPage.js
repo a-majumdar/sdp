@@ -106,7 +106,7 @@ export default function MyProp() {
 
   return (
     <>
-      {/* 
+      {/*
       <img className="background-image" src={PlantBackground}></img>
       */}
       <div className="bigcontainer">
