@@ -24,7 +24,14 @@ export const PropagatorProvider = ({ children }) => {
   const [temperature, setTemperature] = useState();
   const [plantCommonName, setPlantCommonName] = useState();
 
-  function getDetails() {}
+  // function getTempDataForGraph(propId) {
+  //   const db = ref(getDatabase());
+  //   get(child(db, `Humidity_Temperature_Readings/${propId}`)).then((ans) => {
+  //     if (ans.exists()) {
+  //       for(var i = 0; i < 10; i++){
+  //       var temp = Object.values(ans.val()).slice(-1)[0].Temperature;
+  //       }
+  // }
 
   function getAllInfo() {
     const db = ref(getDatabase());
