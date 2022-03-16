@@ -1,3 +1,7 @@
+.plntTxt {
+  font-size: 20px;
+}
+
 .suntext{
   font-size: 40px;
 }
@@ -17,7 +21,7 @@
 .plantDescription{
   width: 500px;
   height: 300px;
-  margin-left: 400px;
+  margin-left: 460px;
 }
 
 .plantpic{

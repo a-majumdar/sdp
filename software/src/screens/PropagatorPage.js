@@ -3,6 +3,9 @@ import { Slider } from '@material-ui/core'
 import { Card, Form, Button, Alert, Container } from "react-bootstrap";
 import PlantBackground from "../assets/back.jpg";
 import abuta from "../assets/abuta.jpg";
+import creambg from "../assets/creambg.jpg";
+import graybg from "../assets/graybg.png";
+import greenbg from "../assets/greenbg.png";
 import sun from "../assets/sun.png";
 import tempic from "../assets/thermom.png";
 import humid from "../assets/humid.png";
@@ -110,6 +113,7 @@ export default function MyProp() {
       {/* 
       <img className="background-image" src={PlantBackground}></img>
       */}
+    <img className="background-image" src={greenbg}></img>
     <h1> Welcome, {currentUserEmail}!</h1>
     <h2 className="plantmsg">Here's how your {plantCommonName} plant is doing: </h2>
     <div className="bigcontainer">
@@ -118,7 +122,15 @@ export default function MyProp() {
         <img class="plantpic" src={abuta} alt="Logo" />
       </div>
       <div class="plantDescription">
-        <p>Plant description will go here</p>
+        <p class="plntTxt">Common Name is: Abuta plant </p>
+            <p class="plntTxt">Name: Solanum lycopersicum</p>
+            <p class="plntTxt">Humidity is: low</p>
+            <p class="plntTxt">Watering is: frequent</p>
+            <p class="plntTxt">pH Low is: 6.2</p>
+            <p class="plntTxt">pH High Is: 6.8</p>
+            <p class="plntTxt">Temp Low is: 18</p>
+            <p class="plntTxt">Temp High is: 30</p>
+            <p class="plntTxt">Light is: high</p>
       </div>
     </div>
 
