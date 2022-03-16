@@ -113,25 +113,24 @@ export default function MyProp() {
       {/* 
       <img className="background-image" src={PlantBackground}></img>
       */}
+    <div className="bigcontainer">
     <img className="background-image" src={greenbg}></img>
+    <div class="leftsection">
     <h1> Welcome, {currentUserEmail}!</h1>
     <h2 className="plantmsg">Here's how your {plantCommonName} plant is doing: </h2>
-    <div className="bigcontainer">
-    <div class="leftsection">
       <div className="yourPlantPic">
         <img class="plantpic" src={abuta} alt="Logo" />
       </div>
-      <div class="plantDescription">
-        <p class="plntTxt">Common Name is: Abuta plant </p>
-            <p class="plntTxt">Name: Solanum lycopersicum</p>
-            <p class="plntTxt">Humidity is: low</p>
-            <p class="plntTxt">Watering is: frequent</p>
-            <p class="plntTxt">pH Low is: 6.2</p>
-            <p class="plntTxt">pH High Is: 6.8</p>
-            <p class="plntTxt">Temp Low is: 18</p>
-            <p class="plntTxt">Temp High is: 30</p>
-            <p class="plntTxt">Light is: high</p>
-      </div>
+        <p>Common Name is: Abuta 
+            plant Name: Menispermaceae
+            Humidity is: low 
+            Watering is: frequent
+            <br></br>
+            pH Low is: 6.2
+            pH High Is: 6.8
+            Temp Low is: 18
+            Temp High is: 30
+            Light is: high</p>
     </div>
 
     
@@ -160,9 +159,10 @@ export default function MyProp() {
         </tr>
       </table>
     </div>
+
     
 
-        
+      
       <div class="menu">
       <div className="ventCont">
         <div className="vent">
@@ -171,32 +171,19 @@ export default function MyProp() {
         <div class ="toggleVent">
           <Switch onClick={toggler}/>
         </div>
+        <h2 className="pos">Position</h2>
       </div>
       
-      <div class ="slider1">
-        <div class = "slider1text">
-          <h2> Position: Rotation</h2>
-        </div>
       
-        <div class = "sliderbar1">
-        <ThemeProvider theme={muiTheme}>
-          <Slider
-              value={val}
-              step={10}
-              valueLabelDisplay="on"
-              color="#52af77"
-              onChange = {updateRange}
-          />
-          </ThemeProvider>
-        </div>
+      
+        
+        
      
-      </div>
+      
 
 
       <div class ="slider2">
-        <div class = "slider2text">
-          <h2>Position: Tilt</h2>
-        </div>
+        
         <div class = "sliderbar2">
           <Slider
             value={val2}
@@ -218,45 +205,7 @@ export default function MyProp() {
       </div>
       </div> {/* rigt section */}
       </div> {/* big container */}
-      <p><br/></p>
-      <p><br/></p>
-      <p><br/></p>
-      <p><br/></p>
-      <p><br/></p>
-      <p><br/></p>
-      <p><br/></p>
-      <p><br/></p>
-      <p><br/></p>
-      <p><br/></p>
-      <p><br/></p>
-      <p><br/></p>
-      <p><br/></p>
-      
-      <p><br/></p>
-      <p><br/></p>
 
-
-     
-    
-      {/*
-
-      
-      
-      
-      */}
-      {/* <div class="box">
-        <figure>
-        <figcaption class="mycaption">Propagator ID: {propId}</figcaption>
-          <figcaption class="mycaption">
-            ID of Plant Currently Growing: {plantIdWeb}
-          </figcaption>
-          
-          <img class="picRight" src={plant} alt="Logo" />
-      </figure>
-      </div> */}
-        
-
-  
 
       <Footer />
     </>
