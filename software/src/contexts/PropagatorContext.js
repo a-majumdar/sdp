@@ -24,14 +24,18 @@ export const PropagatorProvider = ({ children }) => {
   const [temperature, setTemperature] = useState();
   const [plantCommonName, setPlantCommonName] = useState();
 
-  // function getTempDataForGraph(propId) {
-  //   const db = ref(getDatabase());
-  //   get(child(db, `Humidity_Temperature_Readings/${propId}`)).then((ans) => {
-  //     if (ans.exists()) {
-  //       for(var i = 0; i < 10; i++){
-  //       var temp = Object.values(ans.val()).slice(-1)[0].Temperature;
-  //       }
-  // }
+  function getTempDataForGraph(propId) {
+    const db = ref(getDatabase());
+    get(child(db, `Humidity_Temperature_Readings/${propId}`)).then(
+      (snapshot) => {
+        var tempdata = [];
+        snapshot.forEach((childSnapshot) => {
+          var temperature = Object.values(childSnapshot).Temperature;
+          console.log("ALJWDJKHWAKJDAWHDKJAHKWDHK");
+        });
+      }
+    );
+  }
 
   function getAllInfo() {
     const db = ref(getDatabase());
@@ -154,6 +158,7 @@ export const PropagatorProvider = ({ children }) => {
   }
 
   useEffect(() => {
+    getTempDataForGraph();
     getAllInfo();
   });
 
