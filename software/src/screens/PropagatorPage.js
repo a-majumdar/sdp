@@ -174,13 +174,7 @@ export default function MyProp() {
         <h2 className="pos">Position</h2>
       </div>
       
-      
-      
-        
-        
-     
-      
-
+      {/* new pull */}
 
       <div class ="slider2">
         
