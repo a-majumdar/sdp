@@ -171,7 +171,7 @@ export default function MyProp() {
         <div class ="toggleVent">
           <Switch onClick={toggler}/>
         </div>
-        <h2 className="pos">Position</h2>
+        <h2 className="pos">Position: Rotation</h2>
       </div>
       
       {/* new pull */}
@@ -186,6 +186,19 @@ export default function MyProp() {
             onChange = {updateRange2}
           />
         </div>
+        <h2 className="pos">Position: Tilt</h2>
+      </div>
+      <div class ="slider2">
+        
+        <div class = "sliderbar2">
+          <Slider
+            value={val2}
+            step={10}
+            valueLabelDisplay="on"
+            onChange = {updateRange2}
+          />
+        </div>
+        
       </div>
 
       <div className="waterCont">
