@@ -1,3 +1,7 @@
+.pdesc{
+  font-size: 25px;
+}
+
 .pos {
   margin-top: 20px;
 }
@@ -31,7 +35,7 @@
 .plantDescription{
   width: 500px;
   height: 300px;
-  
+
 }
 
 .plantpic{
@@ -63,21 +67,21 @@
 
 
 
-  
+
 table {
   border: 2px solid forestgreen;
   width: 800px;
   height: 200px;
-  border-collapse: collapse; 
-  
+  border-collapse: collapse;
+
 }
-tr th { 
-  border-top: 1px solid black; 
+tr th {
+  border-top: 1px solid black;
   border-bottom: 1px solid black;
 }
 
 .ab {
-  border-top: 1px solid black; 
+  border-top: 1px solid black;
   border-bottom: 1px solid black;
 }
 
@@ -100,17 +104,17 @@ tr th {
 .slider1{
   margin-top: 45px;
   position: relative;
-  
+
 }
 
 .slider1text{
-  
+
   margin-top: 20px;
 
   position: absolute;
 }
 .sliderbar1{
-  
+
   width: 300px;
   z-index: 9;
 }
@@ -120,13 +124,13 @@ tr th {
 
 .slider2{
   margin-top: 40px;
-  
+
 }
 .slider2text{
-  
-  
 
-  
+
+
+
 }
 .sliderbar2{
 
@@ -136,7 +140,7 @@ tr th {
 
 .watercont{
   margin-top: 0px;
-  
+
 }
 .watertext{
   margin-top: 10px;

@@ -42,7 +42,7 @@ const muiTheme = createMuiTheme({
       thumb:{
       color: "#3399ff",
       },
-      
+
       track: {
         color: 'red'
       },
@@ -105,12 +105,12 @@ export default function MyProp() {
   const wtoggler = () => {
     toggle ? setwToggle(false) : setwToggle(true);
   }
- 
 
-  
+
+
   return (
     <>
-      {/* 
+      {/*
       <img className="background-image" src={PlantBackground}></img>
       */}
     <div className="bigcontainer">
@@ -121,9 +121,9 @@ export default function MyProp() {
       <div className="yourPlantPic">
         <img class="plantpic" src={abuta} alt="Logo" />
       </div>
-        <p>Common Name is: Abuta 
+        <p class="pdesc">Common Name is: Abuta
             plant Name: Menispermaceae
-            Humidity is: low 
+            Humidity is: low
             Watering is: frequent
             <br></br>
             pH Low is: 6.2
@@ -133,7 +133,7 @@ export default function MyProp() {
             Light is: high</p>
     </div>
 
-    
+
     <div className="rightsection">
     <div className="outTable">
       <table>
@@ -160,9 +160,9 @@ export default function MyProp() {
       </table>
     </div>
 
-    
 
-      
+
+
       <div class="menu">
       <div className="ventCont">
         <div className="vent">
@@ -173,11 +173,11 @@ export default function MyProp() {
         </div>
         <h2 className="pos">Position: Rotation</h2>
       </div>
-      
+
       {/* new pull */}
 
       <div class ="slider2">
-        
+
         <div class = "sliderbar2">
           <Slider
             value={val2}
@@ -189,7 +189,7 @@ export default function MyProp() {
         <h2 className="pos">Position: Tilt</h2>
       </div>
       <div class ="slider2">
-        
+
         <div class = "sliderbar2">
           <Slider
             value={val2}
@@ -198,7 +198,7 @@ export default function MyProp() {
             onChange = {updateRange2}
           />
         </div>
-        
+
       </div>
 
       <div className="waterCont">
