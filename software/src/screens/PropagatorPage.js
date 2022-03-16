@@ -51,6 +51,7 @@ import {
 
 export default function MyProp() {
   const { currentUserUID, currentUserEmail } = useContext(AuthContext);
+  const [tempData, setTempData] = useState([{ temp: "", time: "" }]);
   const {
     plantIdWeb,
     propId,
@@ -62,9 +63,24 @@ export default function MyProp() {
     temperature,
   } = useContext(PropagatorContext);
 
-  function getTemperatureData() {
-    const alldata = [];
-  }
+  const getTempData = () => {
+    const db = ref(getDatabase());
+    setTempData([]);
+    const data = [];
+    get(child(db, `Humidity_Temperature_Readings/${propId}`)).then(
+      (snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+          //console.log(childSnapshot.val().Temperature);
+          tempData.push(childSnapshot.val().Temperature);
+          console.log(tempData);
+        });
+      }
+    );
+  };
+
+  useEffect(() => {
+    getTempData();
+  }, []);
 
   return (
     <>
