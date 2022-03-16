@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Slider } from '@material-ui/core'
+import { Slider } from "@material-ui/core";
 import { Card, Form, Button, Alert, Container } from "react-bootstrap";
 import PlantBackground from "../assets/back.jpg";
 import abuta from "../assets/abuta.jpg";
@@ -16,8 +16,8 @@ import plant from "../assets/greenplant.jpg";
 import yourProp from "../assets/yourProp.jpg";
 import { AuthContext } from "../contexts/AuthContext";
 import { Switch } from "antd";
-import { createMuiTheme } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
+import { createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
 import {
   getDatabase,
   ref,
@@ -34,34 +34,32 @@ import {
   PropogatorContext,
 } from "../contexts/PropagatorContext";
 
-
-
 const muiTheme = createMuiTheme({
-  overrides:{
+  overrides: {
     MuiSlider: {
-      thumb:{
-      color: "#3399ff",
+      thumb: {
+        color: "#3399ff",
       },
-      
+
       track: {
-        color: 'red'
+        color: "red",
       },
       rail: {
-        color: 'black'
-      }
-    }
-}
+        color: "black",
+      },
+    },
+  },
 });
 /**
  * Propogator Section of Our Website
  * @returns
  */
 
- const data = [
+const data = [
   { name: "Anom", age: 19, gender: "Male" },
   { name: "Megha", age: 19, gender: "Female" },
-  { name: "Subham", age: 25, gender: "Male"},
-]
+  { name: "Subham", age: 25, gender: "Male" },
+];
 export default function MyProp() {
   const { currentUserUID, currentUserEmail } = useContext(AuthContext);
   const {
@@ -89,131 +87,120 @@ export default function MyProp() {
     setStyle2("cont2");
     setStyle("but1");
   };
-  const [val, setVal] = useState([10])
-  const updateRange=(e, data)=>{
-      setVal(data)
-  }
-  const [val2, setVal2] = useState([10])
-  const updateRange2=(e, data)=>{
-      setVal2(data)
-  }
-  const[toggle, setToggle] = useState(false);
+  const [val, setVal] = useState([10]);
+  const updateRange = (e, data) => {
+    setVal(data);
+  };
+  const [val2, setVal2] = useState([10]);
+  const updateRange2 = (e, data) => {
+    setVal2(data);
+  };
+  const [toggle, setToggle] = useState(false);
   const toggler = () => {
     toggle ? setToggle(false) : setToggle(true);
-  }
-  const[wtoggle, setwToggle] = useState(false);
+  };
+  const [wtoggle, setwToggle] = useState(false);
   const wtoggler = () => {
     toggle ? setwToggle(false) : setwToggle(true);
-  }
- 
+  };
 
-  
   return (
     <>
       {/* 
       <img className="background-image" src={PlantBackground}></img>
       */}
-    <div className="bigcontainer">
-    <img className="background-image" src={greenbg}></img>
-    <div class="leftsection">
-    <h1> Welcome, {currentUserEmail}!</h1>
-    <h2 className="plantmsg">Here's how your {plantCommonName} plant is doing: </h2>
-      <div className="yourPlantPic">
-        <img class="plantpic" src={abuta} alt="Logo" />
-      </div>
-        <p>Common Name is: Abuta 
-            plant Name: Menispermaceae
-            Humidity is: low 
+      <div className="bigcontainer">
+        <div className="background-image"></div>
+        <div class="leftsection">
+          <h1> Welcome, {currentUserEmail}!</h1>
+          <h2 className="plantmsg">
+            Here's how your NAME OF PLANT plant is doing:{" "}
+          </h2>
+          <div className="yourPlantPic">
+            <img class="plantpic" src={abuta} alt="Logo" />
+          </div>
+          <p>
+            Common Name is: Abuta plant Name: Menispermaceae Humidity is: low
             Watering is: frequent
             <br></br>
-            pH Low is: 6.2
-            pH High Is: 6.8
-            Temp Low is: 18
-            Temp High is: 30
-            Light is: high</p>
-    </div>
-
-    
-    <div className="rightsection">
-    <div className="outTable">
-      <table>
-        <tr class = "ab">
-          <th>{<img class="sun" src={sun} alt="Logo" />}</th>
-          <th class="suntext">Sunlight</th>
-          <th class="suntext">{sunlight}</th>
-        </tr>
-        <tr class = "ab">
-          <td>{<img class="sun" src={tempic} alt="Logo" />}</td>
-          <td class="suntext">Temperature</td>
-          <td class="suntext">{temperature}</td>
-        </tr>
-        <tr class = "ab">
-          <td>{<img class="sun" src={humid} alt="Logo" />}</td>
-          <td class="suntext">Humidity</td>
-          <td class="suntext">{humidity}</td>
-        </tr>
-        <tr class = "ab">
-          <td>{<img class="sun" src={moist} alt="Logo" />}</td>
-          <td class="suntext">Moisture</td>
-          <td class="suntext">{moisture}</td>
-        </tr>
-      </table>
-    </div>
-
-    
-
-      
-      <div class="menu">
-      <div className="ventCont">
-        <div className="vent">
-          <h2>Vent</h2>
+            pH Low is: 6.2 pH High Is: 6.8 Temp Low is: 18 Temp High is: 30
+            Light is: high
+          </p>
         </div>
-        <div class ="toggleVent">
-          <Switch onClick={toggler}/>
-        </div>
-        <h2 className="pos">Position: Rotation</h2>
-      </div>
-      
-      {/* new pull */}
+        <div className="rightsection">
+          <div className="outTable">
+            <table>
+              <tr class="ab">
+                <th>{<img class="sun" src={sun} alt="Logo" />}</th>
+                <th class="suntext">Sunlight</th>
+                <th class="suntext">{sunlight}</th>
+              </tr>
+              <tr class="ab">
+                <td>{<img class="sun" src={tempic} alt="Logo" />}</td>
+                <td class="suntext">Temperature</td>
+                <td class="suntext">{temperature}</td>
+              </tr>
+              <tr class="ab">
+                <td>{<img class="sun" src={humid} alt="Logo" />}</td>
+                <td class="suntext">Humidity</td>
+                <td class="suntext">{humidity}</td>
+              </tr>
+              <tr class="ab">
+                <td>{<img class="sun" src={moist} alt="Logo" />}</td>
+                <td class="suntext">Moisture</td>
+                <td class="suntext">{moisture}</td>
+              </tr>
+            </table>
+          </div>
 
-      <div class ="slider2">
-        
-        <div class = "sliderbar2">
-          <Slider
-            value={val2}
-            step={10}
-            valueLabelDisplay="on"
-            onChange = {updateRange2}
-          />
-        </div>
-        <h2 className="pos">Position: Tilt</h2>
-      </div>
-      <div class ="slider2">
-        
-        <div class = "sliderbar2">
-          <Slider
-            value={val2}
-            step={10}
-            valueLabelDisplay="on"
-            onChange = {updateRange2}
-          />
-        </div>
-        
-      </div>
+          <div class="menu">
+            <div className="ventCont">
+              <div className="vent">
+                <h2>Vent</h2>
+              </div>
+              <div class="toggleVent">
+                <Switch onClick={toggler} />
+              </div>
+              <h2 className="pos">Position: Rotation</h2>
+            </div>
 
-      <div className="waterCont">
-        <div className="watertext">
-          <h2>Watering</h2>
-        </div>
-        <div class ="togglewater">
-          <Switch onClick={wtoggler}/>
-        </div>
-      </div>
-      </div>
-      </div> {/* rigt section */}
-      </div> {/* big container */}
+            {/* new pull */}
 
+            <div class="slider2">
+              <div class="sliderbar2">
+                <Slider
+                  value={val2}
+                  step={10}
+                  valueLabelDisplay="on"
+                  onChange={updateRange2}
+                />
+              </div>
+              <h2 className="pos">Position: Tilt</h2>
+            </div>
+            <div class="slider2">
+              <div class="sliderbar2">
+                <Slider
+                  value={val2}
+                  step={10}
+                  valueLabelDisplay="on"
+                  onChange={updateRange2}
+                />
+              </div>
+            </div>
 
+            <div className="waterCont">
+              <div className="watertext">
+                <h2>Watering</h2>
+              </div>
+              <div class="togglewater">
+                <Switch onClick={wtoggler} />
+              </div>
+            </div>
+          </div>
+        </div>{" "}
+        {/* rigt section */}
+      </div>{" "}
+      {/* big container */}
       <Footer />
     </>
   );

@@ -61,16 +61,18 @@ const Navbar = () => {
   return (
     <>
       <nav className="navbar">
-        <div className="navbar-container">
-          <h1></h1>
+        <div className="left side">
           <NavLink to="/" className="logo-button">
             <a href="/" className="logo">
               <img className="logo" src={Logo} alt="" />
             </a>
           </NavLink>
-          <div className="menu-icon" onClick={handleClick}>
+        </div>
+        {/* <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
-          </div>
+          </div> */}
+
+        <div className="right-side">
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
               <Link to="/" className="nav-links" onClick={closeMobileMenu}>

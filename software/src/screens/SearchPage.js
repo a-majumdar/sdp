@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import "../App.css";
 import Footer from "../components/organisms/Footer";
-import SearchPageSection from "../components/organisms/contentSections/SearchPageSection";
 import { theUserSearch } from "./Explore";
 import PlantBackground from "../assets/ePlant.jpg";
 import { PlantDataContext } from "../contexts/PlantDataContext";

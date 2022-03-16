@@ -125,9 +125,11 @@ export default function ProfilePage() {
       <br></br>
       <br></br>
 
-      <button onClick={handleLogout} className="logoutbtn">
-        Logout
-      </button>
+      <div className="logoutdiv">
+        <button onClick={handleLogout} className="logoutbtn">
+          Logout
+        </button>
+      </div>
 
       <Footer></Footer>
     </>
