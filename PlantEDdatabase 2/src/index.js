@@ -144,6 +144,20 @@ function getAllInfo(userId) {
               var humidity = Object.values(ans.val()).slice(-1)[0].Humidity;
               var temperature = Object.values(ans.val()).slice(-1)[0]
                 .Temperature;
+                var all = Object.values(ans.val())
+                var numbers = []
+                for (var i = 0; i <all.length;i++) {
+                  if(i%4 == 0){
+                    numbers.push(i)
+                  }
+                }
+                var filtered = numbers.map((item) => all[item])
+                console.log("Attention!!")
+                filtered.forEach((data)=> {
+                  console.log(data.Temperature)
+                  console.log(data.Sample_Time)
+                })
+                
               console.log(
                 "humidity: " + Object.values(ans.val()).slice(-1)[0].Humidity
               );

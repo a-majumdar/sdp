@@ -18,7 +18,7 @@ function AboutUsSection() {
       <p style={mystyle}>
         PlantEd is a smart plant care system that intends to enhance the
         learning curve of new plant enthusiasts by providing an interactive
-        experience for growing plants indoors, and by assessing the optimal
+        experience for growing plants indoors, as well as assessing the optimal
         conditions for growth.
       </p>
       <div className="hero-btns"></div>

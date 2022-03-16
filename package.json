@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "antd": "^4.19.2",
     "firebase": "^8.9.1"
   }
 }
