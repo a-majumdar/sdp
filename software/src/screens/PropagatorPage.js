@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Slider } from '@material-ui/core'
 import { Card, Form, Button, Alert, Container } from "react-bootstrap";
 import PlantBackground from "../assets/back.jpg";
+import abuta from "../assets/abuta.jpg";
 import sun from "../assets/sun.png";
 import tempic from "../assets/thermom.png";
 import humid from "../assets/humid.png";
@@ -114,7 +115,7 @@ export default function MyProp() {
     <div className="bigcontainer">
     <div class="leftsection">
       <div className="yourPlantPic">
-        <img class="plantpic" src={PlantBackground} alt="Logo" />
+        <img class="plantpic" src={abuta} alt="Logo" />
       </div>
       <div class="plantDescription">
         <p>Plant description will go here</p>
