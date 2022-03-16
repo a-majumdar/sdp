@@ -83,25 +83,25 @@ export default function SearchPage() {
           </p>
           <br></br>
 
+          {/* Need to make this work dynamically */}
           <h2>Optimal plant conditions</h2>
-          <div className="plant-info">
-            <p className="data">{commonName}</p>
-            <p className="data">{plantName}</p>
-            <p className="data">{higherNode}</p>
-            <p className="data">{humidity}</p>
-            <p className="data">{watering}</p>
-            <p className="data">{pHLow}</p>
-            <p className="data">{phHigh}</p>
-            <p className="data">{tempLow}</p>
-            <p className="data">{tempHigh}</p>
-            <p className="data">{light}</p>
+          <div className="all-plant-info">
+            <div className="plant-info">
+              <p className="data">{commonName}</p>
+              <p className="data">{plantName}</p>
+              <p className="data">{higherNode}</p>
+              <p className="data">{humidity}</p>
+              <p className="data">{watering}</p>
+            </div>
+            <div className="plant-info">
+              <p className="data">{pHLow}</p>
+              <p className="data">{phHigh}</p>
+              <p className="data">{tempLow}</p>
+              <p className="data">{tempHigh}</p>
+              <p className="data">{light}</p>
+            </div>
           </div>
-          {/* Will get rid of these breaks but it was a quick fix to get the header alligned prooperly */}
         </div>
-
-        {/* <Link to={"/MyProp"}>
-          <button> Add to Propagator </button>
-        </Link> */}
       </div>
       <Footer />
     </>

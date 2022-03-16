@@ -24,19 +24,6 @@ export const PropagatorProvider = ({ children }) => {
   const [temperature, setTemperature] = useState();
   const [plantCommonName, setPlantCommonName] = useState();
 
-  function getTempDataForGraph(propId) {
-    const db = ref(getDatabase());
-    get(child(db, `Humidity_Temperature_Readings/${propId}`)).then(
-      (snapshot) => {
-        var tempdata = [];
-        snapshot.forEach((childSnapshot) => {
-          var temperature = Object.values(childSnapshot).Temperature;
-          console.log("ALJWDJKHWAKJDAWHDKJAHKWDHK");
-        });
-      }
-    );
-  }
-
   function getAllInfo() {
     const db = ref(getDatabase());
     const uri = "neo4j+s://28cce6ce.databases.neo4j.io";
@@ -51,12 +38,10 @@ export const PropagatorProvider = ({ children }) => {
         if (snapshot.exists()) {
           var propagatorId = snapshot.val().propagatorId;
           setPropId(propagatorId);
-          console.log("propagatorid: " + propagatorId);
         } else {
           console.log("No propagator data available");
         }
         return propagatorId;
-        console.log("propogator Id is" + propagatorId);
       })
       .then((propagatorId) =>
         Promise.all([
@@ -66,7 +51,6 @@ export const PropagatorProvider = ({ children }) => {
               if (propagatorId.exists()) {
                 var plantId = propagatorId.val().plantId;
                 setPlantIdWeb(plantId);
-                console.log("plantId: " + plantId);
               } else {
                 console.log("No plant data available");
               }
@@ -88,14 +72,8 @@ export const PropagatorProvider = ({ children }) => {
               readResult.records.forEach((record) => {
                 //get all plant information from plant id
                 var plantName = record.get("plant");
-                console.log(`plant name: ${record.get("plant")}`);
-                console.log(`in: ${record.get("a")}`);
                 var PlantCommon = record.get("a");
                 setPlantCommonName(PlantCommon);
-                console.log(`in: ${record.get("b")}`);
-                console.log(`in: ${record.get("c")}`);
-                console.log(`in: ${record.get("d")}`);
-                console.log(`in: ${record.get("e")}`);
               });
             }),
           //get latest humidity and temperature reading
@@ -107,13 +85,6 @@ export const PropagatorProvider = ({ children }) => {
                   .Temperature;
                 setHumidity(humidity);
                 setTemperature(temperature);
-                console.log(
-                  "humidity: " + Object.values(ans.val()).slice(-1)[0].Humidity
-                );
-                console.log(
-                  "temperature: " +
-                    Object.values(ans.val()).slice(-1)[0].Temperature
-                );
               } else {
                 console.log("No humidity temperature data available");
               }
@@ -125,11 +96,6 @@ export const PropagatorProvider = ({ children }) => {
               var lightintensity = Object.values(ans.val()).slice(-1)[0]
                 .intensity;
               setSunlight(lightintensity);
-              console.log(
-                "light intensity: " +
-                  Object.values(ans.val()).slice(-1)[0].intensity
-              );
-              // .forEach((haha) => console.log(haha.Humidity))
             } else {
               console.log("No light data available");
             }
@@ -141,14 +107,6 @@ export const PropagatorProvider = ({ children }) => {
                 .Moisture_value;
               var moisturestatus = Object.values(ans.val()).slice(-1)[0].Status;
               setMoisture(moisturevalue);
-              console.log(
-                "moisture value: " +
-                  Object.values(ans.val()).slice(-1)[0].Moisture_value
-              );
-              console.log(
-                "moisture status: " +
-                  Object.values(ans.val()).slice(-1)[0].Status
-              );
             } else {
               console.log("No moisture data available");
             }
@@ -158,8 +116,7 @@ export const PropagatorProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    getTempDataForGraph();
-    getAllInfo();
+    getAllInfo(propId);
   });
 
   //Here we keep track of current user and render our children (child pages)

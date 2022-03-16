@@ -7,8 +7,13 @@
 .left-div-image-add-to-prop {
   display: flex;
   flex-direction: column;
-  width: 600px;
+  width: 50%;
   padding: 50px;
+}
+
+.all-plant-info {
+  display: flex;
+  flex-direction: row;
 }
 
 .plant-name {
@@ -22,6 +27,7 @@
 
 .data {
   margin: 8px;
+  font-size: 13px;
 }
 
 .add-to-prop-btn {
@@ -36,6 +42,7 @@
 .right-div {
   margin-top: 40px;
   margin-right: 30px;
+  width: 50%;
   display: flex;
   flex-direction: column;
 }
