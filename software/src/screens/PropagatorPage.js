@@ -16,6 +16,7 @@ import {
 } from "firebase/database";
 import { PropagatorContext } from "../contexts/PropagatorContext";
 import { XAxis, YAxis, LineChart, Line } from "recharts";
+import { Button } from "react-bootstrap";
 
 /**
  * Propogator Section of Our Website
@@ -43,7 +44,9 @@ export default function MyProp() {
    * This Function gets the (most recent) temperature data from the realtime database and stores it as a list of objects
    * Then, eventually we will use this to display the information in a graph.
    */
+  
   const getTempData = () => {
+    const data = [];
     const db = ref(getDatabase());
     get(child(db, `Humidity_Temperature_Readings/${propId}`)).then(
       (snapshot) => {
@@ -54,12 +57,13 @@ export default function MyProp() {
           // console.log("time" + time);
           const timeNum = new Date().getTime(time);
           // console.log("timeNum" + timeNum);
-          tempData.push({ time: time, temp: temp1 });
+          data.push({ time: time, temp: temp1 });
         });
       }
     );
-    console.log(tempData); //to access data
-//  console.log(tempData.s); //to access data
+    console.log("this is the data" + data); //to access data
+//    console.log(data); //to access data
+  
   };
 
   useEffect(() => {
@@ -73,10 +77,10 @@ export default function MyProp() {
   ];
 
   const data2 = [];
-  data2.push({ name: "Page A", uv: 400, pv: 2400, amt: 2400 });
-  data2.push({ name: "Page A", uv: 400, pv: 2400, amt: 2400 });
-  data2.push({ name: "Page A", uv: 400, pv: 2400, amt: 2400 });
-  data2.push({ name: "Page A", uv: 400, pv: 2400, amt: 2400 });
+  data2.push({ name: "Page A", uv: 100, pv: 2400, amt: 2400 });
+  data2.push({ name: "Page B", uv: 200, pv: 2400, amt: 2400 });
+  data2.push({ name: "Page C", uv: 300, pv: 2400, amt: 2400 });
+  data2.push({ name: "Page D", uv: 600, pv: 2400, amt: 2400 });
   return (
     <>
       {/*
@@ -120,7 +124,9 @@ export default function MyProp() {
               <p className="data">{humidity}</p>
             </div>
           </div>
-
+          <Button
+            onClick={getTempData()}
+          />
           <LineChart width={500} height={300} data={tempData}>
             <XAxis dataKey="time" />
             <YAxis />
