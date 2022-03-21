@@ -33,16 +33,7 @@ import {
   PropagatorContext,
   PropogatorContext,
 } from "../contexts/PropagatorContext";
-import {
-  LineChart,
-  ResponsiveContainer,
-  Legend,
-  Tooltip,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-} from "recharts";
+import { Line } from "react-chartjs-2";
 
 /**
  * Propogator Section of Our Website
@@ -51,7 +42,8 @@ import {
 
 export default function MyProp() {
   const { currentUserUID, currentUserEmail } = useContext(AuthContext);
-  const [tempData, setTempData] = useState([{ temp: "", time: "" }]);
+  const [tempData, setTempData] = useState([]);
+
   const {
     plantIdWeb,
     propId,
@@ -63,24 +55,36 @@ export default function MyProp() {
     temperature,
   } = useContext(PropagatorContext);
 
+  /**  ********IN PROGRESS***********
+   * This Function gets the (most recent) temperature data from the realtime database and stores it as a list of objects
+   * Then, eventually we will use this to display the information in a graph.
+   */
   const getTempData = () => {
-    const db = ref(getDatabase());
     setTempData([]);
-    const data = [];
+    const db = ref(getDatabase());
     get(child(db, `Humidity_Temperature_Readings/${propId}`)).then(
       (snapshot) => {
-        snapshot.forEach((childSnapshot) => {
-          //console.log(childSnapshot.val().Temperature);
-          tempData.push(childSnapshot.val().Temperature);
-          console.log(tempData);
+        snapshot.forEach((snapshot) => {
+          //Need to change this to the latest 200 Readings for example... Once we have more data...
+          const temp1 = snapshot.val().Temperature;
+          const time = snapshot.val().Sample_Time;
+          const timeNum = new Date().getTime(time);
+          tempData.push({ time: timeNum, temp: temp1 });
         });
       }
     );
+    console.log(tempData);
   };
 
   useEffect(() => {
     getTempData();
   }, []);
+
+  const data = [
+    { name: "Page A", uv: 400, pv: 2400, amt: 2400 },
+    { name: "Page B", uv: 600, pv: 2600, amt: 1800 },
+    { name: "Page C", uv: 800, pv: 2800, amt: 1200 },
+  ];
 
   return (
     <>
@@ -125,14 +129,6 @@ export default function MyProp() {
               <p className="data">{humidity}</p>
             </div>
           </div>
-
-          <LineChart width={500} height={300}>
-            <XAxis dataKey="name" />
-            <YAxis />
-            <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-            <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-            <Line type="monotone" dataKey="pv" stroke="#82ca9d" />
-          </LineChart>
         </div>
       </div>{" "}
       {/* big container */}
