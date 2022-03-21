@@ -1,23 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Slider } from "@material-ui/core";
-import { Card, Form, Button, Alert, Container } from "react-bootstrap";
-import PlantBackground from "../assets/back.jpg";
 import abuta from "../assets/abuta.jpg";
-import creambg from "../assets/creambg.jpg";
-import graybg from "../assets/graybg.png";
-import greenbg from "../assets/greenbg.png";
-import sun from "../assets/sun.png";
-import tempic from "../assets/thermom.png";
-import humid from "../assets/humid.png";
-import moist from "../assets/moist.png";
 import "../screens/PropagatorPage.css";
 import Footer from "../components/organisms/Footer";
-import plant from "../assets/greenplant.jpg";
-import yourProp from "../assets/yourProp.jpg";
 import { AuthContext } from "../contexts/AuthContext";
-import { Switch } from "antd";
-import { createMuiTheme } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
 import {
   getDatabase,
   ref,
@@ -29,11 +14,8 @@ import {
   query,
   push,
 } from "firebase/database";
-import {
-  PropagatorContext,
-  PropogatorContext,
-} from "../contexts/PropagatorContext";
-import { Line } from "react-chartjs-2";
+import { PropagatorContext } from "../contexts/PropagatorContext";
+import { XAxis, YAxis, LineChart, Line } from "recharts";
 
 /**
  * Propogator Section of Our Website
@@ -42,13 +24,15 @@ import { Line } from "react-chartjs-2";
 
 export default function MyProp() {
   const { currentUserUID, currentUserEmail } = useContext(AuthContext);
-  const [tempData, setTempData] = useState([]);
+  const [tempData, setTempData] = useState([{}]);
+  const [loading, setLoading] = useState(true);
 
   const {
     plantIdWeb,
     propId,
     humidity,
     moisture,
+    CartesianGrid,
     prop_detials,
     plantCommonName,
     sunlight,
@@ -60,12 +44,10 @@ export default function MyProp() {
    * Then, eventually we will use this to display the information in a graph.
    */
   const getTempData = () => {
-    setTempData([]);
     const db = ref(getDatabase());
     get(child(db, `Humidity_Temperature_Readings/${propId}`)).then(
       (snapshot) => {
-        snapshot.forEach((snapshot) => {
-          //Need to change this to the latest 200 Readings for example... Once we have more data...
+        snapshot.forEach(() => {
           const temp1 = snapshot.val().Temperature;
           const time = snapshot.val().Sample_Time;
           const timeNum = new Date().getTime(time);
@@ -77,6 +59,7 @@ export default function MyProp() {
   };
 
   useEffect(() => {
+    setTempData([]);
     getTempData();
   }, []);
 
@@ -86,6 +69,14 @@ export default function MyProp() {
     { name: "Page C", uv: 800, pv: 2800, amt: 1200 },
   ];
 
+  const data2 = [];
+  data2.push({ name: "Page A", uv: 400, pv: 2400, amt: 2400 });
+  data2.push({ name: "Page A", uv: 400, pv: 2400, amt: 2400 });
+  data2.push({ name: "Page A", uv: 400, pv: 2400, amt: 2400 });
+  data2.push({ name: "Page A", uv: 400, pv: 2400, amt: 2400 });
+  console.log(data2);
+  console.log(tempData);
+
   return (
     <>
       {/*
@@ -93,7 +84,7 @@ export default function MyProp() {
       */}
       <div className="bigcontainer">
         <div className="background-image"></div>
-        <div class="leftsection">
+        <div className="leftsection">
           <h2> Welcome, {currentUserEmail}!</h2>
           <h2 className="plantmsg">
             Here's how your NAME OF PLANT plant is doing:{" "}
@@ -129,6 +120,13 @@ export default function MyProp() {
               <p className="data">{humidity}</p>
             </div>
           </div>
+
+          <LineChart width={500} height={300} data={tempData}>
+            <XAxis dataKey="time" />
+            <YAxis />
+            <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
+            <Line type="monotone" dataKey="temp" stroke="#8884d8" />
+          </LineChart>
         </div>
       </div>{" "}
       {/* big container */}
