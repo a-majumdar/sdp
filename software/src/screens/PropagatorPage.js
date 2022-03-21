@@ -24,8 +24,7 @@ import { XAxis, YAxis, LineChart, Line } from "recharts";
 
 export default function MyProp() {
   const { currentUserUID, currentUserEmail } = useContext(AuthContext);
-  const [tempData, setTempData] = useState([{}]);
-  const [loading, setLoading] = useState(true);
+  const [tempData, setTempData] = useState([]);
 
   const {
     plantIdWeb,
@@ -43,24 +42,22 @@ export default function MyProp() {
    * This Function gets the (most recent) temperature data from the realtime database and stores it as a list of objects
    * Then, eventually we will use this to display the information in a graph.
    */
-  const getTempData = () => {
+  // const getTempData = () => {
+  //   return tempData;
+  // };
+
+  useEffect(() => {
     const db = ref(getDatabase());
     get(child(db, `Humidity_Temperature_Readings/${propId}`)).then(
       (snapshot) => {
-        snapshot.forEach(() => {
-          const temp1 = snapshot.val().Temperature;
-          const time = snapshot.val().Sample_Time;
+        snapshot.forEach((childSnapshot) => {
+          const temp1 = childSnapshot.val().Temperature;
+          const time = childSnapshot.val().Sample_Time;
           const timeNum = new Date().getTime(time);
           tempData.push({ time: timeNum, temp: temp1 });
         });
       }
     );
-    console.log(tempData);
-  };
-
-  useEffect(() => {
-    setTempData([]);
-    getTempData();
   }, []);
 
   const data = [
@@ -124,7 +121,6 @@ export default function MyProp() {
           <LineChart width={500} height={300} data={tempData}>
             <XAxis dataKey="time" />
             <YAxis />
-            <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
             <Line type="monotone" dataKey="temp" stroke="#8884d8" />
           </LineChart>
         </div>
