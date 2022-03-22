@@ -28,6 +28,7 @@ export default function MyProp() {
   const [loading, setLoading] = useState(true);
   const [tempData, setTempData] = useState(["this", "is default"]);
   const [humData, setHumData] = useState(["this is default"]);
+  
 
   const {
     plantIdWeb,
@@ -159,7 +160,14 @@ export default function MyProp() {
           
           <Button
             onClick={() => setTempData(getTempData)}
-          />
+          >Tempertature Button
+          </Button>
+
+          <Button
+            onClick={() => setHumData(getTempData)}
+          >
+            Humidity button
+          </Button>
           <LineChart width={500} height={300} data={tempData}>
             <XAxis dataKey="time" />
             <YAxis />
