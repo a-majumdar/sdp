@@ -25,7 +25,7 @@ import { Button } from "react-bootstrap";
  *
  * @returns A graph of tempurat
  */
-function Tempgraph() {
+function Humgraph() {
   const { currentUserUID, currentUserEmail } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
   const [tempData, setTempData] = useState(["this", "is default"]);
@@ -69,22 +69,24 @@ function Tempgraph() {
        
      );
     };
-    
+
   return (
     <>
-    <Button
-            onClick={() => setTempData(getTempData)}
-          >Tempertature Button
+    
+          <Button
+            onClick={() => setHumData(getTempData)}
+          >
+            Humidity button
           </Button>
 
-    <LineChart width={500} height={300} data={tempData}>
+    <LineChart width={500} height={300} data={humData}>
     <XAxis dataKey="time" />
     <YAxis />
     <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-    <Line type="monotone" dataKey="temp" stroke="#8884d8" />
+    <Line type="monotone" dataKey="humidity" stroke="#8884d8" />
   </LineChart>
   </>
   );
 }
 
-export default Tempgraph;
+export default Humgraph;

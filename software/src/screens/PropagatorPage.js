@@ -21,6 +21,8 @@ import {
 import { PropagatorContext } from "../contexts/PropagatorContext";
 import { XAxis, YAxis, LineChart, Line } from "recharts";
 import { Button } from "react-bootstrap";
+import Tempgraph from "../screens/TempGraph";
+import Humgraph from "../screens/HumGraph";
 const muiTheme = createMuiTheme({
   overrides:{
     MuiSlider: {
@@ -140,6 +142,10 @@ export default function MyProp() {
   data2.push({ name: "Page C", uv: 300, pv: 2400, amt: 2400 });
   data2.push({ name: "Page D", uv: 600, pv: 2400, amt: 2400 });
   //console.log("data 2 is " + data2[0].name);
+
+
+
+  
   return (
     <>
       {/*
@@ -163,9 +169,10 @@ export default function MyProp() {
             Light is: high
           </p>
         </div>
-
+        
+      
         <div className="rightsection">
-          <div className="all-data-display">
+          {/* <div className="all-data-display">
             <div className="info-display">
               <h2 className="data-header">Temperature </h2>
               <p className="data">{temperature}</p>
@@ -182,31 +189,17 @@ export default function MyProp() {
               <h2 className="data-header">Humidity </h2>
               <p className="data">{humidity}</p>
             </div>
-          </div>
+          </div> */}
           
-          <Button
-            onClick={() => setTempData(getTempData)}
-          >Tempertature Button
-          </Button>
+          
 
-          <Button
-            onClick={() => setHumData(getTempData)}
-          >
-            Humidity button
-          </Button>
-          <LineChart width={500} height={300} data={tempData}>
-            <XAxis dataKey="time" />
-            <YAxis />
-            <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-            <Line type="monotone" dataKey="temp" stroke="#8884d8" />
-          </LineChart>
-          <LineChart width={500} height={300} data={humData}>
-            <XAxis dataKey="time" />
-            <YAxis />
-            <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-            <Line type="monotone" dataKey="humidity" stroke="#8884d8" />
-          </LineChart>
-          <div class="menu">
+          <Tempgraph />
+          <Humgraph />
+
+          
+          
+      
+      <div class="menu">
       <div className="ventCont">
         <div className="vent">
           <h2>Vent</h2>
@@ -253,7 +246,7 @@ export default function MyProp() {
         </div>
       
       </div> {/* rigt section */}
-      </div>
+      </div> {/*menu*/}
       </div>
     
 
