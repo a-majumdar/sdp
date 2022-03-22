@@ -194,6 +194,7 @@ export default function MyProp() {
           
 
           <Tempgraph />
+          {/* 16.20 */}
           <Humgraph />
 
           
