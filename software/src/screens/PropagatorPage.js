@@ -27,6 +27,7 @@ export default function MyProp() {
   const { currentUserUID, currentUserEmail } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
   const [tempData, setTempData] = useState(["this", "is default"]);
+  const [humData, setHumData] = useState(["this is default"]);
 
   const {
     plantIdWeb,
@@ -48,23 +49,49 @@ export default function MyProp() {
   
   const getTempData = () => {
     const data = [];
+    const hdata = [];
     const db = ref(getDatabase());
      get(child(db, `Humidity_Temperature_Readings/${propId}`)).then(
        (snapshot) => {
          snapshot.forEach((childSnapshot) => {
            const temp1 = childSnapshot.val().Temperature;
-           //console.log("temp1 = " + temp1); //to access data
+           const hum = childSnapshot.val().Humidity;
+           //console.log("hum = " + hum); //to access data
            const time = childSnapshot.val().Sample_Time;
            //console.log("time = " + time);
            const timeNum = new Date().getTime(time);
           
            data.push({ time: time, temp: temp1 });
+           hdata.push({ time: time, humidity: hum});
           //console.log("data is : " + data);
          });
          console.log(" data is : " + data[0].temp);
+         setHumData(hdata);
          setTempData(data);
        }
+       
      );
+
+    //  const getHumidData = () => {
+    //   const hdata = [];
+    //   const db = ref(getDatabase());
+    //    get(child(db, `Humidity_Temperature_Readings/${propId}`)).then(
+    //      (snapshot) => {
+    //        snapshot.forEach((childSnapshot) => {
+    //          const temp1 = childSnapshot.val().Temperature;
+    //          //console.log("temp1 = " + temp1); //to access data
+    //          const time = childSnapshot.val().Sample_Time;
+    //          //console.log("time = " + time);
+    //          const timeNum = new Date().getTime(time);
+            
+    //          hdata.push({ time: time, temp: temp1 });
+    //         
+    //        });
+    //        
+    //        setHumData(hdata);
+    //      }
+         
+    //    );
     //console.log("the new data is : " + tempData); //to access data
 //    console.log(data); //to access data
   
@@ -138,6 +165,12 @@ export default function MyProp() {
             <YAxis />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
             <Line type="monotone" dataKey="temp" stroke="#8884d8" />
+          </LineChart>
+          <LineChart width={500} height={300} data={humData}>
+            <XAxis dataKey="time" />
+            <YAxis />
+            <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
+            <Line type="monotone" dataKey="humidity" stroke="#8884d8" />
           </LineChart>
         </div>
       </div>{" "}
