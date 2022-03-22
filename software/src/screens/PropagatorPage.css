@@ -47,6 +47,8 @@
 }
 
 .menu {
+  margin-left: 725px;
+  
   align-items: center;
   align-self: center;
 }
