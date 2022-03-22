@@ -26,7 +26,7 @@ import { Button } from "react-bootstrap";
 export default function MyProp() {
   const { currentUserUID, currentUserEmail } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
-  const [tempData, setTempData] = useState([]);
+  const [tempData, setTempData] = useState(["this", "is default"]);
 
   const {
     plantIdWeb,
@@ -44,31 +44,35 @@ export default function MyProp() {
    * This Function gets the (most recent) temperature data from the realtime database and stores it as a list of objects
    * Then, eventually we will use this to display the information in a graph.
    */
+
   
   const getTempData = () => {
     const data = [];
     const db = ref(getDatabase());
-    get(child(db, `Humidity_Temperature_Readings/${propId}`)).then(
-      (snapshot) => {
-        snapshot.forEach((childSnapshot) => {
-          const temp1 = childSnapshot.val().Temperature;
-          // console.log(temp1);
-          const time = childSnapshot.val().Sample_Time;
-          // console.log("time" + time);
-          const timeNum = new Date().getTime(time);
-          // console.log("timeNum" + timeNum);
-          data.push({ time: time, temp: temp1 });
-        });
-      }
-    );
-    console.log("this is the data" + data); //to access data
+     get(child(db, `Humidity_Temperature_Readings/${propId}`)).then(
+       (snapshot) => {
+         snapshot.forEach((childSnapshot) => {
+           const temp1 = childSnapshot.val().Temperature;
+           //console.log("temp1 = " + temp1); //to access data
+           const time = childSnapshot.val().Sample_Time;
+           //console.log("time = " + time);
+           const timeNum = new Date().getTime(time);
+          
+           data.push({ time: time, temp: temp1 });
+          //console.log("data is : " + data);
+         });
+         console.log(" data is : " + data[0].temp);
+         setTempData(data);
+       }
+     );
+    //console.log("the new data is : " + tempData); //to access data
 //    console.log(data); //to access data
   
   };
 
-  useEffect(() => {
-    getTempData();
-  }, []);
+  // useEffect(() => {
+  //   getTempData();
+  // });
 
   const data = [
     { name: "Page A", uv: 400, pv: 2400, amt: 2400 },
@@ -81,6 +85,7 @@ export default function MyProp() {
   data2.push({ name: "Page B", uv: 200, pv: 2400, amt: 2400 });
   data2.push({ name: "Page C", uv: 300, pv: 2400, amt: 2400 });
   data2.push({ name: "Page D", uv: 600, pv: 2400, amt: 2400 });
+  //console.log("data 2 is " + data2[0].name);
   return (
     <>
       {/*
@@ -124,8 +129,9 @@ export default function MyProp() {
               <p className="data">{humidity}</p>
             </div>
           </div>
+          
           <Button
-            onClick={getTempData()}
+            onClick={() => setTempData(getTempData)}
           />
           <LineChart width={500} height={300} data={tempData}>
             <XAxis dataKey="time" />
