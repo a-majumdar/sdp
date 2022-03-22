@@ -4,7 +4,7 @@ import { Slider } from '@material-ui/core'
 import { Switch } from "antd";
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
-import "../screens/PropagatorPage.css";
+import "../screens/TempGraph.css";
 import Footer from "../components/organisms/Footer";
 import { AuthContext } from "../contexts/AuthContext";
 import {
@@ -73,6 +73,7 @@ function Tempgraph() {
   return (
     <>
     <Button
+            class = "tempGraphButton"
             onClick={() => setTempData(getTempData)}
           >Tempertature Button
           </Button>

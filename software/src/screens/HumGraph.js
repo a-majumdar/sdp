@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import "../screens/HumGraph.css";
 import abuta from "../assets/abuta.jpg";
 import { Slider } from '@material-ui/core'
 import { Switch } from "antd";
@@ -74,6 +75,7 @@ function Humgraph() {
     <>
     
           <Button
+            class = "humGraphButton"
             onClick={() => setHumData(getTempData)}
           >
             Humidity button
