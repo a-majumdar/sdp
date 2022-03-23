@@ -71,10 +71,10 @@ export default function Explore() {
             setPlantName(`plant name: ${record.get("plant")}`); //Here, I'm just setting constants equal to what we are getting from the AuraDb database so that we can then pass these as props to whichever class we need them in.
             // console.log(plantName);
             // console.log(`in: ${record.get("a")}`);
-            setHigherNode(`Higher Node Is: ${record.get("a")}`);
+            setHigherNode(record.get("a"));
             console.log("Higher Node is" + higherNode);
             // console.log(`is: ${record.get("common")}`);
-            setCommonName(`Common Name is: ${record.get("common")}`);
+            setCommonName(record.get("common"));
             console.log("Common Name is" + commonName);
             // console.log(`with: ${record.get("info")}`);
             setHumidity(`Humidity is: ${record.get("j")}`);

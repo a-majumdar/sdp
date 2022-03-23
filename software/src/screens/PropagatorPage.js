@@ -105,13 +105,6 @@ export default function MyProp() {
           <div className="yourPlantPic">
             <img class="plantpic" src={abuta} alt="Logo" />
           </div>
-          <p>
-            Common Name is: {plantCommonName} Humidity is: low Watering is:
-            frequent
-            <br></br>
-            pH Low is: 6.2 pH High Is: 6.8 Temp Low is: 18 Temp High is: 30
-            Light is: high
-          </p>
         </div>
 
         <div className="rightsection">

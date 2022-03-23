@@ -4,10 +4,12 @@ import Footer from "../components/organisms/Footer";
 import { theUserSearch } from "./Explore";
 import PlantBackground from "../assets/ePlant.jpg";
 import { PlantDataContext } from "../contexts/PlantDataContext";
-import Tomato from "../assets/tomato.jpeg";
+// import Tomato from "../assets/tomato.jpeg";
 import "../screens/SearchPage.css";
 import { Link } from "react-router-dom";
 import { PropagatorContext } from "../contexts/PropagatorContext";
+import { useState } from "react";
+
 /**
  * About Us Section of our website
  * @returns
@@ -47,6 +49,8 @@ export default function SearchPage() {
     pHLow,
   } = useContext(PlantDataContext);
 
+  const image = require(`../assets/${commonName}.jpeg`);
+
   return (
     <>
       {/* <p>stuff is belwo {theUserSearch}</p> */}
@@ -55,11 +59,11 @@ export default function SearchPage() {
         <div className="left-div-image-add-to-prop">
           {/* Will get rid of these breaks but it was a quick fix to get the header alligned prooperly */}
 
-          <img className="image" src={Tomato}></img>
+          {image && <img className="image" src={image}></img>}
           <button className="add-to-prop-btn">Add to Propagator</button>
         </div>
         <div className="right-div">
-          <h2 className="plant-name">Tomato Plant</h2>
+          <h2 className="plant-name">{commonName} Plant</h2>
           <p>
             The tomato is the edible berry of the plant Solanum lycopersicum,
             commonly known as a tomato plant. The species originated in western

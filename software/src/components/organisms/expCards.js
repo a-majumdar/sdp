@@ -1,7 +1,7 @@
 import React from "react";
 import CardItem from "../molecules/CardItem";
 import "../organisms/expCards.css";
-import Tomato from "../../assets/tomato.jpeg";
+import Tomato from "../../assets/Tomato.jpeg";
 import Plants from "../../assets/plants.jpeg";
 import cucum from "../../assets/cucum.jpg";
 import sunflower from "../../assets/sunflower.jpg";
