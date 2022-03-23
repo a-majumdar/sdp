@@ -9,6 +9,9 @@ import { Link } from "react-router-dom";
 import { PropagatorContext } from "../contexts/PropagatorContext";
 import { useState } from "react";
 import Tomato from "../assets/Tomato.jpeg";
+import { getDatabase, ref, set, update } from "firebase/database";
+
+import "reactjs-popup/dist/index.css";
 
 /**
  * About Us Section of our website
@@ -26,6 +29,7 @@ const mystyle = {
 export default function SearchPage() {
   const {
     plantName,
+    plantIdAura,
     plantDescription,
     setPlantName,
     setHigherNode,
@@ -50,8 +54,17 @@ export default function SearchPage() {
     pHLow,
   } = useContext(PlantDataContext);
 
+  const { propId } = useContext(PropagatorContext);
+
   const fileNameExt = commonName + ".jepg";
   console.log(fileNameExt);
+
+  const addToPropagator = () => {
+    const db = getDatabase();
+    set(ref(db, "Propagator_Details/" + propId), {
+      plantId: plantIdAura,
+    });
+  };
 
   return (
     <>
@@ -67,8 +80,10 @@ export default function SearchPage() {
                   src={require("../assets/" + commonName + ".jpeg")}
                 ></img>
               )}
-
-              <button className="add-to-prop-btn">Add to Propagator</button>
+              <button onClick={addToPropagator} className="add-to-prop-btn">
+                Add to Propagator
+              </button>
+              <h1>{plantIdAura}</h1>
             </div>
             <div className="right-div">
               <h2 className="plant-name">{commonName} Plant</h2>

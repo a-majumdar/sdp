@@ -76,6 +76,8 @@ export default function Explore() {
             // console.log(plantName);
             // console.log(`in: ${record.get("a")}`);
             setHigherNode(record.get("a"));
+            setPlantIdAura("2");
+            //NEED TO CHNAGE THIS TO GET THE ID OF THE QUERIED PLANT IN SEARCH
 
             // console.log(`is: ${record.get("common")}`);
             setCommonName(record.get("common"));
