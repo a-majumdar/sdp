@@ -128,6 +128,8 @@ export default function MyProp() {
           </div>
           <div className="graph"></div>
           <Tabs>
+            {" "}
+            {/*Hello World*/}
             <TabList>
               <Tab>Temperature</Tab>
               <Tab>Humidity</Tab>
