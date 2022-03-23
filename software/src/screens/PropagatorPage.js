@@ -11,10 +11,28 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { PropagatorContext } from "../contexts/PropagatorContext";
 import { XAxis, YAxis, LineChart, Line } from "recharts";
-import { Button, TabContainer, TabPane } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import { ButtonGroup } from "react-bootstrap";
 import Tempgraph from "../screens/TempGraph";
 import Humgraph from "../screens/HumGraph";
 import SunlightGraph from "./SunlightGraph";
+
+const muiTheme = createMuiTheme({
+  overrides: {
+    MuiSlider: {
+      thumb: {
+        color: "#3399ff",
+      },
+
+      track: {
+        color: "red",
+      },
+      rail: {
+        color: "black",
+      },
+    },
+  },
+});
 /**
  * Propogator Section of Our Website
  * @returns
@@ -129,7 +147,7 @@ export default function MyProp() {
               <Humgraph />
             </TabPanel>
             <TabPanel>
-              <SunlightGraph />
+              <SunlightGraph></SunlightGraph>
             </TabPanel>
           </Tabs>
           <div class="menu">
