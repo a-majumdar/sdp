@@ -7,6 +7,8 @@ import { ThemeProvider } from "@material-ui/styles";
 import "../screens/TempGraph.css";
 import Footer from "../components/organisms/Footer";
 import { AuthContext } from "../contexts/AuthContext";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 import {
   getDatabase,
   ref,
@@ -71,16 +73,41 @@ function Tempgraph() {
 
   return (
     <>
-      <Button class="humGraphButton" onClick={() => setHumData(getTempData)}>
-        Show Temperature Chart
-      </Button>
-
-      <LineChart width={500} height={300} data={tempData}>
-        <XAxis dataKey="time" />
-        <YAxis />
-        <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-        <Line type="monotone" dataKey="temp" stroke="#8884d8" />
-      </LineChart>
+      
+      <Tabs>
+            {" "}
+            {/*Hello World*/}
+            <TabList>
+              
+              <Tab onClick={() => setTempData(getTempData)}>Temperature</Tab>
+              <Tab onClick={() => setHumData(getTempData)}>Humidity</Tab>
+              <Tab>Sunlight</Tab>
+            </TabList>
+            <TabPanel>
+              <LineChart width={500} height={300} data={tempData}>
+              <XAxis dataKey="time" />
+              <YAxis />
+              <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
+              <Line type="monotone" dataKey="temp" stroke="#8884d8" />
+              </LineChart>
+            </TabPanel>
+            <TabPanel>
+              <LineChart width={500} height={300} data={humData}>
+              <XAxis dataKey="time" />
+              <YAxis />
+              <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
+              <Line type="monotone" dataKey="humidity" stroke="#8884d8" />
+            </LineChart>
+            </TabPanel>
+            <TabPanel>
+            <LineChart width={500} height={300} data={humData}>
+              <XAxis dataKey="time" />
+              <YAxis />
+              <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
+              <Line type="monotone" dataKey="humidity" stroke="#8884d8" />
+            </LineChart>
+            </TabPanel>
+          </Tabs>
     </>
   );
 }
