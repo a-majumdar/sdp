@@ -7,12 +7,15 @@ import "./Home.css";
 import "../App.css";
 import PlantBackground from "../assets/plants.jpeg";
 import { Button } from "../components/atoms/Button";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
 
 /**
  * Home section of our website
  * @returns
  */
 function Home() {
+  const { currentUser } = useContext(AuthContext);
   return (
     <>
       <div className="hero-container">
@@ -31,13 +34,15 @@ function Home() {
           >
             LEARN MORE
           </Button>
-          <Button
-            className="btns"
-            buttonStyle="btn--primary"
-            buttonSize="btn--large"
-          >
-            SIGN UP
-          </Button>
+          {!currentUser && (
+            <Button
+              className="btns"
+              buttonStyle="btn--primary"
+              buttonSize="btn--large"
+            >
+              SIGN UP
+            </Button>
+          )}
         </div>
       </div>
       <Cards />

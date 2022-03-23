@@ -83,7 +83,8 @@ export default function SearchPage() {
               <button onClick={addToPropagator} className="add-to-prop-btn">
                 Add to Propagator
               </button>
-              <h1>{plantIdAura}</h1>
+              <h1>Plant Id: {plantIdAura}</h1>
+              {/* This isn't dynamic yet */}
             </div>
             <div className="right-div">
               <h2 className="plant-name">{commonName} Plant</h2>
