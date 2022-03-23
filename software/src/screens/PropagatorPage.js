@@ -21,8 +21,10 @@ import {
 import { PropagatorContext } from "../contexts/PropagatorContext";
 import { XAxis, YAxis, LineChart, Line } from "recharts";
 import { Button } from "react-bootstrap";
+import { ButtonGroup} from "react-bootstrap";
 import Tempgraph from "../screens/TempGraph";
 import Humgraph from "../screens/HumGraph";
+
 const muiTheme = createMuiTheme({
   overrides:{
     MuiSlider: {
@@ -143,8 +145,7 @@ export default function MyProp() {
   data2.push({ name: "Page D", uv: 600, pv: 2400, amt: 2400 });
   //console.log("data 2 is " + data2[0].name);
 
-
-
+ 
   
   return (
     <>
@@ -255,7 +256,13 @@ export default function MyProp() {
         
       </div>
       {/* big container */}
-       <Footer />
+      <ButtonGroup aria-label="Basic example">
+        <Button variant="secondary">Readings</Button>
+        <Button variant="secondary">Temp</Button>
+        <Button variant="secondary">Hum</Button>
+        <Button variant="secondary">Light</Button>
+        <Button variant="secondary">Moist</Button>
+      </ButtonGroup>
     </>
   );
 }
