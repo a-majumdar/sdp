@@ -4,11 +4,11 @@ import Footer from "../components/organisms/Footer";
 import { theUserSearch } from "./Explore";
 import PlantBackground from "../assets/ePlant.jpg";
 import { PlantDataContext } from "../contexts/PlantDataContext";
-// import Tomato from "../assets/tomato.jpeg";
 import "../screens/SearchPage.css";
 import { Link } from "react-router-dom";
 import { PropagatorContext } from "../contexts/PropagatorContext";
 import { useState } from "react";
+import Tomato from "../assets/Tomato.jpeg";
 
 /**
  * About Us Section of our website
@@ -49,8 +49,6 @@ export default function SearchPage() {
     pHLow,
   } = useContext(PlantDataContext);
 
-  const image = require(`../assets/${commonName}.jpeg`);
-
   return (
     <>
       {/* <p>stuff is belwo {theUserSearch}</p> */}
@@ -59,7 +57,7 @@ export default function SearchPage() {
         <div className="left-div-image-add-to-prop">
           {/* Will get rid of these breaks but it was a quick fix to get the header alligned prooperly */}
 
-          {image && <img className="image" src={image}></img>}
+          <img className="image" src={Tomato}></img>
           <button className="add-to-prop-btn">Add to Propagator</button>
         </div>
         <div className="right-div">
