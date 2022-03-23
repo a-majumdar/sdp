@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import "../App.css";
 import PlantBackground from "../assets/profile-background.jpeg";
+import cover from "../assets/cover.png";
 import { Card, Button, Form } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
@@ -64,7 +65,9 @@ export default function ProfilePage() {
   return (
     <>
       <div className="background-image"></div>
-      <img className="profPageTitle" src={yourProfile} alt="Logo" />
+      <img className="profile-pic" src={PlantedProfilePic}></img>
+      <img className="cover-photo" src={cover}></img>
+
       <br></br>
       <div className="all-items">
         <div className="left-items">
@@ -116,16 +119,14 @@ export default function ProfilePage() {
         <br></br>
         <br></br>
         <br></br>
-        <div className="right-items">
-          <img className="profile-pic" src={PlantedProfilePic}></img>
-          <button className="resetbtn">Reset Password</button>
-        </div>
+        <div className="right-items"></div>
       </div>
 
       <br></br>
       <br></br>
 
       <div className="logoutdiv">
+        <button className="logoutbtn">Reset Password</button>
         <button onClick={handleLogout} className="logoutbtn">
           Logout
         </button>

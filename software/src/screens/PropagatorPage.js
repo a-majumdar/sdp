@@ -43,6 +43,7 @@ export default function MyProp() {
   const { currentUserUID, currentUserEmail } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
   const [value, setValue] = useState(0);
+  const [description, setDescription] = useState();
   const {
     plantIdWeb,
     plantIdAura,
@@ -110,8 +111,8 @@ export default function MyProp() {
             )}
           </div>
           <p className="plantDescription">{plantDescription}</p>
-        </div> {/* left section */}
-
+        </div>{" "}
+        {/* left section */}
         <div className="rightsection">
           <h1 className="header2">Propagator Data</h1>
           <div className="all-data-display">
