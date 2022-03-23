@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import "../screens/HumGraph.css";
-import abuta from "../assets/abuta.jpg";
+import abuta from "../assets/Abuta.jpg";
 import { Slider } from "@material-ui/core";
 import { Switch } from "antd";
 import { createMuiTheme } from "@material-ui/core/styles";

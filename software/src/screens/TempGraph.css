@@ -1,5 +1,9 @@
 .tempGraphButton {
-    
-    height: 50px;
-    width: 500px;
+  height: 50px;
+  width: 500px;
+}
+
+.tab {
+  width: 37%;
+  /* Change this if you want to add a tab */
 }

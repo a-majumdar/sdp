@@ -91,10 +91,10 @@ export const PropagatorProvider = ({ children }) => {
             }
           ),
           //get latest light reading
-          get(child(db, `Light_Reading/${propagatorId}`)).then((ans) => {
+          get(child(db, `Sunlight_Readings/${propagatorId}`)).then((ans) => {
             if (ans.exists()) {
               var lightintensity = Object.values(ans.val()).slice(-1)[0]
-                .intensity;
+                .Visible;
               setSunlight(lightintensity);
             } else {
               console.log("No light data available");

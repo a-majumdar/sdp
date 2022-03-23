@@ -17,6 +17,8 @@ export const PlantDataContext = createContext();
 
 export const PlantDataProvider = ({ children }) => {
   //Plant Info Props
+  const [plantIdAura, setPlantIdAura] = useState("");
+  const [plantDescription, setPlantDescription] = useState("");
   const [plantName, setPlantName] = useState("");
   const [higherNode, setHigherNode] = useState("");
   const [commonName, setCommonName] = useState("");
@@ -35,6 +37,10 @@ export const PlantDataProvider = ({ children }) => {
     <PlantDataContext.Provider
       value={{
         plantName,
+        plantIdAura,
+        setPlantIdAura,
+        plantDescription,
+        setPlantDescription,
         setPlantName,
         setHigherNode,
         setCommonName,

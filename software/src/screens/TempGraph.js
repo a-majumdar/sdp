@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import abuta from "../assets/abuta.jpg";
+import abuta from "../assets/Abuta.jpg";
 import { Slider } from "@material-ui/core";
 import { Switch } from "antd";
 import { createMuiTheme } from "@material-ui/core/styles";
@@ -73,41 +73,39 @@ function Tempgraph() {
 
   return (
     <>
-      
-      <Tabs>
-            {" "}
-            {/*Hello World*/}
-            <TabList>
-              
-              <Tab onClick={() => setTempData(getTempData)}>Temperature</Tab>
-              <Tab onClick={() => setHumData(getTempData)}>Humidity</Tab>
-              <Tab>Sunlight</Tab>
-            </TabList>
-            <TabPanel>
-              <LineChart width={500} height={300} data={tempData}>
-              <XAxis dataKey="time" />
-              <YAxis />
-              <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-              <Line type="monotone" dataKey="temp" stroke="#8884d8" />
-              </LineChart>
-            </TabPanel>
-            <TabPanel>
-              <LineChart width={500} height={300} data={humData}>
-              <XAxis dataKey="time" />
-              <YAxis />
-              <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-              <Line type="monotone" dataKey="humidity" stroke="#8884d8" />
-            </LineChart>
-            </TabPanel>
-            <TabPanel>
-            <LineChart width={500} height={300} data={humData}>
-              <XAxis dataKey="time" />
-              <YAxis />
-              <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-              <Line type="monotone" dataKey="humidity" stroke="#8884d8" />
-            </LineChart>
-            </TabPanel>
-          </Tabs>
+      <Tabs className="tab">
+        {" "}
+        {/*Hello World*/}
+        <TabList>
+          <Tab onClick={() => setTempData(getTempData)}>Temperature</Tab>
+          <Tab onClick={() => setHumData(getTempData)}>Humidity</Tab>
+          <Tab>Sunlight</Tab>
+        </TabList>
+        <TabPanel>
+          <LineChart width={500} height={300} data={tempData}>
+            <XAxis dataKey="time" />
+            <YAxis />
+            <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
+            <Line type="monotone" dataKey="temp" stroke="#8884d8" />
+          </LineChart>
+        </TabPanel>
+        <TabPanel>
+          <LineChart width={500} height={300} data={humData}>
+            <XAxis dataKey="time" />
+            <YAxis />
+            <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
+            <Line type="monotone" dataKey="humidity" stroke="#8884d8" />
+          </LineChart>
+        </TabPanel>
+        <TabPanel>
+          <LineChart width={500} height={300} data={humData}>
+            <XAxis dataKey="time" />
+            <YAxis />
+            <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
+            <Line type="monotone" dataKey="humidity" stroke="#8884d8" />
+          </LineChart>
+        </TabPanel>
+      </Tabs>
     </>
   );
 }

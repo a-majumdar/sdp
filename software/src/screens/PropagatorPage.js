@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import abuta from "../assets/abuta.jpg";
+import abuta from "../assets/Abuta.jpg";
 import { Slider } from "@material-ui/core";
 import { Switch } from "antd";
 import { createMuiTheme } from "@material-ui/core/styles";
@@ -44,6 +44,8 @@ export default function MyProp() {
   const [value, setValue] = useState(0);
   const {
     plantIdWeb,
+    plantIdAura,
+    plantIdDescription,
     propId,
     humidity,
     moisture,
@@ -105,9 +107,15 @@ export default function MyProp() {
           <div className="yourPlantPic">
             <img class="plantpic" src={abuta} alt="Logo" />
           </div>
+          <p className="plantDescription">
+            Here, we are going to add a description of the plant the user is
+            currently growing. BLA BLA BLA BLA BLA
+            aphjdahjwdjlhawjlkdhajkwhdajkwhdkjalwhdjkahwjdkhd
+          </p>
         </div>
 
         <div className="rightsection">
+          <h1 className="header2">Propagator Data</h1>
           <div className="all-data-display">
             <div className="info-display">
               <h2 className="data-header">Temperature </h2>
@@ -127,7 +135,7 @@ export default function MyProp() {
             </div>
           </div>
           <div className="graph"></div>
-          <Tempgraph/>
+          <Tempgraph />
           <div class="menu">
             <div className="ventCont">
               <div className="vent">
@@ -173,7 +181,6 @@ export default function MyProp() {
           {/*menu*/}
         </div>
       </div>
-      {/* big container */}
       <Footer />
     </>
   );
