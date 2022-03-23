@@ -56,7 +56,7 @@ export const PropagatorProvider = ({ children }) => {
               }
               return `match (n:Species) -[:In]-> (p) -[:In]->(l) -[:In] ->(z) -[:In]->(k) -[:In]->(q) 
         where ID(n) = ${plantId}
-        return n.name as plant,p.name as a,l.name as b,z.name as c ,k.name as d,q.name as e`;
+        return n.name as plant,n.common as common,l.name as b,z.name as c ,k.name as d,q.name as e`;
             })
             .then((auraquery) => {
               try {
@@ -72,7 +72,7 @@ export const PropagatorProvider = ({ children }) => {
               readResult.records.forEach((record) => {
                 //get all plant information from plant id
                 var plantName = record.get("plant");
-                var PlantCommon = record.get("a");
+                var PlantCommon = record.get("common");
                 setPlantCommonName(PlantCommon);
               });
             }),

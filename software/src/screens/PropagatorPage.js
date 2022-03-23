@@ -56,9 +56,6 @@ export default function MyProp() {
     temperature,
   } = useContext(PropagatorContext);
 
-  function addToPropagator() {
-    console.log(plantIdAura);
-  }
   const [mystyle, setStyle] = useState("but1");
   const changeStyle = () => {
     //oprn button
