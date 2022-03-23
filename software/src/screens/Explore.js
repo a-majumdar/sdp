@@ -38,6 +38,10 @@ export default function Explore() {
     setWatering,
     setHumidity,
     setCommonName,
+    plantDescription,
+    setPlantDescription,
+    plantIdAura,
+    setPlantIdAura,
     higherNode,
     commonName,
     moistureType,
@@ -63,7 +67,7 @@ export default function Explore() {
 
       const readQuery = `match (n:Species)-[:In]-> (p) -[:In]->(l) -[:In] ->(z) -[:In]->(k) -[:In]->(q) 
                       where n.common = $search or n.name = $search
-                       return n.name as plant,n.common as common, n.information as info,p.name as a,l.name as b,z.name as c ,k.name as d,q.name as e,n.moisture_type as f,n.watering as g, n.light as h,n.temp_high as i, n.humidity as j, n.pH_high as k, n.temp_low as l, n.pH_low as m`;
+                       return n.name as plant,n.common as common, n.description as description, n.information as info,p.name as a,l.name as b,z.name as c ,k.name as d,q.name as e,n.moisture_type as f,n.watering as g, n.light as h,n.temp_high as i, n.humidity as j, n.pH_high as k, n.temp_low as l, n.pH_low as m`;
       session2.readTransaction((tx) =>
         tx.run(readQuery, { search: word }).then((readResult) => {
           readResult.records.forEach((record) => {
@@ -75,6 +79,7 @@ export default function Explore() {
 
             // console.log(`is: ${record.get("common")}`);
             setCommonName(record.get("common"));
+            setPlantDescription(record.get("description"));
 
             // console.log(`with: ${record.get("info")}`);
             setHumidity(`Humidity is: ${record.get("j")}`);

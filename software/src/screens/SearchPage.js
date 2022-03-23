@@ -26,6 +26,7 @@ const mystyle = {
 export default function SearchPage() {
   const {
     plantName,
+    plantDescription,
     setPlantName,
     setHigherNode,
     setPhLow,
@@ -72,27 +73,14 @@ export default function SearchPage() {
             <div className="right-div">
               <h2 className="plant-name">{commonName} Plant</h2>
               <p>
-                The tomato is the edible berry of the plant Solanum
-                lycopersicum, commonly known as a tomato plant. The species
-                originated in western South America and Central America. The
-                Mexican Nahuatl word tomatl gave rise to the Spanish word
-                tomate, from which the English word tomato derived. Its
-                domestication and use as a cultivated food may have originated
-                with the indigenous peoples of Mexico. The Aztecs used tomatoes
-                in their cooking at the time of the Spanish conquest of the
-                Aztec Empire, and after the Spanish encountered the tomato for
-                the first time after their contact with the Aztecs, they brought
-                the plant to Europe, in a widespread transfer of plants known as
-                the Columbian exchange. From there, the tomato was introduced to
-                other parts of the European-colonized world during the 16th
-                century.
-                <Link
+                {plantDescription}
+                {/* <Link
                   to={{ pathname: "https://en.wikipedia.org/wiki/Tomato" }}
                   target="_blank"
                   style={{ margin: 10 }}
                 >
                   To Wiki
-                </Link>
+                </Link> */}
               </p>
               <br></br>
 

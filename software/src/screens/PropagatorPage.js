@@ -56,11 +56,9 @@ export default function MyProp() {
     temperature,
   } = useContext(PropagatorContext);
 
-  /**  ********IN PROGRESS***********
-   * This Function gets the (most recent) temperature data from the realtime database and stores it as a list of objects
-   * Then, eventually we will use this to display the information in a graph.
-   */
-
+  function addToPropagator() {
+    console.log(plantIdAura);
+  }
   const [mystyle, setStyle] = useState("but1");
   const changeStyle = () => {
     //oprn button
