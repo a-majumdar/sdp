@@ -7,39 +7,69 @@
   margin: 5em;
 }
 
-.suntext{
+.info-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.data {
+  font-size: 25px;
+}
+
+.data-header {
+  font-size: 25px;
+}
+
+.all-data-display {
+  display: flex;
+  flex-direction: row;
+}
+
+.suntext {
   font-size: 40px;
 }
 
-.bigcontainer{
+.bigcontainer {
   display: flex;
   flex-direction: row;
 }
 
 .leftsection {
-  margin:50px;
-  display: flex;
-  flex-direction: column;
-}
-
-.rightsection {
   margin: 50px;
   display: flex;
   flex-direction: column;
+  width: 50%;
 }
 
-.plantDescription{
+.graph {
+  margin-top: 20px;
+}
+
+.rightsection {
+  margin-top: 50px;
+
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.plantDescription {
   width: 500px;
   height: 300px;
-  
 }
 
-.plantpic{
+.plantpic {
   width: 550px;
   height: 300px;
 }
 
-.plantmsg{
+.plantmsg {
+}
+
+.tab-container {
+  margin-bottom: 100px;
 }
 
 .tableAndVars {
@@ -47,8 +77,6 @@
 }
 
 .menu {
-  margin-left: 725px;
-  
   align-items: center;
   align-self: center;
 }
@@ -58,114 +86,85 @@
   /* z-index: 9; */
 }
 
-.sun{
+.sun {
   width: 70px;
   height: 70px;
 }
 
-
-
-  
 table {
   border: 2px solid forestgreen;
   width: 800px;
   height: 200px;
-  border-collapse: collapse; 
-  
+  border-collapse: collapse;
 }
-tr th { 
-  border-top: 1px solid black; 
+tr th {
+  border-top: 1px solid black;
   border-bottom: 1px solid black;
 }
 
 .ab {
-  border-top: 1px solid black; 
+  border-top: 1px solid black;
   border-bottom: 1px solid black;
 }
 
-
-
-
-.ventCont{
+.ventCont {
   margin-top: 20px;
   align-self: center;
 }
-.vent{
-
+.vent {
 }
-.toggleVent{
-
+.toggleVent {
 }
 
-
-
-.slider1{
+.slider1 {
   margin-top: 45px;
   position: relative;
-  
 }
 
-.slider1text{
-  
+.slider1text {
   margin-top: 20px;
 
   position: absolute;
 }
-.sliderbar1{
-  
+.sliderbar1 {
   width: 300px;
   z-index: 9;
 }
 
-
-
-
-.slider2{
+.slider2 {
   margin-top: 40px;
-  
 }
-.slider2text{
-  
-  
-
-  
+.slider2text {
 }
-.sliderbar2{
-
+.sliderbar2 {
   width: 300px;
   z-index: 9;
 }
 
-.watercont{
+.watercont {
   margin-top: 0px;
-  
 }
-.watertext{
+.watertext {
   margin-top: 10px;
 }
-.togglewater{
+.togglewater {
   margin-top: 30px;
-
 }
-
-
 
 .mycont {
-
 }
-.divData{
+.divData {
   margin-top: 1px;
   margin-left: 30px;
   position: absolute;
 }
-.picRight{
-  float:left;
+.picRight {
+  float: left;
 
   margin-right: 50px;
   margin-top: 1px;
   width: 600px;
   height: 500px;
-
 }
 .container img,
 .container p {
@@ -188,15 +187,13 @@ tr th {
   line-height: 1.5;
 }
 
-
-
-.propPageTitle{
+.propPageTitle {
   margin-top: 20px;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-.but1{
+.but1 {
   margin-left: 50px;
   background-color: #97c092; /* Green */
   border: none;
@@ -207,7 +204,7 @@ tr th {
   display: inline-block;
   font-size: 16px;
 }
-.cont{
+.cont {
   margin-left: 50px;
   background-color: #f81515; /* Green */
   border: none;
@@ -218,7 +215,7 @@ tr th {
   display: inline-block;
   font-size: 16px;
 }
-.but2{
+.but2 {
   margin-left: 50px;
   background-color: #97c092; /* Green */
   border: none;
@@ -229,7 +226,7 @@ tr th {
   display: inline-block;
   font-size: 16px;
 }
-.but3{
+.but3 {
   margin-left: 10px;
   background-color: #97c092; /* Green */
   border: none;
@@ -240,7 +237,7 @@ tr th {
   display: inline-block;
   font-size: 16px;
 }
-.cont2{
+.cont2 {
   margin-left: 10px;
   background-color: #f81515; /* Green */
   border: none;
@@ -251,7 +248,7 @@ tr th {
   display: inline-block;
   font-size: 16px;
 }
-.but4{
+.but4 {
   margin-left: 50px;
   margin-bottom: 20px;
   background-color: #97c092; /* Green */
@@ -263,7 +260,7 @@ tr th {
   display: inline-block;
   font-size: 16px;
 }
-.mycaption{
+.mycaption {
   margin-left: 1760px;
 }
 .box {

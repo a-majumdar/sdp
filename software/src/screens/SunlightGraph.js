@@ -1,11 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
-import "../screens/HumGraph.css";
 import abuta from "../assets/abuta.jpg";
 import { Slider } from "@material-ui/core";
 import { Switch } from "antd";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
-import "../screens/PropagatorPage.css";
+import "../screens/TempGraph.css";
 import Footer from "../components/organisms/Footer";
 import { AuthContext } from "../contexts/AuthContext";
 import {
@@ -26,10 +25,10 @@ import { Button } from "react-bootstrap";
  *
  * @returns A graph of tempurat
  */
-function Humgraph() {
+function SunlightGraph() {
   const { currentUserUID, currentUserEmail } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
-  const [tempData, setTempData] = useState(["this", "is default"]);
+  const [SunData, setSunData] = useState(["this", "is default"]);
   const [humData, setHumData] = useState(["this is default"]);
 
   const {
@@ -44,45 +43,43 @@ function Humgraph() {
     temperature,
   } = useContext(PropagatorContext);
 
-  const getTempData = () => {
+  const getSunData = () => {
     const data = [];
-    const hdata = [];
+    // const hdata = [];
     const db = ref(getDatabase());
-    get(child(db, `Humidity_Temperature_Readings/${propId}`)).then(
-      (snapshot) => {
-        snapshot.forEach((childSnapshot) => {
-          const temp1 = childSnapshot.val().Temperature;
-          const hum = childSnapshot.val().Humidity;
-          //console.log("hum = " + hum); //to access data
-          const time = childSnapshot.val().Sample_Time;
-          //console.log("time = " + time);
-          const timeNum = new Date().getTime(time);
+    get(child(db, `Sunlight_Readings/${propId}`)).then((snapshot) => {
+      snapshot.forEach((childSnapshot) => {
+        const sun1 = childSnapshot.val().Visible;
+        // const hum = childSnapshot.val().Humidity;
+        //console.log("hum = " + hum); //to access data
+        const time = childSnapshot.val().Sample_Time;
+        //console.log("time = " + time);
+        // const timeNum = new Date().getTime(time);
 
-          data.push({ time: time, temp: temp1 });
-          hdata.push({ time: time, humidity: hum });
-          //console.log("data is : " + data);
-        });
-        console.log(" data is : " + data[0].temp);
-        setHumData(hdata);
-        setTempData(data);
-      }
-    );
+        data.push({ time: time, sun: sun1 });
+        // hdata.push({ time: time, humidity: hum });
+        //console.log("data is : " + data);
+      });
+      //   console.log(" data is : " + data[0].temp);
+      setSunData(data);
+      //   setTempData(data);
+    });
   };
 
   return (
     <>
-      <Button class="humGraphButton" onClick={() => setHumData(getTempData)}>
-        Show Humidity Chart
+      <Button class="tempGraphButton" onClick={() => setSunData(getSunData)}>
+        Show Sunlight Chart
       </Button>
 
-      <LineChart width={500} height={300} data={humData}>
+      <LineChart width={500} height={300} data={SunData}>
         <XAxis dataKey="time" />
         <YAxis />
         <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-        <Line type="monotone" dataKey="humidity" stroke="#8884d8" />
+        <Line type="monotone" dataKey="sun" stroke="#8884d8" />
       </LineChart>
     </>
   );
 }
 
-export default Humgraph;
+export default SunlightGraph;
