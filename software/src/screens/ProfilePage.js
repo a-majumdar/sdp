@@ -65,15 +65,13 @@ export default function ProfilePage() {
   return (
     <>
       <div className="background-image"></div>
-      <img className="profile-pic" src={PlantedProfilePic}></img>
-      <img className="cover-photo" src={cover}></img>
-
+      <div className="header2">
+        <img className="profile-pic" src={PlantedProfilePic}></img>
+        <h2 className="usrlog">Welcome to your profile, {currentUserEmail}</h2>
+      </div>
       <br></br>
       <div className="all-items">
         <div className="left-items">
-          <h2 className="usrlog">
-            Welcome to your profile, {currentUserEmail}
-          </h2>
           <br></br>
           <h2 className="actlog">Active Propogators: </h2>
 

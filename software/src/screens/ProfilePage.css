@@ -11,7 +11,7 @@
 }
 
 .cover-photo {
-  background-image: url("../assets/Tomato.jpeg");
+  background-color: #97c092;
   width: 100%;
   opacity: 1;
   height: 300px;
@@ -19,12 +19,6 @@
   border-bottom-right-radius: 20px;
 }
 
-.profPageTitle {
-  margin-top: 20px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
 .usrlog {
   margin-left: 50px;
   color: white;
@@ -53,8 +47,6 @@
 
 .left-items {
   flex-direction: row;
-  margin-top: 40px;
-  padding: 20px;
   width: 50%;
 }
 
@@ -62,18 +54,15 @@
   width: 200px;
   height: 200px;
   padding: 20px;
-  position: absolute;
-  margin-top: 50px;
   margin-left: 20px;
 }
 
-.right-items {
-  width: 50%;
-  align-items: center;
-  padding: 20px;
+.header2 {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
 }
+
 .butt2 {
   margin-left: 10px;
   background-color: #776e68; /* Green */
@@ -112,22 +101,4 @@
 }
 .add-prop-img {
   padding: 15px;
-}
-
-.card_prop {
-  padding: 60px;
-  margin: auto;
-  width: 100%;
-  max-width: 520px;
-  min-height: 100px;
-  display: flex;
-  margin-top: 50px;
-  flex-direction: column;
-  justify-content: center;
-  background: radial-gradient(
-    ellipse at left bottom,
-    rgb(17, 159, 235) 0%,
-    rgba(59, 156, 247, 0.9) 59%,
-    rgba(16, 179, 219, 0.9) 100%
-  );
 }
