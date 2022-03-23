@@ -57,7 +57,10 @@ export default function SearchPage() {
         <div className="left-div-image-add-to-prop">
           {/* Will get rid of these breaks but it was a quick fix to get the header alligned prooperly */}
 
-          <img className="image" src={Tomato}></img>
+          <img
+            className="image"
+            src={require(`../assets/${commonName}.jpeg`).default}
+          ></img>
           <button className="add-to-prop-btn">Add to Propagator</button>
         </div>
         <div className="right-div">
