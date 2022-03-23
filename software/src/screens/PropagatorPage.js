@@ -127,24 +127,7 @@ export default function MyProp() {
             </div>
           </div>
           <div className="graph"></div>
-          <Tabs>
-            {" "}
-            {/*Hello World*/}
-            <TabList>
-              <Tab>Temperature</Tab>
-              <Tab>Humidity</Tab>
-              <Tab>Sunlight</Tab>
-            </TabList>
-            <TabPanel>
-              <Tempgraph />
-            </TabPanel>
-            <TabPanel>
-              <Humgraph />
-            </TabPanel>
-            <TabPanel>
-              <SunlightGraph></SunlightGraph>
-            </TabPanel>
-          </Tabs>
+          <Tempgraph/>
           <div class="menu">
             <div className="ventCont">
               <div className="vent">
