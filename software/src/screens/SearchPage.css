@@ -7,6 +7,7 @@
 .left-div-image-add-to-prop {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 50%;
   padding: 50px;
 }

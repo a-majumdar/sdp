@@ -33,7 +33,8 @@ function Tempgraph() {
   const [loading, setLoading] = useState(true);
   const [tempData, setTempData] = useState(["this", "is default"]);
   const [humData, setHumData] = useState(["this is default"]);
-
+  const [sunData, setSunData] = useState(["n/a"]);
+  const [moistData, setMoistData] = useState(["n/a"]);
   const {
     plantIdWeb,
     propId,
@@ -55,6 +56,7 @@ function Tempgraph() {
         snapshot.forEach((childSnapshot) => {
           const temp1 = childSnapshot.val().Temperature;
           const hum = childSnapshot.val().Humidity;
+          
           //console.log("hum = " + hum); //to access data
           const time = childSnapshot.val().Sample_Time;
           //console.log("time = " + time);
@@ -71,6 +73,51 @@ function Tempgraph() {
     );
   };
 
+  const getSunData = () => {
+    const dataSun = [];
+    // const hdata = [];
+    const db = ref(getDatabase());
+    get(child(db, `Sunlight_Readings/${propId}`)).then((snapshot) => {
+      snapshot.forEach((childSnapshot) => {
+        const sun1 = childSnapshot.val().Visible;
+        // const hum = childSnapshot.val().Humidity;
+        //console.log("hum = " + hum); //to access data
+        const time = childSnapshot.val().Sample_Time;
+        //console.log("time = " + time);
+        // const timeNum = new Date().getTime(time);
+
+        dataSun.push({ time: time, sun: sun1 });
+        // hdata.push({ time: time, humidity: hum });
+        //console.log("data is : " + data);
+      });
+      
+      setSunData(dataSun);
+      
+    });
+  };
+  const getMoistData = () => {
+    const dataMoist = [];
+    // const hdata = [];
+    const db = ref(getDatabase());
+    get(child(db, `Moisture_Readings/${propId}`)).then((snapshot) => {
+      snapshot.forEach((childSnapshot) => {
+        const moist1 = childSnapshot.val().Moisture_value;
+        // const hum = childSnapshot.val().Humidity;
+        //console.log("hum = " + hum); //to access data
+        const time = childSnapshot.val().Sample_Time;
+        //console.log("time = " + time);
+        // const timeNum = new Date().getTime(time);
+
+        dataMoist.push({ time: time, moist: moist1 });
+        // hdata.push({ time: time, humidity: hum });
+        //console.log("data is : " + data);
+      });
+      
+      setMoistData(dataMoist);
+      
+    });
+  };
+
   return (
     <>
       <Tabs className="tab">
@@ -79,7 +126,8 @@ function Tempgraph() {
         <TabList>
           <Tab onClick={() => setTempData(getTempData)}>Temperature</Tab>
           <Tab onClick={() => setHumData(getTempData)}>Humidity</Tab>
-          <Tab>Sunlight</Tab>
+          <Tab onClick={() => setSunData(getSunData)}>Sunlight</Tab>
+          <Tab onClick={() => setMoistData(getMoistData)}>Moisture</Tab>
         </TabList>
         <TabPanel>
           <LineChart width={500} height={300} data={tempData}>
@@ -98,11 +146,19 @@ function Tempgraph() {
           </LineChart>
         </TabPanel>
         <TabPanel>
-          <LineChart width={500} height={300} data={humData}>
+          <LineChart width={500} height={300} data={sunData}>
             <XAxis dataKey="time" />
             <YAxis />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-            <Line type="monotone" dataKey="humidity" stroke="#8884d8" />
+            <Line type="monotone" dataKey="sun" stroke="#8884d8" />
+          </LineChart>
+        </TabPanel>
+        <TabPanel>
+          <LineChart width={500} height={300} data={moistData}>
+            <XAxis dataKey="time" />
+            <YAxis />
+            <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
+            <Line type="monotone" dataKey="moist" stroke="#8884d8" />
           </LineChart>
         </TabPanel>
       </Tabs>

@@ -24,6 +24,9 @@ import { Button } from "react-bootstrap";
 /**
  *
  * @returns A graph of tempurat
+ * 
+ * 
+ * NOT USING ANYMORE DELETE
  */
 function SunlightGraph() {
   const { currentUserUID, currentUserEmail } = useContext(AuthContext);

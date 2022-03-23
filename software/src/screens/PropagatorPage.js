@@ -110,7 +110,7 @@ export default function MyProp() {
             )}
           </div>
           <p className="plantDescription">{plantDescription}</p>
-        </div>
+        </div> {/* left section */}
 
         <div className="rightsection">
           <h1 className="header2">Propagator Data</h1>
