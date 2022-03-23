@@ -256,13 +256,7 @@ export default function MyProp() {
         
       </div>
       {/* big container */}
-      <ButtonGroup aria-label="Basic example">
-        <Button variant="secondary">Readings</Button>
-        <Button variant="secondary">Temp</Button>
-        <Button variant="secondary">Hum</Button>
-        <Button variant="secondary">Light</Button>
-        <Button variant="secondary">Moist</Button>
-      </ButtonGroup>
+      
     </>
   );
 }

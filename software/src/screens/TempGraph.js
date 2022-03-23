@@ -21,6 +21,7 @@ import {
 import { PropagatorContext } from "../contexts/PropagatorContext";
 import { XAxis, YAxis, LineChart, Line } from "recharts";
 import { Button } from "react-bootstrap";
+import { ButtonGroup} from "react-bootstrap";
 /**
  *
  * @returns A graph of tempurat
@@ -72,11 +73,11 @@ function Tempgraph() {
     
   return (
     <>
-    <Button
+    {/* <Button
             class = "tempGraphButton"
-            onClick={() => setTempData(getTempData)}
+            
           >Tempertature Button
-          </Button>
+          </Button> */}
 
     <LineChart width={500} height={300} data={tempData}>
     <XAxis dataKey="time" />
@@ -84,6 +85,15 @@ function Tempgraph() {
     <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
     <Line type="monotone" dataKey="temp" stroke="#8884d8" />
   </LineChart>
+
+  <ButtonGroup aria-label="Basic example">
+        <Button variant="secondary" >Readings</Button>
+        <Button onClick={() => setTempData(getTempData)} variant="secondary" >Temp</Button>
+        <Button variant="secondary" >Hum</Button>
+        <Button variant="secondary">Light</Button>
+        <Button variant="secondary">Moist</Button>
+      </ButtonGroup>
+    
   </>
   );
 }
