@@ -16,6 +16,7 @@ import { ButtonGroup } from "react-bootstrap";
 import Tempgraph from "../screens/TempGraph";
 import Humgraph from "../screens/HumGraph";
 import SunlightGraph from "./SunlightGraph";
+import { PlantDataContext } from "../contexts/PlantDataContext";
 
 const muiTheme = createMuiTheme({
   overrides: {
@@ -45,7 +46,6 @@ export default function MyProp() {
   const {
     plantIdWeb,
     plantIdAura,
-    plantIdDescription,
     propId,
     humidity,
     moisture,
@@ -55,6 +55,8 @@ export default function MyProp() {
     sunlight,
     temperature,
   } = useContext(PropagatorContext);
+
+  const { plantDescription } = useContext(PlantDataContext);
 
   const [mystyle, setStyle] = useState("but1");
   const changeStyle = () => {
@@ -100,13 +102,14 @@ export default function MyProp() {
             Here's how your {plantCommonName} plant is doing:{" "}
           </h2>
           <div className="yourPlantPic">
-            <img class="plantpic" src={abuta} alt="Logo" />
+            {plantCommonName && (
+              <img
+                className="image"
+                src={require("../assets/" + plantCommonName + ".jpeg")}
+              ></img>
+            )}
           </div>
-          <p className="plantDescription">
-            Here, we are going to add a description of the plant the user is
-            currently growing. BLA BLA BLA BLA BLA
-            aphjdahjwdjlhawjlkdhajkwhdajkwhdkjalwhdjkahwjdkhd
-          </p>
+          <p className="plantDescription">{plantDescription}</p>
         </div>
 
         <div className="rightsection">
