@@ -49,6 +49,9 @@ export default function SearchPage() {
     pHLow,
   } = useContext(PlantDataContext);
 
+  const fileNameExt = commonName + ".jepg";
+  console.log(fileNameExt);
+
   return (
     <>
       {/* <p>stuff is belwo {theUserSearch}</p> */}
@@ -59,7 +62,7 @@ export default function SearchPage() {
 
           <img
             className="image"
-            src={require(`../assets/${commonName}.jpeg`).default}
+            src={require("../assets/" + commonName + ".jpeg")}
           ></img>
           <button className="add-to-prop-btn">Add to Propagator</button>
         </div>

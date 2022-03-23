@@ -72,28 +72,20 @@ export default function Explore() {
             // console.log(plantName);
             // console.log(`in: ${record.get("a")}`);
             setHigherNode(record.get("a"));
-            console.log("Higher Node is" + higherNode);
+
             // console.log(`is: ${record.get("common")}`);
             setCommonName(record.get("common"));
-            console.log("Common Name is" + commonName);
+
             // console.log(`with: ${record.get("info")}`);
             setHumidity(`Humidity is: ${record.get("j")}`);
-            console.log("Humidity is" + humidity);
 
             setWatering(`Watering is: ${record.get("g")}`);
-            console.log("Watering is" + watering);
             setLight(`Light is: ${record.get("h")}`);
-            console.log("Light is" + light);
             setTempHigh(`Temp High is: ${record.get("i")}`);
-            console.log("Temp high is" + tempHigh);
             setMoistureType(`Moisture Type is: ${record.get("f")}`);
-            console.log("Moistre type is" + moistureType);
             setPhHigh(`pH High Is: ${record.get("k")}`);
-            console.log("PhHigh" + phHigh);
             setTempLow(`Temp Low is: ${record.get("l")}`);
-            console.log("tempLow" + tempLow);
             setPhLow(`pH Low is: ${record.get("m")}`);
-            console.log("ph Low is" + pHLow); //Sets all info
           });
         })
       );
