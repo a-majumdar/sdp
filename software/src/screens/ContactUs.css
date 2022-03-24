@@ -1,0 +1,16 @@
+.names {
+  margin-bottom: 40px;
+}
+
+.background-image3 {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  opacity: 0.9;
+  z-index: -1;
+}
+
+.background-image3 {
+  background-color: black;
+}

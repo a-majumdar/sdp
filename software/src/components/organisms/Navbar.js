@@ -60,7 +60,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar">
+      <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-white">
         <div className="left side">
           <NavLink to="/" className="logo-button">
             <a href="/" className="logo">

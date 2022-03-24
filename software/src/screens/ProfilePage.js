@@ -73,7 +73,7 @@ export default function ProfilePage() {
       <div className="all-items">
         <div className="left-items">
           <br></br>
-          <h2 className="actlog">Active Propogators: </h2>
+          <h2 className="actlog">Click to see your propagator: </h2>
 
           {!propogatorHasPlant ? (
             <Link to={"/MyProp"}>

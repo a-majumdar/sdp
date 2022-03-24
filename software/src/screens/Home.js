@@ -20,7 +20,7 @@ function Home() {
     <>
       <div className="hero-container">
         <img className="background-image" src={PlantBackground}></img>
-        <h1 style={{ color: "white" }}>Welcome to PlantED.</h1>
+        <h1 style={{ color: "white", marginTop: 10 }}>Welcome to PlantED.</h1>
         <p style={{ color: "white" }}>
           Learn, Explore and Interact with your plants and give them the best
           start in life.

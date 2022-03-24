@@ -104,7 +104,7 @@ export default function Explore() {
     <>
       <div className="hero-container">
         <img className="background-image" src={PlantBackground}></img>
-        <h1 style={{ color: "black" }}>Explore new plants!</h1>
+        <h1 style={{ color: "#3D3939" }}>Explore new plants!</h1>
         <Form>
           <input
             className="search-bar"
@@ -130,7 +130,7 @@ export default function Explore() {
           theUserSearch = userSearch
         } */}
 
-        <div className="hero-btns"></div>
+        <div className="hero-btns2"></div>
       </div>
       <Cards />
       <Footer />

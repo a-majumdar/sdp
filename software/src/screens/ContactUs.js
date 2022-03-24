@@ -1,7 +1,7 @@
 import React from "react";
-import "../App.css";
+import "./ContactUs.css";
 import Footer from "../components/organisms/Footer";
-import PlantBackground from "../assets/meadows.jpg";
+import PlantBackground from "../assets/edincastle.png";
 
 /**
  * Contact Us section of our website
@@ -9,10 +9,11 @@ import PlantBackground from "../assets/meadows.jpg";
  */
 export default function ContactUs() {
   const Header = {
-    padding: "10px 20px",
+    padding: "20px",
     textAlign: "center",
+    marginTop: 20,
     color: "white",
-    marginTop: 170,
+    marginTop: 1,
     fontSize: "100px",
   };
   const mystyle = {
@@ -24,10 +25,12 @@ export default function ContactUs() {
 
   return (
     <>
-      <div className="hero-container">
-        <img className="background-image" src={PlantBackground}></img>
-        <h1 style={Header}> Get in Touch</h1>
+      <div className="background-image4">
+        <img className="background-image3" src={PlantBackground}></img>
+      </div>
+      <h1 style={Header}> Get in Touch.</h1>
 
+      <div className="names">
         <p style={mystyle}>
           Ananya Majumdar (Project Manager) - s1802817@ed.ac.uk
         </p>
@@ -53,8 +56,8 @@ export default function ContactUs() {
           Binbin Zhan (Software Developer) - s1945599@ed.ac.uk
         </p>
         <p style={mystyle}>Bohan Xu (Hardware Developer) - s1931736@ed.ac.uk</p>
-        <div className="hero-btns"></div>
       </div>
+      <div className="hero-btns"></div>
       {/* <Cards /> */}
       <Footer />
     </>

@@ -9,6 +9,7 @@
   flex-direction: row;
   font-size: 1.2rem;
   top: 0;
+  z-index: 9999;
 }
 
 .navbar-container {
@@ -17,6 +18,7 @@
   justify-content: center;
   align-items: center;
   /* max-width: 1500px; */
+  z-index: 9999;
 }
 
 .navbar-logo {
@@ -28,6 +30,7 @@
   font-size: 2rem;
   display: flex;
   align-items: center;
+  z-index: 9999;
 }
 
 .left-side {
