@@ -58,7 +58,6 @@
 }
 
 .rightsection {
-  margin-top: 50px;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -79,8 +78,9 @@
   border-radius: 10px;
 }
 
-.header2 {
+.header3 {
   margin-right: 210px;
+  margin-top: 63px;
   text-decoration: underline;
 }
 

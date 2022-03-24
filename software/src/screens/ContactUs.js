@@ -11,10 +11,9 @@ export default function ContactUs() {
   const Header = {
     padding: "20px",
     textAlign: "center",
-    marginTop: 20,
+    marginTop: 220,
     color: "white",
-    marginTop: 130,
-    fontSize: "100px",
+    fontSize: "80px",
   };
   const mystyle = {
     color: "white",

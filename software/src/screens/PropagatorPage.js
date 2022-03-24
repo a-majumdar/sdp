@@ -114,7 +114,7 @@ export default function MyProp() {
         </div>{" "}
         {/* left section */}
         <div className="rightsection">
-          <h1 className="header2">Propagator Data</h1>
+          <h1 className="header3">Propagator Data</h1>
           <div className="all-data-display">
             <div className="info-display">
               <h2 className="data-header">Temperature </h2>
