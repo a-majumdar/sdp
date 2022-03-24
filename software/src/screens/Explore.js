@@ -68,15 +68,33 @@ export default function Explore() {
       const readQuery = `match (n:Species)-[:In]-> (p) -[:In]->(l) -[:In] ->(z) -[:In]->(k) -[:In]->(q) 
                       where n.common = $search or n.name = $search
                        return n.name as plant,n.common as common, n.description as description, n.information as info,p.name as a,l.name as b,z.name as c ,k.name as d,q.name as e,n.moisture_type as f,n.watering as g, n.light as h,n.temp_high as i, n.humidity as j, n.pH_high as k, n.temp_low as l, n.pH_low as m`;
+
+      const AnanyaQuery = `
+      MATCH (n)
+      WHERE n.common = $search or n.name = $search
+      RETURN 
+        ID(n) AS plantID,
+        n.name AS plant,
+        n.common AS common,
+        n.description AS description, 
+        n.humidity AS humidity,
+        n.light AS light,
+        n.moisture_type AS moisture_type, 
+        n.pH_high AS upper_pH,
+        n.pH_low AS lower_pH,
+        n.temp_high AS upper_temp,
+        n.temp_low AS lower_temp, 
+        n.watering AS watering_style`;
       session2.readTransaction((tx) =>
-        tx.run(readQuery, { search: word }).then((readResult) => {
+        tx.run(AnanyaQuery, { search: word }).then((readResult) => {
           readResult.records.forEach((record) => {
             console.log(`plant name: ${record.get("plant")}`);
             setPlantName(`plant name: ${record.get("plant")}`); //Here, I'm just setting constants equal to what we are getting from the AuraDb database so that we can then pass these as props to whichever class we need them in.
             // console.log(plantName);
             // console.log(`in: ${record.get("a")}`);
-            setHigherNode(record.get("a"));
-            setPlantIdAura("2");
+            //setHigherNode(record.get("a"));
+            setPlantIdAura(record.get("plantID").low);
+            console.log(record.get("plantID").low);
             //NEED TO CHNAGE THIS TO GET THE ID OF THE QUERIED PLANT IN SEARCH
 
             // console.log(`is: ${record.get("common")}`);
@@ -84,15 +102,15 @@ export default function Explore() {
             setPlantDescription(record.get("description"));
 
             // console.log(`with: ${record.get("info")}`);
-            setHumidity(`Humidity is: ${record.get("j")}`);
+            setHumidity(`Humidity is: ${record.get("humidity")}`);
 
-            setWatering(`Watering is: ${record.get("g")}`);
-            setLight(`Light is: ${record.get("h")}`);
-            setTempHigh(`Temp High is: ${record.get("i")}`);
-            setMoistureType(`Moisture Type is: ${record.get("f")}`);
-            setPhHigh(`pH High Is: ${record.get("k")}`);
-            setTempLow(`Temp Low is: ${record.get("l")}`);
-            setPhLow(`pH Low is: ${record.get("m")}`);
+            setWatering(`Watering is: ${record.get("watering_style")}`);
+            setLight(`Light is: ${record.get("light")}`);
+            setTempHigh(`Temp High is: ${record.get("upper_temp")}`);
+            setMoistureType(`Moisture Type is: ${record.get("moisture_type")}`);
+            setPhHigh(`pH High Is: ${record.get("upper_pH")}`);
+            setTempLow(`Temp Low is: ${record.get("lower_temp")}`);
+            setPhLow(`pH Low is: ${record.get("lower_pH")}`);
           });
         })
       );

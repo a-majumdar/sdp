@@ -106,7 +106,6 @@ export default function SearchPage() {
                 <div className="plant-info">
                   <p className="data">{commonName}</p>
                   <p className="data">{plantName}</p>
-                  <p className="data">{higherNode}</p>
                   <p className="data">{humidity}</p>
                   <p className="data">{watering}</p>
                 </div>
