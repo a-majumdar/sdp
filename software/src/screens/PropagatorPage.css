@@ -40,6 +40,7 @@
 .bigcontainer {
   display: flex;
   flex-direction: row;
+  margin-top: 120px;
 }
 
 .leftsection {

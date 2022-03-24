@@ -18,9 +18,9 @@ export default function AboutUs() {
   };
   return (
     <>
-      <div className="hero-container">
+      <div className="hero-container2">
         <img className="background-image2" src={PlantBackground}></img>
-        <h1 style={{ color: "white", marginTop: 20 }}> We are PlantEd.</h1>
+        <h1 style={{ color: "white", fontSize: 80 }}> We are PlantEd.</h1>
         <p style={mystyle}>
           PlantEd is a smart plant care system that intends to enhance the
           learning curve of new plant enthusiasts by providing an interactive

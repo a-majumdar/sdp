@@ -102,9 +102,9 @@ export default function Explore() {
   }
   return (
     <>
-      <div className="hero-container">
+      <div className="hero-container3">
         <img className="background-image" src={PlantBackground}></img>
-        <h1 style={{ color: "#3D3939" }}>Explore new plants!</h1>
+        <h1 style={{ color: "#3D3939", fontSize: 80 }}>Explore new plants!</h1>
         <Form>
           <input
             className="search-bar"
