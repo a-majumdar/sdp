@@ -41,6 +41,7 @@ export default function LogIn() {
     <>
       <div className="hero-container">
         <img className="background-image" src={PlantBackground} />
+        <div className="card-div">
         <Card>
           <Card.Body>
             <h2 className="text-center mb-4">Log In</h2>
@@ -67,6 +68,7 @@ export default function LogIn() {
             Need an account? <Link to="/sign-up">Sign Up</Link>
           </div>
         </Card>
+        </div>
       </div>
       <Footer></Footer>
     </>
