@@ -17,6 +17,8 @@ import Tempgraph from "../screens/TempGraph";
 import Humgraph from "../screens/HumGraph";
 import SunlightGraph from "./SunlightGraph";
 import { PlantDataContext } from "../contexts/PlantDataContext";
+import Popup from 'reactjs-popup';
+
 
 const muiTheme = createMuiTheme({
   overrides: {
