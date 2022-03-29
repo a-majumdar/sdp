@@ -1,22 +1,22 @@
 import { child, get, getDatabase, ref } from "firebase/database";
 import React, { useEffect, useState, createContext, useContext } from "react";
-import { auth } from "../firebase/firebase-config";
 import { AuthContext } from "./AuthContext";
 import neo4j from "neo4j-driver";
 
 /**
- * This Class Acts as an Authentication Context for all our other classes in our application
+ * This Class Acts as an Propagator Context for all our other classes in our application
  * It means we are able to access any constants in here throughout our application without having to pass them as props.
  * Children just means that we are passing an object which in our case is our other pages in our website
+ * Here we keep the state of our propagator and all the readings that we get from the database.
  */
 export const PropagatorContext = createContext();
 
 export const PropagatorProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
-  const [propagatorHasPlant, setPropagatorHasPlant] = useState(false);
-  const { currentUserUID } = useContext(AuthContext);
-  const [propId, setPropId] = useState("");
-  const [plantIdWeb, setPlantIdWeb] = useState();
+  const [propagatorHasPlant, setPropagatorHasPlant] = useState(false); //Does a propagator have a plant planted at the moment
+  const { currentUserUID } = useContext(AuthContext); //What is the ID of the current user
+  const [propId, setPropId] = useState(""); //What is the propagator ID for the current user
+  const [plantIdWeb, setPlantIdWeb] = useState(); //What is the Plant ID the user is growing
   const [humidity, setHumidity] = useState();
   const [moisture, setMoisture] = useState();
   const [prop_detials, setPropDetails] = useState();
@@ -24,6 +24,10 @@ export const PropagatorProvider = ({ children }) => {
   const [temperature, setTemperature] = useState();
   const [plantCommonName, setPlantCommonName] = useState();
 
+  /**
+   * This function queries the Realtime database and gets all the realtime information from the sensors on our propagator and stores them
+   * in a state of our application
+   */
   function getAllInfo() {
     const db = ref(getDatabase());
     const uri = "neo4j+s://28cce6ce.databases.neo4j.io";

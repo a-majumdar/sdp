@@ -1,13 +1,5 @@
-import React, { createContext, useContext, useRef, useState } from "react";
+import React, { createContext, useState } from "react";
 import "../App.css";
-import Cards from "../components/organisms/expCards";
-import Footer from "../components/organisms/Footer";
-import { Card, Form, Alert } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
-import PlantBackground from "../assets/explr.jpg";
-import neo4j from "neo4j-driver";
-import { Button } from "../components/atoms/Button";
-import { Link, useLocation } from "react-router-dom";
 
 /**
  * This Context keeps all the information about the plant from the search engine so we can use it anywhere in our application
@@ -16,7 +8,9 @@ import { Link, useLocation } from "react-router-dom";
 export const PlantDataContext = createContext();
 
 export const PlantDataProvider = ({ children }) => {
-  //Plant Info Props
+
+  //All info regarding a specific Plant from the Neo4j Database
+  //These are saved in states and can be used across our application
   const [plantIdAura, setPlantIdAura] = useState("");
   const [plantDescription, setPlantDescription] = useState("");
   const [plantName, setPlantName] = useState("");

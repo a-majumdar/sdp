@@ -4,7 +4,7 @@ import { Button } from "../atoms/Button";
 import "../organisms/Footer.css";
 
 /**
- *
+ * Footer for the bottom of each page, some links, newsletter and socials
  * @returns Simply a footer for our application
  */
 function Footer() {
@@ -74,8 +74,10 @@ function Footer() {
           target="_blank"
           aria-label="Facebook"
         >
+          {/* We don't have facebook yet */}
           <i className="fab fa-facebook-f"></i>
         </Link>
+        {/* Linked to our instagram page (PlantEd Edinburgh) */}
         <a
           className="social-icon-link instagram"
           href="https://www.instagram.com/plantededinburgh/"
