@@ -73,7 +73,7 @@ export default function ProfilePage() {
       <div className="all-items">
         <div className="left-items">
           <br></br>
-          <h2 className="actlog">See your propagator: </h2>
+          <h2 className="actlog">Click to see your propagator: </h2>
 
           {!propogatorHasPlant ? (
             <Link to={"/MyProp"}>
@@ -103,9 +103,9 @@ export default function ProfilePage() {
           <br></br>
           <br></br>
 
-          {/* <h2 className="actlog">
+          <h2 className="actlog">
             Plant History : Aubergine (12th March 2022){" "}
-          </h2> */}
+          </h2>
           {propogatorHasPlant ? (
             <Link to={"/MyProp"}>
               <button className="butt2">View</button>

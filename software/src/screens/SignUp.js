@@ -12,6 +12,7 @@ import {
   createUser,
 } from "../firebase/firebase-config";
 
+
 /**
  * Sign Up Functionallity of our website
  * @returns A neat sign up box rendered on the page
@@ -47,7 +48,7 @@ export default function SignUp() {
         auth.currentUser.uid,
         propID.current.value
       ); //Adds data to the database using function from firebase-config.js
-
+      
       history.push("/profile");
     } catch {
       setError("Failed to create an account"); //For any reason, we fail to create the account
@@ -59,46 +60,44 @@ export default function SignUp() {
     <>
       <div className="hero-container">
         <img className="background-image" src={PlantBackground} />
-        <div className="card-div">
-          <Card className="card">
-            <Card.Body>
-              <h2 className="text-center mb-4 w3-cursive">Sign Up</h2>
-              {error && <Alert variant="danger">{error}</Alert>}
-              <Form onSubmit={handleSubmit}>
-                <Form.Group id="email">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control type="email" ref={emailRef} required />
-                </Form.Group>
-                <Form.Group id="password">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" ref={passwordRef} required />
-                </Form.Group>
-                <Form.Group id="password-confirm">
-                  <Form.Label>Password Confirmation</Form.Label>
-                  <Form.Control
-                    type="password"
-                    ref={passwordConfirmRef}
-                    required
-                  />
-                </Form.Group>
-                <Form.Group id="prop-id">
-                  <Form.Label>Propogator ID</Form.Label>
-                  <Form.Control ref={propID} required />
-                </Form.Group>
-                <Button
-                  disabled={loading}
-                  className="signup-button"
-                  type="submit"
-                >
-                  Sign Up
-                </Button>
-              </Form>
-            </Card.Body>
-            <div className="w-100 text-center mt-2">
-              Already have an account? <Link to="/login">Log In</Link>
-            </div>
-          </Card>
-        </div>
+        <Card className="card">
+          <Card.Body>
+            <h2 className="text-center mb-4">Sign Up</h2>
+            {error && <Alert variant="danger">{error}</Alert>}
+            <Form onSubmit={handleSubmit}>
+              <Form.Group id="email">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" ref={emailRef} required />
+              </Form.Group>
+              <Form.Group id="password">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" ref={passwordRef} required />
+              </Form.Group>
+              <Form.Group id="password-confirm">
+                <Form.Label>Password Confirmation</Form.Label>
+                <Form.Control
+                  type="password"
+                  ref={passwordConfirmRef}
+                  required
+                />
+              </Form.Group>
+              <Form.Group id="prop-id">
+                <Form.Label>Propogator ID</Form.Label>
+                <Form.Control ref={propID} required />
+              </Form.Group>
+              <Button
+                disabled={loading}
+                className="signup-button"
+                type="submit"
+              >
+                Sign Up
+              </Button>
+            </Form>
+          </Card.Body>
+          <div className="w-100 text-center mt-2">
+            Already have an account? <Link to="/login">Log In</Link>
+          </div>
+        </Card>
       </div>
       <Footer></Footer>
     </>

@@ -24,7 +24,6 @@ import { PlantDataProvider } from "./contexts/PlantDataContext";
 function App() {
   return (
     <Router>
-      <Route path="/Explore" exact component={Explore} />
       <AuthProvider>
         <PlantDataProvider>
           <Navbar></Navbar>
@@ -33,10 +32,11 @@ function App() {
               <Route path="/sign-up" exact component={SignUp} />
               <Route path="/" exact component={Home} />
               <Route path="/about-us" exact component={AboutUs} />
-
+              <Route path="/Explore" exact component={Explore} />
               <Route path="/Contact" exact component={Contact} />
               <Route path="/login" exact component={LogIn} />
               <Route path="/searchPage" exact component={SearchPage} />
+
               <PrivateRoute path="/profile" exact component={ProfilePage} />
               <Route path="/MyProp" exact component={MyProp} />
             </PropagatorProvider>

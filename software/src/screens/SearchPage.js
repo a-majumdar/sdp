@@ -54,15 +54,12 @@ export default function SearchPage() {
     pHLow,
   } = useContext(PlantDataContext);
 
-  const [popUp, setPopUp] = useState("");
-
   const { propId } = useContext(PropagatorContext);
 
   const fileNameExt = commonName + ".jepg";
   console.log(fileNameExt);
 
   const addToPropagator = () => {
-    setPopUp("Plant added to propagator");
     const db = getDatabase();
     set(ref(db, "Propagator_Details/" + propId), {
       plantId: plantIdAura,
@@ -86,7 +83,6 @@ export default function SearchPage() {
               <button onClick={addToPropagator} className="add-to-prop-btn">
                 Add to Propagator
               </button>
-              <p style={{ color: "white" }}>{popUp}</p>
               <h1>Plant Id: {plantIdAura}</h1>
               {/* This isn't dynamic yet */}
             </div>
