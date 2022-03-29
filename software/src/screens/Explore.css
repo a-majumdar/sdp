@@ -2,7 +2,7 @@
   width: 400px;
   height: 40px;
   font-size: 20px;
-  padding: 13px;
+  padding: 10px;
   box-shadow: aquamarine;
   border-radius: 20px;
 }
@@ -12,14 +12,19 @@
   margin-left: 15px;
   background-color: #97c092;
   color: white;
-  margin-bottom: 170px;
   width: 100px;
   border-radius: 20px;
 }
 
+.form {
+  align-items: center;
+  /* display: flex; */
+  justify-content: center;
+}
+
 .hero-container3 {
   /* background: url('/images/img-home.jpg') center center/cover no-repeat; */
-  height: 120.5vh;
+  height: 80.5vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -28,5 +33,5 @@
   object-fit: contain;
 }
 .hero-btns2 {
-  margin-bottom: 120px;
+  margin-bottom: 0px;
 }
