@@ -198,7 +198,7 @@ export default function MyProp() {
           {/* <button onClick={ssh("eVentClose")}></button> */}
         </div>
       </div>
-      {/* <a
+      <a
         className="App-link"
         href="https://reactjs.org"
         target="_blank"
@@ -208,7 +208,7 @@ export default function MyProp() {
       </a>
       <form action="../../post" method="post" className="form">
         <button type="submit">Connected?</button>
-      </form> */}
+      </form>
       <Footer />
     </>
   );
