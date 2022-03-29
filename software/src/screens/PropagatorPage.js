@@ -110,6 +110,7 @@ export default function MyProp() {
 
   return (
     <>
+    
       {/*
       <img className="background-image" src={PlantBackground}></img>
       */}
@@ -199,6 +200,18 @@ export default function MyProp() {
           {/* <button onClick={ssh("eVentClose")}></button> */}
         </div>
       </div>
+      {/* <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+        <form action="../../post" method="post" 
+              className="form">
+          <button type="submit">Connected?</button>
+        </form> */}
       <Footer />
     </>
   );

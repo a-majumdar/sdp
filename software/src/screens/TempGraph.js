@@ -21,9 +21,10 @@ import {
   push,
 } from "firebase/database";
 import { PropagatorContext } from "../contexts/PropagatorContext";
-import { XAxis, YAxis, LineChart, Line } from "recharts";
-import { Button } from "react-bootstrap";
+import { XAxis, YAxis, LineChart, Line, Legend, ResponsiveContainer } from "recharts";
+import { Button, Tooltip } from "react-bootstrap";
 import { ButtonGroup } from "react-bootstrap";
+
 /**
  *
  * @returns A graph of tempurat
@@ -133,6 +134,7 @@ function Tempgraph() {
           <LineChart width={500} height={300} data={tempData}>
             <XAxis dataKey="time" />
             <YAxis />
+            <Tooltip />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
             <Line type="monotone" dataKey="temp" stroke="#8884d8" />
           </LineChart>
@@ -141,24 +143,33 @@ function Tempgraph() {
           <LineChart width={500} height={300} data={humData}>
             <XAxis dataKey="time" />
             <YAxis />
+            <Tooltip />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
             <Line type="monotone" dataKey="humidity" stroke="#8884d8" />
           </LineChart>
         </TabPanel>
         <TabPanel>
+        
           <LineChart width={500} height={300} data={sunData}>
+            
             <XAxis dataKey="time" />
             <YAxis />
+            <Tooltip />
+            {/* <Legend /> */}
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-            <Line type="monotone" dataKey="sun" stroke="#8884d8" />
+            <Line type="monotone" dataKey="sun" stroke="#8884d8" activeDot={{r :8}}/>
+            
           </LineChart>
+          
+          
         </TabPanel>
         <TabPanel>
           <LineChart width={500} height={300} data={moistData}>
             <XAxis dataKey="time" />
             <YAxis />
+            <Tooltip  contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }} itemStyle={{ color: "#fff" }} cursor={false} />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-            <Line type="monotone" dataKey="moist" stroke="#8884d8" />
+            <Line type="monotone" dataKey="moist" stroke="#8884d8" strokeWidth="5" dot={{fill:"#2e4355",stroke:"#8884d8",strokeWidth: 2,r:5}} activeDot={{fill:"#2e4355",stroke:"#8884d8",strokeWidth: 5,r:10}} />
           </LineChart>
         </TabPanel>
       </Tabs>
