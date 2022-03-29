@@ -2,20 +2,18 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/PlantEd Small.png";
 import { AuthContext } from "../../contexts/AuthContext";
-import { auth } from "../../firebase/firebase-config";
-import { Button } from "../atoms/Button";
 import "../organisms/Navbar.css";
 
 /**
  * Renders a navbar in our application. It is dynamic and so changes whether a user is logged in or not
  * @returns NavBar
  */
+
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
-  const { currentUser } = useContext(AuthContext); //Taken from our AuthContext
+  const { currentUser } = useContext(AuthContext); //Taken from our AuthContext - Used to check whether there is a current user
 
-  const handleClick = () => setClick(!click); //TODO: Need to get CSS working for Mobile
   const closeMobileMenu = () => setClick(false);
 
   /**
@@ -26,12 +24,13 @@ const Navbar = () => {
    */
   function ButtonAdapt() {
     if (currentUser) {
-      //Taken from AuthContext
+      //Is there a user signed in?
       return (
         <>
           <Link to="/profile">
             <button className="button-planted">Go to Profile Page</button>
           </Link>
+          {/* Then we can go to their profile page */}
         </>
       );
     }
@@ -39,27 +38,15 @@ const Navbar = () => {
       return (
         <Link to="/sign-up">
           <button className="button-planted">Sign Up/LogIn</button>
+          {/* If not then instruct them to sign up */}
         </Link>
       );
     }
   }
 
-  const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
-      setButton(true);
-    }
-  };
-
-  useEffect(() => {
-    showButton();
-  }, []);
-
-  window.addEventListener("resize", showButton);
-
   return (
     <>
+      {/* Adds various links to the navbar */}
       <nav class="navbar fixed-top navbar-light bg-white">
         <div className="left side">
           <NavLink to="/" className="logo-button">
@@ -119,6 +106,7 @@ const Navbar = () => {
             </li>
           </ul>
           <ButtonAdapt></ButtonAdapt>
+          {/* The adaptive button (if logged in go to profile) */}
         </div>
       </nav>
     </>

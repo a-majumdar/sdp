@@ -7,6 +7,12 @@ import Carrots from "../../assets/carrots.jpg";
 import Cress from "../../assets/cress.jpg";
 import Pots from "../../assets/pots.jpg";
 
+
+/**
+ * Function to return the cards section under the headers of the home page, Uses a react library called cards, pretty simple
+ * Not implemented yet just renders the items
+ * @returns 
+ */
 function Cards() {
   return (
     <div className="cards">
