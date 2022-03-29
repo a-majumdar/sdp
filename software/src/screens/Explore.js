@@ -284,7 +284,7 @@ export default function Explore() {
             id="myInput"
             type="text"
             name="s"
-            placeholder="enter the queries"
+            placeholder="search for any plant."
           ></input>
           <Link to={"/searchPage"}>
             <button
@@ -298,6 +298,7 @@ export default function Explore() {
               Search
             </button>
           </Link>
+          <input className="search-btn" type="submit" value="Search"></input>
         </form>
       </div>
       <Cards />

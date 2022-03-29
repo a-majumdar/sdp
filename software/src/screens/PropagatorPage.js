@@ -43,7 +43,6 @@ export default function MyProp() {
   const { currentUserUID, currentUserEmail } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
   const [value, setValue] = useState(0);
-  const [description, setDescription] = useState();
   const {
     plantIdWeb,
     plantIdAura,
@@ -58,6 +57,24 @@ export default function MyProp() {
   } = useContext(PropagatorContext);
 
   const { plantDescription } = useContext(PlantDataContext);
+  // const ssh = (cmd) => {
+  //   const SSH = require("simple-ssh");
+  //     const thecmd = 'echo "!' + cmd + '.py" > file.txt';
+  //     console.log("inside the system " + thecmd);
+  //     var ssh_options = new SSH({
+  //       host: "abomasnow",
+  //       user: "pi",
+  //       pass: "r00t",
+  //     });
+  //     //'echo "!eVentOpen.py" > file.txt'
+  //     ssh_options
+  //       .exec(thecmd, {
+  //         out: console.log.bind(console),
+  //       })
+  //       .start();
+  // };
+
+  const { description } = useContext(PropagatorContext);
 
   const [mystyle, setStyle] = useState("but1");
   const changeStyle = () => {
@@ -110,7 +127,7 @@ export default function MyProp() {
               ></img>
             )}
           </div>
-          <p className="plantDescription">{plantDescription}</p>
+          <p className="plantDescription">{description}</p>
         </div>{" "}
         {/* left section */}
         <div className="rightsection">
@@ -180,6 +197,17 @@ export default function MyProp() {
           {/*menu*/}
         </div>
       </div>
+      <a
+        className="App-link"
+        href="https://reactjs.org"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Learn React
+      </a>
+      <form action="../../post" method="post" className="form">
+        <button type="submit">Connected?</button>
+      </form>
       <Footer />
     </>
   );

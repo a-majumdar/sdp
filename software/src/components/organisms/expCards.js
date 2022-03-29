@@ -8,12 +8,14 @@ import sunflower from "../../assets/sunflower.jpg";
 import orchid from "../../assets/orchid.jpg";
 import aloevera from "../../assets/aloevera.jpg";
 import cactus from "../../assets/cactus.jpg";
-import mind from "../../assets/mind.jpg";
-import bee from "../../assets/bee.jpg";
 import snowdrop from "../../assets/snowdrop.jpg";
 import chillis from "../../assets/chillis.jpg";
-import winterplant from "../../assets/winterplant.jpg";
 
+/**
+ * Function to return the cards section under the headers of the explore page, Uses a react library called cards, pretty simple
+ * Not implemented yet just renders the items
+ * @returns Cards on explore page
+ */
 function Cards() {
   return (
     <div className="cards">

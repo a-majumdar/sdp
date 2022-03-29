@@ -1,29 +1,34 @@
 import { child, get, getDatabase, ref } from "firebase/database";
 import React, { useEffect, useState, createContext, useContext } from "react";
-import { auth } from "../firebase/firebase-config";
 import { AuthContext } from "./AuthContext";
 import neo4j from "neo4j-driver";
 
 /**
- * This Class Acts as an Authentication Context for all our other classes in our application
+ * This Class Acts as an Propagator Context for all our other classes in our application
  * It means we are able to access any constants in here throughout our application without having to pass them as props.
  * Children just means that we are passing an object which in our case is our other pages in our website
+ * Here we keep the state of our propagator and all the readings that we get from the database.
  */
 export const PropagatorContext = createContext();
 
 export const PropagatorProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
-  const [propagatorHasPlant, setPropagatorHasPlant] = useState(false);
-  const { currentUserUID } = useContext(AuthContext);
-  const [propId, setPropId] = useState("");
-  const [plantIdWeb, setPlantIdWeb] = useState();
+  const [propagatorHasPlant, setPropagatorHasPlant] = useState(false); //Does a propagator have a plant planted at the moment
+  const { currentUserUID } = useContext(AuthContext); //What is the ID of the current user
+  const [propId, setPropId] = useState(""); //What is the propagator ID for the current user
+  const [plantIdWeb, setPlantIdWeb] = useState(); //What is the Plant ID the user is growing
   const [humidity, setHumidity] = useState();
   const [moisture, setMoisture] = useState();
   const [prop_detials, setPropDetails] = useState();
   const [sunlight, setSunlight] = useState();
   const [temperature, setTemperature] = useState();
   const [plantCommonName, setPlantCommonName] = useState();
+  const [description, setDescription] = useState();
 
+  /**
+   * This function queries the Realtime database and gets all the realtime information from the sensors on our propagator and stores them
+   * in a state of our application.
+   */
   function getAllInfo() {
     const db = ref(getDatabase());
     const uri = "neo4j+s://28cce6ce.databases.neo4j.io";
@@ -53,10 +58,11 @@ export const PropagatorProvider = ({ children }) => {
                 setPlantIdWeb(plantId);
               } else {
                 console.log("No plant data available");
-              }
-              return `match (n:Species) -[:In]-> (p) -[:In]->(l) -[:In] ->(z) -[:In]->(k) -[:In]->(q) 
+              } //This Part Gets information from the Neo4j DB regarding the plant that the user is currently growing
+
+              return `match (n:Species) -[:In]-> (p) -[:In]->(l) -[:In] ->(z) -[:In]->(k) -[:In]->(q)
         where ID(n) = ${plantId}
-        return n.name as plant,n.common as common, p.name as a,l.name as b,z.name as c ,k.name as d,q.name as e`;
+        return n.name as plant,n.common as common,n.description as description, p.name as a,l.name as b,z.name as c ,k.name as d,q.name as e`;
             })
             .then((auraquery) => {
               try {
@@ -71,9 +77,11 @@ export const PropagatorProvider = ({ children }) => {
             .then((readResult) => {
               readResult.records.forEach((record) => {
                 //get all plant information from plant id
-                var plantName = record.get("plant");
                 var PlantCommon = record.get("common");
+                var description = record.get("description");
+                console.log(description);
                 setPlantCommonName(PlantCommon);
+                setDescription(description);
               });
             }),
           //get latest humidity and temperature reading
@@ -128,6 +136,7 @@ export const PropagatorProvider = ({ children }) => {
         plantIdWeb,
         setPlantIdWeb,
         humidity,
+        description,
         moisture,
         prop_detials,
         sunlight,
