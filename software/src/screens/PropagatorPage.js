@@ -17,8 +17,7 @@ import Tempgraph from "../screens/TempGraph";
 import Humgraph from "../screens/HumGraph";
 import SunlightGraph from "./SunlightGraph";
 import { PlantDataContext } from "../contexts/PlantDataContext";
-import Popup from 'reactjs-popup';
-
+import Popup from "reactjs-popup";
 
 const muiTheme = createMuiTheme({
   overrides: {
@@ -58,6 +57,23 @@ export default function MyProp() {
     sunlight,
     temperature,
   } = useContext(PropagatorContext);
+
+  // const ssh = (cmd) => {
+  //   const SSH = require("simple-ssh");
+  //     const thecmd = 'echo "!' + cmd + '.py" > file.txt';
+  //     console.log("inside the system " + thecmd);
+  //     var ssh_options = new SSH({
+  //       host: "abomasnow",
+  //       user: "pi",
+  //       pass: "r00t",
+  //     });
+  //     //'echo "!eVentOpen.py" > file.txt'
+  //     ssh_options
+  //       .exec(thecmd, {
+  //         out: console.log.bind(console),
+  //       })
+  //       .start();
+  // };
 
   const { plantDescription } = useContext(PlantDataContext);
 
@@ -180,6 +196,7 @@ export default function MyProp() {
             {/* rigt section */}
           </div>{" "}
           {/*menu*/}
+          {/* <button onClick={ssh("eVentClose")}></button> */}
         </div>
       </div>
       <Footer />
