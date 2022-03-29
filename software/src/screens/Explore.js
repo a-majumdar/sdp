@@ -186,9 +186,9 @@ export default function Explore() {
             id="myInput"
             type="text"
             name="s"
-            placeholder="enter the queries"
+            placeholder="search for any plant."
           ></input>
-          <input className="search-btn" type="submit" value="submit"></input>
+          <input className="search-btn" type="submit" value="Search"></input>
         </form>
         <div className="hero-btns2"></div>
       </div>
