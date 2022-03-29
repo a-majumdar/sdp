@@ -23,10 +23,11 @@ export const PropagatorProvider = ({ children }) => {
   const [sunlight, setSunlight] = useState();
   const [temperature, setTemperature] = useState();
   const [plantCommonName, setPlantCommonName] = useState();
+  const [description, setDescription] = useState();
 
   /**
    * This function queries the Realtime database and gets all the realtime information from the sensors on our propagator and stores them
-   * in a state of our application
+   * in a state of our application.
    */
   function getAllInfo() {
     const db = ref(getDatabase());
@@ -57,10 +58,11 @@ export const PropagatorProvider = ({ children }) => {
                 setPlantIdWeb(plantId);
               } else {
                 console.log("No plant data available");
-              }
-              return `match (n:Species) -[:In]-> (p) -[:In]->(l) -[:In] ->(z) -[:In]->(k) -[:In]->(q) 
+              } //This Part Gets information from the Neo4j DB regarding the plant that the user is currently growing
+
+              return `match (n:Species) -[:In]-> (p) -[:In]->(l) -[:In] ->(z) -[:In]->(k) -[:In]->(q)
         where ID(n) = ${plantId}
-        return n.name as plant,n.common as common, p.name as a,l.name as b,z.name as c ,k.name as d,q.name as e`;
+        return n.name as plant,n.common as common,n.description as description, p.name as a,l.name as b,z.name as c ,k.name as d,q.name as e`;
             })
             .then((auraquery) => {
               try {
@@ -75,9 +77,11 @@ export const PropagatorProvider = ({ children }) => {
             .then((readResult) => {
               readResult.records.forEach((record) => {
                 //get all plant information from plant id
-                var plantName = record.get("plant");
                 var PlantCommon = record.get("common");
+                var description = record.get("description");
+                console.log(description);
                 setPlantCommonName(PlantCommon);
+                setDescription(description);
               });
             }),
           //get latest humidity and temperature reading
@@ -132,6 +136,7 @@ export const PropagatorProvider = ({ children }) => {
         plantIdWeb,
         setPlantIdWeb,
         humidity,
+        description,
         moisture,
         prop_detials,
         sunlight,
