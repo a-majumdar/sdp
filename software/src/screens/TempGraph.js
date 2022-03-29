@@ -118,9 +118,12 @@ function Tempgraph() {
       
     });
   };
-
+  useEffect(() => {
+    setTempData(getTempData);
+  }, []);
   return (
     <>
+      
       <Tabs className="tab">
         {" "}
         {/*Hello World*/}
