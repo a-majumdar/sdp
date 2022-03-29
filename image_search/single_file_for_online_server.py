@@ -4,6 +4,7 @@ from PIL import Image
 from datetime import datetime
 from flask import Flask, request, render_template
 from pathlib import Path
+import os
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.vgg16 import VGG16, preprocess_input
 from tensorflow.keras.models import Model
@@ -31,8 +32,7 @@ class FeatureExtractor:
         x = preprocess_input(x)  # Subtracting avg values for each pixel
         feature = self.model.predict(x)[0]  # (1, 4096) -> (4096, )
         return feature / np.linalg.norm(feature)  # Normalize
-    
-    
+
 # Read image features
 fe = FeatureExtractor()
 features = []
@@ -67,4 +67,5 @@ def index():
 
 
 if __name__=="__main__":
-    app.run("0.0.0.0")
+    app.run(host=os.getenv('IP','0.0.0.0'),
+            port=int(os.getenv('PORT',4444)))
