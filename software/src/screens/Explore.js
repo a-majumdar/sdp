@@ -298,7 +298,7 @@ export default function Explore() {
               Search
             </button>
           </Link>
-          <input className="search-btn" type="submit" value="Search"></input>
+          {/* <input className="search-btn" type="submit" value="Search"></input> */}
         </form>
       </div>
       <Cards />
