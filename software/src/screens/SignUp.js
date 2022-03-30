@@ -1,17 +1,14 @@
 import React, { useRef } from "react";
 import { Card, Form, Button, Alert } from "react-bootstrap";
-import PlantBackground from "../assets/plants.jpeg";
 import Footer from "../components/organisms/Footer";
 import { useState } from "react";
 import "./SignUp.css";
 import { Link, useHistory } from "react-router-dom";
-import { useEffect } from "react";
 import {
   addUserPropagatorRelations,
   auth,
   createUser,
 } from "../firebase/firebase-config";
-
 
 /**
  * Sign Up Functionallity of our website
@@ -48,7 +45,7 @@ export default function SignUp() {
         auth.currentUser.uid,
         propID.current.value
       ); //Adds data to the database using function from firebase-config.js
-      
+
       history.push("/profile");
     } catch {
       setError("Failed to create an account"); //For any reason, we fail to create the account
@@ -58,8 +55,7 @@ export default function SignUp() {
 
   return (
     <>
-      <div className="hero-container">
-        <img className="background-image" src={PlantBackground} />
+      <div className="hero-container-signup">
         <Card className="card">
           <Card.Body>
             <h2 className="text-center mb-4">Sign Up</h2>

@@ -31,17 +31,17 @@ export const AuthProvider = ({ children }) => {
   /**
    * I don't think we need this but please do not delete just in case we get errors
    */
-  // useEffect(() => {
-  //   if (auth.currentUser == null) {
-  //     setCurrentUser("");
-  //     console.log("Use effect in Auth Context is Running");
-  //     setCurrentUserUID("");
-  //     setCurrentUserEmail("");
-  //     setLoading(false);
-  //   } else {
-  //     updateProfile();
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (auth.currentUser == null) {
+      setCurrentUser("");
+      console.log("Use effect in Auth Context is Running");
+      setCurrentUserUID("");
+      setCurrentUserEmail("");
+      setLoading(false);
+    } else {
+      updateProfile();
+    }
+  }, []);
 
   //Here we keep track of current user and render our children (child pages)
   return (

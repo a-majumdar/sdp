@@ -39,8 +39,7 @@ export default function LogIn() {
 
   return (
     <>
-      <div className="hero-container">
-        <img className="background-image" src={PlantBackground} />
+      <div className="hero-container-login">
         <Card>
           <Card.Body>
             <h2 className="text-center mb-4">Log In</h2>

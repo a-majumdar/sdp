@@ -3,19 +3,12 @@ import abuta from "../assets/Abuta.jpg";
 import { Slider } from "@material-ui/core";
 import { Switch } from "antd";
 import { createMuiTheme } from "@material-ui/core/styles";
-
 import "../screens/PropagatorPage.css";
 import Footer from "../components/organisms/Footer";
 import { AuthContext } from "../contexts/AuthContext";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { PropagatorContext } from "../contexts/PropagatorContext";
-import { XAxis, YAxis, LineChart, Line } from "recharts";
-import { Button } from "react-bootstrap";
-import { ButtonGroup } from "react-bootstrap";
 import Tempgraph from "../screens/TempGraph";
-import Humgraph from "../screens/HumGraph";
-import SunlightGraph from "./SunlightGraph";
 import { PlantDataContext } from "../contexts/PlantDataContext";
 
 const muiTheme = createMuiTheme({
