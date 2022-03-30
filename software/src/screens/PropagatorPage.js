@@ -10,7 +10,7 @@ import "react-tabs/style/react-tabs.css";
 import { PropagatorContext } from "../contexts/PropagatorContext";
 import Tempgraph from "../screens/TempGraph";
 import { PlantDataContext } from "../contexts/PlantDataContext";
-
+import axios from 'axios';
 const muiTheme = createMuiTheme({
   overrides: {
     MuiSlider: {
@@ -99,6 +99,13 @@ export default function MyProp() {
   const wtoggler = () => {
     toggle ? setwToggle(false) : setwToggle(true);
   };
+  function openVent() {
+    axios({
+    method: 'post',
+    url: '/openVent',
+    
+  });
+  }
 
   return (
     <>
@@ -108,6 +115,7 @@ export default function MyProp() {
       <div className="bigcontainer">
         <div className="background-image"></div>
         <div className="leftsection">
+        <button onClick={openVent}>this</button>
           <h2> Welcome, {currentUserEmail}!</h2>
           <h2 className="plantmsg">
             Here's how your {plantCommonName} plant is doing:{" "}

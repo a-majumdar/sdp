@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
 
-app.post("/post", (req, res) => {
+
+app.post("/openVent", (req, res) => {
   const SSH = require("simple-ssh");
   const cmd = "eVentOpen";
   const thecmd = 'echo "!' + cmd + '.py" > file.txt';
@@ -19,6 +20,7 @@ app.post("/post", (req, res) => {
     .start();
 
   console.log("Executing command");
+  
   res.redirect("/MyProp");
 });
 
