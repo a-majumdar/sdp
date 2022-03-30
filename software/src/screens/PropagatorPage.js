@@ -91,13 +91,22 @@ export default function MyProp() {
   const updateRange2 = (e, data) => {
     setVal2(data);
   };
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(false); //vent
   const toggler = () => {
-    toggle ? setToggle(false) : setToggle(true);
+    if(toggle){
+      setToggle(false);
+    } else {
+      setToggle(true);
+      openVent();
+    }
   };
   const [wtoggle, setwToggle] = useState(false);
   const wtoggler = () => {
-    toggle ? setwToggle(false) : setwToggle(true);
+    if(wtoggle){
+      setwToggle(false);
+    }else{
+      setwToggle(true);
+    }
   };
   function openVent() {
     axios({
