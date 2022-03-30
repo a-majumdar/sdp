@@ -95,6 +95,7 @@ export default function MyProp() {
   const toggler = () => {
     if(toggle){
       setToggle(false);
+      closeVent();
     } else {
       setToggle(true);
       openVent();
@@ -115,6 +116,13 @@ export default function MyProp() {
     
   });
   }
+  function closeVent() {
+    axios({
+    method: 'post',
+    url: '/closeVent',
+    
+  });
+  }
 
   return (
     <>
@@ -124,7 +132,7 @@ export default function MyProp() {
       <div className="bigcontainer">
         <div className="background-image"></div>
         <div className="leftsection">
-        <button onClick={openVent}>this</button>
+        {/* <button onClick={openVent}>this</button> */}
           <h2> Welcome, {currentUserEmail}!</h2>
           <h2 className="plantmsg">
             Here's how your {plantCommonName} plant is doing:{" "}
