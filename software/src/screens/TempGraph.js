@@ -121,6 +121,8 @@ function Tempgraph() {
   useEffect(() => {
     setTempData(getTempData);
   }, []);
+  //https://www.npmjs.com/package/react-linechart
+  
   return (
     <>
       
@@ -143,7 +145,7 @@ function Tempgraph() {
           </LineChart>
         </TabPanel>
         <TabPanel>
-          <LineChart width={500} height={300} data={humData}>
+          <LineChart width={500} height={300} data={humData} hideXLabel={true} hideXAxis={true}>
             <XAxis dataKey="time" />
             <YAxis />
             <Tooltip />
