@@ -10,7 +10,7 @@ import "react-tabs/style/react-tabs.css";
 import { PropagatorContext } from "../contexts/PropagatorContext";
 import Tempgraph from "../screens/TempGraph";
 import { PlantDataContext } from "../contexts/PlantDataContext";
-import axios from 'axios';
+import axios from "axios";
 const muiTheme = createMuiTheme({
   overrides: {
     MuiSlider: {
@@ -85,83 +85,82 @@ export default function MyProp() {
   };
   function moveProp() {
     axios({
-      method: 'post',
-      url: '/moveProp',
-      data: val
+      method: "post",
+      url: "/moveProp",
+      data: val,
     });
   }
   const [val, setVal] = useState([0]);
-  const updateRange = (e, data) => { //possition
+  const updateRange = (e, data) => {
+    //possition
     setVal(data);
-    if(data == 0){
+    if (data == 0) {
       axios({
-        method: 'post',
-        url: '/moveProp0',
-        data: val
+        method: "post",
+        url: "/moveProp0",
+        data: val,
       });
     } else if (data == 10) {
       axios({
-        method: 'post',
-        url: '/moveProp',
-        data: val
+        method: "post",
+        url: "/moveProp",
+        data: val,
       });
     } else if (data == 20) {
       axios({
-        method: 'post',
-        url: '/moveProp20',
-        data: val
+        method: "post",
+        url: "/moveProp20",
+        data: val,
       });
     } else if (data == 30) {
       axios({
-        method: 'post',
-        url: '/moveProp30',
-        data: val
+        method: "post",
+        url: "/moveProp30",
+        data: val,
       });
     } else if (data == 40) {
       axios({
-        method: 'post',
-        url: '/moveProp40',
-        data: val
+        method: "post",
+        url: "/moveProp40",
+        data: val,
       });
     } else if (data == 50) {
       axios({
-        method: 'post',
-        url: '/moveProp50',
-        data: val
+        method: "post",
+        url: "/moveProp50",
+        data: val,
       });
     } else if (data == 60) {
       axios({
-        method: 'post',
-        url: '/moveProp60',
-        data: val
+        method: "post",
+        url: "/moveProp60",
+        data: val,
       });
     } else if (data == 70) {
       axios({
-        method: 'post',
-        url: '/moveProp70',
-        data: val
+        method: "post",
+        url: "/moveProp70",
+        data: val,
       });
     } else if (data == 80) {
       axios({
-        method: 'post',
-        url: '/moveProp80',
-        data: val
+        method: "post",
+        url: "/moveProp80",
+        data: val,
       });
     } else if (data == 90) {
       axios({
-        method: 'post',
-        url: '/moveProp90',
-        data: val
+        method: "post",
+        url: "/moveProp90",
+        data: val,
       });
     } else if (data == 100) {
       axios({
-        method: 'post',
-        url: '/moveProp100',
-        data: val
+        method: "post",
+        url: "/moveProp100",
+        data: val,
       });
     }
-
-    
   };
 
   const [val2, setVal2] = useState([0]);
@@ -170,7 +169,7 @@ export default function MyProp() {
   };
   const [toggle, setToggle] = useState(false); //vent
   const toggler = () => {
-    if(toggle){
+    if (toggle) {
       setToggle(false);
       closeVent();
     } else {
@@ -180,27 +179,24 @@ export default function MyProp() {
   };
   const [wtoggle, setwToggle] = useState(false);
   const wtoggler = () => {
-    if(wtoggle){
+    if (wtoggle) {
       setwToggle(false);
-    }else{
+    } else {
       setwToggle(true);
     }
   };
   function openVent() {
     axios({
-    method: 'post',
-    url: '/openVent',
-    
-  });
+      method: "post",
+      url: "/openVent",
+    });
   }
   function closeVent() {
     axios({
-    method: 'post',
-    url: '/closeVent',
-    
-  });
+      method: "post",
+      url: "/closeVent",
+    });
   }
-  
 
   return (
     <>
@@ -210,7 +206,7 @@ export default function MyProp() {
       <div className="bigcontainer">
         <div className="background-image"></div>
         <div className="leftsection">
-        {/* <button onClick={openVent}>this</button> */}
+          {/* <button onClick={openVent}>this</button> */}
           <h2> Welcome, {currentUserEmail}!</h2>
           <h2 className="plantmsg">
             Here's how your {plantCommonName} plant is doing:{" "}
@@ -268,15 +264,21 @@ export default function MyProp() {
                   onChange={updateRange}
                 />
               </div>
-              
             </div>
-            
             <div className="waterCont">
               <div className="watertext">
                 <h2>Watering</h2>
               </div>
               <div class="togglewater">
                 <Switch onClick={wtoggler} />
+              </div>
+            </div>{" "}
+            <div className="waterCont">
+              <div className="watertext">
+                <h2>Sun Tracking</h2>
+              </div>
+              <div class="togglewater">
+                <Switch />
               </div>
             </div>{" "}
             {/* rigt section */}
