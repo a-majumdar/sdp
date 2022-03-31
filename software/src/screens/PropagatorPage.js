@@ -185,6 +185,21 @@ export default function MyProp() {
       setwToggle(true);
     }
   };
+  const [stoggle, setsToggle] = useState(false);
+  const stoggler = () => {
+    if (stoggle) {
+      setwToggle(false);
+    } else {
+      setsToggle(true);
+      sunTrack();
+    }
+  };
+  function sunTrack() {
+    axios({
+      method: "post",
+      url: "/sunTrack",
+    });
+  }
   function openVent() {
     axios({
       method: "post",
@@ -278,7 +293,7 @@ export default function MyProp() {
                 <h2>Sun Tracking</h2>
               </div>
               <div class="togglewater">
-                <Switch />
+                <Switch onClick={stoggler} />
               </div>
             </div>{" "}
             {/* rigt section */}

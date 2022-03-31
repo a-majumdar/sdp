@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 
-
 app.post("/openVent", (req, res) => {
   const SSH = require("simple-ssh");
   const cmd = "eVentOpen";
@@ -20,7 +19,7 @@ app.post("/openVent", (req, res) => {
     .start();
 
   console.log("Executing command " + cmd);
-  
+
   res.redirect("/MyProp");
 });
 
@@ -42,7 +41,7 @@ app.post("/closeVent", (req, res) => {
     .start();
 
   console.log("Executing command " + cmd);
-  
+
   res.redirect("/MyProp");
 });
 
@@ -63,8 +62,8 @@ app.post("/moveProp", (req, res) => {
     })
     .start();
 
-  console.log("Executing command move 10" );
-  
+  console.log("Executing command move 10");
+
   res.redirect("/MyProp");
 });
 app.post("/moveProp20", (req, res) => {
@@ -84,8 +83,8 @@ app.post("/moveProp20", (req, res) => {
     })
     .start();
 
-  console.log("Executing command move 20" );
-  
+  console.log("Executing command move 20");
+
   res.redirect("/MyProp");
 });
 app.post("/moveProp30", (req, res) => {
@@ -105,8 +104,8 @@ app.post("/moveProp30", (req, res) => {
     })
     .start();
 
-  console.log("Executing command move 30" );
-  
+  console.log("Executing command move 30");
+
   res.redirect("/MyProp");
 });
 app.post("/moveProp40", (req, res) => {
@@ -126,8 +125,8 @@ app.post("/moveProp40", (req, res) => {
     })
     .start();
 
-  console.log("Executing command move 40" );
-  
+  console.log("Executing command move 40");
+
   res.redirect("/MyProp");
 });
 app.post("/moveProp50", (req, res) => {
@@ -147,8 +146,8 @@ app.post("/moveProp50", (req, res) => {
     })
     .start();
 
-  console.log("Executing command move 50" );
-  
+  console.log("Executing command move 50");
+
   res.redirect("/MyProp");
 });
 app.post("/moveProp60", (req, res) => {
@@ -168,8 +167,8 @@ app.post("/moveProp60", (req, res) => {
     })
     .start();
 
-  console.log("Executing command move 60" );
-  
+  console.log("Executing command move 60");
+
   res.redirect("/MyProp");
 });
 app.post("/moveProp70", (req, res) => {
@@ -189,8 +188,8 @@ app.post("/moveProp70", (req, res) => {
     })
     .start();
 
-  console.log("Executing command move 70" );
-  
+  console.log("Executing command move 70");
+
   res.redirect("/MyProp");
 });
 app.post("/moveProp80", (req, res) => {
@@ -210,8 +209,8 @@ app.post("/moveProp80", (req, res) => {
     })
     .start();
 
-  console.log("Executing command move 80" );
-  
+  console.log("Executing command move 80");
+
   res.redirect("/MyProp");
 });
 app.post("/moveProp90", (req, res) => {
@@ -231,8 +230,8 @@ app.post("/moveProp90", (req, res) => {
     })
     .start();
 
-  console.log("Executing command move 90" );
-  
+  console.log("Executing command move 90");
+
   res.redirect("/MyProp");
 });
 app.post("/moveProp100", (req, res) => {
@@ -252,8 +251,8 @@ app.post("/moveProp100", (req, res) => {
     })
     .start();
 
-  console.log("Executing command move 100" );
-  
+  console.log("Executing command move 100");
+
   res.redirect("/MyProp");
 });
 app.post("/moveProp0", (req, res) => {
@@ -273,8 +272,29 @@ app.post("/moveProp0", (req, res) => {
     })
     .start();
 
-  console.log("Executing command move 0" );
-  
+  console.log("Executing command move 0");
+
+  res.redirect("/MyProp");
+});
+app.post("/sunTrack", (req, res) => {
+  const SSH = require("simple-ssh");
+  const cmd = "sunMechanism1";
+  const thecmd = 'echo "!' + cmd + '.py" > file.txt';
+  //  console.log("inside the system " );
+  var ssh_options = new SSH({
+    host: "abomasnow",
+    user: "pi",
+    pass: "r00t",
+  });
+  //'echo "!eVentOpen.py" > file.txt'
+  ssh_options
+    .exec(thecmd, {
+      out: console.log.bind(console),
+    })
+    .start();
+
+  console.log("Executing command move 0");
+
   res.redirect("/MyProp");
 });
 const PORT = process.env.PORT || 8080;
