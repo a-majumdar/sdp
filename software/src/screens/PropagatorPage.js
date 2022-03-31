@@ -6,6 +6,7 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import "../screens/PropagatorPage.css";
 import Footer from "../components/organisms/Footer";
 import { AuthContext } from "../contexts/AuthContext";
+import neo4j from "neo4j-driver";
 import "react-tabs/style/react-tabs.css";
 import { PropagatorContext } from "../contexts/PropagatorContext";
 import Tempgraph from "../screens/TempGraph";
@@ -33,6 +34,12 @@ const muiTheme = createMuiTheme({
  */
 
 export default function MyProp() {
+  const uri = "neo4j+s://28cce6ce.databases.neo4j.io";
+  const user = "neo4j";
+  const password = "sdpgroup22isthebest";
+  const driver = neo4j.driver(uri, neo4j.auth.basic(user, password));
+  const session = driver.session();
+  const session2 = driver.session();
   const { currentUserUID, currentUserEmail } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
   const [value, setValue] = useState(0);
@@ -49,25 +56,55 @@ export default function MyProp() {
     temperature,
   } = useContext(PropagatorContext);
 
+  const [lowerTemp, setLowerTemp] = useState();
+  const [higherTemp, setHigherTemp] = useState();
+  const [humidityAura, setHumidityAura] = useState();
+  const [averageTemp, setAverageTemp] = useState();
+
   const { plantDescription } = useContext(PlantDataContext);
-  // const ssh = (cmd) => {
-  //   const SSH = require("simple-ssh");
-  //     const thecmd = 'echo "!' + cmd + '.py" > file.txt';
-  //     console.log("inside the system " + thecmd);
-  //     var ssh_options = new SSH({
-  //       host: "abomasnow",
-  //       user: "pi",
-  //       pass: "r00t",
-  //     });
-  //     //'echo "!eVentOpen.py" > file.txt'
-  //     ssh_options
-  //       .exec(thecmd, {
-  //         out: console.log.bind(console),
-  //       })
-  //       .start();
-  // };
+
+  async function getOptimalData(plantCommonName) {
+    try {
+      console.log("Debug Test Explore Page (Search Function)");
+      //step1: searching the plant name by its common name or (professional) name
+      //step2:retrun all plant details (later will also with propogator conditions as it establlished manaully)
+      //eg: when we search tomato, it would return all the palnts which has the common/professional name called tomato with their all relevant information
+
+      const AnanyaQuery = `
+      MATCH (n)
+      WHERE n.common = $search or n.name = $search
+      RETURN
+        n.common AS common,
+        n.humidity AS humidity,
+        n.light AS light,
+        n.moisture_type AS moisture_type,
+        n.pH_high AS upper_pH,
+        n.pH_low AS lower_pH,
+        n.temp_high AS upper_temp,
+        n.temp_low AS lower_temp,
+        n.watering AS watering_style`;
+      session2.readTransaction((tx) =>
+        tx.run(AnanyaQuery, { search: plantCommonName }).then((readResult) => {
+          readResult.records.forEach((record) => {
+            setHumidityAura(record.get("humidity"));
+            setLowerTemp(record.get("upper_temp"));
+            setHigherTemp(record.get("lower_temp"));
+          });
+        })
+      );
+    } catch (error) {
+      console.error("Something went wrong: ", error);
+    }
+  }
 
   const { description } = useContext(PropagatorContext);
+
+  const getAverageTemp = () => {
+    getOptimalData(plantCommonName);
+    console.log("lower temp = " + lowerTemp);
+    console.log("higher = " + higherTemp);
+    setAverageTemp((parseInt(lowerTemp) + parseInt(higherTemp)) / 2);
+  };
 
   const [mystyle, setStyle] = useState("but1");
   const changeStyle = () => {
@@ -163,6 +200,19 @@ export default function MyProp() {
     }
   };
 
+  const checkOptimalForTemp = () => {
+    getAverageTemp();
+    // console.log(lowerTemp);
+    console.log("average temp" + averageTemp);
+    if (temperature > averageTemp + 3) {
+      openVent();
+    }
+    if (temperature < averageTemp - 3) {
+      console.log("hello");
+      closeVent();
+    }
+  };
+
   const [val2, setVal2] = useState([0]);
   const updateRange2 = (e, data) => {
     setVal2(data);
@@ -192,6 +242,15 @@ export default function MyProp() {
     } else {
       setsToggle(true);
       sunTrack();
+    }
+  };
+  const [dtoggle, setdToggle] = useState(false);
+  const dtoggler = () => {
+    if (dtoggle) {
+      setdToggle(false);
+    } else {
+      setdToggle(true);
+      checkOptimalForTemp();
     }
   };
   function sunTrack() {
@@ -294,6 +353,14 @@ export default function MyProp() {
               </div>
               <div class="togglewater">
                 <Switch onClick={stoggler} />
+              </div>
+            </div>{" "}
+            <div className="waterCont">
+              <div className="watertext">
+                <h2>Set Optimal Conditions</h2>
+              </div>
+              <div class="togglewater">
+                <Switch onClick={dtoggler} />
               </div>
             </div>{" "}
             {/* rigt section */}
