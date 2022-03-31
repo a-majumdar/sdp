@@ -27,7 +27,7 @@ function Cards() {
               src={cucum}
               text="Grow Cucumbers!"
               label="Trending"
-              path="/cucum"
+              path="/cucumb"
             />
             <CardItem
               src={sunflower}

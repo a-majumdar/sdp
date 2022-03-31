@@ -12,6 +12,7 @@ import { PropagatorContext } from "../contexts/PropagatorContext";
 import Tempgraph from "../screens/TempGraph";
 import { PlantDataContext } from "../contexts/PlantDataContext";
 import axios from "axios";
+
 const muiTheme = createMuiTheme({
   overrides: {
     MuiSlider: {
