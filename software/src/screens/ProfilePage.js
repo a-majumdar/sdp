@@ -1,35 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import "../App.css";
-import PlantBackground from "../assets/profile-background.jpeg";
-import cover from "../assets/cover.png";
-import { Card, Button, Form } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
 import "./ProfilePage.css";
-import yourProfile from "../assets/youProfile.jpg";
 import Footer from "../components/organisms/Footer";
-import CardItem from "../components/molecules/CardItem";
-import addPropButton from "../assets/addpropbutton.png";
 import PlantedProfilePic from "../assets/plantedProfilePic.png";
-import {
-  createUser,
-  getAllPropogatorsForUser,
-  logout,
-} from "../firebase/firebase-config";
-import { auth } from "../firebase/firebase-config";
+import { logout } from "../firebase/firebase-config";
 import { AuthContext } from "../contexts/AuthContext";
-import { getAllInfo } from "../firebase/firebase-config";
-import {
-  getDatabase,
-  ref,
-  set,
-  get,
-  child,
-  orderByChild,
-  equalTo,
-  query,
-  push,
-} from "firebase/database";
 import {
   PropagatorContext,
   PropagatorProvider,
@@ -83,7 +60,7 @@ export default function ProfilePage() {
             </Link>
           ) : (
             <Link to={"/explore"}>
-              <button className="but1">
+              <button className="butt2">
                 Plant Something{" "}
                 {/*If the user is yet to plant something redirect them to the explore page*/}
               </button>
@@ -124,8 +101,8 @@ export default function ProfilePage() {
       <br></br>
 
       <div className="logoutdiv">
-        <button className="logoutbtn">Reset Password</button>
-        <button onClick={handleLogout} className="logoutbtn">
+        <button className="butt3">Reset Password</button>
+        <button onClick={handleLogout} className="butt3">
           Logout
         </button>
       </div>
