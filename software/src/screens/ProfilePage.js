@@ -79,7 +79,16 @@ export default function ProfilePage() {
           )}
           <br></br>
           <br></br>
-
+          <h2 className="actlog">Tutorial: </h2>
+          {!propogatorHasPlant ? (
+            <Link to={"/tutorial"}>
+              <button className="butt2">User Guide</button>
+            </Link>
+          ) : (
+            <Link to={"/explore"}></Link>
+          )}
+          <br></br>
+          <br></br>
           <h2 className="actlog">
             Plant History : Aubergine (12th March 2022){" "}
           </h2>
