@@ -1,14 +1,13 @@
 import React, { useContext, useEffect } from "react";
 import "../App.css";
+import "./SearchPage.css";
 import Footer from "../components/organisms/Footer";
 import { theUserSearch } from "./Explore";
 import PlantBackground from "../assets/ePlant.jpg";
 import { PlantDataContext } from "../contexts/PlantDataContext";
 import "../screens/SearchPage.css";
-import { Link } from "react-router-dom";
 import { PropagatorContext } from "../contexts/PropagatorContext";
 import { useState } from "react";
-import Tomato from "../assets/Tomato.jpeg";
 import { getDatabase, ref, set, update } from "firebase/database";
 
 import "reactjs-popup/dist/index.css";
@@ -78,7 +77,7 @@ export default function SearchPage() {
 
               {commonName && (
                 <img
-                  className="image"
+                  className="image2"
                   src={require("../assets/" + commonName + ".jpeg")}
                 ></img>
               )}
