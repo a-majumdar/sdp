@@ -23,9 +23,10 @@
   color: black;
 }
 
-.image {
-  margin-bottom: 10px;
-  border-radius: 20px;
+.image2 {
+  width: 500px;
+  height: 400px;
+  border-radius: 10px;
 }
 
 .data {
