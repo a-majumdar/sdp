@@ -21,18 +21,7 @@ import {
   push,
 } from "firebase/database";
 import { PropagatorContext } from "../contexts/PropagatorContext";
-<<<<<<< HEAD
-import {
-  XAxis,
-  YAxis,
-  LineChart,
-  Line,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
-=======
 import { XAxis, YAxis, LineChart, Line, Legend, ResponsiveContainer, Label , CartesianGrid} from "recharts";
->>>>>>> ea04b20a180329330402eeb811b61a5559bd1d1a
 import { Button, Tooltip } from "react-bootstrap";
 import { ButtonGroup } from "react-bootstrap";
 
