@@ -30,6 +30,20 @@ function addPhotoPlantRelations(plantId, photo) {
   });
 }
 
+//photoname is smth.jpg
+function showimage(photoname) {
+  const storage = getStorage();
+  getDownloadURL(refstore(storage, `plants/${photoname}`))
+  .then((url) => {
+    //  inserted into an <img> element
+    const img = document.getElementById('myimg');
+    img.setAttribute('src', url);
+  })
+  .catch((error) => {
+  });
+}
+
+showimage("tomato.jpg");
 // get photoname by plant id through relations stored in firebase and render it to image tag in html
 function getphotobyid(plantid) {
 const that = query(ref(db, 'photos/' ), orderByChild('plantid'),equalTo(plantid))
@@ -81,4 +95,4 @@ get(that).then((snapshot) => {
 });
 }
 
-getidbyphoto("aubergine.jpg")
+getidbyphoto("aubergine.jpg");
