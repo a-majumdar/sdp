@@ -12,7 +12,7 @@ import { PropagatorContext } from "../contexts/PropagatorContext";
 import Tempgraph from "../screens/TempGraph";
 import { PlantDataContext } from "../contexts/PlantDataContext";
 import axios from "axios";
-
+//18.28 03/04-21
 const muiTheme = createMuiTheme({
   overrides: {
     MuiSlider: {
@@ -276,6 +276,7 @@ export default function MyProp() {
 
   return (
     <>
+
       {/*
       <img className="background-image" src={PlantBackground}></img>
       */}
