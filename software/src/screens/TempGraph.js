@@ -21,7 +21,7 @@ import {
   push,
 } from "firebase/database";
 import { PropagatorContext } from "../contexts/PropagatorContext";
-import { XAxis, YAxis, LineChart, Line, Legend, ResponsiveContainer } from "recharts";
+import { XAxis, YAxis, LineChart, Line, Legend, ResponsiveContainer, Label , CartesianGrid} from "recharts";
 import { Button, Tooltip } from "react-bootstrap";
 import { ButtonGroup } from "react-bootstrap";
 
@@ -137,10 +137,13 @@ function Tempgraph() {
         </TabList>
         <TabPanel>
           <LineChart width={500} height={300} data={tempData}>
+          
             <XAxis  tickLine={false} tick={false} label="Last 30 readings"/> {/* dataKey="time" label="Last 30 readings" tickLine="false"  */}
-            <YAxis label="Temperature"/>
+            <YAxis>
+              <Label angle={-90} value='Temperature C (Celsius)' position='insideLeft' style={{textAnchor: 'middle'}} />
+            </YAxis>
             <Tooltip />
-            <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
+            <CartesianGrid stroke="#8884d8"/>
             <Line type="monotone" dataKey="temp" stroke="#8884d8" />
           </LineChart>
         </TabPanel>
