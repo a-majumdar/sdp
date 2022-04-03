@@ -8,38 +8,42 @@ import "../articles/art1.css";
  * @returns
  */
 export default function art1() {
-    const Header = {
-        textAlign: "left",
-        marginTop: 200,
-        color: "black",
-        fontSize: "80px",
-      };
-     
-      return (
-        <>
-        <h1 style={{marginTop: 150}}>How to grow the perfect cucumber</h1>
-    <img
-     style={{
-       flex: 1,
-       width:500,
-       height:500,
-       flex: 0.5, 
-       justifyContent: 'center', 
-       alignItems: 'center', 
-       marginTop: 20,
-       marginLeft: 20
-     }}
-     source={cucumPic}
-     />
-      <p style={{position: 'absolute', fontSize: 20, marginLeft: 620}} >
-                Cucumbers are Cucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers are
-                Cucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers are
-                Cucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers Cucumbers areCucumbers are
-                Cucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers are
-    </p> 
-     
- 
-            {/* <h1 style={Header}> Cucumbers</h1>
+  const Header = {
+    textAlign: "left",
+    marginTop: 200,
+    color: "black",
+    fontSize: "80px",
+  };
+
+  return (
+    <>
+      <div className="all-items">
+        <div className="left-items">
+          <img
+            style={{
+              width: 500,
+              height: 500,
+            }}
+            src={cucumPic}
+          />
+        </div>
+        <div className="right-items">
+          <h1 style={{ marginTop: 150 }}>How to grow the perfect cucumber</h1>
+          <p style={{ marginTop: 200 }}>
+            Cucumbers are Cucumbers areCucumbers areCucumbers areCucumbers
+            areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers
+            areCucumbers are Cucumbers areCucumbers areCucumbers areCucumbers
+            areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers
+            areCucumbers areCucumbers are Cucumbers areCucumbers areCucumbers
+            areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers
+            areCucumbers Cucumbers areCucumbers are Cucumbers areCucumbers
+            areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers
+            areCucumbers areCucumbers areCucumbers areCucumbers are
+          </p>
+        </div>
+      </div>
+
+      {/* <h1 style={Header}> Cucumbers</h1>
               <img className="image" src={cucumPic}></img>
               <p >
                 Cucumbers are Cucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers are
@@ -48,7 +52,7 @@ export default function art1() {
                 Cucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers are
               </p> */}
 
-        {/* <div class="box">
+      {/* <div class="box">
           <div class="one"><p >
                 Cucumbers are Cucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers are
                 Cucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers are
@@ -64,7 +68,7 @@ export default function art1() {
           
           
         </div> */}
-            {/* <div>
+      {/* <div>
               <p style={mystyle}>
                 Ananya Majumdar (Project Manager) - s1802817@ed.ac.uk
               </p>
@@ -94,9 +98,7 @@ export default function art1() {
               </p>
             </div> */}
 
-          
-
-          {/* <Footer /> */}
-        </>
-      );
-    }
+      {/* <Footer /> */}
+    </>
+  );
+}

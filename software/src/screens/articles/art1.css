@@ -1,20 +1,9 @@
+.all-items {
+  display: flex;
+  flex-direction: row;
+}
 
-  
-
-  
-  /* .image {
-    margin-left: 50px;
-    width: 500px;
-    height: 400px;
-  }   */
-
-  .box {
-    display: flex;
-  }
-  .one {
-    flex: 1 1 auto;
-  }
-
-  .two {
-    flex: 1 1 auto;
-  }
+.right-items {
+  display: flex;
+  flex-direction: column;
+}
