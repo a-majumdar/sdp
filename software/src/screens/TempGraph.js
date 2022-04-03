@@ -137,8 +137,8 @@ function Tempgraph() {
         </TabList>
         <TabPanel>
           <LineChart width={500} height={300} data={tempData}>
-            <XAxis dataKey="time" />
-            <YAxis />
+            <XAxis  tickLine={false} tick={false} label="Last 30 readings"/> {/* dataKey="time" label="Last 30 readings" tickLine="false"  */}
+            <YAxis label="Temperature"/>
             <Tooltip />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
             <Line type="monotone" dataKey="temp" stroke="#8884d8" />
