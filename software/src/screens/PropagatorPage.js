@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import "./PropagatorPage.css";
 import abuta from "../assets/Abuta.jpg";
 import { Slider } from "@material-ui/core";
 import { Switch } from "antd";
@@ -283,14 +284,14 @@ export default function MyProp() {
         <div className="background-image"></div>
         <div className="leftsection">
           {/* <button onClick={openVent}>this</button> */}
-          <h2> Welcome, {currentUserEmail}!</h2>
+          <h2 className="helloMsg"> Welcome, {currentUserEmail}!</h2>
           <h2 className="plantmsg">
             Here's how your {plantCommonName} plant is doing:{" "}
           </h2>
           <div className="yourPlantPic">
             {plantCommonName && (
               <img
-                className="image"
+                className="image2"
                 src={require("../assets/" + plantCommonName + ".jpeg")}
               ></img>
             )}

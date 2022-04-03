@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://changelog-widget.canny.io/601d00fb7a41e3035f75e1e8 -->
+<html lang="en" data-reactroot=""><div id="twoseven-scripts" data-info="Scripts added by TwoSeven extension" style="display: none !important; position: static !important; top: 0px !important; left: 0px !important; width: 0px !important; height: 0px !important;"><script type="text/javascript" async="" src="./analytics.js" id="google-analytics-script"></script><script type="text/javascript" id="__tmpScript-813427421" data-added-by-two-seven="1">(function() {
+        window.twoseven = {};
+      })();</script><script type="text/javascript" id="__tmpScript-323491131" data-added-by-two-seven="1">(function() {
+        window.twoseven.waitForDOMNode = async function t(e,t=document){e=e||{};const{type:n,value:o}=e;if(!n||!o)throw new Error("Must specify identifier");let s=o;switch(n){case"tag":s=o.toUpperCase()}if("check"!==n){const e=await i({type:"selector",value:s},[],t);if(e)return new Promise(t=>t(e))}async function i({type:e,value:t},n,o){let s;switch(e){case"tag":s=n.find(e=>e.tagName===t);break;case"selector":s=o.querySelector(t);break;case"check":for(const e of n){if(await t(e))return e}}return s}return new Promise((e,o)=>{const a=new MutationObserver(async o=>{for(const r of o)if("childList"===r.type){const o=Array.from(r.addedNodes),w=await i({type:n,value:s},o,t);if(w)return a.disconnect(),e(w)}});a.observe(t,{childList:!0,subtree:!0})})};
+      })();</script><script type="text/javascript" id="__tmpScript-313805678" data-added-by-two-seven="1">(function() {
+        
+    window.twoseven.reportError = function n(e,t,n){"string"==typeof(n=n||{})&&(n={message:n});const{message:o,stack:s}=t;Object.assign(n,{tag:e,error:{message:o,stack:s}}),window.tsExtGetPostToParent()({name:name,tag:e,action:"report-error",json:n}),console.error(JSON.stringify(n.error))}
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-918167342" data-added-by-two-seven="1">(function() {
+        
+    window.twosevenHmsToSecondsOnly = function(str) {
+        var p = str.split(':'),
+            s = 0, m = 1;
+
+        while (p.length > 0) {
+            s += m * parseInt(p.pop(), 10);
+            m *= 60;
+        }
+
+        return s;
+    }
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-355492815" data-added-by-two-seven="1">(function() {
+        window.twosevenExtLog = function(e,o,c){o||(o=e,e=void 0);let n=c||"black";if(c)switch(c){case"success":n="Green";break;case"info":n="DodgerBlue";break;case"error":n="Red";break;case"warning":n="Orange";break;default:n=c}e?console.log("%c"+e+": "+o,`color:${n}`):console.log("%c"+o,`color:${n}`)};
+      })();</script><script type="text/javascript" id="__tmpScript-153280567" data-added-by-two-seven="1">(function() {
+        
+    document.twosevenGET = function(url, callback) {
+      var xmlhttp = new XMLHttpRequest();
+
+      xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+          if (xmlhttp.status == 200) {
+            callback(null, xmlhttp.responseText);
+          } else {
+            callback('something else other than 200 was returned', '');
+          }
+        }
+      };
+      xmlhttp.open("GET", url, true);
+      xmlhttp.send();
+    };
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-983275119" data-added-by-two-seven="1">(function() {
+        
+    window.triggerEvent = function(e,t,n,o=!1){let s;o?(n&&"string"!=typeof n&&(n=JSON.stringify(n)),s=n):s={data:n},window.twosevenScriptsDiv&&n&&"object"==typeof n&&(console.warn(`WARNING: Attempting to send an object via event.detail from CS->Page does not work on Firefox: ${JSON.stringify(n)}`),console.error((new Error).stack));var i=new CustomEvent(t,{bubbles:!0,composed:!0,detail:s});e.dispatchEvent(i)}
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-443645796" data-added-by-two-seven="1">(function() {
+        window.twoseven.postTo = async function o(e,t,n=!1){let o;return t.name=t.name||name,o=n?new Promise(e=>{const n=`ack-${t.action}-${1e9*Math.random()|0}`;t.ack={event:n};window.debug&&["play","pause","currentTime"].some(e=>t.action.includes(e)),window.addEventListener("message",function t({data:o={}}){o.action===n&&(window.removeEventListener("message",t),e(o.json))})}):new Promise(e=>e()),e.postMessage(t,"*"),o};
+      })();</script><script type="text/javascript" id="__tmpScript-467863320" data-added-by-two-seven="1">(function() {
+        window.tsExtGetPostTo = function s(){return window.twoseven&&window.twoseven.postTo||window.postTo};
+      })();</script><script type="text/javascript" id="__tmpScript-812623123" data-added-by-two-seven="1">(function() {
+        window.tsExtGetPostToParent = function i(){return window.twoseven&&window.twoseven.postToParent||window.postToParent};
+      })();</script><script type="text/javascript" id="__tmpScript-530918017" data-added-by-two-seven="1">(function() {
+        window.twoseven.postResponse = async function a(e,t){const{source:n,data:{ack:{event:o}}}=e;window.tsExtGetPostTo()(n,{action:o,json:t})};
+      })();</script><script type="text/javascript" id="__tmpScript-827116431" data-added-by-two-seven="1">(function() {
+        window.twoseven.postToParent = async function r(e,t=!1){return window.tsExtGetPostTo()(window.parent,e,t)};
+      })();</script><script type="text/javascript" id="__tmpScript-43947621" data-added-by-two-seven="1">(function() {
+        window.twoseven.postToTop = async function w(e,t=!1){return window.tsExtGetPostTo()(window.top,e,t)};
+      })();</script><script type="text/javascript" id="__tmpScript-414976918" data-added-by-two-seven="1">(function() {
+        
+    window.twoseven.getFromStorage = e=>new Promise((t,n)=>{const o="get-from-storage-"+(1e9*Math.random()|0);window.addEventListener(o,e=>{window.removeEventListener(o,this);const{detail:{data:{value:n}}}=e;t(n)}),triggerEvent(window,"get-from-storage",{key:e,evt:o})})
+    window.twoseven.saveToStorage = e=>{triggerEvent(window,"save-to-storage",e)}
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-188217916" data-added-by-two-seven="1">(function() {
+        
+    window.attachHistoryListeners = function d(){var e=history.pushState;history.pushState=function(t,n,o){return"function"==typeof history.onpushstate&&history.onpushstate({state:t}),triggerEvent(window,"pushstate",{uri:o}),e.apply(history,arguments)};var t=history.replaceState;history.replaceState=function(e){return"function"==typeof history.onreplacestate&&history.onreplacestate({state:e}),t.apply(history,arguments)}}
+    window.attachHistoryListeners()
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-379675535" data-added-by-two-seven="1">(function() {
+        window.twoseven.once = function c(e,t,n){e.addEventListener(t,function o(s){e.removeEventListener(t,o),n(s)})};
+      })();</script><script type="text/javascript" id="__tmpScript-133346730" data-added-by-two-seven="1">(function() {
+        
+    window.twoseven.isOnTwoSevenTab = async () => {
+      const result = await window.twoseven.postTo(window, { action: 'is-on-twoseven-tab' }, true)
+      return result
+    }
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-935314616" data-added-by-two-seven="1">(function() {
+        
+    window.twoseven.isPaused = async () => {
+      const result = await window.twoseven.postTo(window, { action: 'twoseven:pause-state' }, true)
+      return result
+    }
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-657681648" data-added-by-two-seven="1">(function() {
+        window.twoseven = {};
+      })();</script><script type="text/javascript" id="__tmpScript-929563110" data-added-by-two-seven="1">(function() {
+        window.twoseven.waitForDOMNode = async function t(e,t=document){e=e||{};const{type:n,value:o}=e;if(!n||!o)throw new Error("Must specify identifier");let s=o;switch(n){case"tag":s=o.toUpperCase()}if("check"!==n){const e=await i({type:"selector",value:s},[],t);if(e)return new Promise(t=>t(e))}async function i({type:e,value:t},n,o){let s;switch(e){case"tag":s=n.find(e=>e.tagName===t);break;case"selector":s=o.querySelector(t);break;case"check":for(const e of n){if(await t(e))return e}}return s}return new Promise((e,o)=>{const a=new MutationObserver(async o=>{for(const r of o)if("childList"===r.type){const o=Array.from(r.addedNodes),w=await i({type:n,value:s},o,t);if(w)return a.disconnect(),e(w)}});a.observe(t,{childList:!0,subtree:!0})})};
+      })();</script><script type="text/javascript" id="__tmpScript-176911641" data-added-by-two-seven="1">(function() {
+        
+    window.twoseven.reportError = function n(e,t,n){"string"==typeof(n=n||{})&&(n={message:n});const{message:o,stack:s}=t;Object.assign(n,{tag:e,error:{message:o,stack:s}}),window.tsExtGetPostToParent()({name:name,tag:e,action:"report-error",json:n}),console.error(JSON.stringify(n.error))}
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-722011383" data-added-by-two-seven="1">(function() {
+        
+    window.twosevenHmsToSecondsOnly = function(str) {
+        var p = str.split(':'),
+            s = 0, m = 1;
+
+        while (p.length > 0) {
+            s += m * parseInt(p.pop(), 10);
+            m *= 60;
+        }
+
+        return s;
+    }
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-548183930" data-added-by-two-seven="1">(function() {
+        window.twosevenExtLog = function(e,o,c){o||(o=e,e=void 0);let n=c||"black";if(c)switch(c){case"success":n="Green";break;case"info":n="DodgerBlue";break;case"error":n="Red";break;case"warning":n="Orange";break;default:n=c}e?console.log("%c"+e+": "+o,`color:${n}`):console.log("%c"+o,`color:${n}`)};
+      })();</script><script type="text/javascript" id="__tmpScript-138988744" data-added-by-two-seven="1">(function() {
+        
+    document.twosevenGET = function(url, callback) {
+      var xmlhttp = new XMLHttpRequest();
+
+      xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+          if (xmlhttp.status == 200) {
+            callback(null, xmlhttp.responseText);
+          } else {
+            callback('something else other than 200 was returned', '');
+          }
+        }
+      };
+      xmlhttp.open("GET", url, true);
+      xmlhttp.send();
+    };
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-593383696" data-added-by-two-seven="1">(function() {
+        
+    window.triggerEvent = function(e,t,n,o=!1){let s;o?(n&&"string"!=typeof n&&(n=JSON.stringify(n)),s=n):s={data:n},window.twosevenScriptsDiv&&n&&"object"==typeof n&&(console.warn(`WARNING: Attempting to send an object via event.detail from CS->Page does not work on Firefox: ${JSON.stringify(n)}`),console.error((new Error).stack));var i=new CustomEvent(t,{bubbles:!0,composed:!0,detail:s});e.dispatchEvent(i)}
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-695838931" data-added-by-two-seven="1">(function() {
+        window.twoseven.postTo = async function o(e,t,n=!1){let o;return t.name=t.name||name,o=n?new Promise(e=>{const n=`ack-${t.action}-${1e9*Math.random()|0}`;t.ack={event:n};window.debug&&["play","pause","currentTime"].some(e=>t.action.includes(e)),window.addEventListener("message",function t({data:o={}}){o.action===n&&(window.removeEventListener("message",t),e(o.json))})}):new Promise(e=>e()),e.postMessage(t,"*"),o};
+      })();</script><script type="text/javascript" id="__tmpScript-765416490" data-added-by-two-seven="1">(function() {
+        window.tsExtGetPostTo = function s(){return window.twoseven&&window.twoseven.postTo||window.postTo};
+      })();</script><script type="text/javascript" id="__tmpScript-194713145" data-added-by-two-seven="1">(function() {
+        window.tsExtGetPostToParent = function i(){return window.twoseven&&window.twoseven.postToParent||window.postToParent};
+      })();</script><script type="text/javascript" id="__tmpScript-545501407" data-added-by-two-seven="1">(function() {
+        window.twoseven.postResponse = async function a(e,t){const{source:n,data:{ack:{event:o}}}=e;window.tsExtGetPostTo()(n,{action:o,json:t})};
+      })();</script><script type="text/javascript" id="__tmpScript-816082050" data-added-by-two-seven="1">(function() {
+        window.twoseven.postToParent = async function r(e,t=!1){return window.tsExtGetPostTo()(window.parent,e,t)};
+      })();</script><script type="text/javascript" id="__tmpScript-698506583" data-added-by-two-seven="1">(function() {
+        window.twoseven.postToTop = async function w(e,t=!1){return window.tsExtGetPostTo()(window.top,e,t)};
+      })();</script><script type="text/javascript" id="__tmpScript-265649694" data-added-by-two-seven="1">(function() {
+        
+    window.twoseven.getFromStorage = e=>new Promise((t,n)=>{const o="get-from-storage-"+(1e9*Math.random()|0);window.addEventListener(o,e=>{window.removeEventListener(o,this);const{detail:{data:{value:n}}}=e;t(n)}),triggerEvent(window,"get-from-storage",{key:e,evt:o})})
+    window.twoseven.saveToStorage = e=>{triggerEvent(window,"save-to-storage",e)}
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-678676886" data-added-by-two-seven="1">(function() {
+        
+    window.attachHistoryListeners = function d(){var e=history.pushState;history.pushState=function(t,n,o){return"function"==typeof history.onpushstate&&history.onpushstate({state:t}),triggerEvent(window,"pushstate",{uri:o}),e.apply(history,arguments)};var t=history.replaceState;history.replaceState=function(e){return"function"==typeof history.onreplacestate&&history.onreplacestate({state:e}),t.apply(history,arguments)}}
+    window.attachHistoryListeners()
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-289094643" data-added-by-two-seven="1">(function() {
+        window.twoseven.once = function c(e,t,n){e.addEventListener(t,function o(s){e.removeEventListener(t,o),n(s)})};
+      })();</script><script type="text/javascript" id="__tmpScript-373098816" data-added-by-two-seven="1">(function() {
+        
+    window.twoseven.isOnTwoSevenTab = async () => {
+      const result = await window.twoseven.postTo(window, { action: 'is-on-twoseven-tab' }, true)
+      return result
+    }
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-107221371" data-added-by-two-seven="1">(function() {
+        
+    window.twoseven.isPaused = async () => {
+      const result = await window.twoseven.postTo(window, { action: 'twoseven:pause-state' }, true)
+      return result
+    }
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-647207722" data-added-by-two-seven="1">(function() {
+        
+    const roomInfo = {
+      roomOwner: undefined,
+      roomType: undefined,
+      roomController: undefined,
+      roomProperties: undefined
+    }
+    window.twoseven.roomInfo = roomInfo
+
+    window.addEventListener('message', ({ data = {} }) => {
+      const { action } = data
+      if (action !== 'room-updated') {
+        return
+      }
+      const { data: { key, value } } = data
+      roomInfo[key] = value
+    })
+  ;
+      })();</script></div><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title data-react-helmet="true">Changelog Widget</title><meta data-react-helmet="true" property="fb:app_id" content="1606018679610384"><meta data-react-helmet="true" name="google-site-verification" content="hutYg6OBDqx9fLFmeEqY4o0gjWPw2rkFt3-Sp2wbMQc"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"><link href="./ChangelogWidgetBundle.css" media="screen, projection" rel="stylesheet" type="text/css" charset="UTF-8"></head><body class="" data-new-gr-c-s-check-loaded="14.1055.0" data-gr-ext-installed=""><div data-iframe-height="true" id="content"><div class="changelogWidgetContainer" style="max-height:1000px"><div class="changelogWidgetHeader"><div class="buttonSpacer"></div><div class="heading">Latest Updates</div><div class="buttonSpacer"></div></div><div class="scrollContainer" style="overflow-y:hidden"><div class="changelogWidgetHome"><div class="entryList"><a class="changelogWidgetEntryListItem" href="https://changelog-widget.canny.io/601d00fb7a41e3035f75e1e8/new-in-443" style="border-left-color:#2d58f3;border-left-style:solid;border-left-width:2px;padding-left:18px"><div class="heading"><div class="type new">new</div><div class="title">New in&nbsp;4.4.3</div></div><div class="details"><div class="truncate" style="-webkit-line-clamp:2">New zoom controls and interactions We now provide scroll interactions to zoom in-and-out of the graph visualisation, providing an alternative to the simple zoom buttons. With this release, you'll now be able to use trackpad zoom gestures or a mousewheel with a modifier key to zoom in and out of the visualisation. On mac you can trigger zoom with ⌘ + scroll and on Windows and Linux ctrl + scroll. The modifier is required in the normal Browser view so we don't interfere with page scrolling, but in full screen the modifier key isn't required. We've also added a handy fit-to-screen feature (underneath the zoom buttons) so that you can instantly fit all nodes into the view - handy when you're looking to see all your query results on screen at once. Updated visualization library We've made some under the hood upgrades to the d3 visualization library that powers the Browser visualization. You shouldn't see many differences in the overall layout and interactions, but should find the layouts stabilizes more quickly and have slightly smoother interactions on larger result graphs. Do let us know if you have any comments on our feedback page. Parameter Assistance Cypher queries with placeholder inputs are most performant when parameterized. These allow the Neo4j query engine to cache the execution plan. If you're not familiar with query parameters you can read more about them here. Browser today allows you can declare parameters with the&nbsp;:param command for a single parameter, or the&nbsp;:params command to declare an object of parameters. In this release, we're making it easier for you to construct a params object in the editor. When the query you are trying to execute has undefined parameters, you'll now see a help link under the error to assist you in setting parameters. Clicking it will construct a&nbsp;:params command for you with pre-existing parameters already set and placeholders for you to populate the missing parameters. We hope this will help new users learn the parameter syntax more easily and be an added convenience for experienced users too.</div></div></a><a class="changelogWidgetEntryListItem" href="https://changelog-widget.canny.io/601d00fb7a41e3035f75e1e8/new-in-441" style="border-left-color:#2d58f3;border-left-style:solid;border-left-width:2px;padding-left:18px"><div class="heading"><div class="type new">new</div><div class="title">New in&nbsp;4.4.1</div></div><div class="details"><div class="truncate" style="-webkit-line-clamp:2">This release of Browser includes a number of small improvements and fixes: Really long property values will now be truncated by default, with the option of Show all to reveal the full value. The properties view now shows square brackets [] around lists to they are easier to identify as lists. Any remote guides you visit are now remembered and can be returned to across browser sessions via the Neo4j Browser Guides sidebar The command :use &lt;database-name&gt; can now used with aliases on versions of Neo4j that support database aliases (&gt;=4.4). The :dbs command now also lists any configured database aliases.</div></div></a><a class="changelogWidgetEntryListItem" href="https://changelog-widget.canny.io/601d00fb7a41e3035f75e1e8/new-in-440" style="border-left-color:#2d58f3;border-left-style:solid;border-left-width:2px;padding-left:18px"><div class="heading"><div class="type new">new</div><div class="title">New in&nbsp;4.4.0</div></div><div class="details"><div class="truncate" style="-webkit-line-clamp:2">This release delivers a new feature in anticipation of the upcoming Neo4j 4.4 release and a number of improvements .  Read on to find out more... Single Sign On (SSO) Support The imminent launch of Neo4j 4.4 will sees the introduction of SSO support for Enterprise customers, allowing integration with identity providers using OIDC. With configuration, this will be fully supported by Neo4j Browser. Fixes and Improvements Nodes with very large number of properties (&gt;1,000) now provide show more and show all options to load additional properties into the properties view. The properties overview now shows the number of relationships/labels after their name. The :auto command now works for multi-statement queries. Maximum number of result frames is now observed more reliably when changed.</div></div></a></div><div class="changelogWidgetFooter"><div class="cannyAttribution"><a class="attribution" href="https://canny.io/powered-by-canny?utm_source=changelog_widget&amp;utm_medium=powered&amp;utm_campaign=neo4j-browser&amp;company=Neo4j%20Browser">Powered&nbsp;by&nbsp;Canny</a></div><a class="seeAll" href="https://neo4j-browser.canny.io/changelog" rel="noopener" style="color:#2d58f3" target="_blank">See&nbsp;all&nbsp;changes</a></div></div></div></div></div><script charset="UTF-8">window.__data = {"changelogWidget":{"company":{"_id":"601d00fb7a41e3035f75e1e8","authRedirectEnabled":false,"boardCount":2,"companyCount":0,"contributorCount":49,"creatorID":"5efb24e8690c8f7ce02b0df7","faviconURL":"https:\u002F\u002Fcanny.io\u002Fimages\u002F4f9228235c26cc771614430816fe9378.png","logoURL":"https:\u002F\u002Fcanny.io\u002Fimages\u002Fad007bd4d4d39d5b73ad4402f4f6cd94.png","postCount":46,"tintColor":"#2d58f3","userCount":53,"name":"Neo4j Browser","subdomain":"neo4j-browser","created":"2021-02-05T08:25:31.084Z","__v":0,"changelog":{"allowIdentified":false,"domains":[],"private":false,"viewerHasAccess":true},"primaryDomain":null,"billingData":{"plan":{"features":{"liveSupport":true,"privateBoards":false,"tags":true,"unlistedBoards":true,"userProfiles":true,"categories":false,"internalComments":false,"privateChangelog":false,"userSegmentation":false,"postOwners":false,"postETAs":false,"adminRoles":true,"removeBranding":false,"advancedAnalytics":false,"disableUserSubmissions":false,"prioritizationRoadmap":true,"customEmailDomain":false,"customStatuses":false,"privateComments":false,"customDomain":true},"integrations":{"api":true,"jira":false,"webhooks":true,"zapier":true,"zendesk":false,"segment":false,"salesforce":false,"azureAD":false,"gsuite":false,"microsoftTeams":false,"okta":false,"oneLogin":false,"slackFeedback":false,"clickup":false,"browserExtension":false,"discord":false,"hubspot":false,"slack":true},"limits":{"admins":null,"boards":null,"users":100,"integrations":null,"prioritizationRoadmaps":1},"planID":"s13"},"stripeID":"cus_ItC1Ebfyh9BOpJ"}},"error":null,"lastUpdated":1649006176120,"loading":false,"viewer":{"loading":true},"entries":[{"_id":"62151ea424b2421f4bef2f22","creatorID":"602cebe046553d4546c11ca8","deleted":false,"deletedBy":null,"deletedDate":null,"details":"**New zoom controls and interactions**\n\nWe now provide scroll interactions to zoom in-and-out of the graph visualisation, providing an alternative to the simple zoom buttons.\n\nWith this release, you'll now be able to use trackpad zoom gestures or a mousewheel with a modifier key to zoom in and out of the visualisation. On mac you can trigger zoom with ⌘ + scroll and on Windows and Linux ctrl + scroll. The modifier is required in the normal Browser view so we don't interfere with page scrolling, but in full screen the modifier key isn't required.\n\nWe've also added a handy fit-to-screen feature (underneath the zoom buttons) so that you can instantly fit all nodes into the view - handy when you're looking to see all your query results on screen at once.\n\n![1*QpPB0VXee6vW5nkt_4WWTg](https:\u002F\u002Fcanny.io\u002Fimages\u002F39b294c9ec8384fa0e103fb2ebc8b677.gif)\n\n**Updated visualization library**\n\nWe've made some under the hood upgrades to the d3 visualization library that powers the Browser visualization. You shouldn't see many differences in the overall layout and interactions, but should find the layouts stabilizes more quickly and have slightly smoother interactions on larger result graphs. Do let us know if you have any comments on our feedback page.\n\n**Parameter Assistance**\n\nCypher queries with placeholder inputs are most performant when parameterized. These allow the Neo4j query engine to cache the execution plan. If you're not familiar with query parameters you can read more about them here.\n\nBrowser today allows you can declare parameters with the :param command for a single parameter, or the :params command to declare an object of parameters.\n\nIn this release, we're making it easier for you to construct a params object in the editor. When the query you are trying to execute has undefined parameters, you'll now see a help link under the error to assist you in setting parameters. Clicking it will construct a :params command for you with pre-existing parameters already set and placeholders for you to populate the missing parameters.\n\nWe hope this will help new users learn the parameter syntax more easily and be an added convenience for experienced users too.\n\n![1*uWq4f-BDGWYX_w1zvrAx9Q-2](https:\u002F\u002Fcanny.io\u002Fimages\u002F1f7bd88b8d2bda2310f9384737a5b50b.gif)\n\n","labelIDs":[],"postIDs":[],"publishedAt":"2022-02-22T17:59:10.549Z","saveID":"e7bb3e3e-272e-705b-8aad-3d4c6179c885","scheduledFor":null,"types":["new"],"companyID":"601d00fb7a41e3035f75e1e8","status":"published","title":"New in 4.4.3","urlName":"new-in-443","created":"2022-02-22T17:34:28.070Z","lastSaved":"2022-02-22T17:38:55.919Z","__v":0,"reactions":null,"viewerReactions":null},{"_id":"61a7615dba2d262e2dbb0c8e","creatorID":"602cebe046553d4546c11ca8","deleted":false,"deletedBy":null,"deletedDate":null,"details":"This release of Browser includes a number of small improvements and fixes:\n\n- Really long property values will now be truncated by default, with the option of *Show all* to reveal the full value. \n- The properties view now shows square brackets `[]` around lists to they are easier to identify as lists.\n- Any remote guides you visit are now remembered and can be returned to across browser sessions via the *Neo4j Browser Guides* sidebar\n- The command `:use \u003Cdatabase-name\u003E` can now used with aliases on versions of Neo4j that support database aliases (\u003E=4.4). The `:dbs` command now also lists any configured database aliases.","labelIDs":[],"postIDs":[],"publishedAt":"2021-12-01T13:23:13.139Z","saveID":"47d68093-e22b-a9aa-8ce8-fbfb5fd96c4b","scheduledFor":null,"types":["new"],"companyID":"601d00fb7a41e3035f75e1e8","status":"published","title":"New in 4.4.1","urlName":"new-in-441","created":"2021-12-01T11:49:49.601Z","lastSaved":"2021-12-01T13:12:25.316Z","__v":0,"reactions":null,"viewerReactions":null},{"_id":"618a609db27b30231ccb3606","creatorID":"602cebe046553d4546c11ca8","deleted":false,"deletedBy":null,"deletedDate":null,"details":"This release delivers a new feature in anticipation of the upcoming Neo4j 4.4 release and a number of improvements .  Read on to find out more...\n\n# Single Sign On (SSO) Support\n\nThe imminent launch of Neo4j 4.4 will sees the introduction of SSO support for Enterprise customers, allowing integration with identity providers using OIDC. With configuration, this will be fully supported by Neo4j Browser.\n\n![image](https:\u002F\u002Fcanny.io\u002Fimages\u002Fea22522b6f6f02fbc85607704f24b14e.png)\n\n# Fixes and Improvements\n\n- Nodes with very large number of properties (\u003E1,000) now provide *show more* and *show all* options to load additional properties into the properties view.\n![CleanShot 2021-11-09 at 12](https:\u002F\u002Fcanny.io\u002Fimages\u002F6f8cf065dae6214e7710822e847f1bcc.png)\n\n- The properties overview now shows the number of relationships\u002Flabels after their name.\n![CleanShot 2021-11-09 at 12](https:\u002F\u002Fcanny.io\u002Fimages\u002Fa2d5dce53408c65ccebc24c8137ac9ee.png)\n\n- The `:auto` [command](https:\u002F\u002Fneo4j.com\u002Fdocs\u002Fbrowser-manual\u002Fcurrent\u002Freference-commands\u002F#browser-commands) now works for multi-statement queries.\n- [Maximum number of result frames](https:\u002F\u002Fneo4j.com\u002Fdocs\u002Fbrowser-manual\u002Fcurrent\u002Fvisual-tour\u002F#settings) is now observed more reliably when changed.\n\n","labelIDs":[],"postIDs":[],"publishedAt":"2021-11-10T09:35:58.739Z","saveID":"5ab3e7d4-4cf3-a318-0acd-e3d3e4f52544","scheduledFor":null,"types":["new"],"companyID":"601d00fb7a41e3035f75e1e8","status":"published","title":"New in 4.4.0","urlName":"new-in-440","created":"2021-11-09T11:50:53.067Z","lastSaved":"2021-11-10T09:31:33.817Z","__v":0,"reactions":null,"viewerReactions":null}],"labels":[]},"cookies":{"__host":"changelog-widget.canny.io","__canny__experimentID":"2401d11f-4cb5-43b7-effc-ee43510f0a2a"},"reduxAsyncConnect":{"loaded":true,"loadState":{}},"routing":{"locationBeforeTransitions":{"pathname":"\u002F601d00fb7a41e3035f75e1e8","search":"","hash":"","state":undefined,"action":"POP","key":null,"query":{}}}};</script><script src="./ChangelogWidgetBundle.js" charset="UTF-8"></script><script charset="UTF-8">document.body.classList.remove('preload');</script></body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
