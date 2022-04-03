@@ -19,9 +19,9 @@ export default function tutorial() {
      
       return (
         <>
-        <h1 style={{marginTop: 150}}>Tutorial</h1>
+        <h1 style={{marginTop: 150, fontSize: "80px"}}>Tutorial</h1>
 
-        
+
         <ImageSlider slides={SliderData} />
     
      
