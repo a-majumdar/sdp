@@ -57,7 +57,7 @@ function Tempgraph() {
         snapshot.forEach((childSnapshot) => {
           const temp1 = childSnapshot.val().Temperature;
           const hum = childSnapshot.val().Humidity;
-
+          
           //console.log("hum = " + hum); //to access data
           const time = childSnapshot.val().Sample_Time;
           //console.log("time = " + time);
@@ -91,8 +91,9 @@ function Tempgraph() {
         // hdata.push({ time: time, humidity: hum });
         //console.log("data is : " + data);
       });
-
+      
       setSunData(dataSun);
+      
     });
   };
   const getMoistData = () => {
@@ -112,17 +113,19 @@ function Tempgraph() {
         // hdata.push({ time: time, humidity: hum });
         //console.log("data is : " + data);
       });
-
+      
       setMoistData(dataMoist);
+      
     });
   };
   useEffect(() => {
     setTempData(getTempData);
   }, []);
   //https://www.npmjs.com/package/react-linechart
-
+  
   return (
     <>
+      
       <Tabs className="tab">
         {" "}
         {/*Hello World*/}
@@ -134,76 +137,47 @@ function Tempgraph() {
         </TabList>
         <TabPanel>
           <LineChart width={500} height={300} data={tempData}>
-            <XAxis tickLine={false} tick={false} label="Last 30 readings" />{" "}
-            {/* dataKey="time" label="Last 30 readings" tickLine="false"  */}
-            <YAxis label="T" />
+          
+            <XAxis  tickLine={false} tick={false} label="Last 30 readings"/> {/* dataKey="time" label="Last 30 readings" tickLine="false"  */}
+            <YAxis>
+              <Label angle={-90} value='Temperature C (Celsius)' position='insideLeft' style={{textAnchor: 'middle'}} />
+            </YAxis>
             <Tooltip />
-            <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-            <Line
-              type="monotone"
-              dataKey="temp"
-              stroke="#8884d8"
-              activeDot={{ r: 5 }}
-            />
+            <CartesianGrid stroke="#8884d8"/>
+            <Line type="monotone" dataKey="temp" stroke="#8884d8" />
           </LineChart>
         </TabPanel>
         <TabPanel>
-          <LineChart
-            width={500}
-            height={300}
-            data={humData}
-            hideXLabel={true}
-            hideXAxis={true}
-          >
-            <XAxis tickLine={false} tick={false} label="Last 30 readings" />{" "}
+          <LineChart width={500} height={300} data={humData} hideXLabel={true} hideXAxis={true}>
             <XAxis dataKey="time" />
-            <YAxis label="H" />
+            <YAxis />
             <Tooltip />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-            <Line
-              type="monotone"
-              dataKey="humidity"
-              stroke="#8884d8"
-              activeDot={{ r: 5 }}
-            />
+            <Line type="monotone" dataKey="humidity" stroke="#8884d8" />
           </LineChart>
         </TabPanel>
         <TabPanel>
+        
           <LineChart width={500} height={300} data={sunData}>
-            {/* <XAxis dataKey="time" /> */}
-            <XAxis
-              tickLine={false}
-              tick={false}
-              label="Last 30 readings"
-            />{" "}
+            
+            <XAxis dataKey="time" />
             <YAxis />
             <Tooltip />
             {/* <Legend /> */}
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-            <Line
-              type="monotone"
-              dataKey="sun"
-              stroke="#8884d8"
-              activeDot={{ r: 5 }}
-            />
+            <Line type="monotone" dataKey="sun" stroke="#8884d8" activeDot={{r :8}}/>
+            
           </LineChart>
+          
+          
         </TabPanel>
         <TabPanel>
           <LineChart width={500} height={300} data={moistData}>
-            <XAxis tickLine={false} tick={false} label="Last 30 readings" />{" "}
+            <XAxis dataKey="time" />
             <YAxis />
-            <Tooltip
-              contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }}
-              itemStyle={{ color: "#fff" }}
-              cursor={false}
-            />
+            <Tooltip  contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }} itemStyle={{ color: "#fff" }} cursor={false} />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-            <Line
-              type="monotone"
-              dataKey="moist"
-              stroke="#8884d8"
-              activeDot={{ r: 5 }}
-            />
+            <Line type="monotone" dataKey="moist" stroke="#8884d8" strokeWidth="5" dot={{fill:"#2e4355",stroke:"#8884d8",strokeWidth: 2,r:5}} activeDot={{fill:"#2e4355",stroke:"#8884d8",strokeWidth: 5,r:10}} />
           </LineChart>
         </TabPanel>
       </Tabs>
