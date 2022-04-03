@@ -21,6 +21,7 @@ export default function art1() {
         <div className="left-items">
           <img
             style={{
+              marginLeft: 80,
               width: 500,
               height: 500,
             }}
@@ -28,8 +29,8 @@ export default function art1() {
           />
         </div>
         <div className="right-items">
-          <h1 style={{ marginTop: 150 }}>How to grow the perfect cucumber</h1>
-          <p style={{ marginTop: 200 }}>
+          <h2 style={{ marginTop: 150 }}>How to grow the perfect cucumber</h2>
+          <p>
             Cucumbers are Cucumbers areCucumbers areCucumbers areCucumbers
             areCucumbers areCucumbers areCucumbers areCucumbers areCucumbers
             areCucumbers are Cucumbers areCucumbers areCucumbers areCucumbers
