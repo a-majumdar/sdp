@@ -1,5 +1,5 @@
 import cucumPic from "../assets/cucum.jpg";
-
+import step3 from "../assets/step3.JPG"
 import step2 from "../assets/step2.jpg"
 import step1 from "../assets/step1.jpg"
 import step4 from "../assets/step4.jpg"
@@ -19,7 +19,7 @@ export const SliderData = [
   },
   {
     image:
-      step4
+      step3
   },
   {
     image:
