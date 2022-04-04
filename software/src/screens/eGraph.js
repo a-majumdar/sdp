@@ -24,9 +24,10 @@ import { PropagatorContext } from "../contexts/PropagatorContext";
  import { XAxis, YAxis, LineChart, BarChart, Bar, Line, Legend, ResponsiveContainer, Label , CartesianGrid, Tooltip} from "recharts";
 import { Button} from "react-bootstrap";
 import { ButtonGroup } from "react-bootstrap";
-
-
 import { PureComponent } from 'react';
+import { PlantDataContext } from "../contexts/PlantDataContext";
+
+import neo4j from "neo4j-driver";
 // import BarChart from '@bit/recharts.recharts.bar-chart';
 // import Bar from '@bit/recharts.recharts.bar';
 // import XAxis from '@bit/recharts.recharts.x-axis';
@@ -39,7 +40,18 @@ import { PureComponent } from 'react';
  * @returns A graph of tempurat
  */
 function Tempgraph() {
+  const uri = "neo4j+s://28cce6ce.databases.neo4j.io";
+  const user = "neo4j";
+  const password = "sdpgroup22isthebest";
+  const driver = neo4j.driver(uri, neo4j.auth.basic(user, password));
+  const [lowerTemp, setLowerTemp] = useState();
+  const [higherTemp, setHigherTemp] = useState();
+  const [humidityAura, setHumidityAura] = useState();
+  const [averageTemp, setAverageTemp] = useState();
+  const { plantDescription } = useContext(PlantDataContext);
   const { currentUserUID, currentUserEmail } = useContext(AuthContext);
+  const session = driver.session();
+  const session2 = driver.session();
   const [loading, setLoading] = useState(true);
   const [tempData, setTempData] = useState(["this", "is default"]);
   const [humData, setHumData] = useState(["this is default"]);
@@ -57,6 +69,51 @@ function Tempgraph() {
     temperature,
   } = useContext(PropagatorContext);
 
+  async function getOptimalData(plantCommonName) {
+    try {
+      console.log("Debug Test Explore Page (Search Function)");
+      //step1: searching the plant name by its common name or (professional) name
+      //step2:retrun all plant details (later will also with propogator conditions as it establlished manaully)
+      //eg: when we search tomato, it would return all the palnts which has the common/professional name called tomato with their all relevant information
+
+      const AnanyaQuery = `
+      MATCH (n)
+      WHERE n.common = $search or n.name = $search
+      RETURN
+        n.common AS common,
+        n.humidity AS humidity,
+        n.light AS light,
+        n.moisture_type AS moisture_type,
+        n.pH_high AS upper_pH,
+        n.pH_low AS lower_pH,
+        n.temp_high AS upper_temp,
+        n.temp_low AS lower_temp,
+        n.watering AS watering_style`;
+      session2.readTransaction((tx) =>
+        tx.run(AnanyaQuery, { search: plantCommonName }).then((readResult) => {
+          readResult.records.forEach((record) => {
+            setHumidityAura(record.get("humidity"));
+            setLowerTemp(record.get("upper_temp"));
+            setHigherTemp(record.get("lower_temp"));
+          });
+        })
+      );
+    } catch (error) {
+      console.error("Something went wrong: ", error);
+    }
+  }
+
+  const { description } = useContext(PropagatorContext);
+  var avgTemp = 0;
+  const getAverageTemp = () => {
+    getOptimalData(plantCommonName);
+    console.log("lower temp = " + lowerTemp);
+    console.log("higher = " + higherTemp);
+    avgTemp = (parseInt(lowerTemp) + parseInt(higherTemp)) / 2;
+    setAverageTemp((parseInt(lowerTemp) + parseInt(higherTemp)) / 2);
+  };
+
+
   const getTempData = () => {
     const data = [];
     const hdata = [];
@@ -71,8 +128,9 @@ function Tempgraph() {
           const time = childSnapshot.val().Sample_Time;
           //console.log("time = " + time);
           const timeNum = new Date().getTime(time);
-
-          data.push({ time: time, Temperature: temp1 });
+          getAverageTemp();
+          console.log("Eric average temp is: " + averageTemp);
+          data.push({ time: time, Temperature: temp1, Optimal: avgTemp });
           hdata.push({ time: time, Humidity: hum });
           //console.log("data is : " + data);
         });
@@ -194,7 +252,7 @@ function Tempgraph() {
             {/* <Legend /> */}
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
             <Line type="monotone" dataKey="Temperature" stroke="#8884d8" activeDot={{r :8}}/>
-            
+            <Line type="monotone" dataKey="Optimal" stroke="red" />
           </LineChart>
           
         </TabPanel>
