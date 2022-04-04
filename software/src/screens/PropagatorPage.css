@@ -122,12 +122,12 @@
   height: 70px;
 }
 
-table {
+/* table {
   border: 2px solid forestgreen;
   width: 800px;
   height: 200px;
   border-collapse: collapse;
-}
+} */
 tr th {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
@@ -226,7 +226,7 @@ tr th {
 }
 .but1 {
   margin-left: 50px;
-  background-color: #97c092; /* Green */
+  /* background-color: #97c092; Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -248,7 +248,7 @@ tr th {
 }
 .but2 {
   margin-left: 50px;
-  background-color: #97c092; /* Green */
+ 
   border: none;
   color: white;
   padding: 15px 32px;
@@ -259,7 +259,7 @@ tr th {
 }
 .but3 {
   margin-left: 10px;
-  background-color: #97c092; /* Green */
+  
   border: none;
   color: white;
   padding: 15px 32px;
@@ -282,7 +282,7 @@ tr th {
 .but4 {
   margin-left: 50px;
   margin-bottom: 20px;
-  background-color: #97c092; /* Green */
+  
   border: none;
   color: white;
   padding: 15px 32px;
