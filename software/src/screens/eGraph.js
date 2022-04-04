@@ -28,7 +28,7 @@ import { PureComponent } from 'react';
 import { PlantDataContext } from "../contexts/PlantDataContext";
 
 import neo4j from "neo4j-driver";
-// import BarChart from '@bit/recharts.recharts.bar-chart';
+// import BarChart from '@bit/recharts.recharts.bar-chart'
 // import Bar from '@bit/recharts.recharts.bar';
 // import XAxis from '@bit/recharts.recharts.x-axis';
 // import YAxis from '@bit/recharts.recharts.y-axis';
