@@ -89,9 +89,6 @@ export default function ProfilePage() {
           )}
           <br></br>
           <br></br>
-          <h2 className="actlog">
-            Plant History : Aubergine (12th March 2022){" "}
-          </h2>
           {propogatorHasPlant ? (
             <Link to={"/MyProp"}>
               <button className="butt2">View</button>
