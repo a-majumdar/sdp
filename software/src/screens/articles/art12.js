@@ -1,13 +1,13 @@
 import React from "react";
 import Footer from "../../components/organisms/Footer";
-import cucumPic from "../../assets/Tomato.jpeg";
-import "../articles/art3.css";
+import cucumPic from "../../assets/war.jpg";
+import "../articles/art8.css";
 import {Helmet} from 'react-helmet';
 /**
  * Article 1
  * @returns
  */
-export default function art3() {
+export default function art12() {
   const Header = {
     textAlign: "left",
     marginTop: 200,
@@ -20,7 +20,7 @@ export default function art3() {
     <Helmet>
                 <style>{'body { background-color: #0F0F11; }'}</style>
             </Helmet>
-    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>The art of tomato growing</h2>
+    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>Making delicious cress</h2>
       <div className="all-items">
         
         <div className="left-items">
@@ -37,20 +37,15 @@ export default function art3() {
           
           
           <p style={{fontSize: 18, color: "white"}}>
-          Start with healthy plants. Whether homegrown or store-bought, plants should be short and stocky (6 to 10 in. tall). Avoid plants with blossoms or fruit. You'll pay more for plants in individual 4-in. pots, but they usually have larger root systems than those growing in cell packs. As a result, they will grow faster after transplanting.
-
-Choose the right site. Tomatoes grow best in full sun (at least 8 hours daily) and well-drained soil rich in organic matter. Work a couple inches of compost or decomposed manure into the upper 6 in. of soil prior to planting. If a soil test shows the pH is below 6.0, apply lime.
-<br></br>
-<br></br>
-Plant right. Set plants in the garden after the danger of frost and when the soil temperatures are above 60°F. (Experienced gardeners sometimes plant earlier and shelter plants to protect them from cold and frost.)
-<br></br>
-<br></br>
-Space plants 1 1/2 to 3 ft. apart (closer for determinate varieties, which spread less). Wide spacing assures good air circulation, which discourages diseases.
-<br></br>
-<br></br>
-Plant seedlings in the ground deeper than they were growing in their pots so the lowest leaves are just above the soil level. Roots will grow along the length of the buried stem, resulting in stronger plants. And, don't forget to water freshly planted seedlings.
-
-Most experts recommend fertilizing at planting time. But go easy on the fertilizer. In this case, less is best because too much nitrogen fertilizer results in vigorous vines with few tomatoes. The recommendation from Clemson University Extension is fairly standard: Pour about 1 pint of starter solution (2 tbs. of 10-10-10 or 5-10-5 fertilizer per gallon of water) around each plant.
+          So nutrient-rich that you can eat it to fend off scurvy, watercress is a magic green that adds color, spice, and tang to all kinds of dishes. And though you can find it in most grocery stores year-round, the real time for watercress is now: young, local, springtime watercress—usually found at a farmer's market—is the best watercress gets.
+          <br></br>
+          <br></br>
+          So how should you eat it? I'll get to that in a minute. First, two pointers:
+          <br></br>
+          Once it's harvested, watercress doesn't last very long, so eat it as soon as you can. If it looks a little wilted when you buy it, shock it in a bowl of ice water. And if you must keep it for a few days, store the watercress in the fridge much the same way you'd store fresh herbs—wrapped in a damp paper towel inside a plastic bag, or placed in a glass of water like a bouquet of flowers and tented with a plastic bag.
+          <br></br>
+          <br></br>
+          In the grocery store, you'll often find two different kinds of cress: Thick-stemmed bunches wrapped with a rubber band, and thin-stemmed bunches still attached to their roots, often sold in a plastic bag to lock in humidity and preserve freshness. The latter is upland cress, which is a completely different plant but interchangeable with watercress—and especially good in salads where you might not want the thicker more woodsy stems of traditional watercress.
           </p>
         </div>
       </div>

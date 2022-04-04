@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "../../components/organisms/Footer";
-import cucumPic from "../../assets/cucumpic.JPG";
+import cucumPic from "../../assets/orch.JPG";
 import "../articles/art4.css";
 import {Helmet} from 'react-helmet';
 /**
@@ -37,15 +37,20 @@ export default function art4() {
           
           
           <p style={{fontSize: 18, color: "white"}}>
-          Cucumbers are the perfect summer vegetable, adding a crisp fresh taste to salads and summer drinks. It’s easy to grow your own cucumbers from seed, and growing them yourself always seems to make them taste better. In addition to the traditional longer varieties, there are also varieties that produce smaller fruits that can be eaten fresh or pickled.
-There are two main types of cucumbers – greenhouse cucumbers and outdoor types.Greenhouse cucumbers need plenty of heat, so need to be grown in a greenhouse or polytunnel. They are large plants that produce long, smooth fruits, similar to those in the supermarket. They don’t need pollinating and the male flowers need to be removed to prevent this happening,
- otherwise the fruits will end up bitter and full of seeds. Some greenhouse varieties have been bred to only produce female flowers.
-Outdoor or ‘ridge’ cucumbers can tolerate lower temperatures and can be grown in a sunny spot outside. The fruits are shorter and fatter, with a rough, ridged skin. The flowers are pollinated by insects, so both the male and female flowers are needed. Some varieties trail and can be trained up a support or left to sprawl; bush varieties are more upright and
- compact and ideal for smaller spaces. Some cucumber varieties will grow in a greenhouse or outside. It’s important, however, not to grow a ‘ridge’ type in the greenhouse alongside greenhouse varieties, as this will result in cross pollination and bitter, seed-filled fruits.
+          These plants thrive in strong light, but not direct late-afternoon sunlight (although dendrobiums can handle more sun). They also need high humidity and airflow around the roots. They need regular periods of drying alternated with heavy watering. Orchids do best in temperatures above 50 degrees but below 85 degrees.
 <br></br>
 <br></br>
- Whether you’re growing indoor or outdoor cucumbers, sow the seeds in late winter or early spring, or buy young plants at the garden centre in late spring. Sow the seeds into pots of peat-free, multi-purpose compost. They need a temperature of at least 20ºC to germinate. Pot seedlings on after they have developed their first pair of ‘true’ leaves. If growing
-  outdoor cucumbers, harden off your plants by gently acclimatising them to outdoor conditions, after all risk of frost has passed. Tie them into a sturdy support, such as a bamboo cane, and water regularly. When your cucumbers start to flower, feed weekly with a high potash fertiliser, such as a liquid tomato food. Harvest cucumbers as and when they are ready.
+The closer you can come to creating these conditions, the more success and better blooms you will have.
+<br></br>
+Most store-bought orchids come packaged in cheap plastic pots with the roots packed in soaked moss. Obviously, this violates two of the main rules of successful growth. There is no air flow around the roots, and the roots are never given a chance to completely dry out. Thus, the plant cannot breathe and root rot is inevitable.
+<br></br>
+Orchid roots are highly specialized organs designed to soak up water very quickly and breathe. They do not extract nutrients from the soil.​​
+<br></br>
+<br></br>
+After the bloom is done, go ahead and cut off the dead flower spike with sterile snippers and repot the plant. Orchids should be potted into specialized orchid pots in an orchid mixture. Orchid pots feature wide drainage slits so water will literally run through the pot. They are widely available. Orchid potting mixture is usually composed of several chunky ingredients, including pine bark, charcoal, and even styrofoam.
+<br></br>
+<br></br>
+Caring for your orchid is pretty simple. During the summer months, water it weekly and heavily. Let the water drench the roots and fill up the pebble tray. It doesn't hurt every so often to put the plant in the kitchen sink and really soak it down. Don't worry, you won't kill it as long as it's allowed to dry out afterward.
           </p>
         </div>
       </div>

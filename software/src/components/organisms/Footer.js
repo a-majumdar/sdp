@@ -52,7 +52,7 @@ function Footer() {
           <Link>Growth</Link>
           <Link>Health</Link>
           <Link>Cooking</Link>
-          <Link>Mindful Planting</Link>
+          <Link to="/tutorial">User Guide</Link>
         </div>
         <div className="footer-link-items">
           <h2>Contact Us</h2>

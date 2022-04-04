@@ -1,13 +1,13 @@
 import React from "react";
 import Footer from "../../components/organisms/Footer";
-import cucumPic from "../../assets/Tomato.jpeg";
-import "../articles/art3.css";
+import cucumPic from "../../assets/chil.jpg";
+import "../articles/art8.css";
 import {Helmet} from 'react-helmet';
 /**
  * Article 1
  * @returns
  */
-export default function art3() {
+export default function art11() {
   const Header = {
     textAlign: "left",
     marginTop: 200,
@@ -20,7 +20,7 @@ export default function art3() {
     <Helmet>
                 <style>{'body { background-color: #0F0F11; }'}</style>
             </Helmet>
-    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>The art of tomato growing</h2>
+    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>Spice your life up with chillis</h2>
       <div className="all-items">
         
         <div className="left-items">
@@ -37,20 +37,17 @@ export default function art3() {
           
           
           <p style={{fontSize: 18, color: "white"}}>
-          Start with healthy plants. Whether homegrown or store-bought, plants should be short and stocky (6 to 10 in. tall). Avoid plants with blossoms or fruit. You'll pay more for plants in individual 4-in. pots, but they usually have larger root systems than those growing in cell packs. As a result, they will grow faster after transplanting.
+          There are thousands of chilli varieties to grow, in a huge range of colours, shapes, sizes and levels of heat, from mild to extremely hot. Many have unique flavours, with some offering a hint of lemon and others having a more fruity taste.
+          <br></br>
+          A chilli’s heat is measured on the Scoville scale, a test created in 1912, in which the more water needed to dilute a chilli solution before a human taster can no longer detect the chilli determines the number of Scovilles. Today, testing is done by machines. A score of around 3,000 Scovilles is deemed hot, with record-breaking chillies such as ‘Carolina Reaper’ topping two million mark.
+          <br></br>
+          Many chilli varieties are available to buy in supermarkets but you will have a much greater range to choose from if you grow chillies yourself. They’re very easy to grow from seed, and grow best in containers, which means they are perfect for a sunny patio or balcony. You can also buy ready-grown chilli plants at the garden centre in spring.
+          <br></br>
+          Sow chilli seed indoors as early as January if you have a heated propagator, or from March if you don’t. Transplant seedlings into individual 7.5cm pots when the first true leaves appear. Eventually, transplant them into 30cm pots of peat-free, multi-purpose compost. Wait until all risk of frost has passed before moving them to their final growing positions outside, in a sunny spot. For the hottest chillies, grow in a greenhouse. Chillies are tender plants, so will not survive the winter. It’s best to sow seeds for fresh plants each year.
+            <br></br>
+          Chillies need a warm, sunny spot for the best results and the hottest chillies. Ideally, grow them in a greenhouse or raise them in pots on a south-facing patio or windowsill. Chillies need a long season to grow, so it’s best to sow seed as early as January in moist, peat-free multi-purpose compost, and keep in a heated (PlantEd) propagator under a growing light, to prevent seedlings going leggy (sow seed in March if you don’t have a heated propagator). Pot on into individual pots when the first true leaves appear. Keep potting on if growing in pots or plant out into the greenhouse when night temperatures exceed 10ºC – ensure the soil or compost is free-draining. Feed weekly with a high potash fertiliser once plants have started flowering, and harvest chillies as and when they appear.
 
-Choose the right site. Tomatoes grow best in full sun (at least 8 hours daily) and well-drained soil rich in organic matter. Work a couple inches of compost or decomposed manure into the upper 6 in. of soil prior to planting. If a soil test shows the pH is below 6.0, apply lime.
-<br></br>
-<br></br>
-Plant right. Set plants in the garden after the danger of frost and when the soil temperatures are above 60°F. (Experienced gardeners sometimes plant earlier and shelter plants to protect them from cold and frost.)
-<br></br>
-<br></br>
-Space plants 1 1/2 to 3 ft. apart (closer for determinate varieties, which spread less). Wide spacing assures good air circulation, which discourages diseases.
-<br></br>
-<br></br>
-Plant seedlings in the ground deeper than they were growing in their pots so the lowest leaves are just above the soil level. Roots will grow along the length of the buried stem, resulting in stronger plants. And, don't forget to water freshly planted seedlings.
 
-Most experts recommend fertilizing at planting time. But go easy on the fertilizer. In this case, less is best because too much nitrogen fertilizer results in vigorous vines with few tomatoes. The recommendation from Clemson University Extension is fairly standard: Pour about 1 pint of starter solution (2 tbs. of 10-10-10 or 5-10-5 fertilizer per gallon of water) around each plant.
           </p>
         </div>
       </div>

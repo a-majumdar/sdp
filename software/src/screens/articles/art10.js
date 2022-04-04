@@ -1,13 +1,13 @@
 import React from "react";
 import Footer from "../../components/organisms/Footer";
-import cucumPic from "../../assets/Tomato.jpeg";
-import "../articles/art3.css";
+import cucumPic from "../../assets/flt.jpg";
+import "../articles/art8.css";
 import {Helmet} from 'react-helmet';
 /**
  * Article 1
  * @returns
  */
-export default function art3() {
+export default function art10() {
   const Header = {
     textAlign: "left",
     marginTop: 200,
@@ -20,7 +20,7 @@ export default function art3() {
     <Helmet>
                 <style>{'body { background-color: #0F0F11; }'}</style>
             </Helmet>
-    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>The art of tomato growing</h2>
+    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>How to make your flat look better with plants</h2>
       <div className="all-items">
         
         <div className="left-items">
@@ -37,20 +37,38 @@ export default function art3() {
           
           
           <p style={{fontSize: 18, color: "white"}}>
-          Start with healthy plants. Whether homegrown or store-bought, plants should be short and stocky (6 to 10 in. tall). Avoid plants with blossoms or fruit. You'll pay more for plants in individual 4-in. pots, but they usually have larger root systems than those growing in cell packs. As a result, they will grow faster after transplanting.
+          There are many good things about living in a flat, not least the fact they tend to be more affordable. But one downside can be a lack of outdoor space. If you’re craving a garden or terrace now that the days are growing longer and milder, here are a few ways to cheat and introduce some life-affirming greenery into your abode. OK, you may not be able to recreate a full-stretch English lawn, complete with water feature and rose garden, but if you’re clever, you can add a lush, leafy atmosphere to any space, however small.
+          <br></br>
+          <br></br>
+          Line your windows :  
+One of the things those without gardens often miss is simply enjoying a leafy view from the inside. However, curating a line of potted plants near a large window can provide a ‘green fix’.
 
-Choose the right site. Tomatoes grow best in full sun (at least 8 hours daily) and well-drained soil rich in organic matter. Work a couple inches of compost or decomposed manure into the upper 6 in. of soil prior to planting. If a soil test shows the pH is below 6.0, apply lime.
+Pick a variety of different-shaped foliage for a lush, garden-like feel, and don’t forget to include blooms. Put potted flowers high up on shelves and cut flowers on tables to weave in pretty shots of colour.
 <br></br>
-<br></br>
-Plant right. Set plants in the garden after the danger of frost and when the soil temperatures are above 60°F. (Experienced gardeners sometimes plant earlier and shelter plants to protect them from cold and frost.)
-<br></br>
-<br></br>
-Space plants 1 1/2 to 3 ft. apart (closer for determinate varieties, which spread less). Wide spacing assures good air circulation, which discourages diseases.
-<br></br>
-<br></br>
-Plant seedlings in the ground deeper than they were growing in their pots so the lowest leaves are just above the soil level. Roots will grow along the length of the buried stem, resulting in stronger plants. And, don't forget to water freshly planted seedlings.
+          <br></br>
+          Double up : 
+If you have access to any downstairs exterior space, however miserly, try this. Position potted plants either side of a window, both indoors and out, to add leafy depth. Even if your window only looks onto a light well, balcony or communal courtyard or alley, it will create the illusion of a secret garden oasis, as your eye is led beyond the glass.
 
-Most experts recommend fertilizing at planting time. But go easy on the fertilizer. In this case, less is best because too much nitrogen fertilizer results in vigorous vines with few tomatoes. The recommendation from Clemson University Extension is fairly standard: Pour about 1 pint of starter solution (2 tbs. of 10-10-10 or 5-10-5 fertilizer per gallon of water) around each plant.
+ <br></br>
+ <br></br>
+ Be big and bold : 
+Larger potted plants can be pricey, but it’s often worth making the initial investment. One large variety, like the one on the left here, will make a big impact. A mature plant will also be established and hardy, so will be more likely to survive the odd dry spell. However, always carefully read instructions on how to care for plants, as each species has different watering, lighting, heating and feeding needs.
+
+Choose botanical wallpaper
+If house plants aren’t for you, a simple wall of botanical wallpaper can still bring welcome greenery into an apartment.
+
+This lovely Impressionist-style print features lines of verdant trees for a woodland feel. It may not beat an actual stroll in the forest, but it’s surprisingly uplifting.
+ <br></br>
+ <br></br>
+
+ Frame a doorway : 
+Create the impression of a tropical paradise outside a doorway by placing large potted plants just beyond the frame. The result: a tantalising glimpse of foliage, even if the door only leads to your hall, bathroom or a narrow outdoor space.
+
+<br></br>
+<br></br>
+Hang some pots
+If a full-on living wall feels like too much work, go for the dialled-down version. Wall-mounted plant pots can add some refreshing colour to an otherwise plain scheme. Hanging several of them, as seen here, gives a great effect. They don’t need to be fancy either – simple spiders, ferns and ivy plants all look good.
+
           </p>
         </div>
       </div>
