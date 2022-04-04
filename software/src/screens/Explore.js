@@ -113,6 +113,11 @@ export default function Explore() {
     }
   }
 
+  // const openInNewTab = (url) => {
+  //   const newWindow = window.location.re(url, "noopener,noreferrer");
+  //   if (newWindow) newWindow.opener = null;
+  // };
+
   var sites = [
     "Tomato",
     "Solanum lycopersicum",
@@ -297,12 +302,12 @@ export default function Explore() {
             >
               Search
             </button>
-
-          
           </Link>
+          <a href="http://172.20.118.159:4444/" target="_blank" rel="noopener">
+            <p style={{ marginLeft: 155 }}>Image Search</p>
+          </a>
           {/* <input className="search-btn" type="submit" value="Search"></input> */}
         </form>
-        
       </div>
       <Cards />
       <Footer />

@@ -18,7 +18,7 @@ export default function art6() {
   return (
     <>
     <Helmet>
-                <style>{'body { background-color: #0F0F11; }'}</style>
+                <style>{'body { background-color: #97c092; }'}</style>
             </Helmet>
     <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>What Is So Special About Cactus Plants?</h2>
       <div className="all-items">

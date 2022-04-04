@@ -10,6 +10,7 @@ import Contact from "./screens/ContactUs";
 import Explore from "./screens/Explore";
 import SignUp from "./screens/SignUp";
 import MyProp from "./screens/PropagatorPage";
+import Tomato from "./screens/Tomato";
 import ProfilePage from "./screens/ProfilePage";
 import SearchPage from "./screens/SearchPage";
 import tutorial from "./screens/tutorial";
@@ -67,6 +68,7 @@ function App() {
               <Route path="/art12" exact component={art12} />
               <Route path="/art13" exact component={art13} />
               <Route path="/artest" exact component={artest} />
+              <Route path="/TomatoSearch" exact component={Tomato} />
               <PrivateRoute path="/profile" exact component={ProfilePage} />
               <Route path="/MyProp" exact component={MyProp} />
             </PropagatorProvider>

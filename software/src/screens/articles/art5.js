@@ -18,7 +18,7 @@ export default function art5() {
   return (
     <>
     <Helmet>
-                <style>{'body { background-color: #0F0F11; }'}</style>
+                <style>{'body { background-color: #97c092; }'}</style>
             </Helmet>
     <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>The amazing benefits of aloe vera</h2>
       <div className="all-items">
