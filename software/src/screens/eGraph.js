@@ -73,7 +73,7 @@ function Tempgraph() {
           const timeNum = new Date().getTime(time);
 
           data.push({ time: time, Temperature: temp1 });
-          hdata.push({ time: time, humidity: hum });
+          hdata.push({ time: time, Humidity: hum });
           //console.log("data is : " + data);
         });
         console.log(" data is : " + data[0].temp);
@@ -96,7 +96,7 @@ function Tempgraph() {
         //console.log("time = " + time);
         // const timeNum = new Date().getTime(time);
 
-        dataSun.push({ time: time, sun: sun1 });
+        dataSun.push({ time: time, Sunlight: sun1 });
         // hdata.push({ time: time, humidity: hum });
         //console.log("data is : " + data);
       });
@@ -118,7 +118,7 @@ function Tempgraph() {
         //console.log("time = " + time);
         // const timeNum = new Date().getTime(time);
 
-        dataMoist.push({ time: time, moist: moist1 });
+        dataMoist.push({ time: time, Moisture: moist1 });
         // hdata.push({ time: time, humidity: hum });
         //console.log("data is : " + data);
       });
@@ -190,7 +190,7 @@ function Tempgraph() {
             <YAxis>
               <Label angle={-90} value='Temperature C (Celsius)' position='insideLeft' style={{textAnchor: 'middle'}} />
             </YAxis>
-            <Tooltip contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }} itemStyle={{ color: "#fff" }} cursor={false}  labelFormatter={() => "Reading" }/>
+            <Tooltip contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }} itemStyle={{ color: "#fff" }} cursor={false}  label="{timeTaken}" labelFormatter={(name) => 'Reading: #' + name}/>
             {/* <Legend /> */}
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
             <Line type="monotone" dataKey="Temperature" stroke="#8884d8" activeDot={{r :8}}/>
@@ -205,10 +205,10 @@ function Tempgraph() {
             <YAxis>
               <Label angle={-90} value='Humidity' position='insideLeft' style={{textAnchor: 'middle'}} />
             </YAxis>
-            <Tooltip contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }} itemStyle={{ color: "#fff" }} cursor={false}  />
+            <Tooltip contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }} itemStyle={{ color: "#fff" }} cursor={false} label="{timeTaken}" labelFormatter={(name) => 'Reading: #' + name} />
             {/* <Legend /> */}
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-            <Line type="monotone" dataKey="humidity" stroke="#8884d8" activeDot={{r :8}}/>
+            <Line type="monotone" dataKey="Humidity" stroke="#8884d8" activeDot={{r :8}}/>
             
           </LineChart>
         </TabPanel>
@@ -220,10 +220,10 @@ function Tempgraph() {
             <YAxis>
               <Label angle={-90} value='Sunlight (UV)' position='insideLeft' style={{textAnchor: 'middle'}} />
             </YAxis>
-            <Tooltip contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }} itemStyle={{ color: "#fff" }} cursor={false} />
+            <Tooltip contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }} itemStyle={{ color: "#fff" }} cursor={false} label="{timeTaken}" labelFormatter={(name) => 'Reading: #' + name} />
             {/* <Legend /> */}
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-            <Line type="monotone" dataKey="sun" stroke="#8884d8" activeDot={{r :8}}/>
+            <Line type="monotone" dataKey="Sunlight" stroke="#8884d8" activeDot={{r :8}}/>
             
           </LineChart>
           
@@ -235,9 +235,9 @@ function Tempgraph() {
             <YAxis>
               <Label angle={-90} value='Moisture (g/m^3)' position='insideLeft' style={{textAnchor: 'middle'}} />
             </YAxis>
-            <Tooltip  contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }} itemStyle={{ color: "#fff" }} cursor={false} />
+            <Tooltip  contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }} itemStyle={{ color: "#fff" }} cursor={false}  label="{timeTaken}" labelFormatter={(name) => 'Reading: #' + name} />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-            <Line type="monotone" dataKey="moist" stroke="#8884d8" activeDot={{r :8}} />
+            <Line type="monotone" dataKey="Moisture" stroke="#8884d8" activeDot={{r :8}} />
           </LineChart>
         </TabPanel>
       </Tabs>
