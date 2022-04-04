@@ -15,6 +15,8 @@ import ProfilePage from "./screens/ProfilePage";
 import SearchPage from "./screens/SearchPage";
 import tutorial from "./screens/tutorial";
 import LogIn from "./screens/Login";
+import PlantHistory from "./screens/PlantHistory";
+import MotionCapture from "./screens/MotionCapture";
 import { AuthProvider } from "./contexts/AuthContext";
 import PrivateRoute from "./PrivateRoute";
 import { PropagatorProvider } from "./contexts/PropagatorContext";
@@ -68,7 +70,8 @@ function App() {
               <Route path="/art12" exact component={art12} />
               <Route path="/art13" exact component={art13} />
               <Route path="/artest" exact component={artest} />
-              <Route path="/TomatoSearch" exact component={Tomato} />
+              <Route path="/PlantHistory" exact component={PlantHistory} />
+              <Route path="/MotionCapture" exact component={MotionCapture} />
               <PrivateRoute path="/profile" exact component={ProfilePage} />
               <Route path="/MyProp" exact component={MyProp} />
             </PropagatorProvider>
