@@ -242,7 +242,7 @@ export default function MyProp() {
   const [stoggle, setsToggle] = useState(false);
   const stoggler = () => {
     if (stoggle) {
-      setwToggle(false);
+      setToggle(false);
     } else {
       setsToggle(true);
       sunTrack();

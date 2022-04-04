@@ -71,7 +71,7 @@ export default function ProfilePage() {
 
           <h2 className="actlog">Motion Capture: </h2>
           {!propogatorHasPlant ? (
-            <Link to={"/MyProp"}>
+            <Link to={"/MotionCapture"}>
               <button className="butt2">Watch</button>
             </Link>
           ) : (
@@ -89,8 +89,9 @@ export default function ProfilePage() {
           )}
           <br></br>
           <br></br>
+
           {propogatorHasPlant ? (
-            <Link to={"/MyProp"}>
+            <Link to={"/MotionCapture"}>
               <button className="butt2">View</button>
             </Link>
           ) : (
