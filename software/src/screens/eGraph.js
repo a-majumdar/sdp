@@ -186,7 +186,7 @@ function Tempgraph() {
           
         <LineChart width={500} height={300} data={tempData}>
             
-            <XAxis  tickLine={false} tick={false} label="Last 30 readings" />
+            <XAxis  tickLine={false} tick={false} label="Readings (newest - oldest)" />
             <YAxis>
               <Label angle={-90} value='Temperature C (Celsius)' position='insideLeft' style={{textAnchor: 'middle'}} />
             </YAxis>
@@ -201,9 +201,9 @@ function Tempgraph() {
         <TabPanel>
         <LineChart width={500} height={300} data={humData}>
             
-            <XAxis  tickLine={false} tick={false} label="Last 30 readings" />
+        <XAxis  tickLine={false} tick={false} label="Readings (newest - oldest)" />
             <YAxis>
-              <Label angle={-90} value='Humidity' position='insideLeft' style={{textAnchor: 'middle'}} />
+              <Label angle={-90} value='Humidity (%)' position='insideLeft' style={{textAnchor: 'middle'}} />
             </YAxis>
             <Tooltip contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }} itemStyle={{ color: "#fff" }} cursor={false} label="{timeTaken}" labelFormatter={(name) => 'Reading: #' + name} />
             {/* <Legend /> */}
@@ -216,7 +216,7 @@ function Tempgraph() {
         
           <LineChart width={500} height={300} data={sunData}>
             
-            <XAxis  tickLine={false} tick={false} label="Last 30 readings" />
+          <XAxis  tickLine={false} tick={false} label="Readings (newest - oldest)" />
             <YAxis>
               <Label angle={-90} value='Sunlight (UV)' position='insideLeft' style={{textAnchor: 'middle'}} />
             </YAxis>
@@ -231,7 +231,7 @@ function Tempgraph() {
         </TabPanel>
         <TabPanel>
           <LineChart width={500} height={300} data={moistData}>
-            <XAxis  tickLine={false} tick={false} label="Last 30 readings" />
+          <XAxis  tickLine={false} tick={false} label="Readings (newest - oldest)" />
             <YAxis>
               <Label angle={-90} value='Moisture (g/m^3)' position='insideLeft' style={{textAnchor: 'middle'}} />
             </YAxis>
