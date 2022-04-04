@@ -122,6 +122,20 @@ function Tempgraph() {
     setTempData(getTempData);
   }, []);
   //https://www.npmjs.com/package/react-linechart
+
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active) {
+      return (
+        <div className="custom-tooltip">
+          <p className="label">{`${label} : ${payload[0].value}`}</p>
+          
+          <p className="desc">Anything you want can be displayed here.</p>
+        </div>
+      );
+    }
+  
+    return null;
+  };
   
   return (
     <>
@@ -136,16 +150,18 @@ function Tempgraph() {
           <Tab onClick={() => setMoistData(getMoistData)}>Moisture</Tab>
         </TabList>
         <TabPanel>
-          <LineChart width={500} height={300} data={tempData}>
           
+          <LineChart width={500} height={300} data={tempData} >
+          <CartesianGrid strokeDasharray="3 3" />
             <XAxis  tickLine={false} tick={false} label="Last 30 readings"/> {/* dataKey="time" label="Last 30 readings" tickLine="false"  */}
             <YAxis>
               <Label angle={-90} value='Temperature C (Celsius)' position='insideLeft' style={{textAnchor: 'middle'}} />
             </YAxis>
-            <Tooltip />
-            <CartesianGrid strokeDasharray="3 3" />
+            <Tooltip active={true} content={<CustomTooltip />} />
+            
             <Line type="monotone" dataKey="temp" stroke="#8884d8" />
           </LineChart>
+          
         </TabPanel>
         <TabPanel>
           <LineChart width={500} height={300} data={humData} hideXLabel={true} hideXAxis={true}>

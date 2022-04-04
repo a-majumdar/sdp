@@ -94,7 +94,7 @@ export default function ProfilePage() {
           </h2>
           {!
           propogatorHasPlant ? (
-            <Link to={"/MyProp"}>
+            <Link to={"/artest"}>
               <button className="butt2">View</button>
             </Link>
           ) : (
