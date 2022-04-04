@@ -72,7 +72,7 @@ function Tempgraph() {
           //console.log("time = " + time);
           const timeNum = new Date().getTime(time);
 
-          data.push({ time: time, temp: temp1 });
+          data.push({ time: time, Temperature: temp1 });
           hdata.push({ time: time, humidity: hum });
           //console.log("data is : " + data);
         });
@@ -193,7 +193,7 @@ function Tempgraph() {
             <Tooltip contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }} itemStyle={{ color: "#fff" }} cursor={false}  labelFormatter={() => "Reading" }/>
             {/* <Legend /> */}
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-            <Line type="monotone" dataKey="temp" stroke="#8884d8" activeDot={{r :8}}/>
+            <Line type="monotone" dataKey="Temperature" stroke="#8884d8" activeDot={{r :8}}/>
             
           </LineChart>
           
