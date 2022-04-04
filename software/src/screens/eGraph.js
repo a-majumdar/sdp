@@ -93,6 +93,7 @@ function Tempgraph() {
         tx.run(AnanyaQuery, { search: plantCommonName }).then((readResult) => {
           readResult.records.forEach((record) => {
             setHumidityAura(record.get("humidity"));
+            console.log("the optimal hum is : " + humidityAura);
             setLowerTemp(record.get("upper_temp"));
             setHigherTemp(record.get("lower_temp"));
           });
@@ -131,7 +132,7 @@ function Tempgraph() {
           getAverageTemp();
           console.log("Eric average temp is: " + averageTemp);
           data.push({ time: time, Temperature: temp1, Optimal: avgTemp });
-          hdata.push({ time: time, Humidity: hum });
+          hdata.push({ time: time, Humidity: hum, Optimal: humidityAura });
           //console.log("data is : " + data);
         });
         console.log(" data is : " + data[0].temp);
@@ -253,6 +254,7 @@ function Tempgraph() {
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
             <Line type="monotone" dataKey="Temperature" stroke="#8884d8" activeDot={{r :8}}/>
             <Line type="monotone" dataKey="Optimal" stroke="red" />
+            <Legend />
           </LineChart>
           
         </TabPanel>
@@ -267,7 +269,7 @@ function Tempgraph() {
             {/* <Legend /> */}
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
             <Line type="monotone" dataKey="Humidity" stroke="#8884d8" activeDot={{r :8}}/>
-            
+            <Line type="monotone" dataKey="Optimal" stroke="red" />
           </LineChart>
         </TabPanel>
         <TabPanel>
