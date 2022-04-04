@@ -1,13 +1,13 @@
 import React from "react";
 import Footer from "../../components/organisms/Footer";
-import cucumPic from "../../assets/cucumpic.JPG";
-import "../articles/art1.css";
+import cucumPic from "../../assets/flt.jpg";
+import "../articles/art8.css";
 import {Helmet} from 'react-helmet';
 /**
  * Article 1
  * @returns
  */
-export default function art1() {
+export default function art10() {
   const Header = {
     textAlign: "left",
     marginTop: 200,
@@ -20,7 +20,7 @@ export default function art1() {
     <Helmet>
                 <style>{'body { background-color: #0F0F11; }'}</style>
             </Helmet>
-    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>How to grow the perfect cucumber</h2>
+    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>How to make your flat look better with plants</h2>
       <div className="all-items">
         
         <div className="left-items">
@@ -37,15 +37,38 @@ export default function art1() {
           
           
           <p style={{fontSize: 18, color: "white"}}>
-          Cucumbers are the perfect summer vegetable, adding a crisp fresh taste to salads and summer drinks. It’s easy to grow your own cucumbers from seed, and growing them yourself always seems to make them taste better. In addition to the traditional longer varieties, there are also varieties that produce smaller fruits that can be eaten fresh or pickled.
-There are two main types of cucumbers – greenhouse cucumbers and outdoor types.Greenhouse cucumbers need plenty of heat, so need to be grown in a greenhouse or polytunnel. They are large plants that produce long, smooth fruits, similar to those in the supermarket. They don’t need pollinating and the male flowers need to be removed to prevent this happening,
- otherwise the fruits will end up bitter and full of seeds. Some greenhouse varieties have been bred to only produce female flowers.
-Outdoor or ‘ridge’ cucumbers can tolerate lower temperatures and can be grown in a sunny spot outside. The fruits are shorter and fatter, with a rough, ridged skin. The flowers are pollinated by insects, so both the male and female flowers are needed. Some varieties trail and can be trained up a support or left to sprawl; bush varieties are more upright and
- compact and ideal for smaller spaces. Some cucumber varieties will grow in a greenhouse or outside. It’s important, however, not to grow a ‘ridge’ type in the greenhouse alongside greenhouse varieties, as this will result in cross pollination and bitter, seed-filled fruits.
+          There are many good things about living in a flat, not least the fact they tend to be more affordable. But one downside can be a lack of outdoor space. If you’re craving a garden or terrace now that the days are growing longer and milder, here are a few ways to cheat and introduce some life-affirming greenery into your abode. OK, you may not be able to recreate a full-stretch English lawn, complete with water feature and rose garden, but if you’re clever, you can add a lush, leafy atmosphere to any space, however small.
+          <br></br>
+          <br></br>
+          Line your windows :  
+One of the things those without gardens often miss is simply enjoying a leafy view from the inside. However, curating a line of potted plants near a large window can provide a ‘green fix’.
+
+Pick a variety of different-shaped foliage for a lush, garden-like feel, and don’t forget to include blooms. Put potted flowers high up on shelves and cut flowers on tables to weave in pretty shots of colour.
+<br></br>
+          <br></br>
+          Double up : 
+If you have access to any downstairs exterior space, however miserly, try this. Position potted plants either side of a window, both indoors and out, to add leafy depth. Even if your window only looks onto a light well, balcony or communal courtyard or alley, it will create the illusion of a secret garden oasis, as your eye is led beyond the glass.
+
+ <br></br>
+ <br></br>
+ Be big and bold : 
+Larger potted plants can be pricey, but it’s often worth making the initial investment. One large variety, like the one on the left here, will make a big impact. A mature plant will also be established and hardy, so will be more likely to survive the odd dry spell. However, always carefully read instructions on how to care for plants, as each species has different watering, lighting, heating and feeding needs.
+
+Choose botanical wallpaper
+If house plants aren’t for you, a simple wall of botanical wallpaper can still bring welcome greenery into an apartment.
+
+This lovely Impressionist-style print features lines of verdant trees for a woodland feel. It may not beat an actual stroll in the forest, but it’s surprisingly uplifting.
+ <br></br>
+ <br></br>
+
+ Frame a doorway : 
+Create the impression of a tropical paradise outside a doorway by placing large potted plants just beyond the frame. The result: a tantalising glimpse of foliage, even if the door only leads to your hall, bathroom or a narrow outdoor space.
+
 <br></br>
 <br></br>
- Whether you’re growing indoor or outdoor cucumbers, sow the seeds in late winter or early spring, or buy young plants at the garden centre in late spring. Sow the seeds into pots of peat-free, multi-purpose compost. They need a temperature of at least 20ºC to germinate. Pot seedlings on after they have developed their first pair of ‘true’ leaves. If growing
-  outdoor cucumbers, harden off your plants by gently acclimatising them to outdoor conditions, after all risk of frost has passed. Tie them into a sturdy support, such as a bamboo cane, and water regularly. When your cucumbers start to flower, feed weekly with a high potash fertiliser, such as a liquid tomato food. Harvest cucumbers as and when they are ready.
+Hang some pots
+If a full-on living wall feels like too much work, go for the dialled-down version. Wall-mounted plant pots can add some refreshing colour to an otherwise plain scheme. Hanging several of them, as seen here, gives a great effect. They don’t need to be fancy either – simple spiders, ferns and ivy plants all look good.
+
           </p>
         </div>
       </div>

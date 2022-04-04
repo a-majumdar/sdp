@@ -24,13 +24,13 @@ function Cards() {
               src={Carrots}
               text="How to grow any carrot!"
               label="Trending"
-              path="/carrot"
+              path="/art9"
             />
             <CardItem
               src={Plants}
               text="How to make your flat look better with plants!"
               label="Trending"
-              path="/plants"
+              path="/art10"
             />
           </ul>
           <ul className="cards__items">
@@ -38,19 +38,19 @@ function Cards() {
               src={Tomato}
               text="Why not grow a Tomato Plant?"
               label="Trending"
-              path="/tomato"
+              path="/art3"
             />
             <CardItem
               src={Cress}
               text="Learn how to make your water cress taste delicious!"
               label="Trending"
-              path="/cress"
+              path="/art12"
             />
             <CardItem
               src={Pots}
               text="What benefits keeping plants in your house is doing for you!"
               label="Trending"
-              path="/pots"
+              path="/art13"
             />
           </ul>
         </div>

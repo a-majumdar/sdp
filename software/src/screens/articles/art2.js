@@ -1,13 +1,13 @@
 import React from "react";
 import Footer from "../../components/organisms/Footer";
-import cucumPic from "../../assets/cucumpic.JPG";
-import "../articles/art1.css";
+import cucumPic from "../../assets/sunflower.jpg";
+import "../articles/art2.css";
 import {Helmet} from 'react-helmet';
 /**
  * Article 1
  * @returns
  */
-export default function art1() {
+export default function art2() {
   const Header = {
     textAlign: "left",
     marginTop: 200,
@@ -20,7 +20,7 @@ export default function art1() {
     <Helmet>
                 <style>{'body { background-color: #0F0F11; }'}</style>
             </Helmet>
-    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>How to grow the perfect cucumber</h2>
+    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>How to grow the perfect Sunflower!</h2>
       <div className="all-items">
         
         <div className="left-items">
@@ -37,15 +37,18 @@ export default function art1() {
           
           
           <p style={{fontSize: 18, color: "white"}}>
-          Cucumbers are the perfect summer vegetable, adding a crisp fresh taste to salads and summer drinks. It’s easy to grow your own cucumbers from seed, and growing them yourself always seems to make them taste better. In addition to the traditional longer varieties, there are also varieties that produce smaller fruits that can be eaten fresh or pickled.
-There are two main types of cucumbers – greenhouse cucumbers and outdoor types.Greenhouse cucumbers need plenty of heat, so need to be grown in a greenhouse or polytunnel. They are large plants that produce long, smooth fruits, similar to those in the supermarket. They don’t need pollinating and the male flowers need to be removed to prevent this happening,
- otherwise the fruits will end up bitter and full of seeds. Some greenhouse varieties have been bred to only produce female flowers.
-Outdoor or ‘ridge’ cucumbers can tolerate lower temperatures and can be grown in a sunny spot outside. The fruits are shorter and fatter, with a rough, ridged skin. The flowers are pollinated by insects, so both the male and female flowers are needed. Some varieties trail and can be trained up a support or left to sprawl; bush varieties are more upright and
- compact and ideal for smaller spaces. Some cucumber varieties will grow in a greenhouse or outside. It’s important, however, not to grow a ‘ridge’ type in the greenhouse alongside greenhouse varieties, as this will result in cross pollination and bitter, seed-filled fruits.
+          The sunflower is one of the nation’s best-loved flowers. Although most sunflower varieties have yellow flowers, sunflowers also have rusty red, green and forms with white flowers.
+
+Annual sunflowers bloom from summer into autumn. Depending on the variety, they can take 11-18 weeks to flower from seed sowing. With that in mind, it’s a good idea to sow sunflower seed every couple of weeks, so you’ll have a constant supply of cheerful sunflowers throughout summer.
+
+Sunflowers are easy to grow from seed and are ideal for growing with children.They can grow to heights of up to two metres, bear impressive, long-lasting flowers, and look fantastic in gardens and allotments. They make an excellent cut flower.
+Did you know? Sunflowers are related to Jerusalem artichokes, Helianthus tuberosus. If you plant Jerusalem artichokes and let them flower, they will bear beautiful, sunflower-like blooms.
 <br></br>
 <br></br>
- Whether you’re growing indoor or outdoor cucumbers, sow the seeds in late winter or early spring, or buy young plants at the garden centre in late spring. Sow the seeds into pots of peat-free, multi-purpose compost. They need a temperature of at least 20ºC to germinate. Pot seedlings on after they have developed their first pair of ‘true’ leaves. If growing
-  outdoor cucumbers, harden off your plants by gently acclimatising them to outdoor conditions, after all risk of frost has passed. Tie them into a sturdy support, such as a bamboo cane, and water regularly. When your cucumbers start to flower, feed weekly with a high potash fertiliser, such as a liquid tomato food. Harvest cucumbers as and when they are ready.
+To grow sunflowers you need a sunny, sheltered spot and a good soil – add plenty of well-rotted manure or garden compost before planting, if you can. Protect the young plants from slugs and snails and water your sunflowers regularly. You may also need to stake them if they’re in an exposed position.
+
+Choose your variety carefully as some sunflowers will grow 50cm, while others grow over 3m. Sow seeds in pots from April and plant out when all risk of frost has passed. Prepare the soil well and add plenty of organic matter to the planting hole. Keep your sunflowers well watered and feed weekly to encourage them to grow tall. You may need to stake some of the taller varieties.
+
           </p>
         </div>
       </div>

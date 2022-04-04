@@ -1,13 +1,13 @@
 import React from "react";
 import Footer from "../../components/organisms/Footer";
-import cucumPic from "../../assets/cucumpic.JPG";
-import "../articles/art1.css";
+import cucumPic from "../../assets/cactus.jpg";
+import "../articles/art6.css";
 import {Helmet} from 'react-helmet';
 /**
  * Article 1
  * @returns
  */
-export default function art1() {
+export default function art6() {
   const Header = {
     textAlign: "left",
     marginTop: 200,
@@ -20,7 +20,7 @@ export default function art1() {
     <Helmet>
                 <style>{'body { background-color: #0F0F11; }'}</style>
             </Helmet>
-    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>How to grow the perfect cucumber</h2>
+    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>What Is So Special About Cactus Plants?</h2>
       <div className="all-items">
         
         <div className="left-items">
@@ -37,15 +37,23 @@ export default function art1() {
           
           
           <p style={{fontSize: 18, color: "white"}}>
-          Cucumbers are the perfect summer vegetable, adding a crisp fresh taste to salads and summer drinks. It’s easy to grow your own cucumbers from seed, and growing them yourself always seems to make them taste better. In addition to the traditional longer varieties, there are also varieties that produce smaller fruits that can be eaten fresh or pickled.
-There are two main types of cucumbers – greenhouse cucumbers and outdoor types.Greenhouse cucumbers need plenty of heat, so need to be grown in a greenhouse or polytunnel. They are large plants that produce long, smooth fruits, similar to those in the supermarket. They don’t need pollinating and the male flowers need to be removed to prevent this happening,
- otherwise the fruits will end up bitter and full of seeds. Some greenhouse varieties have been bred to only produce female flowers.
-Outdoor or ‘ridge’ cucumbers can tolerate lower temperatures and can be grown in a sunny spot outside. The fruits are shorter and fatter, with a rough, ridged skin. The flowers are pollinated by insects, so both the male and female flowers are needed. Some varieties trail and can be trained up a support or left to sprawl; bush varieties are more upright and
- compact and ideal for smaller spaces. Some cucumber varieties will grow in a greenhouse or outside. It’s important, however, not to grow a ‘ridge’ type in the greenhouse alongside greenhouse varieties, as this will result in cross pollination and bitter, seed-filled fruits.
-<br></br>
-<br></br>
- Whether you’re growing indoor or outdoor cucumbers, sow the seeds in late winter or early spring, or buy young plants at the garden centre in late spring. Sow the seeds into pots of peat-free, multi-purpose compost. They need a temperature of at least 20ºC to germinate. Pot seedlings on after they have developed their first pair of ‘true’ leaves. If growing
-  outdoor cucumbers, harden off your plants by gently acclimatising them to outdoor conditions, after all risk of frost has passed. Tie them into a sturdy support, such as a bamboo cane, and water regularly. When your cucumbers start to flower, feed weekly with a high potash fertiliser, such as a liquid tomato food. Harvest cucumbers as and when they are ready.
+          Cactus are unique plants, but what makes them so special? While some have been documented to live for hundreds of years, others have become an awe thanks to their bizarre growth patterns, unique shapes and unmatched resistance to harsh conditions.
+          <br></br>
+          <br></br>
+          Ever wondered why a cactus plant is highly referred both in its natural habitat and at home? Well, this prickly plant has remained a wonder to both man and animals, thanks to its unique features.  Any animal or human who has come in contact or seen a cactus will attest that no other plant comes close to it in terms of its uniqueness. It goes against the norm expected for most plants, and this has made it stand out.
+          <br></br>
+          <br></br>
+          While each plant is wired differently, most of them are known to be active during the day. This is especially so in terms of their ability to take up nutrients and make food. During the day, the sun provides the best environment and conditions for photosynthesis, thus keeping most plants active. However, cacti seem to take a different route since they work best at night.  Unlike most plants that open their stomata during the day, cacti have their pores open at night.  This is an adaptation meant to help avoid water loss that would otherwise happen during the day when the sun is up.
+          <br></br>
+          <br></br>
+          By virtue of being part of the succulent family, cacti are known to store water within its system. Unlike other succulents that store its water in the leaves, cacti do not have leaves and will let its stems take up this role. The huge, thick stem help function as a water storage ‘tank’.  This explains why most cactus, have huge, round stems. During the dry season, this plant uses up the water already stored in its stems awaiting the little rains that come by occasionally in the deserts.
+          <br></br>
+          <br></br>
+          Cactus is known to display some of the most bizarre growth patterns in the plant kingdom. This may range from its size to shape and texture. Some varieties like the arborescent cacti would take up the shape of the normal tree but will have a single huge trunk coupled by several branches. Then there are the columnar cacti that grow in cylindrical shapes. Depending on the variety, its stems may or may not have branches.
+          <br></br>
+          <br></br>
+
+          If you are a cactus enthusiast, you will agree that these prickly plants never cease to amaze. With their hundreds of species and respective uniqueness, you would be spoilt for choice on what to go for. Its exotic-looking features are enough to keep you glued to this special family of plants.
           </p>
         </div>
       </div>

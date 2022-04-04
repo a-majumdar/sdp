@@ -33,7 +33,7 @@ function Cards() {
               src={sunflower}
               text="Perfect Sunflowers Tutorial"
               label="Trending"
-              path="/sunflowers"
+              path="/art2"
             />
           </ul>
           <ul className="cards__items">
@@ -41,20 +41,20 @@ function Cards() {
               src={Tomato}
               text="Why not grow a Tomato Plant?"
               label="Trending"
-              path="/tomato"
+              path="/art3"
             />
 
             <CardItem
               src={orchid}
               text="The secret to Orchids"
               label="Trending"
-              path="/orchid"
+              path="/art4"
             />
             <CardItem
               src={aloevera}
               text="The health benefits of growing Aloe Vera"
               label="Trending"
-              path="/aloevera"
+              path="/art5"
             />
           </ul>
           <ul className="cards__items">
@@ -62,20 +62,20 @@ function Cards() {
               src={cactus}
               text="Why you should grow a Cactus"
               label="Trending"
-              path="/cactus"
+              path="/art6"
             />
             <CardItem
               src={snowdrop}
               text="Snowdrops are in Season!"
               label="Trending"
-              path="/snowdrop"
+              path="/art7"
             />
 
             <CardItem
               src={chillis}
               text="Brave enough to try grow chillis?"
               label="Trending"
-              path="/chillis"
+              path="/art8"
             />
           </ul>
         </div>

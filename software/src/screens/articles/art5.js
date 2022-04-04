@@ -1,13 +1,13 @@
 import React from "react";
 import Footer from "../../components/organisms/Footer";
-import cucumPic from "../../assets/cucumpic.JPG";
-import "../articles/art1.css";
+import cucumPic from "../../assets/aloevera.jpg";
+import "../articles/art5.css";
 import {Helmet} from 'react-helmet';
 /**
  * Article 1
  * @returns
  */
-export default function art1() {
+export default function art5() {
   const Header = {
     textAlign: "left",
     marginTop: 200,
@@ -20,7 +20,7 @@ export default function art1() {
     <Helmet>
                 <style>{'body { background-color: #0F0F11; }'}</style>
             </Helmet>
-    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>How to grow the perfect cucumber</h2>
+    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>The amazing benefits of aloe vera</h2>
       <div className="all-items">
         
         <div className="left-items">
@@ -37,15 +37,59 @@ export default function art1() {
           
           
           <p style={{fontSize: 18, color: "white"}}>
-          Cucumbers are the perfect summer vegetable, adding a crisp fresh taste to salads and summer drinks. It’s easy to grow your own cucumbers from seed, and growing them yourself always seems to make them taste better. In addition to the traditional longer varieties, there are also varieties that produce smaller fruits that can be eaten fresh or pickled.
-There are two main types of cucumbers – greenhouse cucumbers and outdoor types.Greenhouse cucumbers need plenty of heat, so need to be grown in a greenhouse or polytunnel. They are large plants that produce long, smooth fruits, similar to those in the supermarket. They don’t need pollinating and the male flowers need to be removed to prevent this happening,
- otherwise the fruits will end up bitter and full of seeds. Some greenhouse varieties have been bred to only produce female flowers.
-Outdoor or ‘ridge’ cucumbers can tolerate lower temperatures and can be grown in a sunny spot outside. The fruits are shorter and fatter, with a rough, ridged skin. The flowers are pollinated by insects, so both the male and female flowers are needed. Some varieties trail and can be trained up a support or left to sprawl; bush varieties are more upright and
- compact and ideal for smaller spaces. Some cucumber varieties will grow in a greenhouse or outside. It’s important, however, not to grow a ‘ridge’ type in the greenhouse alongside greenhouse varieties, as this will result in cross pollination and bitter, seed-filled fruits.
+          Aloe vera is a popular medicinal plant that people have used for thousands of years.
+
+Aloe vera, or Aloe barbadensis, is a thick, short-stemmed plant that stores water in its leaves. It is best known for treating skin injuries, but it also has several other uses that could potentially benefit health.
+This article lists eight potential health benefits of aloe vera. It also covers some of the risks associated with use.
 <br></br>
 <br></br>
- Whether you’re growing indoor or outdoor cucumbers, sow the seeds in late winter or early spring, or buy young plants at the garden centre in late spring. Sow the seeds into pots of peat-free, multi-purpose compost. They need a temperature of at least 20ºC to germinate. Pot seedlings on after they have developed their first pair of ‘true’ leaves. If growing
-  outdoor cucumbers, harden off your plants by gently acclimatising them to outdoor conditions, after all risk of frost has passed. Tie them into a sturdy support, such as a bamboo cane, and water regularly. When your cucumbers start to flower, feed weekly with a high potash fertiliser, such as a liquid tomato food. Harvest cucumbers as and when they are ready.
+1. It contains healthful plant compounds :  The cosmetic, pharmaceutical, and food industries use aloe vera extensively, and the plant has an estimated annual market value of $13 billionTrusted Source globally.
+
+Aloe vera is known for its thick, pointed, and fleshy green leaves, which may grow to about 12–19 inches (30–50 centimeters) in length.
+
+Each leaf contains a slimy tissue that stores water, and this makes the leaves thick. This water filled tissue is the “gel” that people associate with aloe vera products.
+
+The gel contains most of the beneficial bioactive compounds in the plant, including vitamins, minerals, amino acids, and antioxidants
+<br></br>
+<br></br>
+2. It has antioxidant and antibacterial properties :  Antioxidants are important for health. Aloe vera gel containsTrusted Source powerful antioxidants belonging to a large family of substances known as polyphenols.
+
+These polyphenols, along with several other compounds in aloe vera, help inhibit the growth of certain bacteria that can cause infections in humans.
+
+Aloe vera is known forTrusted Source its antibacterial, antiviral, and antiseptic properties. This is part of why it may help heal wounds and treat skin problems.
+
+<br></br>
+<br></br>
+3. It accelerates wound healing : People most often use aloe vera as a topical medication, rubbing it onto the skin rather than consuming it. In fact, it has a long history of use in treating sores, and particularly burns, including sunburn.
+<br></br>
+<br></br>
+4. It reduces dental plaque : Tooth decay and diseases of the gum are very common health problems. One of the best ways to prevent these conditions is to reduce the buildup of plaque, or bacterial biofilms, on the teeth.
+<br></br>
+<br></br>
+5. It helps treat canker sores :  Many people experience mouth ulcers, or canker sores, at some point in their lives. These usually form underneath the lip, inside the mouth, and last for about a weekTrusted Source.
+
+Studies have shown that aloe vera treatment can accelerate the healing of mouth ulcers.
+
+<br></br>
+<br></br>
+6. It reduces constipation :  Aloe vera may also help treat constipation.
+
+This time it is the latex, not the gel, that provides the benefits. The latex is a sticky yellow residue present just under the skin of the leaf.
+
+The key compound responsible for this effect is called aloin, or barbaloin, which has well-establishedTrusted Source laxative effects.
+
+<br></br>
+<br></br>
+7. It may improve skin and prevent wrinkles :  There is some preliminary evidence to suggest that topical aloe vera gel can slow aging of the skin.
+
+In a 2009 studyTrusted Source of 30 females over the age of 45, taking oral aloe vera gel increased collagen production and improved skin elasticity over a 90-day period.
+
+<br></br>
+<br></br>
+8. It lowers blood sugar levels : People sometimes use aloe vera as a remedy for diabetes. This is because it may enhance insulin sensitivity and help improve blood sugar management.
+
+<br></br>
+<br></br>
           </p>
         </div>
       </div>

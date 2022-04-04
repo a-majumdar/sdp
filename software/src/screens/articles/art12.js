@@ -1,13 +1,13 @@
 import React from "react";
 import Footer from "../../components/organisms/Footer";
-import cucumPic from "../../assets/cucumpic.JPG";
-import "../articles/art1.css";
+import cucumPic from "../../assets/war.jpg";
+import "../articles/art8.css";
 import {Helmet} from 'react-helmet';
 /**
  * Article 1
  * @returns
  */
-export default function art1() {
+export default function art12() {
   const Header = {
     textAlign: "left",
     marginTop: 200,
@@ -20,7 +20,7 @@ export default function art1() {
     <Helmet>
                 <style>{'body { background-color: #0F0F11; }'}</style>
             </Helmet>
-    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>How to grow the perfect cucumber</h2>
+    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>Making delicious cress</h2>
       <div className="all-items">
         
         <div className="left-items">
@@ -37,15 +37,15 @@ export default function art1() {
           
           
           <p style={{fontSize: 18, color: "white"}}>
-          Cucumbers are the perfect summer vegetable, adding a crisp fresh taste to salads and summer drinks. It’s easy to grow your own cucumbers from seed, and growing them yourself always seems to make them taste better. In addition to the traditional longer varieties, there are also varieties that produce smaller fruits that can be eaten fresh or pickled.
-There are two main types of cucumbers – greenhouse cucumbers and outdoor types.Greenhouse cucumbers need plenty of heat, so need to be grown in a greenhouse or polytunnel. They are large plants that produce long, smooth fruits, similar to those in the supermarket. They don’t need pollinating and the male flowers need to be removed to prevent this happening,
- otherwise the fruits will end up bitter and full of seeds. Some greenhouse varieties have been bred to only produce female flowers.
-Outdoor or ‘ridge’ cucumbers can tolerate lower temperatures and can be grown in a sunny spot outside. The fruits are shorter and fatter, with a rough, ridged skin. The flowers are pollinated by insects, so both the male and female flowers are needed. Some varieties trail and can be trained up a support or left to sprawl; bush varieties are more upright and
- compact and ideal for smaller spaces. Some cucumber varieties will grow in a greenhouse or outside. It’s important, however, not to grow a ‘ridge’ type in the greenhouse alongside greenhouse varieties, as this will result in cross pollination and bitter, seed-filled fruits.
-<br></br>
-<br></br>
- Whether you’re growing indoor or outdoor cucumbers, sow the seeds in late winter or early spring, or buy young plants at the garden centre in late spring. Sow the seeds into pots of peat-free, multi-purpose compost. They need a temperature of at least 20ºC to germinate. Pot seedlings on after they have developed their first pair of ‘true’ leaves. If growing
-  outdoor cucumbers, harden off your plants by gently acclimatising them to outdoor conditions, after all risk of frost has passed. Tie them into a sturdy support, such as a bamboo cane, and water regularly. When your cucumbers start to flower, feed weekly with a high potash fertiliser, such as a liquid tomato food. Harvest cucumbers as and when they are ready.
+          So nutrient-rich that you can eat it to fend off scurvy, watercress is a magic green that adds color, spice, and tang to all kinds of dishes. And though you can find it in most grocery stores year-round, the real time for watercress is now: young, local, springtime watercress—usually found at a farmer's market—is the best watercress gets.
+          <br></br>
+          <br></br>
+          So how should you eat it? I'll get to that in a minute. First, two pointers:
+          <br></br>
+          Once it's harvested, watercress doesn't last very long, so eat it as soon as you can. If it looks a little wilted when you buy it, shock it in a bowl of ice water. And if you must keep it for a few days, store the watercress in the fridge much the same way you'd store fresh herbs—wrapped in a damp paper towel inside a plastic bag, or placed in a glass of water like a bouquet of flowers and tented with a plastic bag.
+          <br></br>
+          <br></br>
+          In the grocery store, you'll often find two different kinds of cress: Thick-stemmed bunches wrapped with a rubber band, and thin-stemmed bunches still attached to their roots, often sold in a plastic bag to lock in humidity and preserve freshness. The latter is upland cress, which is a completely different plant but interchangeable with watercress—and especially good in salads where you might not want the thicker more woodsy stems of traditional watercress.
           </p>
         </div>
       </div>

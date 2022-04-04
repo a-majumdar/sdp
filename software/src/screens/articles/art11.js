@@ -1,13 +1,13 @@
 import React from "react";
 import Footer from "../../components/organisms/Footer";
-import cucumPic from "../../assets/cucumpic.JPG";
-import "../articles/art1.css";
+import cucumPic from "../../assets/chil.jpg";
+import "../articles/art8.css";
 import {Helmet} from 'react-helmet';
 /**
  * Article 1
  * @returns
  */
-export default function art1() {
+export default function art11() {
   const Header = {
     textAlign: "left",
     marginTop: 200,
@@ -20,7 +20,7 @@ export default function art1() {
     <Helmet>
                 <style>{'body { background-color: #0F0F11; }'}</style>
             </Helmet>
-    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>How to grow the perfect cucumber</h2>
+    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>Spice your life up with chillis</h2>
       <div className="all-items">
         
         <div className="left-items">
@@ -37,15 +37,17 @@ export default function art1() {
           
           
           <p style={{fontSize: 18, color: "white"}}>
-          Cucumbers are the perfect summer vegetable, adding a crisp fresh taste to salads and summer drinks. It’s easy to grow your own cucumbers from seed, and growing them yourself always seems to make them taste better. In addition to the traditional longer varieties, there are also varieties that produce smaller fruits that can be eaten fresh or pickled.
-There are two main types of cucumbers – greenhouse cucumbers and outdoor types.Greenhouse cucumbers need plenty of heat, so need to be grown in a greenhouse or polytunnel. They are large plants that produce long, smooth fruits, similar to those in the supermarket. They don’t need pollinating and the male flowers need to be removed to prevent this happening,
- otherwise the fruits will end up bitter and full of seeds. Some greenhouse varieties have been bred to only produce female flowers.
-Outdoor or ‘ridge’ cucumbers can tolerate lower temperatures and can be grown in a sunny spot outside. The fruits are shorter and fatter, with a rough, ridged skin. The flowers are pollinated by insects, so both the male and female flowers are needed. Some varieties trail and can be trained up a support or left to sprawl; bush varieties are more upright and
- compact and ideal for smaller spaces. Some cucumber varieties will grow in a greenhouse or outside. It’s important, however, not to grow a ‘ridge’ type in the greenhouse alongside greenhouse varieties, as this will result in cross pollination and bitter, seed-filled fruits.
-<br></br>
-<br></br>
- Whether you’re growing indoor or outdoor cucumbers, sow the seeds in late winter or early spring, or buy young plants at the garden centre in late spring. Sow the seeds into pots of peat-free, multi-purpose compost. They need a temperature of at least 20ºC to germinate. Pot seedlings on after they have developed their first pair of ‘true’ leaves. If growing
-  outdoor cucumbers, harden off your plants by gently acclimatising them to outdoor conditions, after all risk of frost has passed. Tie them into a sturdy support, such as a bamboo cane, and water regularly. When your cucumbers start to flower, feed weekly with a high potash fertiliser, such as a liquid tomato food. Harvest cucumbers as and when they are ready.
+          There are thousands of chilli varieties to grow, in a huge range of colours, shapes, sizes and levels of heat, from mild to extremely hot. Many have unique flavours, with some offering a hint of lemon and others having a more fruity taste.
+          <br></br>
+          A chilli’s heat is measured on the Scoville scale, a test created in 1912, in which the more water needed to dilute a chilli solution before a human taster can no longer detect the chilli determines the number of Scovilles. Today, testing is done by machines. A score of around 3,000 Scovilles is deemed hot, with record-breaking chillies such as ‘Carolina Reaper’ topping two million mark.
+          <br></br>
+          Many chilli varieties are available to buy in supermarkets but you will have a much greater range to choose from if you grow chillies yourself. They’re very easy to grow from seed, and grow best in containers, which means they are perfect for a sunny patio or balcony. You can also buy ready-grown chilli plants at the garden centre in spring.
+          <br></br>
+          Sow chilli seed indoors as early as January if you have a heated propagator, or from March if you don’t. Transplant seedlings into individual 7.5cm pots when the first true leaves appear. Eventually, transplant them into 30cm pots of peat-free, multi-purpose compost. Wait until all risk of frost has passed before moving them to their final growing positions outside, in a sunny spot. For the hottest chillies, grow in a greenhouse. Chillies are tender plants, so will not survive the winter. It’s best to sow seeds for fresh plants each year.
+            <br></br>
+          Chillies need a warm, sunny spot for the best results and the hottest chillies. Ideally, grow them in a greenhouse or raise them in pots on a south-facing patio or windowsill. Chillies need a long season to grow, so it’s best to sow seed as early as January in moist, peat-free multi-purpose compost, and keep in a heated (PlantEd) propagator under a growing light, to prevent seedlings going leggy (sow seed in March if you don’t have a heated propagator). Pot on into individual pots when the first true leaves appear. Keep potting on if growing in pots or plant out into the greenhouse when night temperatures exceed 10ºC – ensure the soil or compost is free-draining. Feed weekly with a high potash fertiliser once plants have started flowering, and harvest chillies as and when they appear.
+
+
           </p>
         </div>
       </div>

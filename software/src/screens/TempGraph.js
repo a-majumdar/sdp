@@ -80,7 +80,7 @@ function Tempgraph() {
     const db = ref(getDatabase());
     get(child(db, `Sunlight_Readings/${propId}`)).then((snapshot) => {
       snapshot.forEach((childSnapshot) => {
-        const sun1 = childSnapshot.val().Visible;
+        const sun1 = childSnapshot.val().UV;
         // const hum = childSnapshot.val().Humidity;
         //console.log("hum = " + hum); //to access data
         const time = childSnapshot.val().Sample_Time;
@@ -122,6 +122,20 @@ function Tempgraph() {
     setTempData(getTempData);
   }, []);
   //https://www.npmjs.com/package/react-linechart
+
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active) {
+      return (
+        <div className="custom-tooltip">
+          <p className="label">{`${label} : ${payload[0].value}`}</p>
+          
+          <p className="desc">Anything you want can be displayed here.</p>
+        </div>
+      );
+    }
+  
+    return null;
+  };
   
   return (
     <>
@@ -136,21 +150,25 @@ function Tempgraph() {
           <Tab onClick={() => setMoistData(getMoistData)}>Moisture</Tab>
         </TabList>
         <TabPanel>
-          <LineChart width={500} height={300} data={tempData}>
           
+          <LineChart width={500} height={300} data={tempData} >
+          <CartesianGrid strokeDasharray="3 3" />
             <XAxis  tickLine={false} tick={false} label="Last 30 readings"/> {/* dataKey="time" label="Last 30 readings" tickLine="false"  */}
             <YAxis>
               <Label angle={-90} value='Temperature C (Celsius)' position='insideLeft' style={{textAnchor: 'middle'}} />
             </YAxis>
-            <Tooltip />
-            <CartesianGrid stroke="#8884d8"/>
+            <Tooltip active={true} content={<CustomTooltip />} />
+            
             <Line type="monotone" dataKey="temp" stroke="#8884d8" />
           </LineChart>
+          
         </TabPanel>
         <TabPanel>
           <LineChart width={500} height={300} data={humData} hideXLabel={true} hideXAxis={true}>
-            <XAxis dataKey="time" />
-            <YAxis />
+            <XAxis  tickLine={false} tick={false} label="Last 30 readings" />
+            <YAxis>
+              <Label angle={-90} value='Humidity (%)' position='insideLeft' style={{textAnchor: 'middle'}} />
+            </YAxis>
             <Tooltip />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
             <Line type="monotone" dataKey="humidity" stroke="#8884d8" />
@@ -160,8 +178,10 @@ function Tempgraph() {
         
           <LineChart width={500} height={300} data={sunData}>
             
-            <XAxis dataKey="time" />
-            <YAxis />
+            <XAxis  tickLine={false} tick={false} label="Last 30 readings" />
+            <YAxis>
+              <Label angle={-90} value='Sunlight (UV)' position='insideLeft' style={{textAnchor: 'middle'}} />
+            </YAxis>
             <Tooltip />
             {/* <Legend /> */}
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
@@ -173,11 +193,13 @@ function Tempgraph() {
         </TabPanel>
         <TabPanel>
           <LineChart width={500} height={300} data={moistData}>
-            <XAxis dataKey="time" />
-            <YAxis />
+            <XAxis  tickLine={false} tick={false} label="Last 30 readings" />
+            <YAxis>
+              <Label angle={-90} value='Moisture (g/m^3)' position='insideLeft' style={{textAnchor: 'middle'}} />
+            </YAxis>
             <Tooltip  contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }} itemStyle={{ color: "#fff" }} cursor={false} />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-            <Line type="monotone" dataKey="moist" stroke="#8884d8" strokeWidth="5" dot={{fill:"#2e4355",stroke:"#8884d8",strokeWidth: 2,r:5}} activeDot={{fill:"#2e4355",stroke:"#8884d8",strokeWidth: 5,r:10}} />
+            <Line type="monotone" dataKey="moist" stroke="#8884d8" activeDot={{r :8}} />
           </LineChart>
         </TabPanel>
       </Tabs>

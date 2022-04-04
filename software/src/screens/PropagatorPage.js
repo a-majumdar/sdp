@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import "./PropagatorPage.css";
+
 import abuta from "../assets/Abuta.jpg";
 import { Slider } from "@material-ui/core";
 import { Switch } from "antd";
@@ -10,9 +10,10 @@ import { AuthContext } from "../contexts/AuthContext";
 import neo4j from "neo4j-driver";
 import "react-tabs/style/react-tabs.css";
 import { PropagatorContext } from "../contexts/PropagatorContext";
-import Tempgraph from "../screens/TempGraph";
+import Tempgraph from "../screens/eGraph";
 import { PlantDataContext } from "../contexts/PlantDataContext";
 import axios from "axios";
+import PlantBackground from "../assets/wht.jpg"
 //18.28 03/04-21
 const muiTheme = createMuiTheme({
   overrides: {
@@ -360,7 +361,7 @@ export default function MyProp() {
             </div>{" "}
             <div className="waterCont">
               <div className="watertext">
-                <h2>Set Optimal Conditions</h2>
+                <h2>Auto-mode</h2>
               </div>
               <div class="togglewater">
                 <Switch onClick={dtoggler} />

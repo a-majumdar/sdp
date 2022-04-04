@@ -1,13 +1,13 @@
 import React from "react";
 import Footer from "../../components/organisms/Footer";
-import cucumPic from "../../assets/cucumpic.JPG";
-import "../articles/art1.css";
+import cucumPic from "../../assets/car.jpg";
+import "../articles/art8.css";
 import {Helmet} from 'react-helmet';
 /**
  * Article 1
  * @returns
  */
-export default function art1() {
+export default function art9() {
   const Header = {
     textAlign: "left",
     marginTop: 200,
@@ -20,7 +20,7 @@ export default function art1() {
     <Helmet>
                 <style>{'body { background-color: #0F0F11; }'}</style>
             </Helmet>
-    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>How to grow the perfect cucumber</h2>
+    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>How to grow your own carrots?</h2>
       <div className="all-items">
         
         <div className="left-items">
@@ -37,15 +37,24 @@ export default function art1() {
           
           
           <p style={{fontSize: 18, color: "white"}}>
-          Cucumbers are the perfect summer vegetable, adding a crisp fresh taste to salads and summer drinks. It’s easy to grow your own cucumbers from seed, and growing them yourself always seems to make them taste better. In addition to the traditional longer varieties, there are also varieties that produce smaller fruits that can be eaten fresh or pickled.
-There are two main types of cucumbers – greenhouse cucumbers and outdoor types.Greenhouse cucumbers need plenty of heat, so need to be grown in a greenhouse or polytunnel. They are large plants that produce long, smooth fruits, similar to those in the supermarket. They don’t need pollinating and the male flowers need to be removed to prevent this happening,
- otherwise the fruits will end up bitter and full of seeds. Some greenhouse varieties have been bred to only produce female flowers.
-Outdoor or ‘ridge’ cucumbers can tolerate lower temperatures and can be grown in a sunny spot outside. The fruits are shorter and fatter, with a rough, ridged skin. The flowers are pollinated by insects, so both the male and female flowers are needed. Some varieties trail and can be trained up a support or left to sprawl; bush varieties are more upright and
- compact and ideal for smaller spaces. Some cucumber varieties will grow in a greenhouse or outside. It’s important, however, not to grow a ‘ridge’ type in the greenhouse alongside greenhouse varieties, as this will result in cross pollination and bitter, seed-filled fruits.
+          If you want carrots with plenty of flavour, it’s worth growing your own. Apart from the classic-shaped orange carrots, there’s a wide selection of different varieties, available in an array of unexpected colours.
+          <br></br>
+          <br></br>
+          Sow carrot seed sparingly in drills in prepared soil from March to June. Cover with a thin layer of soil and water with a watering can with a rose attached. Seeds should germinate within a couple of weeks. It’s best to avoid thinning carrots to avoid carrot root fly, but keep the area weed free and water only in very dry spells. You should be harvesting fresh carrots in 14-16 weeks.
+          <br></br>
+          <br></br>
+          There are two types of carrot to choose from – early varieties, which are sown in spring and ready to pick about 10 weeks later, and late varieties, which can be sown from the end of spring and are ready to lift in about 14-16 weeks.
+          <br></br>
+The main sowing season is late March to June, but earlier and later sowings are worth it if you can protect them with fleece or a cloche.
 <br></br>
+Good soil preparation is essential. Fork it thoroughly to break up lumps and remove as many stones as possible. Carrots thrive in light, well-drained but moisture-retentive soil, so it’s also worth adding some well-rotted organic matter.
 <br></br>
- Whether you’re growing indoor or outdoor cucumbers, sow the seeds in late winter or early spring, or buy young plants at the garden centre in late spring. Sow the seeds into pots of peat-free, multi-purpose compost. They need a temperature of at least 20ºC to germinate. Pot seedlings on after they have developed their first pair of ‘true’ leaves. If growing
-  outdoor cucumbers, harden off your plants by gently acclimatising them to outdoor conditions, after all risk of frost has passed. Tie them into a sturdy support, such as a bamboo cane, and water regularly. When your cucumbers start to flower, feed weekly with a high potash fertiliser, such as a liquid tomato food. Harvest cucumbers as and when they are ready.
+Sow carrots directly into the ground. Make a seed drill (shallow trench) about 1cm deep using the edge of a hoe or trowel. Sow the seeds thinly along the bottom of the drill about 5-8cm apart. Cover them with soil, and water well using a watering can with a rose attached.
+<br></br>
+To extend your cropping period, sow seeds successionally at two-week intervals. You can also sow a selection of carrot varieties that will crop at different times over the season.
+
+
+
           </p>
         </div>
       </div>

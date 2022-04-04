@@ -1,13 +1,13 @@
 import React from "react";
 import Footer from "../../components/organisms/Footer";
-import cucumPic from "../../assets/cucumpic.JPG";
-import "../articles/art1.css";
+import cucumPic from "../../assets/hth.png";
+import "../articles/art8.css";
 import {Helmet} from 'react-helmet';
 /**
  * Article 1
  * @returns
  */
-export default function art1() {
+export default function art13() {
   const Header = {
     textAlign: "left",
     marginTop: 200,
@@ -20,7 +20,7 @@ export default function art1() {
     <Helmet>
                 <style>{'body { background-color: #0F0F11; }'}</style>
             </Helmet>
-    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>How to grow the perfect cucumber</h2>
+    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>The benefits of keeping plants</h2>
       <div className="all-items">
         
         <div className="left-items">
@@ -37,15 +37,64 @@ export default function art1() {
           
           
           <p style={{fontSize: 18, color: "white"}}>
-          Cucumbers are the perfect summer vegetable, adding a crisp fresh taste to salads and summer drinks. It’s easy to grow your own cucumbers from seed, and growing them yourself always seems to make them taste better. In addition to the traditional longer varieties, there are also varieties that produce smaller fruits that can be eaten fresh or pickled.
-There are two main types of cucumbers – greenhouse cucumbers and outdoor types.Greenhouse cucumbers need plenty of heat, so need to be grown in a greenhouse or polytunnel. They are large plants that produce long, smooth fruits, similar to those in the supermarket. They don’t need pollinating and the male flowers need to be removed to prevent this happening,
- otherwise the fruits will end up bitter and full of seeds. Some greenhouse varieties have been bred to only produce female flowers.
-Outdoor or ‘ridge’ cucumbers can tolerate lower temperatures and can be grown in a sunny spot outside. The fruits are shorter and fatter, with a rough, ridged skin. The flowers are pollinated by insects, so both the male and female flowers are needed. Some varieties trail and can be trained up a support or left to sprawl; bush varieties are more upright and
- compact and ideal for smaller spaces. Some cucumber varieties will grow in a greenhouse or outside. It’s important, however, not to grow a ‘ridge’ type in the greenhouse alongside greenhouse varieties, as this will result in cross pollination and bitter, seed-filled fruits.
+          Indoor gardening is still enjoying a surge in popularity, fed by Instagram’s greenery-inspired interior designs, plant-based podcasts, and online plant subscription services like Lazy Flora and Grounded.
+
+While social media trends are notorious for rapid flourish-and-fade lifecycles, indoor gardening may endure longer than most because of the many ways houseplants improve health and well-being.
+
+Here’s what research tells us about the benefits of living and working with indoor plants.
 <br></br>
 <br></br>
- Whether you’re growing indoor or outdoor cucumbers, sow the seeds in late winter or early spring, or buy young plants at the garden centre in late spring. Sow the seeds into pots of peat-free, multi-purpose compost. They need a temperature of at least 20ºC to germinate. Pot seedlings on after they have developed their first pair of ‘true’ leaves. If growing
-  outdoor cucumbers, harden off your plants by gently acclimatising them to outdoor conditions, after all risk of frost has passed. Tie them into a sturdy support, such as a bamboo cane, and water regularly. When your cucumbers start to flower, feed weekly with a high potash fertiliser, such as a liquid tomato food. Harvest cucumbers as and when they are ready.
+1. Indoor plants may help reduce stress levels : 
+A studyTrusted Source published in the Journal of Physiological Anthropology found that plants in your home or office can make you feel more comfortable, soothed, and natural.
+
+In the study, participants were given two different tasks: repotting a houseplant or completing a short computer-based task. After each task, researchers measured the biological factors associated with stress, including heart rate and blood pressure.
+
+They found that the indoor gardening task lowered the stress response in participants. The computer task, on the other hand, caused a spike in heart rate and blood pressure, even though the study participants were young men well-accustomed to computerized work.
+
+Researchers concluded that working with plants could reduce both physiological and psychological stress.
+
+<br></br>
+<br></br>
+2. Real plants may sharpen your attention : 
+Sorry, plastic plants won’t help you pass your exams. In a small study involving 23 participants, researchers put students in a classroom with either a fake plant, a real one, a photograph of a plant, or no plant at all.
+
+Brain scans of the participants showed that the students who studied with real, live plants in the classroom were more attentive and better able to concentrate than students in the other groups.
+<br></br>
+<br></br>
+3. Working with plants can be therapeutic : 
+For people experiencing the symptoms of mental illness, indoor gardening can be helpful.
+
+ResearchersTrusted Source have used horticultural therapy to increase feelings of well-being among people with depression, anxiety, dementia, and other conditions.
+<br></br>
+<br></br>
+4. Plants may help you recover from illness faster : 
+Being able to look at plants and flowers may speed your recovery from an illness, injury, or surgery.
+
+A 2002 review of the research revealed that people recuperating from several kinds of surgery needed less pain medication and had shorter hospital stays than people who weren’t looking at greenery during their recovery periods.
+
+<br></br>
+<br></br>
+5. Plants may boost your productivity : 
+A bromeliad may turn out to be the best cubicle-mate you’ve ever had.
+
+Multiple studies have found that plants in the workspace increase both productivity and creativity. One frequently cited study from 1996 found that students in a campus computer lab worked 12 percent faster and were less stressed when plants were placed nearby.
+
+
+<br></br>
+<br></br>
+6. Plants may improve your whole outlook on work : 
+A view of the city park might improve anyone’s job satisfaction — but it might surprise you to learn that a potted plant could have a similar effect.
+
+ResearchersTrusted Source interviewed over 440 Amazon employees in India and the United States. They found that those whose office environment included natural elements like indoor plants felt greater job satisfaction and more commitment to the organization than those who didn’t work around natural elements.
+
+<br></br>
+<br></br>
+
+7. Plants may improve the quality of indoor air : 
+Scientific support for phytoremediation — that’s the word for plants scrubbing contaminants from the air — usually begins with a NASA study conducted in the 1980s.
+
+Researchers then were looking for ways to improve the air quality in a sealed spacecraft, and they concluded that the roots and soil of houseplants reduced airborne volatile organic compounds (VOCs) significantly.
+
           </p>
         </div>
       </div>
