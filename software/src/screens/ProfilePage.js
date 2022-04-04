@@ -92,7 +92,7 @@ export default function ProfilePage() {
           <h2 className="actlog">
             Plant History : Aubergine (12th March 2022){" "}
           </h2>
-          {propogatorHasPlant ? (
+          {!propogatorHasPlant ? (
             <Link to={"/MyProp"}>
               <button className="butt2">View</button>
             </Link>

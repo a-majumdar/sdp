@@ -1,13 +1,13 @@
 import React from "react";
 import Footer from "../../components/organisms/Footer";
 import cucumPic from "../../assets/cucumpic.JPG";
-import "../articles/art1.css";
+import "../articles/art5.css";
 import {Helmet} from 'react-helmet';
 /**
  * Article 1
  * @returns
  */
-export default function art1() {
+export default function art5() {
   const Header = {
     textAlign: "left",
     marginTop: 200,
@@ -20,7 +20,7 @@ export default function art1() {
     <Helmet>
                 <style>{'body { background-color: #0F0F11; }'}</style>
             </Helmet>
-    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>How to grow the perfect cucumber</h2>
+    <h2 style={{ marginTop: 140, marginLeft: 600, marginBottom: 40, color: "white" }}>The amazing benefits of aloe vera</h2>
       <div className="all-items">
         
         <div className="left-items">

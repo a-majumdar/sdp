@@ -19,6 +19,13 @@ import PrivateRoute from "./PrivateRoute";
 import { PropagatorProvider } from "./contexts/PropagatorContext";
 import { PlantDataProvider } from "./contexts/PlantDataContext";
 import cucumb from "./screens/articles/art1";
+import art2 from "./screens/articles/art2";
+import art3 from "./screens/articles/art3";
+import art4 from "./screens/articles/art4";
+import art5 from "./screens/articles/art5";
+import art6 from "./screens/articles/art6";
+import art7 from "./screens/articles/art7";
+import art8 from "./screens/articles/art8";
 /**
  * Main Root of Our Website
  * Wrapped around by an AuthProvider to keep track of current user to use anywhere in our application
@@ -41,6 +48,13 @@ function App() {
               <Route path="/searchPage" exact component={SearchPage} />
               <Route path="/tutorial" exact component={tutorial} />
               <Route path="/cucumb" exact component={cucumb} />
+              <Route path="/art2" exact component={art2} />
+              <Route path="/art3" exact component={art3} />
+              <Route path="/art4" exact component={art4} />
+              <Route path="/art5" exact component={art5} />
+              <Route path="/art6" exact component={art6} />
+              <Route path="/art7" exact component={art7} />
+              <Route path="/art8" exact component={art8} />
               <PrivateRoute path="/profile" exact component={ProfilePage} />
               <Route path="/MyProp" exact component={MyProp} />
             </PropagatorProvider>

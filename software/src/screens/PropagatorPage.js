@@ -361,7 +361,7 @@ export default function MyProp() {
             </div>{" "}
             <div className="waterCont">
               <div className="watertext">
-                <h2>Set Optimal Conditions</h2>
+                <h2>Auto-mode</h2>
               </div>
               <div class="togglewater">
                 <Switch onClick={dtoggler} />
