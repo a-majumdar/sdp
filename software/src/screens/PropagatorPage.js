@@ -136,66 +136,72 @@ export default function MyProp() {
     //possition
     setVal(data);
     if (data == 0) {
-      axios({
-        method: "post",
-        url: "/moveProp0",
-        data: val,
-      });
+      console.log("do nothing its 0")
     } else if (data == 10) {
+      console.log("Move prop 10")
       axios({
         method: "post",
         url: "/moveProp",
         data: val,
       });
     } else if (data == 20) {
+      console.log("Move prop 20")
       axios({
         method: "post",
         url: "/moveProp20",
         data: val,
       });
     } else if (data == 30) {
+      console.log("Move prop 30")
       axios({
         method: "post",
         url: "/moveProp30",
         data: val,
       });
     } else if (data == 40) {
+      console.log("Move prop 40")
       axios({
         method: "post",
         url: "/moveProp40",
         data: val,
       });
     } else if (data == 50) {
+      console.log("Move prop 50")
       axios({
         method: "post",
         url: "/moveProp50",
         data: val,
       });
     } else if (data == 60) {
+      console.log("Move prop 60")
       axios({
         method: "post",
         url: "/moveProp60",
         data: val,
       });
     } else if (data == 70) {
+      console.log("Move prop 70")
       axios({
         method: "post",
         url: "/moveProp70",
         data: val,
       });
     } else if (data == 80) {
+      console.log("Move prop 80")
       axios({
         method: "post",
         url: "/moveProp80",
         data: val,
       });
     } else if (data == 90) {
+      console.log("Move prop 90")
       axios({
         method: "post",
         url: "/moveProp90",
         data: val,
       });
     } else if (data == 100) {
+      console.log("Move prop 100")
       axios({
         method: "post",
         url: "/moveProp100",
@@ -250,13 +256,36 @@ export default function MyProp() {
   };
   const [dtoggle, setdToggle] = useState(false);
   const dtoggler = () => {
-    if (dtoggle) {
+    if (dtoggle == true) {
       setdToggle(false);
+      console.log("falsseeeeeeeeeeeeeeeeeee");
     } else {
       setdToggle(true);
-      checkOptimalForTemp();
+      console.log("trueeeeeeeeeee");
+      heat();
+      // checkOptimalForTemp();
     }
   };
+  function heat() {
+    axios({
+      method: "post",
+      url: "/heat",
+    });
+  }
+
+  function water() {
+    axios({
+      method: "post",
+      url: "/water",
+    });
+  }
+  function move() {
+    axios({
+      method: "post",
+      url: "/moveProp",
+    });
+  }
+
   function sunTrack() {
     axios({
       method: "post",
