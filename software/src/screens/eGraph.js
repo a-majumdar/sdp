@@ -190,7 +190,7 @@ function Tempgraph() {
 
         dataMoist.push({ time: time, Moisture: moist1 });
         // hdata.push({ time: time, humidity: hum });
-        //console.log("data is : " + data);
+        //console.log("data is : " + data)
       });
 
       setMoistData(dataMoist.reverse().slice(0,50));
