@@ -146,9 +146,9 @@ function Tempgraph() {
     const dataSun = [];
     // const hdata = [];
     const db = ref(getDatabase());
-    get(child(db, `Sunlight_Readings/${propId}`)).then((snapshot) => {
+    get(child(db, `Light_Reading/${propId}`)).then((snapshot) => {
       snapshot.forEach((childSnapshot) => {
-        const sun1 = childSnapshot.val().UV;
+        const sun1 = childSnapshot.val().intensity;
         // const hum = childSnapshot.val().Humidity;
         //console.log("hum = " + hum); //to access data
         const time = childSnapshot.val().Sample_Time;
