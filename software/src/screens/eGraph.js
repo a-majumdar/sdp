@@ -147,8 +147,8 @@ function Tempgraph() {
           //console.log("data is : " + data);
         });
         console.log(" data is : " + data[0].temp);
-        setHumData(hdata);
-        setTempData(data);
+        setHumData(hdata.reverse().slice(0,50));
+        setTempData(data.reverse().slice(0,50));
       }
     );
   };
@@ -171,7 +171,8 @@ function Tempgraph() {
         //console.log("data is : " + data);
       });
 
-      setSunData(dataSun);
+      setSunData(dataSun.reverse().slice(0,50));
+      //dataSun = dataSun.reverse().slice(0, 50);
     });
   };
   const getMoistData = () => {
@@ -192,7 +193,7 @@ function Tempgraph() {
         //console.log("data is : " + data);
       });
 
-      setMoistData(dataMoist);
+      setMoistData(dataMoist.reverse().slice(0,50));
     });
   };
   useEffect(() => {
