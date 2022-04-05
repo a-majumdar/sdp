@@ -26,22 +26,26 @@ function Home() {
           start in life.
         </p>
         <div className="hero-btns">
-          <Button
-            className="btns"
-            buttonStyle="btn--primary"
-            buttonSize="btn--large"
-            onClick={() => console.log("Learn More Button Clicked")}
-          >
-            LEARN MORE
-          </Button>
-          {!currentUser && (
+          <Link to="/Explore">
             <Button
               className="btns"
               buttonStyle="btn--primary"
               buttonSize="btn--large"
+              onClick={() => console.log("Learn More Button Clicked")}
             >
-              SIGN UP
+              LEARN MORE
             </Button>
+          </Link>
+          {!currentUser && (
+            <Link to="/sign-up">
+              <Button
+                className="btns"
+                buttonStyle="btn--primary"
+                buttonSize="btn--large"
+              >
+                SIGN UP
+              </Button>
+            </Link>
           )}
         </div>
       </div>

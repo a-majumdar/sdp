@@ -1,6 +1,27 @@
 const express = require("express");
 const app = express();
 
+app.post("/camera", (req, res) => {
+  const SSH = require("simple-ssh");
+  const cmd = "newPic";
+  const thecmd = 'echo "!' + cmd + '.py" > file.txt';
+
+  var ssh_options = new SSH({
+    host: "abomasnow",
+    user: "pi",
+    pass: "r00t",
+  });
+
+  ssh_options
+    .exec(thecmd, {
+      out: console.log.bind(console),
+    })
+    .start();
+
+  console.log("Executing command " + cmd);
+
+  res.redirect("/MyProp");
+});
 app.post("/heat", (req, res) => {
   const SSH = require("simple-ssh");
   const cmd = "heating";

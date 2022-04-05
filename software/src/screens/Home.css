@@ -33,6 +33,10 @@
     margin-top: -100px;
   }
 
+  .btns2 {
+    border-radius: 10px;
+  }
+
   .hero-container > p {
     font-size: 30px;
   }

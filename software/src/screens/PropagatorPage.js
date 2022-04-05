@@ -405,6 +405,12 @@ export default function MyProp() {
     });
   }
 
+  function camera() {
+    axios({
+      method: "post",
+      url: "/camera",
+    });
+  }
   return (
     <>
       {/*
@@ -509,6 +515,7 @@ export default function MyProp() {
           {/*menu*/}
         </div>
       </div>
+      <button onClick={camera}>Take picture</button>
       {/* <a
         className="App-link"
         href="https://reactjs.org"
