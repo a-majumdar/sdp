@@ -97,7 +97,6 @@ export default function MyProp() {
             setHigherTemp(record.get("lower_temp"));
             setMoistureAura(record.get("moisture_type"));
             setLightAura(record.get("light"));
-
           });
         })
       );
@@ -143,76 +142,66 @@ export default function MyProp() {
     //possition
     setVal(data);
     if (data == 0) {
-      console.log("do nothing its 0")
+      console.log("do nothing its 0");
     } else if (data == 10) {
-      console.log("Move prop 10")
+      console.log("Move prop 10");
       axios({
         method: "post",
-        url: "/moveProp",
-        data: val,
+        url: "/move10",
       });
     } else if (data == 20) {
-      console.log("Move prop 20")
+      console.log("Move prop 20");
       axios({
         method: "post",
-        url: "/moveProp20",
-        data: val,
+        url: "/move20",
       });
     } else if (data == 30) {
-      console.log("Move prop 30")
+      console.log("Move prop 30");
       axios({
         method: "post",
-        url: "/moveProp30",
-        data: val,
+        url: "/move30",
       });
     } else if (data == 40) {
-      console.log("Move prop 40")
+      console.log("Move prop 40");
       axios({
         method: "post",
-        url: "/moveProp40",
-        data: val,
+        url: "/move40",
       });
     } else if (data == 50) {
-      console.log("Move prop 50")
+      console.log("Move prop 50");
       axios({
         method: "post",
-        url: "/moveProp50",
-        data: val,
+        url: "/move50",
       });
     } else if (data == 60) {
-      console.log("Move prop 60")
+      console.log("Move prop 60");
       axios({
         method: "post",
-        url: "/moveProp60",
-        data: val,
+        url: "/move60",
       });
     } else if (data == 70) {
-      console.log("Move prop 70")
+      console.log("Move prop 70");
       axios({
         method: "post",
-        url: "/moveProp70",
-        data: val,
+        url: "/move70",
       });
     } else if (data == 80) {
-      console.log("Move prop 80")
+      console.log("Move prop 80");
       axios({
         method: "post",
-        url: "/moveProp80",
-        data: val,
+        url: "/move80",
       });
     } else if (data == 90) {
-      console.log("Move prop 90")
+      console.log("Move prop 90");
       axios({
         method: "post",
-        url: "/moveProp90",
-        data: val,
+        url: "/move90",
       });
     } else if (data == 100) {
-      console.log("Move prop 100")
+      console.log("Move prop 100");
       axios({
         method: "post",
-        url: "/moveProp100",
-        data: val,
+        url: "/move100",
       });
     }
   };
@@ -226,44 +215,42 @@ export default function MyProp() {
     }
     if (temperature < ericTemp - 3) {
       console.log("hello");
-      closeVent();
-      //sleep
       heat();
     }
   };
-  const checkOptimalForMoist = () =>{
+  const checkOptimalForMoist = () => {
     getOptimalData(plantCommonName);
     var optMoist;
-    if (lightAura === "high"){
+    if (lightAura === "high") {
       optMoist = 3;
-    } else if (lightAura === "medium"){
+    } else if (lightAura === "medium") {
       optMoist = 2;
-    } else if (lightAura === null){
+    } else if (lightAura === null) {
       optMoist = 1;
     } else {
-      optMoist = 0
+      optMoist = 0;
     }
-    
-    if (moisture < optMoist) { // if current moisture is less than the optimal
+
+    if (moisture < optMoist) {
+      // if current moisture is less than the optimal
       console.log("Not enough moisutre in plant begin watering");
       water();
     } else {
       console.log("Plant does not need watering");
-      
     }
   };
-  
+
   const checkOptimalForHum = () => {
     getOptimalData(plantCommonName);
     var optHum;
-    if (humidityAura === "low"){
+    if (humidityAura === "low") {
       optHum = 33;
-    } else if (humidityAura === "medium"){
+    } else if (humidityAura === "medium") {
       optHum = 66;
     } else {
       optHum = 100;
     }
-    
+
     if (humidity > optHum) {
       console.log("Too much humidity opening the vent");
       openVent();
@@ -276,14 +263,14 @@ export default function MyProp() {
   const checkOptimalForSun = () => {
     getOptimalData(plantCommonName);
     var optSun;
-    if (lightAura === null){
+    if (lightAura === null) {
       optSun = 10;
-    } else if (lightAura === "medium"){
+    } else if (lightAura === "medium") {
       optSun = 20;
     } else {
       optSun = 30;
     }
-    
+
     if (sunlight > optSun) {
       console.log("Too much sun turning propagator away");
       moveProp();
@@ -303,59 +290,84 @@ export default function MyProp() {
     if (toggle) {
       setToggle(false);
       closeVent();
-      console.log("close vent initiated")
+      console.log("close vent initiated");
     } else {
       setToggle(true);
       openVent();
-      console.log("open vent initiated")
+      console.log("open vent initiated");
+    }
+  };
+  const [htoggle, sethToggle] = useState(false); //vent
+  const htoggler = () => {
+    if (htoggle) {
+      sethToggle(false);
+      heat();
+      console.log("heating on");
+    } else {
+      sethToggle(true);
+      heatOff();
+      console.log("heating off");
     }
   };
   const [wtoggle, setwToggle] = useState(false);
   const wtoggler = () => {
     if (wtoggle) {
       setwToggle(false);
-      console.log("watering is off")
+      console.log("watering is off");
     } else {
       setwToggle(true);
-      console.log("watering initiated")
+      console.log("watering initiated");
       water();
     }
   };
+
   //not sure why this toggle isn't working
   const [stoggle, setsToggle] = useState(false);
   const stoggler = () => {
     if (stoggle == true) {
       setsToggle(false);
-      console.log("sun tracking is off")
+      console.log("sun tracking is off");
     } else {
       setsToggle(true);
-      console.log("sun tracking initiated")
+      console.log("sun tracking initiated");
       sunTrack();
     }
   };
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
   const [dtoggle, setdToggle] = useState(false);
-  const dtoggler = () => {
+  async function dtoggler() {
     if (dtoggle == true) {
       setdToggle(false);
       console.log("Auto mode is off");
-    } else {// when auto mode is on run these scripts
+    } else {
+      // when auto mode is on run these scripts
       setdToggle(true);
       console.log("Auto mode is On");
       checkOptimalForHum();
+      await sleep(5000);
       checkOptimalForTemp();
+      await sleep(5000);
       checkOptimalForMoist();
+      await sleep(5000);
       checkOptimalForSun();
     }
-  };
+  }
   function heat() {
     axios({
       method: "post",
       url: "/heat",
     });
   }
+  function heatOff() {
+    axios({
+      method: "post",
+      url: "/heatOff",
+    });
+  }
 
   function water() {
-    
     axios({
       method: "post",
       url: "/water",
@@ -474,6 +486,14 @@ export default function MyProp() {
               </div>
               <div class="togglewater">
                 <Switch onClick={stoggler} />
+              </div>
+            </div>{" "}
+            <div className="waterCont">
+              <div className="watertext">
+                <h2>Heating</h2>
+              </div>
+              <div class="togglewater">
+                <Switch onClick={htoggler} />
               </div>
             </div>{" "}
             <div className="waterCont">

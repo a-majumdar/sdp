@@ -3,15 +3,36 @@ const app = express();
 
 app.post("/heat", (req, res) => {
   const SSH = require("simple-ssh");
-  const cmd = "heat";
+  const cmd = "heating";
   const thecmd = 'echo "!' + cmd + '.py" > file.txt';
-  
+
   var ssh_options = new SSH({
     host: "abomasnow",
     user: "pi",
     pass: "r00t",
   });
-  
+
+  ssh_options
+    .exec(thecmd, {
+      out: console.log.bind(console),
+    })
+    .start();
+
+  console.log("Executing command " + cmd);
+
+  res.redirect("/MyProp");
+});
+app.post("/heatOff", (req, res) => {
+  const SSH = require("simple-ssh");
+  const cmd = "heatingOff";
+  const thecmd = 'echo "!' + cmd + '.py" > file.txt';
+
+  var ssh_options = new SSH({
+    host: "abomasnow",
+    user: "pi",
+    pass: "r00t",
+  });
+
   ssh_options
     .exec(thecmd, {
       out: console.log.bind(console),
@@ -27,13 +48,13 @@ app.post("/water", (req, res) => {
   const SSH = require("simple-ssh");
   const cmd = "led1";
   const thecmd = 'echo "!' + cmd + '.py" > file.txt';
-  
+
   var ssh_options = new SSH({
     host: "abomasnow",
     user: "pi",
     pass: "r00t",
   });
-  
+
   ssh_options
     .exec(thecmd, {
       out: console.log.bind(console),
@@ -44,7 +65,6 @@ app.post("/water", (req, res) => {
 
   res.redirect("/MyProp");
 });
-
 
 app.post("/openVent", (req, res) => {
   const SSH = require("simple-ssh");
@@ -112,9 +132,9 @@ app.post("/closeVent", (req, res) => {
   res.redirect("/MyProp");
 });
 
-app.post("/moveProp", (req, res) => {
+app.post("/move10", (req, res) => {
   const SSH = require("simple-ssh");
-  const cmd = "eScript";
+  const cmd = "move10";
   const thecmd = 'echo "!' + cmd + '.py" > file.txt';
   //  console.log("inside the system " );
   var ssh_options = new SSH({
@@ -133,9 +153,9 @@ app.post("/moveProp", (req, res) => {
 
   res.redirect("/MyProp");
 });
-app.post("/moveProp20", (req, res) => {
+app.post("/move20", (req, res) => {
   const SSH = require("simple-ssh");
-  const cmd = "eScript";
+  const cmd = "move20";
   const thecmd = 'echo "!' + cmd + '.py" > file.txt';
   //  console.log("inside the system " );
   var ssh_options = new SSH({
@@ -154,9 +174,9 @@ app.post("/moveProp20", (req, res) => {
 
   res.redirect("/MyProp");
 });
-app.post("/moveProp30", (req, res) => {
+app.post("/move30", (req, res) => {
   const SSH = require("simple-ssh");
-  const cmd = "eScript";
+  const cmd = "move30";
   const thecmd = 'echo "!' + cmd + '.py" > file.txt';
   //  console.log("inside the system " );
   var ssh_options = new SSH({
@@ -175,9 +195,9 @@ app.post("/moveProp30", (req, res) => {
 
   res.redirect("/MyProp");
 });
-app.post("/moveProp40", (req, res) => {
+app.post("/move40", (req, res) => {
   const SSH = require("simple-ssh");
-  const cmd = "eScript";
+  const cmd = "move40";
   const thecmd = 'echo "!' + cmd + '.py" > file.txt';
   //  console.log("inside the system " );
   var ssh_options = new SSH({
@@ -196,9 +216,9 @@ app.post("/moveProp40", (req, res) => {
 
   res.redirect("/MyProp");
 });
-app.post("/moveProp50", (req, res) => {
+app.post("/move50", (req, res) => {
   const SSH = require("simple-ssh");
-  const cmd = "eScript";
+  const cmd = "move50";
   const thecmd = 'echo "!' + cmd + '.py" > file.txt';
   //  console.log("inside the system " );
   var ssh_options = new SSH({
@@ -217,9 +237,9 @@ app.post("/moveProp50", (req, res) => {
 
   res.redirect("/MyProp");
 });
-app.post("/moveProp60", (req, res) => {
+app.post("/move60", (req, res) => {
   const SSH = require("simple-ssh");
-  const cmd = "eScript";
+  const cmd = "move60";
   const thecmd = 'echo "!' + cmd + '.py" > file.txt';
   //  console.log("inside the system " );
   var ssh_options = new SSH({
@@ -238,9 +258,9 @@ app.post("/moveProp60", (req, res) => {
 
   res.redirect("/MyProp");
 });
-app.post("/moveProp70", (req, res) => {
+app.post("/move70", (req, res) => {
   const SSH = require("simple-ssh");
-  const cmd = "eScript";
+  const cmd = "move70";
   const thecmd = 'echo "!' + cmd + '.py" > file.txt';
   //  console.log("inside the system " );
   var ssh_options = new SSH({
@@ -259,9 +279,9 @@ app.post("/moveProp70", (req, res) => {
 
   res.redirect("/MyProp");
 });
-app.post("/moveProp80", (req, res) => {
+app.post("/move80", (req, res) => {
   const SSH = require("simple-ssh");
-  const cmd = "eScript";
+  const cmd = "move80";
   const thecmd = 'echo "!' + cmd + '.py" > file.txt';
   //  console.log("inside the system " );
   var ssh_options = new SSH({
@@ -280,9 +300,9 @@ app.post("/moveProp80", (req, res) => {
 
   res.redirect("/MyProp");
 });
-app.post("/moveProp90", (req, res) => {
+app.post("/move90", (req, res) => {
   const SSH = require("simple-ssh");
-  const cmd = "eScript";
+  const cmd = "move90";
   const thecmd = 'echo "!' + cmd + '.py" > file.txt';
   //  console.log("inside the system " );
   var ssh_options = new SSH({
@@ -301,9 +321,9 @@ app.post("/moveProp90", (req, res) => {
 
   res.redirect("/MyProp");
 });
-app.post("/moveProp100", (req, res) => {
+app.post("/move100", (req, res) => {
   const SSH = require("simple-ssh");
-  const cmd = "eScript";
+  const cmd = "move100";
   const thecmd = 'echo "!' + cmd + '.py" > file.txt';
   //  console.log("inside the system " );
   var ssh_options = new SSH({
