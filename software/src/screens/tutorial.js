@@ -10,17 +10,18 @@ import ImageSlider from "./ImageSlider";
  * @returns
  */
 export default function tutorial() {
-  const Header = {
-    textAlign: "left",
-    marginTop: 10,
-    color: "black",
-    fontSize: "80px",
-  };
-
   return (
     <>
       <div>
-        <h1 style={{ marginTop: 200, marginBottom: 100, fontSize: "80px" }}>
+        <div className="background-image"></div>
+        <h1
+          style={{
+            marginTop: 140,
+            marginBottom: 100,
+            color: "white",
+            fontSize: "80px",
+          }}
+        >
           Tutorial
         </h1>
         <ImageSlider slides={SliderData} />
