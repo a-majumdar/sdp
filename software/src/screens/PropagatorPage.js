@@ -138,66 +138,72 @@ export default function MyProp() {
     //possition
     setVal(data);
     if (data == 0) {
-      axios({
-        method: "post",
-        url: "/moveProp0",
-        data: val,
-      });
+      console.log("do nothing its 0")
     } else if (data == 10) {
+      console.log("Move prop 10")
       axios({
         method: "post",
         url: "/moveProp",
         data: val,
       });
     } else if (data == 20) {
+      console.log("Move prop 20")
       axios({
         method: "post",
         url: "/moveProp20",
         data: val,
       });
     } else if (data == 30) {
+      console.log("Move prop 30")
       axios({
         method: "post",
         url: "/moveProp30",
         data: val,
       });
     } else if (data == 40) {
+      console.log("Move prop 40")
       axios({
         method: "post",
         url: "/moveProp40",
         data: val,
       });
     } else if (data == 50) {
+      console.log("Move prop 50")
       axios({
         method: "post",
         url: "/moveProp50",
         data: val,
       });
     } else if (data == 60) {
+      console.log("Move prop 60")
       axios({
         method: "post",
         url: "/moveProp60",
         data: val,
       });
     } else if (data == 70) {
+      console.log("Move prop 70")
       axios({
         method: "post",
         url: "/moveProp70",
         data: val,
       });
     } else if (data == 80) {
+      console.log("Move prop 80")
       axios({
         method: "post",
         url: "/moveProp80",
         data: val,
       });
     } else if (data == 90) {
+      console.log("Move prop 90")
       axios({
         method: "post",
         url: "/moveProp90",
         data: val,
       });
     } else if (data == 100) {
+      console.log("Move prop 100")
       axios({
         method: "post",
         url: "/moveProp100",
@@ -216,6 +222,29 @@ export default function MyProp() {
     if (temperature < ericTemp - 3) {
       console.log("hello");
       closeVent();
+      //sleep
+      heat();
+    }
+  };
+  
+  const checkOptimalForHum = () => {
+    getOptimalData(plantCommonName);
+    var optHum;
+    if (humidityAura === "low"){
+      optHum = 33;
+    } else if (humidityAura === "medium"){
+      optHum = 66;
+    } else {
+      optHum = 100;
+    }
+    
+    if (moisture > optHum) {
+      console.log("Too much moisture opening the vent");
+      openVent();
+    }
+    if (moisture < optHum) {
+      console.log("Too little moisture closing the vent");
+      closeVent();
     }
   };
 
@@ -228,40 +257,69 @@ export default function MyProp() {
     if (toggle) {
       setToggle(false);
       closeVent();
+      console.log("close vent initiated")
     } else {
       setToggle(true);
       openVent();
+      console.log("open vent initiated")
     }
   };
   const [wtoggle, setwToggle] = useState(false);
   const wtoggler = () => {
     if (wtoggle) {
       setwToggle(false);
+      console.log("watering is off")
     } else {
       setwToggle(true);
+      console.log("watering initiated")
+      water();
     }
   };
+  //not sure why this toggle isn't working
   const [stoggle, setsToggle] = useState(false);
   const stoggler = () => {
-    if (stoggle) {
-      setToggle(false);
+    if (stoggle == true) {
+      setsToggle(false);
+      console.log("sun tracking is off")
     } else {
       setsToggle(true);
+      console.log("sun tracking initiated")
       sunTrack();
     }
   };
   const [dtoggle, setdToggle] = useState(false);
   const dtoggler = () => {
-    if (dtoggle) {
+    if (dtoggle == true) {
       setdToggle(false);
-      // heat();
-      checkOptimalForTemp();
-    } else {
+      console.log("Auto mode is off");
+    } else {// when auto mode is on run these scripts
       setdToggle(true);
-      // heat();
+      console.log("Auto mode is On");
+      checkOptimalForHum();
       checkOptimalForTemp();
     }
   };
+  function heat() {
+    axios({
+      method: "post",
+      url: "/heat",
+    });
+  }
+
+  function water() {
+    
+    axios({
+      method: "post",
+      url: "/water",
+    });
+  }
+  function move() {
+    axios({
+      method: "post",
+      url: "/moveProp",
+    });
+  }
+
   function sunTrack() {
     axios({
       method: "post",
