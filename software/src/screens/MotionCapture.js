@@ -20,6 +20,7 @@ import {
   get,
 } from "firebase/database";
 import { useEffect } from "react";
+import { useState } from "react";
 
 /**
  * About Us Section of our website
@@ -35,56 +36,26 @@ export default function MotionCapture() {
     padding: "10px",
   };
 
+  const [image, SetImage] = useState();
+
   async function showimage() {
-    console.log("heeyyy");
+    console.log("1111111111");
     const storage = getStorage();
-    console.log("heeyyyr5");
     const listRef = refstore(storage, "img");
-    console.log(storage);
-    console.log(listRef);
-    console.log("heeyyyr4");
-    listAll(listRef)
-      .then((res) => {
-        var count = 0;
-        console.log("heeyyy2");
-        res.items.forEach((itemRef) => {
-          console.log("heeyyy3");
-          if (count == 0) {
-            console.log("222");
-            console.log(itemRef);
-            console.log("123");
-            itemRef
-              .getDownloadURL()
-              .then((url) => {
-                //  inserted into an <img> element
-                console.log("helloawlhdlja");
-                const img = document.getElementById("myimg");
-                img.setAttribute("src", url);
-              })
-              .catch((error) => {});
-          }
-          count++;
-        });
-
-        // All the items under listRef.
-        // itemRef
-        //   .getDownloadURL()
-        //   .then((url) => {
-        //     //  inserted into an <img> element
-
-        //     const img = document.getElementById("myimg");
-        //     img.setAttribute("src", url);
-        //   })
-        //   .catch((error) => {});
-      })
-      .catch((error) => {});
-    // getDownloadURL(refstore(storage, `img/`))
-    //   .then((url) => {
-    //     //  inserted into an <img> element
-    //     const img = document.getElementById("myimg");
-    //     img.setAttribute("src", url);
-    //   })
-    //   .catch((error) => {});
+    listAll(listRef).then((res) => {
+      res.items.forEach((itemRef) => {
+        {
+          console.log(itemRef);
+          console.log(itemRef.fullPath);
+          getDownloadURL(itemRef)
+            .then((url) => {
+              console.log("Image url is" + url);
+              SetImage(url);
+            })
+            .catch((error) => {});
+        }
+      });
+    });
   }
 
   useEffect(() => {
@@ -93,20 +64,14 @@ export default function MotionCapture() {
 
   return (
     <>
-      <div className="hero-container2">
+      <div className="hero-container20">
+        {/* <div className="background-image"></div> */}
         <img className="background-image2" src={PlantBackground}></img>
         <h1 style={{ color: "white", fontSize: 80 }}>
-          Lets see how your plant has been doing
+          Motion Capture, Looking good!
         </h1>
-        <img style={{ height: 200, width: 200 }} id="myimg"></img>
-        <p style={mystyle}>
-          PlantEd is a smart plant care system that intends to enhance the
-          learning curve of new plant enthusiasts by providing an interactive
-          experience for growing plants indoors, as well as assessing the
-          optimal conditions for growth.
-        </p>
+        <img style={{ borderRadius: 20 }} src={image}></img>
       </div>
-      {/* <Cards /> */}
       <Footer />
     </>
   );

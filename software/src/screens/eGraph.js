@@ -21,10 +21,22 @@ import {
   push,
 } from "firebase/database";
 import { PropagatorContext } from "../contexts/PropagatorContext";
- import { XAxis, YAxis, LineChart, BarChart, Bar, Line, Legend, ResponsiveContainer, Label , CartesianGrid, Tooltip} from "recharts";
-import { Button} from "react-bootstrap";
+import {
+  XAxis,
+  YAxis,
+  LineChart,
+  BarChart,
+  Bar,
+  Line,
+  Legend,
+  ResponsiveContainer,
+  Label,
+  CartesianGrid,
+  Tooltip,
+} from "recharts";
+import { Button } from "react-bootstrap";
 import { ButtonGroup } from "react-bootstrap";
-import { PureComponent } from 'react';
+import { PureComponent } from "react";
 import { PlantDataContext } from "../contexts/PlantDataContext";
 
 import neo4j from "neo4j-driver";
@@ -114,7 +126,6 @@ function Tempgraph() {
     setAverageTemp((parseInt(lowerTemp) + parseInt(higherTemp)) / 2);
   };
 
-
   const getTempData = () => {
     const data = [];
     const hdata = [];
@@ -124,7 +135,7 @@ function Tempgraph() {
         snapshot.forEach((childSnapshot) => {
           const temp1 = childSnapshot.val().Temperature;
           const hum = childSnapshot.val().Humidity;
-          
+
           //console.log("hum = " + hum); //to access data
           const time = childSnapshot.val().Sample_Time;
           //console.log("time = " + time);
@@ -146,9 +157,9 @@ function Tempgraph() {
     const dataSun = [];
     // const hdata = [];
     const db = ref(getDatabase());
-    get(child(db, `Sunlight_Readings/${propId}`)).then((snapshot) => {
+    get(child(db, `Light_Reading/${propId}`)).then((snapshot) => {
       snapshot.forEach((childSnapshot) => {
-        const sun1 = childSnapshot.val().UV;
+        const sun1 = childSnapshot.val().intensity;
         // const hum = childSnapshot.val().Humidity;
         //console.log("hum = " + hum); //to access data
         const time = childSnapshot.val().Sample_Time;
@@ -159,9 +170,8 @@ function Tempgraph() {
         // hdata.push({ time: time, humidity: hum });
         //console.log("data is : " + data);
       });
-      
+
       setSunData(dataSun);
-      
     });
   };
   const getMoistData = () => {
@@ -181,9 +191,8 @@ function Tempgraph() {
         // hdata.push({ time: time, humidity: hum });
         //console.log("data is : " + data);
       });
-      
+
       setMoistData(dataMoist);
-      
     });
   };
   useEffect(() => {
@@ -193,25 +202,46 @@ function Tempgraph() {
 
   const data = [
     {
-      name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
+      name: "Page A",
+      uv: 4000,
+      pv: 2400,
+      amt: 2400,
     },
     {
-      name: 'Page B', uv: 3000, pv: 1398, amt: 2210,
+      name: "Page B",
+      uv: 3000,
+      pv: 1398,
+      amt: 2210,
     },
     {
-      name: 'Page C', uv: 2000, pv: 9800, amt: 2290,
+      name: "Page C",
+      uv: 2000,
+      pv: 9800,
+      amt: 2290,
     },
     {
-      name: 'Page D', uv: 2780, pv: 3908, amt: 2000,
+      name: "Page D",
+      uv: 2780,
+      pv: 3908,
+      amt: 2000,
     },
     {
-      name: 'Page E', uv: 1890, pv: 4800, amt: 2181,
+      name: "Page E",
+      uv: 1890,
+      pv: 4800,
+      amt: 2181,
     },
     {
-      name: 'Page F', uv: 2390, pv: 3800, amt: 2500,
+      name: "Page F",
+      uv: 2390,
+      pv: 3800,
+      amt: 2500,
     },
     {
-      name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
+      name: "Page G",
+      uv: 3490,
+      pv: 4300,
+      amt: 2100,
     },
   ];
 
@@ -220,18 +250,15 @@ function Tempgraph() {
       return (
         <div className="custom-tooltip">
           <p className="label">Reading {`${label} : ${payload[0].value}`}</p>
-          
         </div>
       );
     }
-  
+
     return null;
   };
 
- 
   return (
     <>
-      
       <Tabs className="tab">
         {" "}
         {/*Hello World*/}
@@ -242,62 +269,133 @@ function Tempgraph() {
           <Tab onClick={() => setMoistData(getMoistData)}>Moisture</Tab>
         </TabList>
         <TabPanel>
-          
-        <LineChart width={500} height={300} data={tempData}>
-            
-            <XAxis  tickLine={false} tick={false} label="Readings (newest - oldest)" />
+          <LineChart width={500} height={300} data={tempData}>
+            <XAxis
+              tickLine={false}
+              tick={false}
+              label="Readings (newest - oldest)"
+            />
             <YAxis>
-              <Label angle={-90} value='Temperature C (Celsius)' position='insideLeft' style={{textAnchor: 'middle'}} />
+              <Label
+                angle={-90}
+                value="Temperature C (Celsius)"
+                position="insideLeft"
+                style={{ textAnchor: "middle" }}
+              />
             </YAxis>
-            <Tooltip contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }} itemStyle={{ color: "#fff" }} cursor={false}  label="{timeTaken}" labelFormatter={(name) => 'Reading: #' + name}/>
+            <Tooltip
+              contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }}
+              itemStyle={{ color: "#fff" }}
+              cursor={false}
+              label="{timeTaken}"
+              labelFormatter={(name) => "Reading: #" + name}
+            />
             {/* <Legend /> */}
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-            <Line type="monotone" dataKey="Temperature" stroke="#8884d8" activeDot={{r :8}}/>
+            <Line
+              type="monotone"
+              dataKey="Temperature"
+              stroke="#8884d8"
+              activeDot={{ r: 8 }}
+            />
             <Line type="monotone" dataKey="Optimal" stroke="red" />
             <Legend />
           </LineChart>
-          
         </TabPanel>
         <TabPanel>
-        <LineChart width={500} height={300} data={humData}>
-            
-        <XAxis  tickLine={false} tick={false} label="Readings (newest - oldest)" />
+          <LineChart width={500} height={300} data={humData}>
+            <XAxis
+              tickLine={false}
+              tick={false}
+              label="Readings (newest - oldest)"
+            />
             <YAxis>
-              <Label angle={-90} value='Humidity (%)' position='insideLeft' style={{textAnchor: 'middle'}} />
+              <Label
+                angle={-90}
+                value="Humidity (%)"
+                position="insideLeft"
+                style={{ textAnchor: "middle" }}
+              />
             </YAxis>
-            <Tooltip contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }} itemStyle={{ color: "#fff" }} cursor={false} label="{timeTaken}" labelFormatter={(name) => 'Reading: #' + name} />
+            <Tooltip
+              contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }}
+              itemStyle={{ color: "#fff" }}
+              cursor={false}
+              label="{timeTaken}"
+              labelFormatter={(name) => "Reading: #" + name}
+            />
             {/* <Legend /> */}
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-            <Line type="monotone" dataKey="Humidity" stroke="#8884d8" activeDot={{r :8}}/>
+            <Line
+              type="monotone"
+              dataKey="Humidity"
+              stroke="#8884d8"
+              activeDot={{ r: 8 }}
+            />
             <Line type="monotone" dataKey="Optimal" stroke="red" />
           </LineChart>
         </TabPanel>
         <TabPanel>
-        
           <LineChart width={500} height={300} data={sunData}>
-            
-          <XAxis  tickLine={false} tick={false} label="Readings (newest - oldest)" />
+            <XAxis
+              tickLine={false}
+              tick={false}
+              label="Readings (newest - oldest)"
+            />
             <YAxis>
-              <Label angle={-90} value='Sunlight (UV)' position='insideLeft' style={{textAnchor: 'middle'}} />
+              <Label
+                angle={-90}
+                value="Sunlight"
+                position="insideLeft"
+                style={{ textAnchor: "middle" }}
+              />
             </YAxis>
-            <Tooltip contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }} itemStyle={{ color: "#fff" }} cursor={false} label="{timeTaken}" labelFormatter={(name) => 'Reading: #' + name} />
+            <Tooltip
+              contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }}
+              itemStyle={{ color: "#fff" }}
+              cursor={false}
+              label="{timeTaken}"
+              labelFormatter={(name) => "Reading: #" + name}
+            />
             {/* <Legend /> */}
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-            <Line type="monotone" dataKey="Sunlight" stroke="#8884d8" activeDot={{r :8}}/>
-            
+            <Line
+              type="monotone"
+              dataKey="Sunlight"
+              stroke="#8884d8"
+              activeDot={{ r: 8 }}
+            />
           </LineChart>
-          
-          
         </TabPanel>
         <TabPanel>
           <LineChart width={500} height={300} data={moistData}>
-          <XAxis  tickLine={false} tick={false} label="Readings (newest - oldest)" />
+            <XAxis
+              tickLine={false}
+              tick={false}
+              label="Readings (newest - oldest)"
+            />
             <YAxis>
-              <Label angle={-90} value='Moisture (g/m^3)' position='insideLeft' style={{textAnchor: 'middle'}} />
+              <Label
+                angle={-90}
+                value="Moisture (g/m^3)"
+                position="insideLeft"
+                style={{ textAnchor: "middle" }}
+              />
             </YAxis>
-            <Tooltip  contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }} itemStyle={{ color: "#fff" }} cursor={false}  label="{timeTaken}" labelFormatter={(name) => 'Reading: #' + name} />
+            <Tooltip
+              contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }}
+              itemStyle={{ color: "#fff" }}
+              cursor={false}
+              label="{timeTaken}"
+              labelFormatter={(name) => "Reading: #" + name}
+            />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-            <Line type="monotone" dataKey="Moisture" stroke="#8884d8" activeDot={{r :8}} />
+            <Line
+              type="monotone"
+              dataKey="Moisture"
+              stroke="#8884d8"
+              activeDot={{ r: 8 }}
+            />
           </LineChart>
         </TabPanel>
       </Tabs>

@@ -7,9 +7,13 @@
   z-index: -1;
 }
 
-.hero-container2 {
+.hello2 {
+  background-color: #97c092;
+}
+
+.hero-container20 {
   /* background: url('/images/img-home.jpg') center center/cover no-repeat; */
-  height: 122.5vh;
+  height: 115.5vh;
   width: 100%;
   display: flex;
   flex-direction: column;
