@@ -220,6 +220,29 @@ export default function MyProp() {
     if (temperature < averageTemp - 3) {
       console.log("hello");
       closeVent();
+      //sleep
+      heat();
+    }
+  };
+  
+  const checkOptimalForHum = () => {
+    getOptimalData(plantCommonName);
+    var optHum;
+    if (humidityAura === "low"){
+      optHum = 33;
+    } else if (humidityAura === "medium"){
+      optHum = 66;
+    } else {
+      optHum = 100;
+    }
+    
+    if (moisture > optHum) {
+      console.log("Too much moisture opening the vent");
+      openVent();
+    }
+    if (moisture < optHum) {
+      console.log("Too little moisture closing the vent");
+      closeVent();
     }
   };
 
@@ -267,11 +290,11 @@ export default function MyProp() {
     if (dtoggle == true) {
       setdToggle(false);
       console.log("Auto mode is off");
-    } else {
+    } else {// when auto mode is on run these scripts
       setdToggle(true);
       console.log("Auto mode is On");
-      heat();
-      // checkOptimalForTemp();
+      checkOptimalForHum();
+      checkOptimalForTemp();
     }
   };
   function heat() {
