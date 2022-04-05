@@ -344,6 +344,7 @@ export default function MyProp() {
       checkOptimalForHum();
       checkOptimalForTemp();
       checkOptimalForMoist();
+      checkOptimalForSun();
     }
   };
   function heat() {
