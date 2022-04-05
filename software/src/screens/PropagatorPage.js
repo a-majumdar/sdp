@@ -13,7 +13,7 @@ import { PropagatorContext } from "../contexts/PropagatorContext";
 import Tempgraph from "../screens/eGraph";
 import { PlantDataContext } from "../contexts/PlantDataContext";
 import axios from "axios";
-import PlantBackground from "../assets/wht.jpg"
+import PlantBackground from "../assets/wht.jpg";
 //18.28 03/04-21
 const muiTheme = createMuiTheme({
   overrides: {
@@ -102,12 +102,14 @@ export default function MyProp() {
   }
 
   const { description } = useContext(PropagatorContext);
-
+  var ericTemp = 0;
   const getAverageTemp = () => {
     getOptimalData(plantCommonName);
     console.log("lower temp = " + lowerTemp);
     console.log("higher = " + higherTemp);
     setAverageTemp((parseInt(lowerTemp) + parseInt(higherTemp)) / 2);
+    ericTemp = (parseInt(lowerTemp) + parseInt(higherTemp)) / 2;
+    console.log("hello" + averageTemp);
   };
 
   const [mystyle, setStyle] = useState("but1");
@@ -206,12 +208,12 @@ export default function MyProp() {
 
   const checkOptimalForTemp = () => {
     getAverageTemp();
-    // console.log(lowerTemp);
-    console.log("average temp" + averageTemp);
-    if (temperature > averageTemp + 3) {
+
+    console.log("average temp" + ericTemp);
+    if (temperature > ericTemp + 3) {
       openVent();
     }
-    if (temperature < averageTemp - 3) {
+    if (temperature < ericTemp - 3) {
       console.log("hello");
       closeVent();
     }
@@ -252,8 +254,11 @@ export default function MyProp() {
   const dtoggler = () => {
     if (dtoggle) {
       setdToggle(false);
+      // heat();
+      checkOptimalForTemp();
     } else {
       setdToggle(true);
+      // heat();
       checkOptimalForTemp();
     }
   };
@@ -273,6 +278,12 @@ export default function MyProp() {
     axios({
       method: "post",
       url: "/closeVent",
+    });
+  }
+  function heat() {
+    axios({
+      method: "post",
+      url: "/heat",
     });
   }
 
