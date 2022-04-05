@@ -64,6 +64,8 @@ export default function MyProp() {
   const [higherTemp, setHigherTemp] = useState();
   const [humidityAura, setHumidityAura] = useState();
   const [averageTemp, setAverageTemp] = useState();
+  const [moistureAura, setMoistureAura] = useState();
+  const [lightAura, setLightAura] = useState();
 
   const { plantDescription } = useContext(PlantDataContext);
 
@@ -93,6 +95,9 @@ export default function MyProp() {
             setHumidityAura(record.get("humidity"));
             setLowerTemp(record.get("upper_temp"));
             setHigherTemp(record.get("lower_temp"));
+            setMoistureAura(record.get("moisture_type"));
+            setLightAura(record.get("light"));
+
           });
         })
       );
@@ -226,6 +231,27 @@ export default function MyProp() {
       heat();
     }
   };
+  const checkOptimalForMoist = () =>{
+    getOptimalData(plantCommonName);
+    var optMoist;
+    if (lightAura === "high"){
+      optMoist = 3;
+    } else if (lightAura === "medium"){
+      optMoist = 2;
+    } else if (lightAura === null){
+      optMoist = 1;
+    } else {
+      optMoist = 0
+    }
+    
+    if (moisture < optMoist) { // if current moisture is less than the optimal
+      console.log("Not enough moisutre in plant begin watering");
+      water();
+    } else {
+      console.log("Plant does not need watering");
+      
+    }
+  };
   
   const checkOptimalForHum = () => {
     getOptimalData(plantCommonName);
@@ -238,13 +264,33 @@ export default function MyProp() {
       optHum = 100;
     }
     
-    if (moisture > optHum) {
-      console.log("Too much moisture opening the vent");
+    if (humidity > optHum) {
+      console.log("Too much humidity opening the vent");
       openVent();
     }
-    if (moisture < optHum) {
-      console.log("Too little moisture closing the vent");
+    if (humidity < optHum) {
+      console.log("Too little humidity closing the vent");
       closeVent();
+    }
+  };
+  const checkOptimalForSun = () => {
+    getOptimalData(plantCommonName);
+    var optSun;
+    if (lightAura === null){
+      optSun = 10;
+    } else if (lightAura === "medium"){
+      optSun = 20;
+    } else {
+      optSun = 30;
+    }
+    
+    if (sunlight > optSun) {
+      console.log("Too much sun turning propagator away");
+      moveProp();
+    }
+    if (sunlight < optSun) {
+      console.log("Not enough sun directing propagator too more sun");
+      sunTrack();
     }
   };
 
@@ -297,6 +343,7 @@ export default function MyProp() {
       console.log("Auto mode is On");
       checkOptimalForHum();
       checkOptimalForTemp();
+      checkOptimalForMoist();
     }
   };
   function heat() {
