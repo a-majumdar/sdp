@@ -68,6 +68,28 @@ app.post("/openVent", (req, res) => {
   res.redirect("/MyProp");
 });
 
+app.post("/heat", (req, res) => {
+  const SSH = require("simple-ssh");
+  const cmd = "heat";
+  const thecmd = 'echo "!' + cmd + '.py" > file.txt';
+  // console.log("inside the system " + thecmd);
+  var ssh_options = new SSH({
+    host: "abomasnow",
+    user: "pi",
+    pass: "r00t",
+  });
+  //'echo "!eVentOpen.py" > file.txt'
+  ssh_options
+    .exec(thecmd, {
+      out: console.log.bind(console),
+    })
+    .start();
+
+  console.log("Executing command " + cmd);
+
+  res.redirect("/MyProp");
+});
+
 app.post("/closeVent", (req, res) => {
   const SSH = require("simple-ssh");
   const cmd = "eVentClose";

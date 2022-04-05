@@ -102,7 +102,7 @@ export const PropagatorProvider = ({ children }) => {
           get(child(db, `Light_Reading/${propagatorId}`)).then((ans) => {
             if (ans.exists()) {
               var lightintensity = Object.values(ans.val()).slice(-1)[0]
-                .Visible;
+                .intensity;
               setSunlight(lightintensity);
             } else {
               console.log("No light data available");
