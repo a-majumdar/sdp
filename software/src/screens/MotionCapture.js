@@ -88,9 +88,10 @@ export default function MotionCapture() {
         {/* <div className="background-image"></div> */}
         <img className="background-image2" src={PlantBackground}></img>
         <h1 style={{ color: "white", fontSize: 80 }}>Plant View</h1>
+        <button className ="snap"onClick={camera}>Take picture</button>
         <img style={{ borderRadius: 20 }} src={image}></img>
       </div>
-      <button onClick={camera}>Take picture</button>
+      
       <Footer />
     </>
   );
