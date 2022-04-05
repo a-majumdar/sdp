@@ -232,25 +232,33 @@ export default function MyProp() {
     if (toggle) {
       setToggle(false);
       closeVent();
+      console.log("close vent initiated")
     } else {
       setToggle(true);
       openVent();
+      console.log("open vent initiated")
     }
   };
   const [wtoggle, setwToggle] = useState(false);
   const wtoggler = () => {
     if (wtoggle) {
       setwToggle(false);
+      console.log("watering is off")
     } else {
       setwToggle(true);
+      console.log("watering initiated")
+      water();
     }
   };
+  //not sure why this toggle isn't working
   const [stoggle, setsToggle] = useState(false);
   const stoggler = () => {
-    if (stoggle) {
-      setToggle(false);
+    if (stoggle == true) {
+      setsToggle(false);
+      console.log("sun tracking is off")
     } else {
       setsToggle(true);
+      console.log("sun tracking initiated")
       sunTrack();
     }
   };
@@ -258,10 +266,10 @@ export default function MyProp() {
   const dtoggler = () => {
     if (dtoggle == true) {
       setdToggle(false);
-      console.log("falsseeeeeeeeeeeeeeeeeee");
+      console.log("Auto mode is off");
     } else {
       setdToggle(true);
-      console.log("trueeeeeeeeeee");
+      console.log("Auto mode is On");
       heat();
       // checkOptimalForTemp();
     }
@@ -274,6 +282,7 @@ export default function MyProp() {
   }
 
   function water() {
+    
     axios({
       method: "post",
       url: "/water",
