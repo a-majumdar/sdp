@@ -37,22 +37,37 @@ export default function MotionCapture() {
   };
 
   const [image, SetImage] = useState();
+  const [length, setLength] = useState();
+
+  // async function getLengthOfItems() {
+  //   const storage = getStorage();
+  //   const listRef = refstore(storage, "img");
+  //   var lengthOfItems = listAll(listRef).items.length;
+  //   setLength(lengthOfItems);
+  // }
 
   async function showimage() {
     console.log("1111111111");
     const storage = getStorage();
     const listRef = refstore(storage, "img");
+    var count = 1;
+    // await getLengthOfItems;
+    var itemLength = (await listAll(listRef)).items.length;
+    console.log(itemLength);
     listAll(listRef).then((res) => {
       res.items.forEach((itemRef) => {
         {
-          console.log(itemRef);
-          console.log(itemRef.fullPath);
-          getDownloadURL(itemRef)
-            .then((url) => {
-              console.log("Image url is" + url);
-              SetImage(url);
-            })
-            .catch((error) => {});
+          if (count == itemLength) {
+            console.log(itemRef);
+            console.log(itemRef.fullPath);
+            getDownloadURL(itemRef)
+              .then((url) => {
+                console.log("Image url is" + url);
+                SetImage(url);
+              })
+              .catch((error) => {});
+          }
+          count++;
         }
       });
     });
@@ -67,9 +82,7 @@ export default function MotionCapture() {
       <div className="hero-container20">
         {/* <div className="background-image"></div> */}
         <img className="background-image2" src={PlantBackground}></img>
-        <h1 style={{ color: "white", fontSize: 80 }}>
-          Motion Capture, Looking good!
-        </h1>
+        <h1 style={{ color: "white", fontSize: 80 }}>Motion Capture</h1>
         <img style={{ borderRadius: 20 }} src={image}></img>
       </div>
       <Footer />
