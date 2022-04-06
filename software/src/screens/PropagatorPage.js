@@ -515,7 +515,7 @@ export default function MyProp() {
           {/*menu*/}
         </div>
       </div>
-      <button onClick={camera}>Take picture</button>
+      
       {/* <a
         className="App-link"
         href="https://reactjs.org"
